@@ -30,7 +30,7 @@ This is the factory that produces research agent prompts. The output is a portab
 | Find reviews              | `processes/find-reviews.md`        | 6     | 95%      |
 | Find recent news          | `processes/find-news.md`           | 7     | 90%      |
 | Find PR/releases          | `processes/find-pr-releases.md`    | 5     | 90%      |
-| Find third-party profiles | `processes/find-profiles.md`       | 5     | 100%     |
+| Find third-party profiles | `processes/find-profiles.md`       | 6     | 100%     |
 | Find hiring activity      | `processes/find-hiring.md`         | 5     | 93%      |
 | Find growth signals       | `processes/find-growth-signals.md` | 6     | 90%      |
 | Find customer negativity  | `processes/find-negativity.md`     | 6     | 90%      |
@@ -89,14 +89,16 @@ Generate 15-20 search pattern candidates. Each pattern is a parameterized search
 
 **Generation rules:**
 
-1. Start with the obvious: `[name] [goal keyword]` (e.g., `[name] competitors`)
-2. Add synonym variants: `[name] alternatives`, `[name] rivals`
-3. Add platform-specific: `site:g2.com [name]`, `site:crunchbase.com [name]`
-4. Add natural language: `who competes with [name]`, `what is [name] known for`
-5. Add category-derived: `best [category] tools 2026`
-6. Add year-anchored: `[name] [keyword] 2026`
-7. Add domain-anchored: `[domain] [keyword]`
-8. Add negation variants: `[name] vs`, `[name] compared to`
+1. **Start with OR-combined queries** — the highest-leverage pattern. `[name] alternatives OR competitors OR "vs"` catches 3+ result types in one search. Always try combining synonyms with OR before testing them individually. Tested Q4.75/C4.75 across all tiers.
+2. Start with the obvious: `[name] [goal keyword]` (e.g., `[name] competitors`)
+3. Add synonym variants: `[name] alternatives`, `[name] rivals`
+4. Add platform-specific: `site:g2.com [name]`, `site:zoominfo.com [name]`, `site:rocketreach.co [name]` (note: `.co` not `.com`), `site:crunchbase.com [name]`
+5. Add natural language: `who competes with [name]`, `what is [name] known for`
+6. Add category-derived: `best [category] tools {{current_year}}`
+7. Add year-anchored: `[name] [keyword] {{current_year}}` — never hardcode the year
+8. Add domain-anchored: `[domain] [keyword]` or `site:[domain] [keyword]`
+9. Add negation variants: `[name] vs`, `[name] compared to`
+10. Add combined platform queries: `site:zoominfo.com OR site:rocketreach.co OR site:crunchbase.com [name]` — pulls from 3 ungated platforms in one search
 
 **Generate at least 15.** You'll kill half of them. That's the point.
 
@@ -152,13 +154,16 @@ accuracy = (PRIMARY + ENRICHMENT patterns scoring Q4+C4+) / (total patterns test
 
 If accuracy < 90%, identify the failure modes:
 
-| Failure Mode                    | Fix                                                             |
-| ------------------------------- | --------------------------------------------------------------- |
-| Ambiguous name pollution        | Add disambiguation variants (name + category, domain anchor)    |
-| Tier 3 companies return nothing | Add fallback patterns (domain search, LinkedIn, hiring signals) |
-| Results are stale               | Add year modifiers (2025, 2026)                                 |
-| Wrong type of results           | Add more specific intent words, try site: operators             |
-| Platform-specific gaps          | Add platform variants (B2B → G2, B2C → Trustpilot)              |
+| Failure Mode                    | Fix                                                           |
+| ------------------------------- | ------------------------------------------------------------- |
+| Ambiguous name pollution        | Add disambiguation variants (name + category, domain anchor)  |
+| Tier 3 companies return nothing | Add fallback patterns (domain search, wellfound, rocketreach) |
+| Results are stale               | Add `{{current_year}}` modifier to queries                    |
+| Wrong type of results           | Add more specific intent words, try site: operators           |
+| Platform-specific gaps          | Add platform variants (B2B → G2, B2C → Trustpilot)            |
+| Too many separate searches      | Combine synonyms with OR operators into single queries        |
+| Marketing content not real data | Add negation or more specific intent keywords                 |
+| site: operator returns nothing  | Try the query without site: — broader queries often win       |
 
 **Generate 5-10 fix patterns targeting the specific failure modes.** Test them the same way. Recalculate accuracy.
 
@@ -241,9 +246,14 @@ Before calling a process "done":
 - [ ] Stack accuracy >= 90%
 - [ ] Kill list includes patterns that LOOK promising but fail (saves future agents from wasting searches)
 - [ ] Output template is specific enough that two agents would produce similar reports
-- [ ] Each step has explicit "what to extract" instructions
+- [ ] Each step has explicit "what to extract" instructions with three-sentence summaries
 - [ ] Conditional steps have clear "when to run" guards
 - [ ] Fallback steps have clear "when to trigger" criteria
+- [ ] Year references use `{{current_year}}` variable, not hardcoded years
+- [ ] At least one OR-combined query tested (highest-leverage technique)
+- [ ] Ungated platform coverage checked (ZoomInfo, RocketReach, Crunchbase, LinkedIn, Wellfound)
+- [ ] Each step has a `**stop if:**` condition where applicable
+- [ ] "No data found" is explicitly handled as a valid output for T3 companies
 
 ---
 
@@ -270,6 +280,53 @@ Count third-party profiles in results:
 - 5+ profiles → Tier 1 (Known) → full pattern stack
 - 2-4 profiles → Tier 2 (Mid) → core stack, skip niche outlets
 - 0-1 profiles → Tier 3 (Obscure) → core + fallbacks, thin results are the signal
+
+---
+
+## Ungated Data Platforms
+
+These platforms expose valuable structured data in search snippets without requiring login. Consider them for any new process.
+
+| Platform    | site: Domain                | What You Get (Ungated)                                                                                                                                  | Coverage                                      | Gotchas                                                                                                  |
+| ----------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| ZoomInfo    | `site:zoominfo.com`         | Employee count, revenue estimate, industry, funding, key people. Also `pipeline.zoominfo.com` has editorial content (reviews, comparisons, tool lists). | T1-T3 (covers startups < 1 year old)          | None — works reliably                                                                                    |
+| RocketReach | `site:rocketreach.co`       | Employee profiles with titles, org charts, department breakdown, company overview                                                                       | T1-T3 (found Hoo.be's CEO with 5-9 employees) | Domain is `.co` NOT `.com`. `site:rocketreach.com` returns zero results.                                 |
+| Crunchbase  | `site:crunchbase.com`       | Funding rounds, investors, total raised, company description, signals/news                                                                              | T1-T2 (thin for T3)                           | Competitor data from Crunchbase is inaccurate (description matching). Only use for funding/profile data. |
+| LinkedIn    | `site:linkedin.com/company` | Employee count (most current), about section, specialties                                                                                               | T1-T3                                         | Name pollution for common names                                                                          |
+| Wellfound   | `site:wellfound.com`        | Employee count, funding stage, industry tags, team members                                                                                              | T2-T3 (the T3 lifeline)                       | Formerly AngelList. Best for startups without traditional ATS.                                           |
+
+**Combined platform query:** `site:zoominfo.com OR site:rocketreach.co OR site:crunchbase.com [name]` pulls from all three in one search. Tested with Lovable: returned $200M Series A, $1.8B valuation, $50M ARR, founder name, and org chart in a single query.
+
+---
+
+## Accumulated Learnings (from 190+ pattern tests)
+
+Hard-won lessons from building 8 processes. Apply these when building new ones.
+
+**What works:**
+
+- **OR operators are the highest-leverage technique.** Combine synonyms into one query before testing individually. `[name] complaints OR "negative reviews" OR problems OR issues` catches 4 angles in one search.
+- **`site:[domain]` with OR operators** detects multiple signals in one query. `site:[domain] blog OR pricing OR newsletter OR demo` catches 4+ signal types.
+- **Year modifiers are the second highest-leverage modifier.** `[name] review {{current_year}}` outperforms `[name] review` by a wide margin.
+- **"No data found" is a valid signal, not a failure.** For T3 companies, thin results ARE the signal. The process should explicitly say this in the output template.
+
+**What doesn't work:**
+
+- **`site:reddit.com` is completely broken.** Zero results universally. Use `[name] reddit discussion` instead.
+- **Churn-signal searches return marketing content.** `[name] "switched from" OR "left" OR "cancelled"` surfaces content about people switching TO the tool, not FROM it.
+- **Exact negative phrases return nothing.** `[name] "do not recommend"` and `[name] "waste of money"` have zero results. People don't use these phrases in searchable contexts.
+- **`[name] social media twitter youtube` is a trap.** Returns product feature content, not the company's actual social accounts. Use `site:twitter.com OR site:x.com` with company name instead.
+- **Generic "market landscape" and "competitive intelligence" searches** return industry research papers and CI vendor marketing, not company-specific data.
+- **`site:rocketreach.com`** (with `.com`) returns zero results. The correct domain is `rocketreach.co`.
+
+**Process file best practices (learned by iteration):**
+
+- Every recency-based process MUST include `{{current_year}}` as an input. In Clay, populate from `YEAR({Created At})`.
+- Every step should have explicit "what to extract" instructions with three-sentence summaries.
+- Include `**stop if:**` conditions so the workflow exits when it has enough data.
+- Kill lists save more searches than pattern lists. Knowing what NOT to search prevents wasting 30-40% of your search budget.
+- The output template should be specific enough that two different agents would produce similar reports.
+- "casual, structured" beats "formal, verbose" for output templates. Use markdown code blocks.
 
 ---
 

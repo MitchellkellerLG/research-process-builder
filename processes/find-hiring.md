@@ -43,6 +43,8 @@ extract from results:
 
 wellfound (formerly angellist) is especially useful for startups and small companies that don't use traditional ATS platforms.
 
+**bonus:** if you need org chart context (who's already on the team), search `site:rocketreach.co {{company_name}}` — shows current employees with titles and departments. useful for understanding team composition alongside open roles.
+
 **stop if:** combined with step 1, you have a clear picture of what departments are hiring and at what seniority level. skip to output.
 
 ### step 3: careers page direct check

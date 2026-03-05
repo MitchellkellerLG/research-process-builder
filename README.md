@@ -11,7 +11,7 @@ the output is a portable `.md` file with step-by-step search instructions that a
 ```
 ├── SKILL.md                          # the methodology — how to build research processes
 └── processes/
-    ├── find-profiles.md              # 5 steps · 100% accuracy
+    ├── find-profiles.md              # 6 steps · 100% accuracy
     ├── find-competitors.md           # 7 steps · 93% accuracy
     ├── find-reviews.md               # 6 steps · 95% accuracy
     ├── find-news.md                  # 7 steps · 90% accuracy
@@ -38,16 +38,16 @@ full methodology is in [SKILL.md](SKILL.md).
 
 built using the methodology above. 190+ patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
 
-| process                                                 | what it finds                                                                 | steps | accuracy |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
-| [find-profiles](processes/find-profiles.md)             | company fact sheet from zoominfo, crunchbase, linkedin, pitchbook, tracxn     | 5     | 100%     |
-| [find-competitors](processes/find-competitors.md)       | direct competitors with positioning and justification                         | 7     | 93%      |
-| [find-reviews](processes/find-reviews.md)               | individual reviews tagged positive/negative with three-sentence summaries     | 6     | 95%      |
-| [find-news](processes/find-news.md)                     | partnerships, acquisitions, funding, launches, expansions, leadership changes | 7     | 90%      |
-| [find-pr-releases](processes/find-pr-releases.md)       | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
-| [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                 | 5     | 93%      |
-| [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity   | 6     | 90%      |
-| [find-negativity](processes/find-negativity.md)         | customer complaints, negative reviews, controversy, churn signals             | 6     | 90%      |
+| process                                                 | what it finds                                                                          | steps | accuracy |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----- | -------- |
+| [find-profiles](processes/find-profiles.md)             | company fact sheet from zoominfo, crunchbase, linkedin, rocketreach, pitchbook, tracxn | 6     | 100%     |
+| [find-competitors](processes/find-competitors.md)       | direct competitors with positioning and justification                                  | 7     | 93%      |
+| [find-reviews](processes/find-reviews.md)               | individual reviews tagged positive/negative with three-sentence summaries              | 6     | 95%      |
+| [find-news](processes/find-news.md)                     | partnerships, acquisitions, funding, launches, expansions, leadership changes          | 7     | 90%      |
+| [find-pr-releases](processes/find-pr-releases.md)       | official announcements, press releases, blog posts, wire distributions                 | 5     | 90%      |
+| [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                          | 5     | 93%      |
+| [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity            | 6     | 90%      |
+| [find-negativity](processes/find-negativity.md)         | customer complaints, negative reviews, controversy, churn signals                      | 6     | 90%      |
 
 each process file includes:
 
@@ -101,6 +101,8 @@ things we learned testing 170+ search patterns:
 - **OR operators in a single query are powerful.** `[name] alternatives OR competitors OR "vs"` catches 3 result types in one search, tested Q4.75/C4.75.
 - **wellfound (formerly angellist) is the T3 lifeline for hiring data.** small startups without greenhouse/lever/ashby pages still have wellfound profiles with employee count, funding, and industry tags.
 - **`site:[domain]` with OR operators is the most efficient growth signal detector.** a single query like `site:[domain] blog OR pricing OR newsletter OR demo` catches 4+ signal types in one search.
+- **rocketreach is at `rocketreach.co`, NOT `.com`.** `site:rocketreach.com` returns zero results universally. `site:rocketreach.co` returns rich org chart data including employee titles, department breakdown, and key people even for T3 companies.
+- **combined platform OR queries are a cheat code.** `site:zoominfo.com OR site:rocketreach.co OR site:crunchbase.com [name]` pulls from 3 ungated platforms in one search. tested with Lovable: returned $200M funding, $1.8B valuation, ARR, founder, and org chart in a single query.
 - **churn-signal searches are a trap.** `[name] "switched from" OR "left" OR "cancelled"` returns marketing content about people switching TO the tool, not FROM it. tested Q2/C1.
 - **"do not recommend" and "waste of money" searches return nothing.** people don't use these exact phrases in searchable contexts. use `[name] complaints OR problems` instead.
 - **never hardcode the year in process files.** use `{{current_year}}` as an input variable so processes stay valid across years. in Clay, populate from `YEAR({Created At})`.

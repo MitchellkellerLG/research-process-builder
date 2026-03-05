@@ -22,7 +22,7 @@ extract from results:
 - funding stage and total raised (if visible)
 - headquarters location
 - founded year
-- list every third-party platform that has a profile (zoominfo, crunchbase, linkedin, pitchbook, tracxn, owler, cbinsights, g2, etc.)
+- list every third-party platform that has a profile (zoominfo, crunchbase, linkedin, rocketreach, pitchbook, tracxn, owler, cbinsights, g2, etc.)
 
 count the platforms found:
 
@@ -69,7 +69,23 @@ extract from results:
 - specialties listed
 - three sentence summary of anything new
 
-### step 5: company website fallback (only if steps 1-4 returned thin results)
+### step 5: rocketreach org chart and people data
+
+search: `site:rocketreach.co {{company_name}}`
+
+note: the domain is `rocketreach.co` (NOT `.com`). `site:rocketreach.com` returns zero results.
+
+extract from results:
+
+- employee count (often more granular than other sources)
+- key people and their titles (CEO, CTO, VP of Sales, etc.)
+- department breakdown if visible from titles
+- company description and industry tags
+- three sentence summary of anything new not in steps 1-4
+
+rocketreach covers even T3 companies. tested: found Hoo.be's CEO, CRO, and team despite having only 5-9 employees. particularly useful for org chart data that other platforms don't surface.
+
+### step 6: company website fallback (only if steps 1-5 returned thin results)
 
 search: `{{company_name}} official website about`
 
@@ -84,6 +100,7 @@ only use this for obscure companies where the major platforms have minimal data.
 ## do not search
 
 - `site:apollo.io {{company_name}}` — gated data, returns SEO blog posts
+- `site:rocketreach.com {{company_name}}` — wrong domain, returns zero results. use `site:rocketreach.co` instead
 - `{{company_name}} annual report` — useless for private companies
 - `site:stackshare.io {{company_name}}` — only dev tools, not company intel
 
