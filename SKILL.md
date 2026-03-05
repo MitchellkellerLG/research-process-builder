@@ -7,7 +7,7 @@ description: Build validated web research processes through self-annealing loops
 
 Build validated, step-by-step web research processes through iterative testing. Takes any research goal, generates search patterns, tests them against real companies, scores accuracy, and loops until the process hits 90%+ reliability.
 
-This is the factory that produces research agent prompts. The output is a portable .md file with 10-12 numbered steps that any agent (Claude Code, Clay, custom GPT, browser agent) can follow to reliably surface specific intelligence.
+This is the factory that produces research agent prompts. The output is a portable .md file with step-by-step instructions that any agent (Claude Code, Clay, custom GPT, browser agent) can follow to reliably surface specific intelligence.
 
 ## When To Use
 
@@ -26,11 +26,11 @@ This is the factory that produces research agent prompts. The output is a portab
 
 | Process                   | File                            | Steps | Accuracy |
 | ------------------------- | ------------------------------- | ----- | -------- |
-| Find competitors          | `processes/find-competitors.md` | 12    | 93%      |
-| Find reviews              | `processes/find-reviews.md`     | 12    | 95%      |
-| Find recent news          | `processes/find-news.md`        | 12    | 90%      |
-| Find PR/releases          | `processes/find-pr-releases.md` | 10    | 90%      |
-| Find third-party profiles | `processes/find-profiles.md`    | 10    | 100%     |
+| Find competitors          | `processes/find-competitors.md` | 8     | 93%      |
+| Find reviews              | `processes/find-reviews.md`     | 6     | 95%      |
+| Find recent news          | `processes/find-news.md`        | 7     | 90%      |
+| Find PR/releases          | `processes/find-pr-releases.md` | 5     | 90%      |
+| Find third-party profiles | `processes/find-profiles.md`    | 5     | 100%     |
 
 ---
 
@@ -223,7 +223,7 @@ Take the surviving patterns and arrange them into a numbered step sequence.
 4. Fallback patterns at the end
 5. Kill list at the bottom
 
-**Step count target:** 10-12 steps total (including conditionals and fallbacks). More than 12 means your primary stack is too weak. Fewer than 8 means you're probably missing edge cases.
+**Step count target:** 5-8 steps is the sweet spot. Each step should earn its place by improving accuracy. More than 10 means your primary stack is too weak. If you can hit 90%+ in 5 steps, stop there.
 
 ---
 
@@ -292,4 +292,4 @@ This traces the exact methodology used to build `processes/find-competitors.md`.
 
 **Phase 5 — Iteration 2:** Added `[name] [category] competitors` as primary for ambiguous names. Retested. 93%.
 
-**Phase 6 — Assembled into 12-step process.** See `processes/find-competitors.md`.
+**Phase 6 — Assembled into 8-step process.** See `processes/find-competitors.md`.
