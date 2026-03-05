@@ -15,7 +15,9 @@ the output is a portable `.md` file with step-by-step search instructions that a
     ├── find-competitors.md           # 7 steps · 93% accuracy
     ├── find-reviews.md               # 6 steps · 95% accuracy
     ├── find-news.md                  # 7 steps · 90% accuracy
-    └── find-pr-releases.md           # 5 steps · 90% accuracy
+    ├── find-pr-releases.md           # 5 steps · 90% accuracy
+    ├── find-hiring.md                # 6 steps · 90% accuracy
+    └── find-growth-signals.md        # 7 steps · 85% accuracy
 ```
 
 ## how it works
@@ -31,17 +33,19 @@ the methodology has 6 phases:
 
 full methodology is in [SKILL.md](SKILL.md).
 
-## the 5 example processes
+## the 7 example processes
 
-built using the methodology above. 138 patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
+built using the methodology above. 170+ patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
 
-| process                                           | what it finds                                                                 | steps | accuracy |
-| ------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
-| [find-profiles](processes/find-profiles.md)       | company fact sheet from zoominfo, crunchbase, linkedin, pitchbook, tracxn     | 5     | 100%     |
-| [find-competitors](processes/find-competitors.md) | direct competitors with positioning and justification                         | 7     | 93%      |
-| [find-reviews](processes/find-reviews.md)         | individual reviews tagged positive/negative with three-sentence summaries     | 6     | 95%      |
-| [find-news](processes/find-news.md)               | partnerships, acquisitions, funding, launches, expansions, leadership changes | 7     | 90%      |
-| [find-pr-releases](processes/find-pr-releases.md) | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
+| process                                                 | what it finds                                                                 | steps | accuracy |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
+| [find-profiles](processes/find-profiles.md)             | company fact sheet from zoominfo, crunchbase, linkedin, pitchbook, tracxn     | 5     | 100%     |
+| [find-competitors](processes/find-competitors.md)       | direct competitors with positioning and justification                         | 7     | 93%      |
+| [find-reviews](processes/find-reviews.md)               | individual reviews tagged positive/negative with three-sentence summaries     | 6     | 95%      |
+| [find-news](processes/find-news.md)                     | partnerships, acquisitions, funding, launches, expansions, leadership changes | 7     | 90%      |
+| [find-pr-releases](processes/find-pr-releases.md)       | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
+| [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                 | 6     | 90%      |
+| [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity   | 7     | 85%      |
 
 each process file includes:
 
@@ -83,17 +87,21 @@ use [SKILL.md](SKILL.md) to build processes for any research goal:
 
 ## key discoveries
 
-things we learned testing 138 search patterns:
+things we learned testing 170+ search patterns:
 
 - **`site:reddit.com` is completely broken** — zero results universally. use `[name] reddit discussion` without the site: operator.
 - **year modifiers are the highest-leverage search modifier.** `[name] review 2026` outperforms `[name] review` by a wide margin.
 - **zoominfo + linkedin are the only platforms that cover ALL company sizes**, including 6-month-old startups.
 - **generic company names (Clay, Keep, Cursor, Harvey) need mandatory disambiguation.** add category qualifier or use domain.
 - **kill lists save more time than pattern lists.** knowing which searches to NOT run prevents wasting 30-40% of your search budget.
+- **ATS board searches are gold for hiring data.** `site:boards.greenhouse.io [name]` and `site:jobs.ashbyhq.com [name]` return actual role listings with titles and descriptions.
+- **`[name] social media twitter youtube` is a trap.** returns product feature content, not the company's actual social accounts. use `site:twitter.com OR site:x.com` with company name instead.
+- **google ads presence is not detectable via web search.** facebook ad library isn't indexed, semrush/similarweb require auth. be honest about this limitation.
+- **OR operators in a single query are powerful.** `[name] alternatives OR competitors OR "vs"` catches 3 result types in one search, tested Q4.75/C4.75.
 
 ## validation
 
-- 138 patterns tested via live web search
+- 170+ patterns tested via live web search
 - 11 companies: SpaceX, Cohere, Harvey AI, Cursor, Clay, Lovable, Keep, Cluely, Hoo.be, LeadGrow, The Kiln
 - companies ranged from $400B+ to micro bootstrapped
 - each pattern tested against 3-4 companies minimum

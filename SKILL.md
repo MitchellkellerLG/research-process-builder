@@ -24,13 +24,15 @@ This is the factory that produces research agent prompts. The output is a portab
 
 ## Example Processes (built with this methodology)
 
-| Process                   | File                            | Steps | Accuracy |
-| ------------------------- | ------------------------------- | ----- | -------- |
-| Find competitors          | `processes/find-competitors.md` | 7     | 93%      |
-| Find reviews              | `processes/find-reviews.md`     | 6     | 95%      |
-| Find recent news          | `processes/find-news.md`        | 7     | 90%      |
-| Find PR/releases          | `processes/find-pr-releases.md` | 5     | 90%      |
-| Find third-party profiles | `processes/find-profiles.md`    | 5     | 100%     |
+| Process                   | File                               | Steps | Accuracy |
+| ------------------------- | ---------------------------------- | ----- | -------- |
+| Find competitors          | `processes/find-competitors.md`    | 7     | 93%      |
+| Find reviews              | `processes/find-reviews.md`        | 6     | 95%      |
+| Find recent news          | `processes/find-news.md`           | 7     | 90%      |
+| Find PR/releases          | `processes/find-pr-releases.md`    | 5     | 90%      |
+| Find third-party profiles | `processes/find-profiles.md`       | 5     | 100%     |
+| Find hiring activity      | `processes/find-hiring.md`         | 6     | 90%      |
+| Find growth signals       | `processes/find-growth-signals.md` | 7     | 85%      |
 
 ---
 
