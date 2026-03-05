@@ -27,9 +27,9 @@ extract from results:
 
 ### step 2: ATS board search
 
-search: `{{company_name}} site:boards.greenhouse.io OR site:jobs.lever.co OR site:jobs.ashbyhq.com`
+search: `{{company_name}} site:boards.greenhouse.io OR site:jobs.lever.co OR site:jobs.ashbyhq.com OR site:wellfound.com`
 
-this surfaces the actual applicant tracking system where roles are posted with full descriptions. tested Q5/C4 — the most reliable source for specific role titles and departments.
+this surfaces the actual applicant tracking system where roles are posted with full descriptions. tested Q5/C4 across SpaceX (greenhouse), Clay (ashby), Lovable (ashby), Cluely (ashby), Hoo.be (wellfound).
 
 extract from results:
 
@@ -37,38 +37,14 @@ extract from results:
 - ATS board URL
 - every role title visible in results
 - group roles by department (engineering, sales, marketing, operations, etc.)
+- if wellfound: employee count, funding stage, and industry tags
 - three sentence summary of hiring focus areas
+
+wellfound (formerly angellist) is especially useful for startups and small companies that don't use traditional ATS platforms.
 
 **stop if:** combined with step 1, you have a clear picture of what departments are hiring and at what seniority level. skip to output.
 
-### step 3: year-filtered hiring activity
-
-search: `{{company_name}} hiring 2026`
-
-extract from results:
-
-- any recent hiring announcements or press mentions of growth
-- new roles not found in steps 1-2
-- hiring velocity signals (e.g. "hiring 50 engineers", "doubling the team")
-- three sentence summary of recent hiring activity
-
-this pattern works well for Tier 1-2 companies but returns generic hiring-trend articles for obscure companies. skip if the company is very small.
-
-### step 4: department-specific deep dive (only if you need detail on a specific department)
-
-search: `{{company_name}} open roles {{department}}`
-
-replace `{{department}}` with the department that has the most open roles from steps 1-2 (e.g. "engineering", "sales", "marketing").
-
-extract from results:
-
-- specific role titles and seniority levels in that department
-- any team structure or reporting info visible
-- three sentence summary of what they're building in that department
-
-**stop if:** you have enough role detail to understand the company's hiring priorities. skip to output.
-
-### step 5: careers page direct check
+### step 3: careers page direct check
 
 search: `site:{{domain}}/careers`
 
@@ -77,11 +53,26 @@ if no results, try: `site:{{domain}} careers OR jobs OR "open positions"`
 extract from results:
 
 - careers page URL (definitive)
+- roles listed directly on their site (may differ from job boards)
 - company culture info or hiring philosophy if visible
-- benefits or perks mentioned
 - three sentence summary
 
-### step 6: fallback for obscure companies (only if steps 1-2 returned almost nothing)
+### step 4: year-filtered hiring activity (skip for very small companies)
+
+search: `{{company_name}} hiring 2026`
+
+extract from results:
+
+- any recent hiring announcements or press mentions of growth
+- new roles not found in steps 1-3
+- hiring velocity signals (e.g. "hiring 50 engineers", "doubling the team")
+- three sentence summary of recent hiring momentum
+
+this pattern returns generic hiring-trend articles for obscure companies. skip if the company has fewer than ~20 employees.
+
+**stop if:** you have enough data to assess hiring priorities and velocity. skip to output.
+
+### step 5: fallback for obscure companies (only if steps 1-2 returned almost nothing)
 
 search: `{{company_name}} "we're hiring" OR "join our team" OR "open positions"`
 
@@ -91,7 +82,7 @@ extract from results:
 - the company may not have a formal careers page — social posts and linkedin are the signal
 - three sentence summary
 
-if even this returns nothing, that's the finding. "no active hiring detected" is a signal — the company may be early stage, bootstrapped, or not growing.
+if even this returns nothing, that's the finding. "no active hiring detected" is a valid signal — the company may be early stage, bootstrapped, or not growing headcount.
 
 ## do not search
 

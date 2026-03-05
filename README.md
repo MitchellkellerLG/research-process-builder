@@ -16,8 +16,8 @@ the output is a portable `.md` file with step-by-step search instructions that a
     ├── find-reviews.md               # 6 steps · 95% accuracy
     ├── find-news.md                  # 7 steps · 90% accuracy
     ├── find-pr-releases.md           # 5 steps · 90% accuracy
-    ├── find-hiring.md                # 6 steps · 90% accuracy
-    └── find-growth-signals.md        # 7 steps · 85% accuracy
+    ├── find-hiring.md                # 5 steps · 93% accuracy
+    └── find-growth-signals.md        # 6 steps · 90% accuracy
 ```
 
 ## how it works
@@ -44,8 +44,8 @@ built using the methodology above. 170+ patterns tested across 11 companies rang
 | [find-reviews](processes/find-reviews.md)               | individual reviews tagged positive/negative with three-sentence summaries     | 6     | 95%      |
 | [find-news](processes/find-news.md)                     | partnerships, acquisitions, funding, launches, expansions, leadership changes | 7     | 90%      |
 | [find-pr-releases](processes/find-pr-releases.md)       | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
-| [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                 | 6     | 90%      |
-| [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity   | 7     | 85%      |
+| [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                 | 5     | 93%      |
+| [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity   | 6     | 90%      |
 
 each process file includes:
 
@@ -96,8 +96,9 @@ things we learned testing 170+ search patterns:
 - **kill lists save more time than pattern lists.** knowing which searches to NOT run prevents wasting 30-40% of your search budget.
 - **ATS board searches are gold for hiring data.** `site:boards.greenhouse.io [name]` and `site:jobs.ashbyhq.com [name]` return actual role listings with titles and descriptions.
 - **`[name] social media twitter youtube` is a trap.** returns product feature content, not the company's actual social accounts. use `site:twitter.com OR site:x.com` with company name instead.
-- **google ads presence is not detectable via web search.** facebook ad library isn't indexed, semrush/similarweb require auth. be honest about this limitation.
 - **OR operators in a single query are powerful.** `[name] alternatives OR competitors OR "vs"` catches 3 result types in one search, tested Q4.75/C4.75.
+- **wellfound (formerly angellist) is the T3 lifeline for hiring data.** small startups without greenhouse/lever/ashby pages still have wellfound profiles with employee count, funding, and industry tags.
+- **`site:[domain]` with OR operators is the most efficient growth signal detector.** a single query like `site:[domain] blog OR pricing OR newsletter OR demo` catches 4+ signal types in one search.
 
 ## validation
 
