@@ -1,6 +1,6 @@
 # find growth and marketing investment signals
 
-surface indicators of active investment and growth: content output, marketing infrastructure, social presence, event activity, and monetization maturity. this tells you whether a company is actively investing in growth or coasting.
+surface indicators of active investment and growth: content output, marketing infrastructure, social presence, community engagement, event activity, and monetization maturity. this tells you whether a company is actively investing in growth or coasting.
 
 ## inputs
 
@@ -15,7 +15,7 @@ surface indicators of active investment and growth: content output, marketing in
 
 search: `site:{{domain}} blog OR pricing OR newsletter OR demo OR "free trial" OR "book a call"`
 
-this single query detects multiple growth signals at once: do they have a blog, a pricing page, a newsletter, a demo flow? tested Q5/C4 for T2+ companies. thinner for T3 but still finds something if it exists.
+this single query detects multiple growth signals at once: do they have a blog, a pricing page, a newsletter, a demo flow? tested Q5/C4 for T2+ companies. returns nothing for T3/micro startups whose sites aren't fully indexed — if zero results, skip to step 7.
 
 extract from results:
 
@@ -29,24 +29,30 @@ companies with blog + pricing + demo booking + newsletter = mature growth engine
 
 **stop if:** you found a blog, pricing page, and at least one lead capture mechanism. you have a clear picture of their infrastructure. continue to step 2 for content depth.
 
-### step 2: blog and content activity
+### step 2: blog content depth
 
-search: `{{company_name}} {{category}} blog {{current_year}}`
+search: `site:{{domain}}/blog`
 
-this catches both the company's own blog posts AND third-party coverage about them. the year filter ensures recency.
+if no results, try: `site:{{domain}} blog OR news OR updates`
+
+this goes directly to the company's own blog and returns actual post titles, dates, and topics. tested Q5 across Clay (clay.com/blog — GTM engineering, case studies, product updates) and Lovable (lovable.dev/blog — MCP, Series B, Lovable 2.0).
+
+the previous pattern (`{{company_name}} {{category}} blog {{current_year}}`) returned third-party content about the company, not the company's own posts. that's useful too (see step 5) but this step gives you the owned content signal.
 
 extract from results:
 
-- recent blog posts from the company itself (titles, dates, topics)
-- posting frequency signal (multiple posts in recent months = active, nothing = dormant)
-- third-party blog coverage (reviews, mentions, comparisons)
+- recent blog post titles and dates
+- posting frequency signal (multiple posts in recent months = active content engine, nothing recent = dormant)
+- content themes (product updates, thought leadership, case studies, SEO plays)
 - three sentence summary of content output and recency
 
-a company actively publishing blog content is investing in organic growth. a company only appearing in third-party blogs is getting attention but may not be investing in owned content.
+a company publishing 2+ blog posts per month is investing in organic growth. a company with a blog that hasn't been updated in 6+ months is coasting or pivoting channels.
 
-### step 3: social media presence
+### step 3: social media and community presence
 
-search: `{{company_name}} {{category}} site:twitter.com OR site:x.com OR site:instagram.com OR site:linkedin.com`
+**search A:** `{{company_name}} {{category}} site:twitter.com OR site:x.com OR site:instagram.com OR site:linkedin.com`
+
+this is the highest-performing pattern in the process. tested Q4.75 average across all company tiers — even T3 startups have social accounts indexed.
 
 extract from results:
 
@@ -55,50 +61,88 @@ extract from results:
 - most recent post topic if visible
 - three sentence summary of social presence and activity level
 
-**stop if:** combined with steps 1-2, you have a clear picture of their marketing investment across content, infrastructure, and social. skip to output if you only need a high-level growth signal.
+**search B:** `{{company_name}} {{category}} discord OR slack OR community`
 
-### step 4: newsletter and community
-
-search: `{{company_name}} {{category}} newsletter`
+community platforms are a massive growth signal that most research processes miss entirely. tested Q5 across Clay (Slack community, 15K+ members, community.clay.com), Lovable (Discord, 162K+ members), and Cursor (Discord 15K+, forum.cursor.com). thin for T3 but still worth checking.
 
 extract from results:
 
-- newsletter name and platform (substack, beehiiv, mailchimp, custom)
-- subscriber count if visible
-- posting frequency if visible
-- any community platforms (discord, slack, forum, etc.)
-- three sentence summary
+- community platform(s) found (discord, slack, forum, etc.) with URLs
+- member count if visible
+- activity level signals (active moderation, team participation, etc.)
+- three sentence summary of community engagement
+
+a large, active community is a stronger growth signal than social followers. it indicates product-market fit and organic advocacy.
+
+**stop if:** combined with steps 1-2, you have a clear picture of their marketing investment across content, infrastructure, social, and community. skip to output if you only need a high-level growth signal.
+
+### step 4: lead capture and newsletter
+
+search: `site:{{domain}} "subscribe" OR "newsletter" OR "sign up" OR "book a demo"`
+
+this searches the company's own site for signup and newsletter mechanisms. tested Q4 on Clay — found newsletter subscription page, community newsletter, LinkedIn newsletter, affiliate signup.
+
+extract from results:
+
+- newsletter name and platform (substack, beehiiv, mailchimp, custom) if visible
+- any email capture forms or gated content
+- demo booking or consultation pages
+- three sentence summary of lead capture maturity
 
 companies that run newsletters are investing in owned audience. this is a stronger growth signal than social media because it requires consistent effort and indicates long-term thinking.
 
-### step 5: podcast, webinar, and event activity
+### step 5: third-party coverage and buzz
+
+search: `{{company_name}} {{category}} blog {{current_year}}`
+
+this step explicitly looks for what OTHERS write about the company — reviews, mentions, comparisons, guides. a company getting third-party coverage without paying for it = organic buzz.
+
+extract from results:
+
+- third-party blog posts mentioning the company (reviewer name, publication, topic)
+- review roundups or comparison articles that include the company
+- any coverage from industry publications
+- three sentence summary of third-party buzz level
+
+**important distinction:** step 2 finds the company's own blog. step 5 finds what others say about them. a company with both = mature content presence. a company with only third-party coverage = getting attention but not investing in owned content.
+
+### step 6: podcast, webinar, and event activity (skip for very small companies)
 
 search: `{{company_name}} podcast OR webinar OR event OR conference {{current_year}}`
+
+tested Q4 for T2+ companies. returns unrelated conferences for T3/micro startups — skip if the company has fewer than ~20 employees.
 
 extract from results:
 
 - any podcast appearances by founders/execs (name of podcast, topic)
 - any webinars hosted or co-hosted
 - any conference appearances or sponsorships
+- community events (meetups, hackathons)
 - three sentence summary of event-based growth activity
 
 companies appearing on podcasts and hosting webinars = active demand gen. this is especially strong signal for B2B companies.
 
-**stop if:** you have enough data across content, social, newsletter, and events to assess their overall growth investment. skip to output.
+**stop if:** you have enough data across content, social, community, newsletter, and events to assess their overall growth investment. skip to output.
 
-### step 6: year-filtered activity fallback (only if steps 1-2 were thin)
+### step 7: fallback for small/obscure companies (only if steps 1-2 returned almost nothing)
 
-search: `{{company_name}} {{category}} {{current_year}}`
+search: `{{company_name}} {{category}} site:producthunt.com OR site:wellfound.com`
+
+producthunt and wellfound index micro startups that don't have fully-indexed websites. tested Q4 on Hoo.be (found wellfound company profile with careers, funding, industry tags).
 
 extract from results:
 
-- any content, press, or activity from the current year
-- this is a blunt instrument — if a company has ZERO mentions in the current year, that's a significant signal of inactivity
+- product hunt launch info (upvotes, launch date, tagline)
+- wellfound profile data (employee count, funding stage, industry)
 - three sentence summary
+
+if even this returns nothing, try: `{{company_name}} {{category}} {{current_year}}` as a blunt last resort. if a company has ZERO mentions anywhere in the current year, that's itself a signal of inactivity or extreme early stage.
 
 ## do not search
 
+- `{{company_name}} {{category}} newsletter` — returns product feature content about newsletters or generic "how to build newsletters" guides. tested Q2.25 average across all tiers. use `site:{{domain}} "subscribe" OR "newsletter"` instead.
 - `{{company_name}} social media twitter youtube instagram` — returns product feature content, not the company's own accounts. tested Q1/C0 across all tiers.
+- `site:youtube.com {{company_name}}` — returns zero results universally. YouTube is not indexed by web search this way.
 - `{{company_name}} youtube channel` — returns unrelated channels for ambiguous names (clay art channels, scam warnings, etc.)
 - `{{company_name}} marketing strategy` — returns generic marketing advice articles, not company-specific data
 - `{{company_name}} google ads` — returns the company's ad-related product features, not whether they run ads
@@ -121,9 +165,10 @@ extract from results:
 - conversion flow: [free trial / freemium / demo booking / contact form only / unclear]
 - pricing page: [public pricing / enterprise-only / custom / not found]
 
-**social presence:**
+**social and community:**
 - [platform]: [handle] — [follower count if visible]
 - [platform]: [handle]
+- community: [platform, member count, URL] or "none found"
 (list all found)
 
 **what this tells us:**

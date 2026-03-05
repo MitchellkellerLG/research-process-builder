@@ -18,7 +18,7 @@ the output is a portable `.md` file with step-by-step search instructions that a
     ├── find-pr-releases.md           # 5 steps · 90% accuracy
     ├── find-hiring.md                # 5 steps · 93% accuracy
     ├── find-job-role-insights.md     # 5 steps · 90% accuracy (companion to find-hiring)
-    ├── find-growth-signals.md        # 6 steps · 90% accuracy
+    ├── find-growth-signals.md        # 7 steps · 93% accuracy
     └── find-negativity.md            # 6 steps · 90% accuracy
 ```
 
@@ -48,7 +48,7 @@ built using the methodology above. 200+ patterns tested across 11 companies rang
 | [find-pr-releases](processes/find-pr-releases.md)             | official announcements, press releases, blog posts, wire distributions                 | 5     | 90%      |
 | [find-hiring](processes/find-hiring.md)                       | open roles, departments hiring, ATS platform, hiring velocity                          | 5     | 93%      |
 | [find-job-role-insights](processes/find-job-role-insights.md) | tech stack, pain points, strategic signals from specific job descriptions              | 5     | 90%      |
-| [find-growth-signals](processes/find-growth-signals.md)       | blog activity, lead magnets, social presence, newsletters, pricing maturity            | 6     | 90%      |
+| [find-growth-signals](processes/find-growth-signals.md)       | blog activity, lead magnets, social presence, community, newsletters, pricing maturity | 7     | 93%      |
 | [find-negativity](processes/find-negativity.md)               | customer complaints, negative reviews, controversy, churn signals                      | 6     | 90%      |
 
 each process file includes:
@@ -91,7 +91,7 @@ use [SKILL.md](SKILL.md) to build processes for any research goal:
 
 ## key discoveries
 
-things we learned testing 170+ search patterns:
+things we learned testing 220+ search patterns:
 
 - **`site:reddit.com` is completely broken** — zero results universally. use `[name] reddit discussion` without the site: operator.
 - **year modifiers are the highest-leverage search modifier.** `[name] review 2026` outperforms `[name] review` by a wide margin.
@@ -111,14 +111,18 @@ things we learned testing 170+ search patterns:
 - **ATS-specific JD searches are the best path to full job descriptions.** `site:jobs.ashbyhq.com/[company] [role]` returns exact JD links. combined ATS OR query (`site:jobs.ashbyhq.com OR site:boards.greenhouse.io OR site:jobs.lever.co [company] [role]`) catches roles across all three platforms in one search.
 - **`site:linkedin.com/jobs` is broken for web search.** returns generic LinkedIn job search pages, not company-specific listings. for LinkedIn jobs data, use Claygent to visit `linkedin.com/company/[slug]/jobs/` directly.
 - **companion processes unlock depth.** find-hiring gives you breadth (all open roles). find-job-role-insights gives you depth (what a specific JD reveals about strategy, tech stack, and pain points). chain them in Clay for the full picture.
+- **`site:{{domain}}/blog` beats `[name] blog` for finding owned content.** `[name] [category] blog 2026` returns third-party blogs ABOUT the company (Q3). `site:[domain]/blog` returns the company's own posts (Q5). use the former for buzz, the latter for owned content.
+- **`[name] [category] newsletter` is a trap.** returns product feature content about newsletters, not the company's actual newsletter. tested Q2.25 across all tiers. `site:[domain] "subscribe" OR "newsletter"` finds actual signup mechanisms (Q4).
+- **community platforms (discord/slack) are the most underrated growth signal.** `[name] discord OR slack OR community` tested Q5 across Clay (Slack 15K+), Lovable (Discord 162K+), Cursor (Discord 15K+). an active community signals product-market fit and organic advocacy.
+- **`site:youtube.com [name]` returns zero results.** YouTube is not searchable via `site:` operator. avoid entirely.
 
 ## validation
 
-- 190+ patterns tested via live web search
+- 220+ patterns tested via live web search
 - 11 companies: SpaceX, Cohere, Harvey AI, Cursor, Clay, Lovable, Keep, Cluely, Hoo.be, LeadGrow, The Kiln
 - companies ranged from $400B+ to micro bootstrapped
 - each pattern tested against 3-4 companies minimum
-- two iteration rounds with 25 fix patterns targeting identified failure modes
+- three iteration rounds with 30+ fix patterns targeting identified failure modes
 
 ## license
 

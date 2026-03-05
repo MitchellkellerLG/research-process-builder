@@ -33,7 +33,7 @@ This is the factory that produces research agent prompts. The output is a portab
 | Find third-party profiles | `processes/find-profiles.md`          | 6     | 100%     |
 | Find hiring activity      | `processes/find-hiring.md`            | 5     | 93%      |
 | Find job role insights    | `processes/find-job-role-insights.md` | 5     | 90%      |
-| Find growth signals       | `processes/find-growth-signals.md`    | 6     | 90%      |
+| Find growth signals       | `processes/find-growth-signals.md`    | 7     | 93%      |
 | Find customer negativity  | `processes/find-negativity.md`        | 6     | 90%      |
 
 ---
