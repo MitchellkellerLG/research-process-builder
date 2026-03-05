@@ -7,7 +7,7 @@ surface official company communications: press releases, blog announcements, wir
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain (required for site: searches)
 - `{{category}}` — what they do in 2-3 words. required if name is ambiguous.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay: `YEAR({Created At})`.
 
 ## steps
 

@@ -7,7 +7,7 @@ surface everything newsworthy about a company in the last 6-12 months. partnersh
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain
 - `{{category}}` — what they do in 2-3 words. required if name is ambiguous.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay: `YEAR({Created At})`.
 
 ## steps
 

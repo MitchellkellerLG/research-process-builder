@@ -8,7 +8,7 @@ surface recent complaints, negative reviews, and controversy about a company fro
 - `{{domain}}` — their website domain
 - `{{category}}` — what they do in 2-3 words. required if the company name is a common word or 6 characters or fewer.
 - `{{company_type}}` — one of: `b2b saas`, `b2c consumer`, `enterprise b2b`, `dev tool`, `agency/services`. determines which review platforms to check in step 4.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay: `YEAR({Created At})`.
 
 ## steps
 

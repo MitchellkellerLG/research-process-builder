@@ -7,7 +7,7 @@ surface indicators of active investment and growth: content output, marketing in
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain (required for site: searches)
 - `{{category}}` — what they do in 2-3 words. required if the company name is a common word or 6 characters or fewer.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay: `YEAR({Created At})`.
 
 ## steps
 

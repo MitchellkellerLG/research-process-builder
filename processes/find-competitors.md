@@ -7,7 +7,6 @@ find the direct competitors of a company and explain why each one competes.
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain (e.g. clay.com)
 - `{{category}}` — what they do in 2-3 words (e.g. "GTM data enrichment", "legal AI"). required if the company name is a common word or 6 characters or fewer.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
 
 ## steps
 
@@ -40,7 +39,7 @@ extract from results:
 
 ### step 3: category market map
 
-search: `best {{category}} tools {{current_year}}`
+search: `best {{category}} tools`
 
 extract from results:
 
