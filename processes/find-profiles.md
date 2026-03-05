@@ -1,4 +1,4 @@
-# find company profiles
+# find company profile and funding data
 
 build a company fact sheet from structured data platforms. this should run first because it feeds context (category, size, funding) to every other research process.
 

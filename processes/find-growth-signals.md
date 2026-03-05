@@ -1,4 +1,4 @@
-# find growth signals
+# find growth and marketing investment signals
 
 surface indicators of active investment and growth: content output, marketing infrastructure, social presence, event activity, and monetization maturity. this tells you whether a company is actively investing in growth or coasting.
 
@@ -107,7 +107,7 @@ extract from results:
 ## output
 
 ```
-## growth signals for {{company_name}}
+## growth and marketing signals for {{company_name}}
 
 **overall growth investment:** [heavy / moderate / light / minimal]
 

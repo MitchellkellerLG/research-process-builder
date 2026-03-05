@@ -1,4 +1,4 @@
-# find customer negativity
+# find customer complaints and negative sentiment
 
 surface recent complaints, negative reviews, and controversy about a company from their customer base. this tells you what pain points exist, how severe they are, and whether the negativity is recent or historical.
 
@@ -117,7 +117,7 @@ if even this returns nothing, that's the finding. "no significant customer negat
 ## output
 
 ```
-## customer negativity for {{company_name}}
+## customer complaints and sentiment for {{company_name}}
 
 **overall negativity level:** [high (widespread, multi-source) / moderate (recurring themes but not universal) / low (isolated complaints) / minimal (no significant negativity found)]
 

@@ -1,4 +1,4 @@
-# find recent news
+# find recent news and company events
 
 surface everything newsworthy about a company in the last 6-12 months. partnerships, funding, acquisitions, product launches, expansions, leadership changes, controversies.
 
@@ -99,7 +99,7 @@ if even this returns nothing, that's the finding. "no news coverage found" is a 
 ## output
 
 ```
-## recent news for {{company_name}}
+## recent news and events for {{company_name}}
 
 **company trajectory:** [growing / stable / declining / pivoting / too early to tell]
 

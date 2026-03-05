@@ -1,4 +1,4 @@
-# find reviews
+# find customer and employee reviews
 
 surface customer and employee reviews for a company. each review is its own item, tagged positive or negative.
 
@@ -100,7 +100,7 @@ extract from results:
 ## output
 
 ```
-## reviews for {{company_name}}
+## customer and employee reviews for {{company_name}}
 
 **overall sentiment:** [mostly positive / mixed / mostly negative]
 

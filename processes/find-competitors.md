@@ -1,4 +1,4 @@
-# find competitors
+# find competitors and competitive positioning
 
 find the direct competitors of a company and explain why each one competes.
 
@@ -97,7 +97,7 @@ extract from results:
 ## output
 
 ```
-## competitors for {{company_name}}
+## competitive landscape for {{company_name}}
 
 **top competitors:** [competitor a], [competitor b], [competitor c]
 

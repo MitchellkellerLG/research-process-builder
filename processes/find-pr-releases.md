@@ -1,4 +1,4 @@
-# find PR and releases
+# find press releases and official announcements
 
 surface official company communications: press releases, blog announcements, wire service distributions.
 
@@ -78,7 +78,7 @@ extract from results:
 ## output
 
 ```
-## PR and releases for {{company_name}}
+## press releases and announcements for {{company_name}}
 
 **communication style:** [active PR machine / regular blogger / occasional announcements / mostly dark]
 
