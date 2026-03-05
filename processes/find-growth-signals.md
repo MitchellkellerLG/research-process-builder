@@ -7,7 +7,6 @@ surface indicators of active investment and growth: content output, marketing in
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain (required for site: searches)
 - `{{category}}` — what they do in 2-3 words. required if the company name is a common word or 6 characters or fewer.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay: `YEAR({Created At})`.
 
 ## steps
 
@@ -37,7 +36,7 @@ if no results, try: `site:{{domain}} blog OR news OR updates`
 
 this goes directly to the company's own blog and returns actual post titles, dates, and topics. tested Q5 across Clay (clay.com/blog — GTM engineering, case studies, product updates) and Lovable (lovable.dev/blog — MCP, Series B, Lovable 2.0).
 
-the previous pattern (`{{company_name}} {{category}} blog {{current_year}}`) returned third-party content about the company, not the company's own posts. that's useful too (see step 5) but this step gives you the owned content signal.
+the previous pattern (`{{company_name}} {{category}} blog`) returned third-party content about the company, not the company's own posts. that's useful too (see step 5) but this step gives you the owned content signal.
 
 extract from results:
 
@@ -93,7 +92,7 @@ companies that run newsletters are investing in owned audience. this is a strong
 
 ### step 5: third-party coverage and buzz
 
-search: `{{company_name}} {{category}} blog {{current_year}}`
+search: `{{company_name}} {{category}} blog`
 
 this step explicitly looks for what OTHERS write about the company — reviews, mentions, comparisons, guides. a company getting third-party coverage without paying for it = organic buzz.
 
@@ -108,7 +107,7 @@ extract from results:
 
 ### step 6: podcast, webinar, and event activity (skip for very small companies)
 
-search: `{{company_name}} podcast OR webinar OR event OR conference {{current_year}}`
+search: `{{company_name}} podcast OR webinar OR event OR conference`
 
 tested Q4 for T2+ companies. returns unrelated conferences for T3/micro startups — skip if the company has fewer than ~20 employees.
 
@@ -128,7 +127,7 @@ companies appearing on podcasts and hosting webinars = active demand gen. this i
 
 search: `{{company_name}} {{category}} site:producthunt.com OR site:wellfound.com`
 
-producthunt and wellfound index micro startups that don't have fully-indexed websites. tested Q4 on Hoo.be (found wellfound company profile with careers, funding, industry tags).
+producthunt and wellfound index startups that may not have fully-indexed websites. tested Q4 — wellfound returns company profiles with careers, funding, and industry tags even for smaller companies.
 
 extract from results:
 
@@ -136,7 +135,7 @@ extract from results:
 - wellfound profile data (employee count, funding stage, industry)
 - three sentence summary
 
-if even this returns nothing, try: `{{company_name}} {{category}} {{current_year}}` as a blunt last resort. if a company has ZERO mentions anywhere in the current year, that's itself a signal of inactivity or extreme early stage.
+if even this returns nothing, try: `{{company_name}} {{category}}` as a blunt last resort. if a company has ZERO mentions anywhere, that's itself a signal of inactivity or extreme early stage.
 
 ## do not search
 

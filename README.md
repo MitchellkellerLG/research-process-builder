@@ -119,7 +119,7 @@ things we learned testing 220+ search patterns:
 ## validation
 
 - 220+ patterns tested via live web search
-- 11 companies: SpaceX, Cohere, Harvey AI, Cursor, Clay, Lovable, Keep, Cluely, Hoo.be, LeadGrow, The Kiln
+- 11 companies: SpaceX, Cohere, Harvey AI, Cursor, Clay, Lovable, Keep, Cluely, ClickUp, LeadGrow, The Kiln
 - companies ranged from $400B+ to micro bootstrapped
 - each pattern tested against 3-4 companies minimum
 - three iteration rounds with 30+ fix patterns targeting identified failure modes
