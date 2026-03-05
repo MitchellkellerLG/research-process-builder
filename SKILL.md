@@ -24,16 +24,17 @@ This is the factory that produces research agent prompts. The output is a portab
 
 ## Example Processes (built with this methodology)
 
-| Process                   | File                               | Steps | Accuracy |
-| ------------------------- | ---------------------------------- | ----- | -------- |
-| Find competitors          | `processes/find-competitors.md`    | 7     | 93%      |
-| Find reviews              | `processes/find-reviews.md`        | 6     | 95%      |
-| Find recent news          | `processes/find-news.md`           | 7     | 90%      |
-| Find PR/releases          | `processes/find-pr-releases.md`    | 5     | 90%      |
-| Find third-party profiles | `processes/find-profiles.md`       | 6     | 100%     |
-| Find hiring activity      | `processes/find-hiring.md`         | 5     | 93%      |
-| Find growth signals       | `processes/find-growth-signals.md` | 6     | 90%      |
-| Find customer negativity  | `processes/find-negativity.md`     | 6     | 90%      |
+| Process                   | File                                  | Steps | Accuracy |
+| ------------------------- | ------------------------------------- | ----- | -------- |
+| Find competitors          | `processes/find-competitors.md`       | 7     | 93%      |
+| Find reviews              | `processes/find-reviews.md`           | 6     | 95%      |
+| Find recent news          | `processes/find-news.md`              | 7     | 90%      |
+| Find PR/releases          | `processes/find-pr-releases.md`       | 5     | 90%      |
+| Find third-party profiles | `processes/find-profiles.md`          | 6     | 100%     |
+| Find hiring activity      | `processes/find-hiring.md`            | 5     | 93%      |
+| Find job role insights    | `processes/find-job-role-insights.md` | 5     | 90%      |
+| Find growth signals       | `processes/find-growth-signals.md`    | 6     | 90%      |
+| Find customer negativity  | `processes/find-negativity.md`        | 6     | 90%      |
 
 ---
 

@@ -17,6 +17,7 @@ the output is a portable `.md` file with step-by-step search instructions that a
     ├── find-news.md                  # 7 steps · 90% accuracy
     ├── find-pr-releases.md           # 5 steps · 90% accuracy
     ├── find-hiring.md                # 5 steps · 93% accuracy
+    ├── find-job-role-insights.md     # 5 steps · 90% accuracy (companion to find-hiring)
     ├── find-growth-signals.md        # 6 steps · 90% accuracy
     └── find-negativity.md            # 6 steps · 90% accuracy
 ```
@@ -34,20 +35,21 @@ the methodology has 6 phases:
 
 full methodology is in [SKILL.md](SKILL.md).
 
-## the 8 example processes
+## the 9 processes
 
-built using the methodology above. 190+ patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
+built using the methodology above. 200+ patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
 
-| process                                                 | what it finds                                                                          | steps | accuracy |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----- | -------- |
-| [find-profiles](processes/find-profiles.md)             | company fact sheet from zoominfo, crunchbase, linkedin, rocketreach, pitchbook, tracxn | 6     | 100%     |
-| [find-competitors](processes/find-competitors.md)       | direct competitors with positioning and justification                                  | 7     | 93%      |
-| [find-reviews](processes/find-reviews.md)               | individual reviews tagged positive/negative with three-sentence summaries              | 6     | 95%      |
-| [find-news](processes/find-news.md)                     | partnerships, acquisitions, funding, launches, expansions, leadership changes          | 7     | 90%      |
-| [find-pr-releases](processes/find-pr-releases.md)       | official announcements, press releases, blog posts, wire distributions                 | 5     | 90%      |
-| [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                          | 5     | 93%      |
-| [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity            | 6     | 90%      |
-| [find-negativity](processes/find-negativity.md)         | customer complaints, negative reviews, controversy, churn signals                      | 6     | 90%      |
+| process                                                       | what it finds                                                                          | steps | accuracy |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----- | -------- |
+| [find-profiles](processes/find-profiles.md)                   | company fact sheet from zoominfo, crunchbase, linkedin, rocketreach, pitchbook, tracxn | 6     | 100%     |
+| [find-competitors](processes/find-competitors.md)             | direct competitors with positioning and justification                                  | 7     | 93%      |
+| [find-reviews](processes/find-reviews.md)                     | individual reviews tagged positive/negative with three-sentence summaries              | 6     | 95%      |
+| [find-news](processes/find-news.md)                           | partnerships, acquisitions, funding, launches, expansions, leadership changes          | 7     | 90%      |
+| [find-pr-releases](processes/find-pr-releases.md)             | official announcements, press releases, blog posts, wire distributions                 | 5     | 90%      |
+| [find-hiring](processes/find-hiring.md)                       | open roles, departments hiring, ATS platform, hiring velocity                          | 5     | 93%      |
+| [find-job-role-insights](processes/find-job-role-insights.md) | tech stack, pain points, strategic signals from specific job descriptions              | 5     | 90%      |
+| [find-growth-signals](processes/find-growth-signals.md)       | blog activity, lead magnets, social presence, newsletters, pricing maturity            | 6     | 90%      |
+| [find-negativity](processes/find-negativity.md)               | customer complaints, negative reviews, controversy, churn signals                      | 6     | 90%      |
 
 each process file includes:
 
@@ -106,6 +108,9 @@ things we learned testing 170+ search patterns:
 - **churn-signal searches are a trap.** `[name] "switched from" OR "left" OR "cancelled"` returns marketing content about people switching TO the tool, not FROM it. tested Q2/C1.
 - **"do not recommend" and "waste of money" searches return nothing.** people don't use these exact phrases in searchable contexts. use `[name] complaints OR problems` instead.
 - **never hardcode the year in process files.** use `{{current_year}}` as an input variable so processes stay valid across years. in Clay, populate from `YEAR({Created At})`.
+- **ATS-specific JD searches are the best path to full job descriptions.** `site:jobs.ashbyhq.com/[company] [role]` returns exact JD links. combined ATS OR query (`site:jobs.ashbyhq.com OR site:boards.greenhouse.io OR site:jobs.lever.co [company] [role]`) catches roles across all three platforms in one search.
+- **`site:linkedin.com/jobs` is broken for web search.** returns generic LinkedIn job search pages, not company-specific listings. for LinkedIn jobs data, use Claygent to visit `linkedin.com/company/[slug]/jobs/` directly.
+- **companion processes unlock depth.** find-hiring gives you breadth (all open roles). find-job-role-insights gives you depth (what a specific JD reveals about strategy, tech stack, and pain points). chain them in Clay for the full picture.
 
 ## validation
 

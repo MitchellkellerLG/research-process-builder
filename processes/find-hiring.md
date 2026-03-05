@@ -87,9 +87,28 @@ extract from results:
 
 if even this returns nothing, that's the finding. "no active hiring detected" is a valid signal — the company may be early stage, bootstrapped, or not growing headcount.
 
+## claygent enhancement: linkedin company jobs page
+
+if your agent can visit URLs directly (Claygent, browser agent), the LinkedIn company jobs page is the cleanest source for open roles:
+
+visit: `linkedin.com/company/[company-slug]/jobs/`
+
+the company slug comes from the LinkedIn company URL (found via find-profiles or step 1). for Clay: `linkedin.com/company/grow-with-clay/jobs/`.
+
+extract from results:
+
+- every open role with title
+- department groupings
+- location (remote/hybrid/onsite per role)
+- total count of open positions
+
+this does NOT work via web search — `site:linkedin.com/jobs` returns generic LinkedIn pages, not company-specific listings. direct visit only.
+
+**for deeper role analysis:** after identifying roles here, use the companion process `find-job-role-insights.md` to extract strategic signals from specific job descriptions (tech stack, pain points, team context, budget signals).
+
 ## do not search
 
-- `{{company_name}} jobs site:linkedin.com` — returns location-based noise for ambiguous names (e.g. "Clay" returns jobs in Clay, NY and clay modeler positions)
+- `{{company_name}} jobs site:linkedin.com` — returns location-based noise for ambiguous names (e.g. "Clay" returns jobs in Clay, NY and clay modeler positions). for LinkedIn jobs data, use the Claygent direct-visit approach above.
 - `{{company_name}} glassdoor salary` — returns salary estimates, not hiring activity
 - `{{company_name}} internships` — too narrow unless specifically asked for
 - `{{company_name}} remote jobs` — returns aggregator noise, not company-specific data
