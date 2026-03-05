@@ -26,7 +26,7 @@ This is the factory that produces research agent prompts. The output is a portab
 
 | Process                   | File                            | Steps | Accuracy |
 | ------------------------- | ------------------------------- | ----- | -------- |
-| Find competitors          | `processes/find-competitors.md` | 8     | 93%      |
+| Find competitors          | `processes/find-competitors.md` | 7     | 93%      |
 | Find reviews              | `processes/find-reviews.md`     | 6     | 95%      |
 | Find recent news          | `processes/find-news.md`        | 7     | 90%      |
 | Find PR/releases          | `processes/find-pr-releases.md` | 5     | 90%      |

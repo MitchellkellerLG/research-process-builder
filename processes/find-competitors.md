@@ -10,22 +10,20 @@ find the direct competitors of a company and explain why each one competes.
 
 ## steps
 
-### step 1: the company's own competitive positioning
+### step 1: broad competitor and alternatives sweep
 
-search: `site:{{domain}} alternatives OR competitors OR "vs" OR "compared to"`
+search: `{{company_name}} {{category}} alternatives OR competitors OR "vs" OR "compared to"`
+
+this single query catches competitor lists, "alternatives to" roundups, and head-to-head comparisons in one shot. tested at Q5/C5 across all company tiers.
 
 extract from results:
 
-- any "alternatives to" or "vs" pages the company publishes
-- competitors they name directly (this is the highest-signal source — companies know their own market)
-- how they position themselves against each competitor
-- one sentence on what each named competitor does
+- every company named as a competitor or alternative
+- which source mentioned them (G2, blog, Tracxn, company's own site, etc.)
+- one sentence on what each competitor does
+- if any results come from `{{domain}}` itself (the company's own comparison or "vs" pages), flag those — the company naming its own competitors is the highest-signal source
 
-if no results, try: `site:{{domain}} compare`
-
-companies that publish comparison pages are telling you exactly who they compete with. this is more reliable than any third-party list.
-
-**stop if:** you found 3+ competitors named by the company itself with clear positioning. skip to output.
+**stop if:** you found 5+ competitors from structured sources (G2, Capterra, Tracxn, or the company's own site). skip to output.
 
 ### step 2: direct competitor search
 
@@ -33,24 +31,13 @@ search: `{{company_name}} {{category}} competitors`
 
 extract from results:
 
-- every company named as a competitor
-- which source mentioned them (G2, blog, Tracxn, etc.)
+- any competitors not found in step 1
+- which source mentioned them
 - one sentence on what each competitor does
 
-**stop if:** combined with step 1, you have 5+ competitors from structured sources. skip to output.
+**stop if:** combined with step 1, you have 5+ unique competitors with clear positioning. skip to output.
 
-### step 3: alternatives search
-
-search: `{{company_name}} {{category}} alternatives`
-
-extract from results:
-
-- any new companies not found in previous steps
-- note which platform listed them (Capterra, Product Hunt, "alternatives to" blogs)
-
-**stop if:** you now have 5+ unique competitors with clear positioning. skip to output.
-
-### step 4: category market map
+### step 3: category market map
 
 search: `best {{category}} tools 2026`
 
@@ -60,7 +47,7 @@ extract from results:
 - how each is positioned relative to `{{company_name}}`
 - any market segments or subcategories identified
 
-### step 5: G2 structured data (software companies only)
+### step 4: G2 structured data (software companies only)
 
 search: `site:g2.com {{company_name}} alternatives`
 
@@ -71,7 +58,7 @@ extract from results:
 
 skip this step if `{{company_name}}` is not a software company.
 
-### step 6: head-to-head positioning
+### step 5: head-to-head positioning
 
 search: `{{company_name}} vs {{top_competitor_from_above}}`
 
@@ -83,7 +70,7 @@ extract from results:
 
 **stop if:** you have clear positioning context for the top 3 competitors. skip to output.
 
-### step 7: practitioner opinions
+### step 6: practitioner opinions
 
 search: `who competes with {{company_name}} {{category}}`
 
@@ -92,7 +79,7 @@ extract from results:
 - competitors mentioned by actual users (forums, reddit-synthesis articles, blog comments)
 - any competitors the structured platforms missed
 
-### step 8: domain-anchored fallback (use only if steps 2-3 returned noise from an ambiguous name)
+### step 7: domain-anchored fallback (use only if steps 1-2 returned noise from an ambiguous name)
 
 search: `{{domain}} competitors`
 

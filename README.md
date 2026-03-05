@@ -12,7 +12,7 @@ the output is a portable `.md` file with step-by-step search instructions that a
 ├── SKILL.md                          # the methodology — how to build research processes
 └── processes/
     ├── find-profiles.md              # 5 steps · 100% accuracy
-    ├── find-competitors.md           # 8 steps · 93% accuracy
+    ├── find-competitors.md           # 7 steps · 93% accuracy
     ├── find-reviews.md               # 6 steps · 95% accuracy
     ├── find-news.md                  # 7 steps · 90% accuracy
     └── find-pr-releases.md           # 5 steps · 90% accuracy
@@ -38,7 +38,7 @@ built using the methodology above. 138 patterns tested across 11 companies rangi
 | process                                           | what it finds                                                                 | steps | accuracy |
 | ------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
 | [find-profiles](processes/find-profiles.md)       | company fact sheet from zoominfo, crunchbase, linkedin, pitchbook, tracxn     | 5     | 100%     |
-| [find-competitors](processes/find-competitors.md) | direct competitors with positioning and justification                         | 8     | 93%      |
+| [find-competitors](processes/find-competitors.md) | direct competitors with positioning and justification                         | 7     | 93%      |
 | [find-reviews](processes/find-reviews.md)         | individual reviews tagged positive/negative with three-sentence summaries     | 6     | 95%      |
 | [find-news](processes/find-news.md)               | partnerships, acquisitions, funding, launches, expansions, leadership changes | 7     | 90%      |
 | [find-pr-releases](processes/find-pr-releases.md) | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
