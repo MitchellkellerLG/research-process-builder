@@ -94,7 +94,6 @@ if even this returns nothing, that's the finding. "no news coverage found" is a 
 - `site:businessinsider.com {{company_name}}` — zero results for startups
 - `site:reuters.com {{company_name}}` — useless below unicorn tier
 - `{{company_name}} breaking news` — identical to "news", wastes a search
-- `{{company_name}} launch` — ambiguous (SpaceX literally launches rockets)
 
 ## output
 
