@@ -1,162 +1,111 @@
-# Find Competitors Process
+# find competitors
 
-**Goal:** Given a company name and domain, find their top 5+ direct competitors with positioning context.
-**Accuracy:** 93% validated across 11 companies (SpaceX to micro startups)
-**Built:** 2026-03-04
-**Methodology:** research-process-builder skill, 34 patterns tested across 2 iterations
+find the direct competitors of a company and explain why each one competes.
 
-## What "Good" Looks Like
+## inputs
 
-- At least 3 named competitors (not just categories)
-- Competitors are in the same market segment (not adjacent industries)
-- At least one source is a structured review/data platform (G2, Capterra, Tracxn)
-- Head-to-head positioning is surfaced (how they differ)
-- Works for both well-known companies and obscure startups
+- `{{company_name}}` — the company to research
+- `{{domain}}` — their website domain (e.g. clay.com)
+- `{{category}}` — what they do in 2-3 words (e.g. "GTM data enrichment", "legal AI"). required if the company name is a common word or 6 characters or fewer.
 
-## Preprocessing
+## steps
 
-### Step 0a: Name Disambiguation
+### step 1: direct competitor search
 
-Is the company name ambiguous? (6 chars or fewer, common word, famous namesake)
+search: `{{company_name}} {{category}} competitors`
 
-If YES: construct `disambiguated_name` = `[name] [category]` or use domain.
-If NO: `disambiguated_name` = `company_name`.
+extract from results:
 
-### Step 0b: Company Size Detection
+- every company named as a competitor
+- which source mentioned them (G2, blog, Tracxn, etc.)
+- one sentence on what each competitor does
 
-Search: `[company_name] company overview`
+**stop if:** you found 5+ competitors from structured sources (G2, Capterra, Tracxn). skip to output.
 
-- 5+ third-party profiles → **Tier 1** → run all 12 steps
-- 2-4 profiles → **Tier 2** → run Steps 1-8, skip 9-10
-- 0-1 profiles → **Tier 3** → run Steps 1-6, then jump to Steps 9-12
+### step 2: alternatives search
 
----
+search: `{{company_name}} {{category}} alternatives`
 
-## Steps
+extract from results:
 
-### Step 1: Direct Competitor Search
+- any new companies not found in step 1
+- note which platform listed them (Capterra, Product Hunt, "alternatives to" blogs)
 
-**Search:** `[disambiguated_name] competitors`
-**Extract:** Every company named as a competitor. Note which source (G2, blog, Tracxn, etc.) mentioned each one.
-**Quality:** 5 | **Consistency:** 4
-**Notes:** Best single pattern. Triggers G2 comparison pages, CBInsights competitor lists, Tracxn profiles, and blog roundups simultaneously.
+**stop if:** you now have 5+ unique competitors with clear positioning. skip to output.
 
-### Step 2: Alternatives Search
+### step 3: category market map
 
-**Search:** `[disambiguated_name] alternatives`
-**Extract:** Companies listed as alternatives. Often surfaces different competitors than Step 1 because "alternatives" attracts Capterra, Product Hunt, and "best alternatives to X" blog posts.
-**Quality:** 5 | **Consistency:** 4
-**Notes:** Overlaps ~50% with Step 1 results. The non-overlapping 50% is where the value is.
+search: `best {{category}} tools 2026`
 
-### Step 3: Category Market Map
+extract from results:
 
-**Search:** `best [category derived from profile data] tools 2026`
-**Extract:** Full list of tools/companies in the category. Note market positioning of each.
-**Quality:** 5 | **Consistency:** 4
-**Notes:** Year modifier is mandatory. Without it, results are 2-3 years stale. This gives you the market map, not just head-to-head competitors.
+- full list of tools mentioned in the category
+- how each is positioned relative to `{{company_name}}`
+- any market segments or subcategories identified
 
-### Step 4: Practitioner Opinions
+### step 4: G2 structured data (software companies only)
 
-**Search:** `who competes with [company_name]`
-**Extract:** Companies mentioned in forum posts, Reddit-synthesis articles, and practitioner blogs.
-**Quality:** 4 | **Consistency:** 4
-**Notes:** Natural language query. Surfaces opinions from actual users and practitioners, not just marketing content. Different signal quality than platform data.
+search: `site:g2.com {{company_name}} alternatives`
 
-### Step 5: G2 Alternatives (SaaS only)
+extract from results:
 
-**Search:** `site:g2.com [company_name] alternatives`
-**Extract:** G2 alternative listings with structured ratings and comparison data.
-**Quality:** 5 | **Consistency:** 3
-**When:** SaaS companies only. Skip for non-software companies (hardware, services, agencies).
-**Notes:** Gold standard for B2B SaaS competitive data. If the company is on G2, this is the most reliable single source.
+- G2 alternative listings with ratings
+- category ranking if visible
 
-### Step 6: Reddit/Community Signal
+skip this step if `{{company_name}}` is not a software company.
 
-**Search:** `[company_name] reddit discussion`
-**Extract:** Community opinions on competitors, switching stories, comparison threads.
-**Quality:** 4 | **Consistency:** 3
-**Notes:** DO NOT use `site:reddit.com` — it's broken. This pattern without the site: operator surfaces Reddit-synthesis articles that aggregate community sentiment.
+### step 5: head-to-head positioning
 
-### Step 7: Head-to-Head Positioning
+search: `{{company_name}} vs {{top_competitor_from_above}}`
 
-**Search:** `[company_name] vs [top competitor from Steps 1-6]`
-**Extract:** Detailed comparison: pricing, features, ideal use case for each, switching stories.
-**Quality:** 5 | **Consistency:** 4
-**When:** Run after Steps 1-6 have identified at least one clear competitor.
-**Notes:** This is where you get positioning depth, not just names.
+extract from results:
 
-### Step 8: Market Map Visual
+- how the two companies differ (pricing, features, ideal customer)
+- which one wins in which scenario
+- three sentence summary of the competitive dynamic
 
-**Search:** `[category] market map 2026`
-**Extract:** Visual or structured market overview showing all players by segment/quadrant.
-**Quality:** 4 | **Consistency:** 3
-**When:** Category is clearly established from earlier steps.
-**Notes:** Surfaces analyst reports, blog market maps, and industry overviews.
+**stop if:** you have clear positioning context for the top 3 competitors. skip to output.
 
-### Step 9: Disambiguation Variant (ambiguous names only)
+### step 6: practitioner opinions
 
-**Search:** `[company_name] [category] competitors`
-**Extract:** Same as Step 1 but with category qualifier to filter noise.
-**Quality:** 4 | **Consistency:** 4
-**When:** Company name is ambiguous and Steps 1-2 returned contaminated results.
-**Notes:** Example: "Clay GTM competitors" vs just "Clay competitors" (which returns pottery results).
+search: `who competes with {{company_name}} {{category}}`
 
-### Step 10: Domain-Anchored Search (Tier 3 or ambiguous names)
+extract from results:
 
-**Search:** `[domain] competitors`
-**Extract:** Competitors identified via domain-based matching.
-**Quality:** 3 | **Consistency:** 4
-**When:** Name disambiguation isn't enough, or company is Tier 3 with minimal web presence.
-**Notes:** Domain is unambiguous 100% of the time. Falls back to this when name-based patterns fail.
+- competitors mentioned by actual users (forums, reddit-synthesis articles, blog comments)
+- any competitors the structured platforms missed
 
-### Step 11: Similar Company Search (Tier 3 fallback)
+### step 7: domain-anchored fallback (use only if steps 1-2 returned noise from an ambiguous name)
 
-**Search:** `[company_name] similar companies`
-**Extract:** Companies described as similar by any source.
-**Quality:** 3 | **Consistency:** 3
-**When:** Tier 3 only. Primary steps returned fewer than 3 competitors.
-**Notes:** Weaker signal than "competitors" or "alternatives" but catches companies that the structured platforms haven't indexed yet.
+search: `{{domain}} competitors`
 
-### Step 12: LinkedIn Competitor Signal (Tier 3 fallback)
+extract from results:
 
-**Search:** `[company_name] LinkedIn similar companies [category]`
-**Extract:** Companies that appear alongside this company in LinkedIn recommendations or shared audiences.
-**Quality:** 3 | **Consistency:** 3
-**When:** Tier 3 only. All other steps returned thin results.
-**Notes:** Last resort. LinkedIn's "similar companies" feature sometimes surfaces competitors that no other platform indexes.
+- competitors identified via domain matching (unambiguous, zero noise)
 
----
+## do not search
 
-## Kill List
+- `{{company_name}} market landscape` — returns industry research papers, not competitors
+- `{{company_name}} competitive intelligence` — returns CI vendor marketing
+- `site:crunchbase.com {{company_name}} competitors` — description matching is inaccurate
+- `{{domain}} competitors site:similarweb.com` — traffic-based, identifies audience sites not competitors
 
-DO NOT use these patterns. They look promising but waste searches:
-
-| Pattern                                    | Why It Fails                                                            |
-| ------------------------------------------ | ----------------------------------------------------------------------- |
-| `[name] market landscape`                  | Returns unrelated industry research papers and market reports           |
-| `[name] competitive intelligence`          | Attracts CI vendor marketing content, not actual competitor data        |
-| `site:crunchbase.com [name] competitors`   | Description-based matching is wildly inaccurate                         |
-| `[domain] competitors site:similarweb.com` | Traffic-based matching identifies audience overlap sites as competitors |
-| `[name] rival companies`                   | Weaker duplicate of "competitors" with lower consistency                |
-
----
-
-## Output Template
+## output
 
 ```
-COMPETITORS (ranked by mention frequency across sources):
-1. [Name] — [one-line positioning] — Sources: [G2, blog, Tracxn, etc.]
-2. [Name] — [one-line positioning] — Sources: [...]
-3. [Name] — [one-line positioning] — Sources: [...]
-4. [Name] — [one-line positioning] — Sources: [...]
-5. [Name] — [one-line positioning] — Sources: [...]
+## competitors for {{company_name}}
 
-COMPETITIVE POSITIONING vs [Top Competitor]:
-- [Company] wins on: [strengths]
-- [Top Competitor] wins on: [strengths]
-- Buyer deciding factor: [what matters most]
+**top competitors:** [competitor a], [competitor b], [competitor c]
 
-MARKET CATEGORY: [derived category name]
-TOTAL COMPETITORS IDENTIFIED: [N]
-CONFIDENCE: [High/Medium/Low] — [why]
+**why these three:**
+- [competitor a] — [one sentence on why they compete directly. what do they share? where do they differ?]
+- [competitor b] — [one sentence on why they compete directly]
+- [competitor c] — [one sentence on why they compete directly]
+
+**also mentioned:** [competitor d], [competitor e], [etc.] — [one sentence on why these are secondary/adjacent competitors]
+
+**how {{company_name}} is positioned:**
+[three sentences max. what's their angle vs the field? where do they win? where are they weaker?]
+
+**sources:** [list of platforms/articles that provided competitor data]
 ```

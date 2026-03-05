@@ -1,108 +1,104 @@
-# Research Process Builder
+# research process builder
 
-Build validated web research processes through self-annealing loops. Takes any research goal, generates search patterns, tests them against real companies, scores accuracy, and iterates until 90%+ reliability.
+build validated web research processes through self-annealing loops. takes any research goal, generates search patterns, tests them against real companies, scores accuracy, and iterates until 90%+ reliability.
 
-**This is the factory that produces research agent prompts.**
+**this is the factory that produces research agent prompts.**
 
-The output is a portable `.md` file with 10-12 numbered steps that any agent (Claude Code, Clay, custom GPT, browser agent) can follow to reliably surface specific intelligence about companies.
+the output is a portable `.md` file with step-by-step search instructions that any agent (Claude Code, Clay/Claygent, custom GPT, browser agent, OpenAI Agents) can follow to reliably surface specific intelligence about companies.
 
-## What's Inside
+## what's inside
 
 ```
-├── SKILL.md                          # The methodology — how to build research processes
+├── SKILL.md                          # the methodology — how to build research processes
 └── processes/
-    ├── find-profiles.md              # 10 steps · 100% accuracy
-    ├── find-competitors.md           # 12 steps · 93% accuracy
-    ├── find-reviews.md               # 12 steps · 95% accuracy
-    ├── find-news.md                  # 12 steps · 90% accuracy
-    └── find-pr-releases.md           # 10 steps · 90% accuracy
+    ├── find-profiles.md              # 5 steps · 100% accuracy
+    ├── find-competitors.md           # 7 steps · 93% accuracy
+    ├── find-reviews.md               # 6 steps · 95% accuracy
+    ├── find-news.md                  # 7 steps · 90% accuracy
+    └── find-pr-releases.md           # 5 steps · 90% accuracy
 ```
 
-## How It Works
+## how it works
 
-The methodology has 6 phases:
+the methodology has 6 phases:
 
-1. **Define the goal** — State what you're looking for and what a "good result" looks like
-2. **Generate 15-20 candidate search patterns** — Parameterized queries like `[company_name] competitors`
-3. **Test patterns against real companies** — 6-10 sample companies across 3 size tiers (enterprise → micro startup)
-4. **Score and classify** — Quality (1-5) × Consistency (1-5). Classify as PRIMARY / ENRICHMENT / FALLBACK / KILL
-5. **Iterate until 90%+** — Identify failure modes, generate fix patterns, retest
-6. **Assemble the process file** — Ordered steps with extract instructions, kill list, output template
+1. **define the goal** — state what you're looking for and what a "good result" looks like
+2. **generate 15-20 candidate search patterns** — parameterized queries like `{{company_name}} competitors`
+3. **test patterns against real companies** — 6-10 sample companies across 3 size tiers (enterprise to micro startup)
+4. **score and classify** — quality (1-5) x consistency (1-5). classify as PRIMARY / ENRICHMENT / FALLBACK / KILL
+5. **iterate until 90%+** — identify failure modes, generate fix patterns, retest
+6. **assemble the process file** — ordered steps with extract instructions, early stopping, kill list, output template
 
-Full methodology is in [SKILL.md](SKILL.md).
+full methodology is in [SKILL.md](SKILL.md).
 
-## The 5 Example Processes
+## the 5 example processes
 
-These were built using the methodology above. 138 patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
+built using the methodology above. 138 patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
 
-| Process                                              | What It Finds                                                                 | Steps | Accuracy |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
-| [find-profiles.md](processes/find-profiles.md)       | Company fact sheet from ZoomInfo, Crunchbase, LinkedIn, PitchBook, Tracxn     | 10    | 100%     |
-| [find-competitors.md](processes/find-competitors.md) | Direct competitors with positioning context                                   | 12    | 93%      |
-| [find-reviews.md](processes/find-reviews.md)         | Customer sentiment, pain points, employee health, platform ratings            | 12    | 95%      |
-| [find-news.md](processes/find-news.md)               | Partnerships, acquisitions, funding, launches, expansions, leadership changes | 12    | 90%      |
-| [find-pr-releases.md](processes/find-pr-releases.md) | Official announcements, press releases, blog posts, wire distributions        | 10    | 90%      |
+| process                                           | what it finds                                                                 | steps | accuracy |
+| ------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
+| [find-profiles](processes/find-profiles.md)       | company fact sheet from zoominfo, crunchbase, linkedin, pitchbook, tracxn     | 5     | 100%     |
+| [find-competitors](processes/find-competitors.md) | direct competitors with positioning and justification                         | 7     | 93%      |
+| [find-reviews](processes/find-reviews.md)         | individual reviews tagged positive/negative with three-sentence summaries     | 6     | 95%      |
+| [find-news](processes/find-news.md)               | partnerships, acquisitions, funding, launches, expansions, leadership changes | 7     | 90%      |
+| [find-pr-releases](processes/find-pr-releases.md) | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
 
-Each process file includes:
+each process file includes:
 
-- Step-by-step search patterns with exact queries
-- What to extract from each search
-- Quality and consistency scores
-- Conditional routing based on company size (Tier 1/2/3)
-- A kill list of patterns that look promising but waste searches
-- A structured output template
+- clear `{{input}}` placeholders you fill in before running
+- step-by-step search patterns with exact queries
+- exact extraction specs (what to pull from each search, three-sentence summaries)
+- **stop if** conditions so the workflow stops when it has enough
+- a kill list of patterns that look promising but waste searches
+- a casual, structured output template
 
-## How to Use the Processes
+## how to use the processes
 
-### With Claude Code
+### with any AI agent (ChatGPT, Claude, etc.)
 
-Drop the process files into your `.claude/skills/` directory. Reference them when researching companies:
+paste the process file content as the system prompt or instructions. fill in the `{{inputs}}`. the agent follows the steps, stops when it has enough, and outputs in the specified format.
+
+### with Clay / Claygent
+
+each step maps to a Clay enrichment column. use the **search** query as your Claygent prompt. the **extract** instructions tell you what to pull from results.
+
+### with Claude Code
+
+drop the process files into your `.claude/skills/` directory. reference them when researching companies:
 
 ```
-"Research [company] using the find-competitors process"
+"research [company] using the find-competitors process"
 ```
 
-### With Clay / Claygent
+## how to build your own processes
 
-Each step maps to a Clay enrichment column. Use the **Search** query as your Claygent prompt. The **Extract** instructions tell you what to pull from results.
+use [SKILL.md](SKILL.md) to build processes for any research goal:
 
-### With Any AI Agent
+- tech stack detection
+- hiring signal monitoring
+- pricing intelligence
+- market sizing
+- content gap analysis
+- anything you can search the web for
 
-The processes are plain markdown. Any agent that can run web searches can follow the steps. Feed the process file as context and provide a company name + domain.
+## key discoveries
 
-## How to Build Your Own Processes
+things we learned testing 138 search patterns:
 
-Use [SKILL.md](SKILL.md) to build processes for any research goal:
+- **`site:reddit.com` is completely broken** — zero results universally. use `[name] reddit discussion` without the site: operator.
+- **year modifiers are the highest-leverage search modifier.** `[name] review 2026` outperforms `[name] review` by a wide margin.
+- **zoominfo + linkedin are the only platforms that cover ALL company sizes**, including 6-month-old startups.
+- **generic company names (Clay, Keep, Cursor, Harvey) need mandatory disambiguation.** add category qualifier or use domain.
+- **kill lists save more time than pattern lists.** knowing which searches to NOT run prevents wasting 30-40% of your search budget.
 
-- Tech stack detection
-- Hiring signal monitoring
-- Pricing intelligence
-- Market sizing
-- Content gap analysis
-- Anything you can search the web for
-
-The methodology works for any repeatable web research task, not just company intelligence.
-
-## Key Discoveries
-
-Things we learned testing 138 search patterns:
-
-- **`site:reddit.com` is completely broken** — zero results universally. Use `[name] reddit discussion` without the site: operator instead.
-- **Year modifiers are the highest-leverage search modifier.** `[name] review 2026` outperforms `[name] review` by a wide margin.
-- **ZoomInfo + LinkedIn are the only platforms that cover ALL company sizes**, including 6-month-old startups that Crunchbase and PitchBook haven't indexed.
-- **Generic company names (Clay, Keep, Cursor, Harvey) require mandatory disambiguation.** Add category qualifier or use domain as anchor.
-- **Company size tiering (Tier 1/2/3) changes which patterns work.** Patterns validated for SpaceX fail for micro startups. Always test across size tiers.
-- **Kill lists save more time than pattern lists.** Knowing which searches to NOT run prevents wasting 30-40% of your search budget.
-
-## Validation Methodology
+## validation
 
 - 138 patterns tested via live web search
 - 11 companies: SpaceX, Cohere, Harvey AI, Cursor, Clay, Lovable, Keep, Cluely, Hoo.be, LeadGrow, The Kiln
-- Companies ranged from $400B+ valuations to micro bootstrapped
-- Each pattern tested against 3-4 companies minimum
-- Scoring: Quality (1-5) × Consistency (1-5), optional Freshness (1-5) for news
-- Two iteration rounds with 25 fix patterns targeting identified failure modes
+- companies ranged from $400B+ to micro bootstrapped
+- each pattern tested against 3-4 companies minimum
+- two iteration rounds with 25 fix patterns targeting identified failure modes
 
-## License
+## license
 
 MIT

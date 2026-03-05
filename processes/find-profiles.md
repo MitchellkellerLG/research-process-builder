@@ -1,174 +1,112 @@
-# Find Third-Party Profiles Process
+# find company profiles
 
-**Goal:** Given a company name and domain, build a company fact sheet from structured data platforms (ZoomInfo, Crunchbase, LinkedIn, PitchBook, Tracxn).
-**Accuracy:** 100% validated across 11 companies (SpaceX to micro startups)
-**Built:** 2026-03-04
-**Methodology:** research-process-builder skill, 18 patterns tested, 0 iterations needed
+build a company fact sheet from structured data platforms. this should run first because it feeds context (category, size, funding) to every other research process.
 
-## What "Good" Looks Like
+## inputs
 
-- Company description, category, and industry identified
-- Employee count and funding data found (or confirmed as unavailable)
-- At least 3 third-party platform profiles located
-- Company size tier determined for routing downstream research
-- For micro companies: existence confirmed even if profiles are thin
+- `{{company_name}}` — the company to research
+- `{{domain}}` — their website domain
+- `{{category}}` — what they do in 2-3 words. required if name is ambiguous.
 
-## Preprocessing
+## steps
 
-### Step 0a: Name Disambiguation
+### step 1: multi-platform sweep
 
-Is the company name ambiguous? (6 chars or fewer, common word, famous namesake)
+search: `{{company_name}} {{category}} company overview`
 
-If YES: construct `disambiguated_name` = `[name] [category]` or use domain.
-If NO: `disambiguated_name` = `company_name`.
+extract from results:
 
-### Step 0b: Note on Size Detection
+- what the company does (one sentence)
+- category / industry
+- employee count range
+- funding stage and total raised (if visible)
+- headquarters location
+- founded year
+- list every third-party platform that has a profile (zoominfo, crunchbase, linkedin, pitchbook, tracxn, owler, cbinsights, g2, etc.)
 
-This process IS the size detection step. The results from Step 1 determine the company's tier. Count profiles found and set the tier before proceeding to other research processes.
+count the platforms found:
 
----
+- 5+ platforms = tier 1 (well-known)
+- 2-4 platforms = tier 2 (some coverage)
+- 0-1 platforms = tier 3 (obscure)
 
-## Steps
+**stop if:** you have a clear description, category, employee count, and funding info. skip to output.
 
-### Step 1: Multi-Platform Sweep
+### step 2: crunchbase funding data
 
-**Search:** `[disambiguated_name] company overview`
-**Extract:** Every platform profile that appears. For each, extract: company description, category, employee count, funding, HQ location, founded year.
-**Quality:** 5 | **Consistency:** 5
-**Notes:** Best multi-platform sweep pattern. A single search returns 4-8 platform profiles simultaneously (ZoomInfo, Crunchbase, LinkedIn, PitchBook, Tracxn, Owler, CBInsights). Count the profiles to determine tier.
+search: `site:crunchbase.com {{company_name}}`
 
-**After this step, set the tier:**
+extract from results:
 
-- 5+ profiles → Tier 1
-- 2-4 profiles → Tier 2
-- 0-1 profiles → Tier 3
+- funding rounds (dates, amounts, lead investors)
+- total raised
+- last round date and type
+- three sentence summary of the funding history
 
-### Step 2: Crunchbase (Funding Data)
+**stop if:** combined with step 1, you have all core profile data. skip to output.
 
-**Search:** `site:crunchbase.com [company_name]`
-**Extract:** Funding rounds (dates, amounts, investors), total raised, last round type, company description, category tags.
-**Quality:** 5 | **Consistency:** 5
-**Notes:** Gold standard for startup funding data. If gated, note "Crunchbase profile exists, data gated." Coverage is excellent for funded companies, poor for bootstrapped micro companies.
+### step 3: zoominfo company intelligence
 
-### Step 3: ZoomInfo (Company Intelligence)
+search: `site:zoominfo.com {{company_name}}`
 
-**Search:** `site:zoominfo.com [company_name]`
-**Extract:** Revenue estimate, employee count, tech stack signals, industry classification, HQ address, SIC/NAICS codes.
-**Quality:** 5 | **Consistency:** 5
-**Notes:** Best coverage across ALL company sizes. ZoomInfo indexes companies that Crunchbase and PitchBook miss entirely. Even 6-month-old startups show up. The only platform that reliably covers micro/bootstrapped companies.
+extract from results:
 
-### Step 4: PitchBook (Valuation and Sector)
+- revenue estimate
+- employee count
+- industry classification
+- three sentence summary of any new info not in steps 1-2
 
-**Search:** `site:pitchbook.com [company_name]`
-**Extract:** Valuation, sector classification, comparable companies, analyst commentary, deal history.
-**Quality:** 4 | **Consistency:** 4
-**When:** Tier 1-2 only. PitchBook has poor coverage for micro companies.
-**Notes:** Strongest for valuation data and sector classification. Comparable companies listed here are often different from G2-style competitors.
+zoominfo covers all company sizes, including startups less than a year old.
 
-### Step 5: Tracxn (Early-Stage Indexing)
+### step 4: linkedin profile
 
-**Search:** `site:tracxn.com [company_name]`
-**Extract:** Sector maps, competitor landscapes, growth signals, funding history, team size.
-**Quality:** 4 | **Consistency:** 4
-**When:** Tier 1-2. Moderate coverage for Tier 3.
-**Notes:** Tracxn excels at early-stage company indexing. Their sector maps and competitor landscapes are particularly useful for understanding market positioning.
+search: `site:linkedin.com/company {{company_name}}`
 
-### Step 6: LinkedIn Company Profile
+extract from results:
 
-**Search:** `site:linkedin.com/company [company_name]`
-**Extract:** Employee count, recent company posts, about section, specialties, headquarters, company size bracket.
-**Quality:** 4 | **Consistency:** 4
-**Notes:** Universal. Every company with employees has a LinkedIn page. The "about" section often has the clearest description of what the company actually does. Employee count here is more current than ZoomInfo.
+- employee count (often more current than other sources)
+- about section text
+- specialties listed
+- three sentence summary of anything new
 
-### Step 7: Company Description (Tier 3 fallback)
+### step 5: company website fallback (only if steps 1-4 returned thin results)
 
-**Search:** `[company_name] official website about`
-**Extract:** Self-described company purpose, team, product description.
-**Quality:** 3 | **Consistency:** 4
-**When:** Primary steps (1-6) returned fewer than 3 profiles. Tier 3 companies.
-**Notes:** Falls back to the company's own website to build the profile. Less structured than platform data but better than nothing.
+search: `{{company_name}} official website about`
 
-### Step 8: Company Description Alternate (Tier 3 fallback)
+extract from results:
 
-**Search:** `[company_name] company description`
-**Extract:** Any third-party description of what the company does.
-**Quality:** 3 | **Consistency:** 3
-**When:** Tier 3 only. Step 7 returned thin results.
-**Notes:** Catches descriptions from directories, partner pages, and industry listings that the major platforms haven't indexed yet.
+- self-described company purpose and product
+- team size indicators
+- three sentence summary
 
-### Step 9: Founder/CEO Biographical Search (Tier 3 fallback)
+only use this for obscure companies where the major platforms have minimal data.
 
-**Search:** `[company_name] founded by [CEO name if known]`
-**Extract:** Founder background, company origin story, founding date, initial product description.
-**Quality:** 4 | **Consistency:** 3
-**When:** Tier 3 only. CEO/founder name is known from earlier steps or provided as input.
-**Notes:** Biographical results are surprisingly rich for obscure companies. Founder profiles on LinkedIn, podcast appearances, and conference talks surface company information that no platform has indexed.
+## do not search
 
-### Step 10: Industry Directory Check (Tier 3 fallback)
+- `site:apollo.io {{company_name}}` — gated data, returns SEO blog posts
+- `{{company_name}} annual report` — useless for private companies
+- `site:stackshare.io {{company_name}}` — only dev tools, not company intel
 
-**Search:** `[company_name] [category] company`
-**Extract:** Any directory listings, industry association memberships, or niche platform profiles.
-**Quality:** 3 | **Consistency:** 3
-**When:** Tier 3 only. All other steps returned minimal results.
-**Notes:** Niche industry directories (e.g., BuiltWith for tech companies, Clutch for agencies) sometimes have profiles that the big platforms don't.
-
----
-
-## Kill List
-
-DO NOT use these patterns:
-
-| Pattern                       | Why It Fails                                                        |
-| ----------------------------- | ------------------------------------------------------------------- |
-| `site:apollo.io [name]`       | Data is gated. Returns SEO blog posts, not company profiles.        |
-| `[name] annual report`        | Useless for private companies. Only public companies publish these. |
-| `site:stackshare.io [name]`   | Only covers developer tools, not company intelligence.              |
-| `site:web.archive.org [name]` | Archive.org doesn't expose snapshots to search crawlers.            |
-
----
-
-## Platform Coverage Reference
-
-| Platform   | Enterprise | Growth Startup | Early Startup    | Micro/Bootstrapped |
-| ---------- | ---------- | -------------- | ---------------- | ------------------ |
-| ZoomInfo   | Excellent  | Excellent      | Good             | Good               |
-| Crunchbase | Excellent  | Excellent      | Good (if funded) | Poor               |
-| PitchBook  | Excellent  | Excellent      | Moderate         | Poor               |
-| Tracxn     | Good       | Excellent      | Good             | Moderate           |
-| LinkedIn   | Excellent  | Excellent      | Good             | Good               |
-| Owler      | Good       | Moderate       | Poor             | Poor               |
-| CBInsights | Excellent  | Good           | Moderate         | Poor               |
-
-**Key takeaway:** ZoomInfo + LinkedIn are the only platforms that reliably cover ALL company sizes.
-
----
-
-## Output Template
+## output
 
 ```
-COMPANY: [name]
-DOMAIN: [domain]
-TIER: [1/2/3 — based on profiles found]
+## company profile: {{company_name}}
 
-DESCRIPTION: [one-liner from best source]
-CATEGORY: [industry/sector classification]
-FOUNDED: [year]
-HQ: [city, state/country]
-EMPLOYEES: [range]
+**domain:** {{domain}}
+**tier:** [1 / 2 / 3]
 
-FUNDING:
-- Stage: [Seed/A/B/C/Public/Bootstrapped]
-- Total raised: [$X]
-- Last round: [$X, date, lead investor]
-- Valuation: [$X or "not disclosed"]
+**what they do:** [one sentence]
+**category:** [industry / sector]
+**founded:** [year]
+**hq:** [city, country]
+**employees:** [range]
 
-PROFILES FOUND:
-- ZoomInfo: [yes/no — URL if found]
-- Crunchbase: [yes/no — URL if found]
-- PitchBook: [yes/no — URL if found]
-- Tracxn: [yes/no — URL if found]
-- LinkedIn: [yes/no — URL if found]
-- Other: [list any additional]
+**funding:**
+- stage: [seed / series a / b / etc. / bootstrapped]
+- total raised: [$X or "not disclosed"]
+- last round: [$X, date, lead investor]
 
-CONFIDENCE: [High/Medium/Low] — [why]
+**profiles found:** [comma separated list, e.g. "zoominfo, crunchbase, linkedin, pitchbook, tracxn"]
+
+**three sentence summary:** [what this company is, what makes them notable, and their current stage/trajectory]
 ```

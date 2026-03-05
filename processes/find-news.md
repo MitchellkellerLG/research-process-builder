@@ -1,174 +1,120 @@
-# Find Recent News Process
+# find recent news
 
-**Goal:** Given a company name and domain, surface everything newsworthy in the last 6-12 months. Partnerships, expansions, acquisitions, funding, product launches, leadership changes, controversies, awards.
-**Accuracy:** 90% validated across 11 companies (SpaceX to micro startups)
-**Built:** 2026-03-04
-**Methodology:** research-process-builder skill, 36 patterns tested across 2 iterations
+surface everything newsworthy about a company in the last 6-12 months. partnerships, funding, acquisitions, product launches, expansions, leadership changes, controversies.
 
-## What "Good" Looks Like
+## inputs
 
-- Multiple event types captured (not just one category of news)
-- Events are from the last 6-12 months (not stale)
-- Sources are credible (news outlets, company blogs, wire services)
-- Company trajectory signal is derivable from the collection of events
-- For Tier 3 companies: absence of news is documented as a signal, not ignored
+- `{{company_name}}` — the company to research
+- `{{domain}}` — their website domain
+- `{{category}}` — what they do in 2-3 words. required if name is ambiguous.
 
-## Preprocessing
+## steps
 
-### Step 0a: Name Disambiguation
+### step 1: general news sweep
 
-Is the company name ambiguous? (6 chars or fewer, common word, famous namesake)
+search: `{{company_name}} {{category}} recent news`
 
-If YES: construct `disambiguated_name` = `[name] [category]` or use domain.
-If NO: `disambiguated_name` = `company_name`.
+extract from results:
 
-### Step 0b: Company Size Detection
+- every distinct news event found
+- for each: date (or recency), event type (partnership/funding/acquisition/launch/expansion/leadership/controversy), and a three sentence summary
+- note which sources covered it
 
-Search: `[company_name] company overview`
+**stop if:** you found 4+ distinct news events covering multiple event types. skip to output.
 
-- 5+ third-party profiles → **Tier 1** → run all 12 steps
-- 2-4 profiles → **Tier 2** → run Steps 1-8
-- 0-1 profiles → **Tier 3** → run Steps 1-4, then jump to Steps 9-12
+### step 2: M&A and funding activity
 
----
+search: `{{company_name}} acquisition OR funding 2025 2026`
 
-## Steps
+extract from results:
 
-### Step 1: General News Sweep
+- any acquisitions (acquired someone or was acquired)
+- any funding rounds (amount, lead investor, date, round type)
+- three sentence summary per event
 
-**Search:** `[disambiguated_name] recent news`
-**Extract:** Scan for ALL event types: acquisitions, partnerships, funding, product launches, leadership moves, expansions, controversies, awards, layoffs.
-**Quality:** 4 | **Consistency:** 4 | **Freshness:** 5
-**Notes:** Most reliable general pattern. Cast the widest net first, then drill into specific event types.
+**stop if:** combined with step 1 you have a clear picture of the company's financial trajectory and you also have non-financial news from step 1. skip to output.
 
-### Step 2: M&A Activity
+### step 3: partnerships and integrations
 
-**Search:** `[company_name] acquisition`
-**Extract:** Has the company acquired anyone? Has the company been acquired? Deal terms, strategic rationale.
-**Quality:** 5 | **Consistency:** 5 | **Freshness:** 5
-**Notes:** Best single news pattern across all company sizes. Catches both directions ("Company acquired X" and "Company was acquired by Y"). Works from SpaceX to The Kiln.
+search: `{{company_name}} partnership OR integration`
 
-### Step 3: Partnership and Integration Intel
+extract from results:
 
-**Search:** `[company_name] partnership`
-**Extract:** Strategic alliances, integration announcements, channel partnerships, co-marketing deals, ecosystem plays.
-**Quality:** 4 | **Consistency:** 4 | **Freshness:** 3
-**Notes:** Partnerships signal company trajectory and ecosystem positioning. A company announcing 5 integrations is in growth mode. A company with zero partnerships may be isolated.
+- strategic alliances, integration announcements, channel partnerships
+- three sentence summary per partnership (who, what, why it matters)
 
-### Step 4: Expansion and Growth Signals
+### step 4: product and expansion news
 
-**Search:** `[company_name] expansion OR "new office" OR "new market"`
-**Extract:** Geographic expansion, new market entry, office openings, international launches, new verticals.
-**Quality:** 4 | **Consistency:** 3 | **Freshness:** 4
-**Notes:** Physical expansion signals are high-confidence growth indicators. Opening a London office = serious about EMEA. Entering healthcare = vertical expansion.
+search: `{{company_name}} launches OR "new feature" OR expansion 2025 2026`
 
-### Step 5: Leadership and Strategic Narrative
+extract from results:
 
-**Search:** `[company_name] CEO interview`
-**Extract:** CEO/founder quotes about company direction, growth plans, market positioning. Also catches leadership changes, new C-suite hires, board appointments.
-**Quality:** 4 | **Consistency:** 4 | **Freshness:** 3
-**Notes:** Underrated. CEO interviews contain strategic narrative that press releases don't. Look for quotes about future direction, not just past achievements.
+- product launches, feature releases, geographic expansion, new offices, new markets
+- three sentence summary per event
 
-### Step 6: Product and Launch News
+**stop if:** you have a solid mix of news across event types. skip to output.
 
-**Search:** `[company_name] launches OR "new feature" OR "product update" 2025 2026`
-**Extract:** Product launches, major feature releases, platform updates, version announcements, pricing changes.
-**Quality:** 4 | **Consistency:** 3 | **Freshness:** 5
-**Notes:** Year range ensures freshness. Product velocity is a health signal. Companies shipping features are alive and investing.
+### step 5: leadership and strategic narrative
 
-### Step 7: Year-Anchored News
+search: `{{company_name}} CEO interview OR "new hire" OR leadership`
 
-**Search:** `[company_name] news 2026`
-**Extract:** Anything from the current year that Steps 1-6 missed.
-**Quality:** 4 | **Consistency:** 3 | **Freshness:** 5
-**Notes:** Broad net with year filter. Supplements Step 1. Strong for Tier 1 brands where there's a lot of coverage.
+extract from results:
 
-### Step 8: Funding Activity
+- CEO/founder quotes about company direction
+- new C-suite hires or departures
+- three sentence summary per event
 
-**Search:** `[company_name] funding round 2025 2026`
-**Extract:** Last round date, amount raised, lead investor, valuation, round type (seed, A, B, etc.).
-**Quality:** 4 | **Consistency:** 3 | **Freshness:** 5
-**Notes:** Funding recency is a major health signal. Raised 6 months ago = growth mode. Raised 3 years ago with no new round = either profitable or struggling. No funding ever = bootstrapped or pre-revenue.
+### step 6: tech press (only if the company is VC-backed / well-known)
 
-### Step 9: Tech Press Deep-Dive (Tier 1 only)
+search: `{{company_name}} site:techcrunch.com`
 
-**Search:** `[company_name] site:techcrunch.com`
-**Extract:** TechCrunch coverage. Funding announcements, product launches, industry analysis.
-**Quality:** 4 | **Consistency:** 3 | **Freshness:** 4
-**When:** Tier 1 (VC-backed startups with press coverage). Skip for Tier 2-3.
+extract from results:
 
-**Supplement:** `[company_name] site:venturebeat.com`
-**When:** AI and enterprise SaaS companies specifically. VentureBeat has better coverage than TechCrunch for this segment.
+- any coverage not already found
+- three sentence summary per article
 
-**Supplement:** `[company_name] revenue growth`
-**When:** Companies that publicly disclose ARR/revenue figures.
+skip if the company is small or bootstrapped.
 
-### Step 10: Activity Signal via Social (Tier 3 fallback)
+### step 7: activity signals (only if steps 1-5 returned almost nothing)
 
-**Search:** `[company_name] LinkedIn posts recent`
-**Extract:** Recent LinkedIn activity from company page or founders. Posting frequency, topic focus, engagement levels.
-**Quality:** 3 | **Consistency:** 3 | **Freshness:** 4
-**When:** Tier 3 only. Primary news steps returned thin/no results.
-**Notes:** For companies with no press coverage, social activity is the best proxy for "are they alive and active?"
+for obscure companies where traditional news sources have nothing.
 
-### Step 11: Hiring Signal (Tier 3 fallback)
+search: `{{company_name}} hiring OR "linkedin posts" OR blog`
 
-**Search:** `[company_name] hiring`
-**Extract:** Open positions, hiring velocity, roles being filled (engineering = building, sales = scaling, support = retention).
-**Quality:** 3 | **Consistency:** 4 | **Freshness:** 4
-**When:** Tier 3 only. Company has minimal press coverage.
-**Notes:** Hiring is the strongest company health proxy for obscure companies. A company with 5 open roles is alive and growing. Zero open roles for 6+ months is a warning sign.
+extract from results:
 
-### Step 12: Existence Verification (Tier 3 fallback)
+- hiring activity (open roles = alive and growing)
+- recent social or blog posts from the company
+- three sentence summary of activity signal
 
-**Search:** `[domain]` (bare domain search)
-**Extract:** Confirm the company still exists and the website is live. Check for any mentions at all.
-**Quality:** 3 | **Consistency:** 5 | **Freshness:** 3
-**When:** Tier 3 only. All other steps returned near-zero results.
+if even this returns nothing, that's the finding. "no news coverage found" is a signal, not a failure.
 
-**Supplement:** `[company_name] blog post`
-**Extract:** Self-published content. A recent blog post = active company.
+## do not search
 
-**Key insight:** For companies with no press coverage, the ABSENCE of results from Steps 1-8 is itself a signal. Document it. "No news coverage found" is a finding, not a failure.
+- `site:businessinsider.com {{company_name}}` — zero results for startups
+- `site:reuters.com {{company_name}}` — useless below unicorn tier
+- `{{company_name}} breaking news` — identical to "news", wastes a search
+- `{{company_name}} launch` — ambiguous (SpaceX literally launches rockets)
 
----
-
-## Kill List
-
-DO NOT use these patterns:
-
-| Pattern                                          | Why It Fails                                        |
-| ------------------------------------------------ | --------------------------------------------------- |
-| `site:businessinsider.com [name]`                | Zero results for all startups tested                |
-| `site:reuters.com [name]`                        | Useless below unicorn tier                          |
-| `[name] breaking news`                           | Identical results to plain "news" — wastes a search |
-| `[name] launch`                                  | Ambiguous (SpaceX literally launches rockets)       |
-| `site:crunchbase.com/organization [name]`        | Returns data directory page, not news               |
-| `[name] job openings 2026` with generic category | Too broad, returns job board SEO pages              |
-
----
-
-## Output Template
+## output
 
 ```
-RECENT NEWS (last 6-12 months):
+## recent news for {{company_name}}
 
-[Date/Recency] — [EVENT TYPE] — [Headline/summary] — [Source]
-[Date/Recency] — [EVENT TYPE] — [Headline/summary] — [Source]
-[Date/Recency] — [EVENT TYPE] — [Headline/summary] — [Source]
-...
+**company trajectory:** [growing / stable / declining / pivoting / too early to tell]
 
-EVENT TYPES DETECTED:
-- Acquisitions: [yes/no — details]
-- Partnerships: [yes/no — details]
-- Funding: [yes/no — details]
-- Product launches: [yes/no — details]
-- Expansion/new offices: [yes/no — details]
-- Leadership changes: [yes/no — details]
-- Controversies: [yes/no — details]
-- Awards/recognition: [yes/no — details]
+**news events:**
 
-COMPANY TRAJECTORY: [Growing / Stable / Declining / Pivoting / Unknown]
-EVIDENCE: [2-3 sentences explaining trajectory assessment]
-CONFIDENCE: [High/Medium/Low] — [why]
+1. [date or recency] — [event type] — [three sentence summary of what happened, why it matters, and what it signals]
+
+2. [date or recency] — [event type] — [three sentence summary]
+
+3. [date or recency] — [event type] — [three sentence summary]
+
+(continue for all distinct events found)
+
+**event types found:** [comma separated, e.g. "funding, partnerships, product launches"]
+**event types not found:** [comma separated, e.g. "acquisitions, controversies"]
+
+**what this tells us:** [two sentences on the company's current state and direction based on the news pattern]
 ```
