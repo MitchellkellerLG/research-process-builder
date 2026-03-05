@@ -7,6 +7,7 @@ surface indicators of active investment and growth: content output, marketing in
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain (required for site: searches)
 - `{{category}}` — what they do in 2-3 words. required if the company name is a common word or 6 characters or fewer.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
 
 ## steps
 
@@ -30,7 +31,7 @@ companies with blog + pricing + demo booking + newsletter = mature growth engine
 
 ### step 2: blog and content activity
 
-search: `{{company_name}} {{category}} blog 2026`
+search: `{{company_name}} {{category}} blog {{current_year}}`
 
 this catches both the company's own blog posts AND third-party coverage about them. the year filter ensures recency.
 
@@ -72,7 +73,7 @@ companies that run newsletters are investing in owned audience. this is a strong
 
 ### step 5: podcast, webinar, and event activity
 
-search: `{{company_name}} podcast OR webinar OR event OR conference 2026`
+search: `{{company_name}} podcast OR webinar OR event OR conference {{current_year}}`
 
 extract from results:
 
@@ -87,7 +88,7 @@ companies appearing on podcasts and hosting webinars = active demand gen. this i
 
 ### step 6: year-filtered activity fallback (only if steps 1-2 were thin)
 
-search: `{{company_name}} {{category}} 2026`
+search: `{{company_name}} {{category}} {{current_year}}`
 
 extract from results:
 

@@ -7,6 +7,7 @@ surface who a company is currently hiring for — roles, departments, seniority 
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain
 - `{{category}}` — what they do in 2-3 words. required if the company name is a common word or 6 characters or fewer.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
 
 ## steps
 
@@ -59,7 +60,7 @@ extract from results:
 
 ### step 4: year-filtered hiring activity (skip for very small companies)
 
-search: `{{company_name}} hiring 2026`
+search: `{{company_name}} hiring {{current_year}}`
 
 extract from results:
 

@@ -33,6 +33,7 @@ This is the factory that produces research agent prompts. The output is a portab
 | Find third-party profiles | `processes/find-profiles.md`       | 5     | 100%     |
 | Find hiring activity      | `processes/find-hiring.md`         | 5     | 93%      |
 | Find growth signals       | `processes/find-growth-signals.md` | 6     | 90%      |
+| Find customer negativity  | `processes/find-negativity.md`     | 6     | 90%      |
 
 ---
 
@@ -216,6 +217,8 @@ Take the surviving patterns and arrange them into a numbered step sequence.
 
 [Structured output the agent should produce]
 ```
+
+**Year references:** Never hardcode the year in search queries. Use `{{current_year}}` as an input variable so the process stays valid across years. In Clay, populate it from a formula column: `YEAR({Created At})`.
 
 **Ordering rules:**
 

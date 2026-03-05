@@ -17,7 +17,8 @@ the output is a portable `.md` file with step-by-step search instructions that a
     ├── find-news.md                  # 7 steps · 90% accuracy
     ├── find-pr-releases.md           # 5 steps · 90% accuracy
     ├── find-hiring.md                # 5 steps · 93% accuracy
-    └── find-growth-signals.md        # 6 steps · 90% accuracy
+    ├── find-growth-signals.md        # 6 steps · 90% accuracy
+    └── find-negativity.md            # 6 steps · 90% accuracy
 ```
 
 ## how it works
@@ -33,9 +34,9 @@ the methodology has 6 phases:
 
 full methodology is in [SKILL.md](SKILL.md).
 
-## the 7 example processes
+## the 8 example processes
 
-built using the methodology above. 170+ patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
+built using the methodology above. 190+ patterns tested across 11 companies ranging from SpaceX ($400B+) to micro bootstrapped agencies.
 
 | process                                                 | what it finds                                                                 | steps | accuracy |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------- |
@@ -46,6 +47,7 @@ built using the methodology above. 170+ patterns tested across 11 companies rang
 | [find-pr-releases](processes/find-pr-releases.md)       | official announcements, press releases, blog posts, wire distributions        | 5     | 90%      |
 | [find-hiring](processes/find-hiring.md)                 | open roles, departments hiring, ATS platform, hiring velocity                 | 5     | 93%      |
 | [find-growth-signals](processes/find-growth-signals.md) | blog activity, lead magnets, social presence, newsletters, pricing maturity   | 6     | 90%      |
+| [find-negativity](processes/find-negativity.md)         | customer complaints, negative reviews, controversy, churn signals             | 6     | 90%      |
 
 each process file includes:
 
@@ -99,10 +101,13 @@ things we learned testing 170+ search patterns:
 - **OR operators in a single query are powerful.** `[name] alternatives OR competitors OR "vs"` catches 3 result types in one search, tested Q4.75/C4.75.
 - **wellfound (formerly angellist) is the T3 lifeline for hiring data.** small startups without greenhouse/lever/ashby pages still have wellfound profiles with employee count, funding, and industry tags.
 - **`site:[domain]` with OR operators is the most efficient growth signal detector.** a single query like `site:[domain] blog OR pricing OR newsletter OR demo` catches 4+ signal types in one search.
+- **churn-signal searches are a trap.** `[name] "switched from" OR "left" OR "cancelled"` returns marketing content about people switching TO the tool, not FROM it. tested Q2/C1.
+- **"do not recommend" and "waste of money" searches return nothing.** people don't use these exact phrases in searchable contexts. use `[name] complaints OR problems` instead.
+- **never hardcode the year in process files.** use `{{current_year}}` as an input variable so processes stay valid across years. in Clay, populate from `YEAR({Created At})`.
 
 ## validation
 
-- 170+ patterns tested via live web search
+- 190+ patterns tested via live web search
 - 11 companies: SpaceX, Cohere, Harvey AI, Cursor, Clay, Lovable, Keep, Cluely, Hoo.be, LeadGrow, The Kiln
 - companies ranged from $400B+ to micro bootstrapped
 - each pattern tested against 3-4 companies minimum

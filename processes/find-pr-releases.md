@@ -7,6 +7,7 @@ surface official company communications: press releases, blog announcements, wir
 - `{{company_name}}` — the company to research
 - `{{domain}}` — their website domain (required for site: searches)
 - `{{category}}` — what they do in 2-3 words. required if name is ambiguous.
+- `{{current_year}}` — the current year (e.g. 2026). in Clay, use a formula column: `YEAR({Created At})`.
 
 ## steps
 
@@ -60,7 +61,7 @@ if no results, try: `{{company_name}} site:prnewswire.com`
 
 ### step 5: year-filtered press releases
 
-search: `{{company_name}} press release 2026`
+search: `{{company_name}} press release {{current_year}}`
 
 extract from results:
 
