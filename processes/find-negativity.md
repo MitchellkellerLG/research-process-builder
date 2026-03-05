@@ -21,7 +21,7 @@ this single query catches customer complaints, negative review roundups, problem
 extract from results:
 
 - every distinct complaint or negative point mentioned
-- for each: the source (review site, blog, press, BBB, social), the severity (minor gripe vs deal-breaker), and a three sentence summary of the specific complaint
+- for each: the source with URL (review site, blog, press, BBB, social), the severity (minor gripe vs deal-breaker), and a three sentence summary of the specific complaint
 - tag each as: pricing, product quality, customer support, reliability, security, billing, or other
 - note whether the complaint appears recent (last 12 months) or historical
 - overall sentiment signal from the results (isolated complaints vs widespread frustration)
@@ -143,5 +143,7 @@ if even this returns nothing, that's the finding. "no significant customer negat
 **what this tells us:**
 [three sentences. is the negativity about the product itself, the business practices, or external factors? is the company actively losing customer trust, or are these growing pains? how could this negativity be used in competitive positioning or sales conversations?]
 
-**sources:** [list of platforms and articles where negativity was found]
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```

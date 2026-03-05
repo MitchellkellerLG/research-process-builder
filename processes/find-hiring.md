@@ -19,7 +19,7 @@ extract from results:
 
 - careers page URL (if found)
 - every open role mentioned with title and department
-- which job boards have listings (Indeed, Glassdoor, LinkedIn, Built In, Wellfound, etc.)
+- which job boards have listings (Indeed, Glassdoor, LinkedIn, Built In, Wellfound, etc.) — include URLs
 - total number of open positions (if visible)
 - any hiring signals (e.g. "now hiring", headcount mentioned in press)
 - three sentence summary of what they're hiring for and at what scale
@@ -114,5 +114,7 @@ if even this returns nothing, that's the finding. "no active hiring detected" is
 **hiring signals:**
 [two sentences. what does the hiring pattern tell you? are they scaling engineering? building out sales? expanding to new markets?]
 
-**sources:** [list of job boards and platforms where listings were found]
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```

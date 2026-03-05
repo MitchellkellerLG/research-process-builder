@@ -19,7 +19,7 @@ search: `{{company_name}} {{category}} review {{current_year}}`
 extract from results:
 
 - every distinct review or review summary found
-- for each: the source, whether it's positive or negative, and a three sentence summary of what the reviewer said
+- for each: the source (include URL), whether it's positive or negative, and a three sentence summary of what the reviewer said
 - overall sentiment signal (mostly positive, mixed, mostly negative)
 
 **stop if:** you found 5+ distinct reviews with clear sentiment. skip to output.
@@ -32,7 +32,7 @@ extract from results:
 
 - specific complaints (not just "it's bad" but what exactly is bad)
 - recurring frustration patterns
-- for each complaint: source, and a three sentence summary
+- for each complaint: source (include URL), and a three sentence summary
 
 ### step 3: employee health signal
 
@@ -106,17 +106,21 @@ extract from results:
 
 **customer reviews:**
 
-1. [positive] — [source: g2/trustpilot/blog/etc.] — [three sentence summary of what the reviewer said, what they liked or didn't, and their conclusion]
+1. [positive] — [source name](url) — [three sentence summary of what the reviewer said, what they liked or didn't, and their conclusion]
 
-2. [negative] — [source] — [three sentence summary]
+2. [negative] — [source name](url) — [three sentence summary]
 
-3. [positive] — [source] — [three sentence summary]
+3. [positive] — [source name](url) — [three sentence summary]
 
 (continue for all distinct reviews found)
 
 **employee reviews:**
 
-1. [positive/negative/mixed] — [source: glassdoor] — rating: [X/5], CEO approval: [X%]. [three sentence summary of recurring pro and con themes]
+1. [positive/negative/mixed] — [source name](url) — rating: [X/5], CEO approval: [X%]. [three sentence summary of recurring pro and con themes]
 
 **key takeaway:** [two sentences. what's the dominant signal? any gap between customer and employee sentiment?]
+
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```

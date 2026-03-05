@@ -20,7 +20,7 @@ this single query catches competitor lists, "alternatives to" roundups, and head
 extract from results:
 
 - every company named as a competitor or alternative
-- which source mentioned them (G2, blog, Tracxn, company's own site, etc.)
+- which source mentioned them (G2, blog, Tracxn, company's own site, etc.) — include the URL
 - one sentence on what each competitor does
 - if any results come from `{{domain}}` itself (the company's own comparison or "vs" pages), flag those — the company naming its own competitors is the highest-signal source
 
@@ -112,5 +112,7 @@ extract from results:
 **how {{company_name}} is positioned:**
 [three sentences max. what's their angle vs the field? where do they win? where are they weaker?]
 
-**sources:** [list of platforms/articles that provided competitor data]
+**sources:**
+- [source name](url) — what it provided
+- [source name](url) — what it provided
 ```

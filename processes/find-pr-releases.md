@@ -18,7 +18,7 @@ search: `{{company_name}} {{category}} announces`
 extract from results:
 
 - every official announcement found
-- for each: date, title, source (company blog / wire service / news outlet), and a three sentence summary of what was announced
+- for each: date, title, source with URL (company blog / wire service / news outlet), and a three sentence summary of what was announced
 - note the announcement cadence (how frequently do they announce things?)
 
 **stop if:** you found 3+ official announcements with dates and summaries. skip to output.
@@ -89,13 +89,17 @@ extract from results:
 
 **recent releases:**
 
-1. [date] — [source: blog/wire/newsroom] — [three sentence summary of what was announced, the key details, and why it matters]
+1. [date] — [source name](url) — [three sentence summary of what was announced, the key details, and why it matters]
 
-2. [date] — [source] — [three sentence summary]
+2. [date] — [source name](url) — [three sentence summary]
 
-3. [date] — [source] — [three sentence summary]
+3. [date] — [source name](url) — [three sentence summary]
 
 (continue for all releases found)
 
 **last known communication:** [date or "unknown"]
+
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```

@@ -19,7 +19,7 @@ extract from results:
 
 - every distinct news event found
 - for each: date (or recency), event type (partnership/funding/acquisition/launch/expansion/leadership/controversy), and a three sentence summary
-- note which sources covered it
+- note which sources covered it (include URLs)
 
 **stop if:** you found 4+ distinct news events covering multiple event types. skip to output.
 
@@ -117,4 +117,8 @@ if even this returns nothing, that's the finding. "no news coverage found" is a 
 **event types not found:** [comma separated, e.g. "acquisitions, controversies"]
 
 **what this tells us:** [two sentences on the company's current state and direction based on the news pattern]
+
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```

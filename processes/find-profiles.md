@@ -22,7 +22,7 @@ extract from results:
 - funding stage and total raised (if visible)
 - headquarters location
 - founded year
-- list every third-party platform that has a profile (zoominfo, crunchbase, linkedin, rocketreach, pitchbook, tracxn, owler, cbinsights, g2, etc.)
+- list every third-party platform that has a profile (zoominfo, crunchbase, linkedin, rocketreach, pitchbook, tracxn, owler, cbinsights, g2, etc.) — include the URL for each
 
 count the platforms found:
 
@@ -126,4 +126,8 @@ only use this for obscure companies where the major platforms have minimal data.
 **profiles found:** [comma separated list, e.g. "zoominfo, crunchbase, linkedin, pitchbook, tracxn"]
 
 **three sentence summary:** [what this company is, what makes them notable, and their current stage/trajectory]
+
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```

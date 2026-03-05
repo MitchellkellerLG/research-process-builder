@@ -50,7 +50,7 @@ search: `{{company_name}} {{category}} site:twitter.com OR site:x.com OR site:in
 
 extract from results:
 
-- every social account found (handle and platform)
+- every social account found (handle, platform, and URL)
 - follower count if visible in search snippet
 - most recent post topic if visible
 - three sentence summary of social presence and activity level
@@ -128,4 +128,8 @@ extract from results:
 
 **what this tells us:**
 [three sentences. what growth stage are they in based on these signals? are they actively investing in demand gen, or is growth happening through other channels (product-led, partnerships, word of mouth)? what's the gap between their product maturity and their marketing maturity?]
+
+**sources:**
+- [source name](url) — what was found there
+- [source name](url) — what was found there
 ```
