@@ -8,13 +8,12 @@ surface customer and employee reviews for a company. each review is its own item
 - `{{domain}}` — their website domain
 - `{{category}}` — what they do in 2-3 words. required if name is ambiguous.
 - `{{company_type}}` — one of: `b2b saas`, `b2c consumer`, `enterprise b2b`, `dev tool`, `agency/services`. determines which review platforms to check.
-- `{{current_year}}` — the current year (e.g. 2026). in Clay: `YEAR({Created At})`.
 
 ## steps
 
 ### step 1: general review sweep
 
-search: `{{company_name}} {{category}} review {{current_year}}`
+search: `{{company_name}} {{category}} review`
 
 extract from results:
 
