@@ -1,0 +1,221 @@
+{
+  "description": "Do-Not-Search stress test — all 37 patterns from process 'do not search' sections",
+  "test_companies": [
+    {
+      "company_name": "Clay",
+      "domain": "clay.com",
+      "category": "GTM data enrichment",
+      "disambiguation_needed": true,
+      "role_title": "Solutions Engineer"
+    },
+    {
+      "company_name": "Cursor",
+      "domain": "cursor.com",
+      "category": "AI code editor",
+      "disambiguation_needed": true,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "ClickUp",
+      "domain": "clickup.com",
+      "category": "project management",
+      "disambiguation_needed": false,
+      "role_title": "Product Manager"
+    },
+    {
+      "company_name": "SpaceX",
+      "domain": "spacex.com",
+      "category": "aerospace",
+      "disambiguation_needed": false,
+      "role_title": "Propulsion Engineer"
+    },
+    {
+      "company_name": "Lovable",
+      "domain": "lovable.dev",
+      "category": "AI app builder",
+      "disambiguation_needed": false,
+      "role_title": "Full Stack Engineer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "dns_reviews",
+      "name": "Do-Not-Search: Reviews",
+      "source_process": "find-reviews.md",
+      "variants": [
+        {
+          "id": "reddit_review",
+          "template": "{{company_name}} review site:reddit.com"
+        },
+        {
+          "id": "reddit_experience",
+          "template": "{{company_name}} experience site:reddit.com"
+        },
+        { "id": "nps_score", "template": "{{company_name}} NPS score" },
+        {
+          "id": "sourceforge",
+          "template": "{{company_name}} reviews site:sourceforge.net"
+        }
+      ]
+    },
+    {
+      "id": "dns_profiles",
+      "name": "Do-Not-Search: Profiles",
+      "source_process": "find-profiles.md",
+      "variants": [
+        { "id": "apollo", "template": "site:apollo.io {{company_name}}" },
+        {
+          "id": "rocketreach_wrong_tld",
+          "template": "site:rocketreach.com {{company_name}}"
+        },
+        { "id": "annual_report", "template": "{{company_name}} annual report" },
+        {
+          "id": "stackshare",
+          "template": "site:stackshare.io {{company_name}}"
+        }
+      ]
+    },
+    {
+      "id": "dns_pr_releases",
+      "name": "Do-Not-Search: PR Releases",
+      "source_process": "find-pr-releases.md",
+      "variants": [
+        { "id": "media_release", "template": "{{company_name}} media release" },
+        {
+          "id": "official_announcement",
+          "template": "{{company_name}} official announcement"
+        },
+        {
+          "id": "annual_report_pr",
+          "template": "{{company_name}} annual report"
+        },
+        { "id": "apollo_pr", "template": "site:apollo.io {{company_name}}" }
+      ]
+    },
+    {
+      "id": "dns_competitors",
+      "name": "Do-Not-Search: Competitors",
+      "source_process": "find-competitors.md",
+      "variants": [
+        {
+          "id": "market_landscape",
+          "template": "{{company_name}} market landscape"
+        },
+        {
+          "id": "competitive_intelligence",
+          "template": "{{company_name}} competitive intelligence"
+        },
+        {
+          "id": "crunchbase_competitors",
+          "template": "site:crunchbase.com {{company_name}} competitors"
+        },
+        {
+          "id": "similarweb",
+          "template": "{{domain}} competitors site:similarweb.com"
+        }
+      ]
+    },
+    {
+      "id": "dns_news",
+      "name": "Do-Not-Search: News",
+      "source_process": "find-news.md",
+      "variants": [
+        {
+          "id": "businessinsider",
+          "template": "site:businessinsider.com {{company_name}}"
+        },
+        { "id": "reuters", "template": "site:reuters.com {{company_name}}" },
+        { "id": "breaking_news", "template": "{{company_name}} breaking news" }
+      ]
+    },
+    {
+      "id": "dns_growth",
+      "name": "Do-Not-Search: Growth Signals",
+      "source_process": "find-growth-signals.md",
+      "variants": [
+        {
+          "id": "newsletter",
+          "template": "{{company_name}} {{category}} newsletter"
+        },
+        {
+          "id": "social_media_all",
+          "template": "{{company_name}} social media twitter youtube instagram"
+        },
+        {
+          "id": "site_youtube",
+          "template": "site:youtube.com {{company_name}}"
+        },
+        {
+          "id": "youtube_channel",
+          "template": "{{company_name}} youtube channel"
+        },
+        {
+          "id": "marketing_strategy",
+          "template": "{{company_name}} marketing strategy"
+        },
+        { "id": "google_ads", "template": "{{company_name}} google ads" },
+        {
+          "id": "fb_ads_library",
+          "template": "site:facebook.com/ads/library {{company_name}}"
+        }
+      ]
+    },
+    {
+      "id": "dns_job_role",
+      "name": "Do-Not-Search: Job Role Insights",
+      "source_process": "find-job-role-insights.md",
+      "variants": [
+        {
+          "id": "linkedin_jobs",
+          "template": "site:linkedin.com/jobs {{company_name}}"
+        },
+        {
+          "id": "role_salary",
+          "template": "{{company_name}} \"{{role_title}}\" salary"
+        },
+        {
+          "id": "role_interview",
+          "template": "{{company_name}} \"{{role_title}}\" interview questions"
+        }
+      ]
+    },
+    {
+      "id": "dns_hiring",
+      "name": "Do-Not-Search: Hiring",
+      "source_process": "find-hiring.md",
+      "variants": [
+        {
+          "id": "jobs_linkedin",
+          "template": "{{company_name}} jobs site:linkedin.com"
+        },
+        {
+          "id": "glassdoor_salary",
+          "template": "{{company_name}} glassdoor salary"
+        },
+        { "id": "internships", "template": "{{company_name}} internships" },
+        { "id": "remote_jobs", "template": "{{company_name}} remote jobs" }
+      ]
+    },
+    {
+      "id": "dns_negativity",
+      "name": "Do-Not-Search: Negativity",
+      "source_process": "find-negativity.md",
+      "variants": [
+        {
+          "id": "switched_from",
+          "template": "{{company_name}} \"switched from\" OR \"left\" OR \"cancelled\""
+        },
+        {
+          "id": "do_not_recommend",
+          "template": "{{company_name}} \"do not recommend\" OR \"not worth\" OR \"waste of money\""
+        },
+        {
+          "id": "controversy_bare",
+          "template": "{{company_name}} controversy"
+        },
+        { "id": "nps_score_neg", "template": "{{company_name}} NPS score" },
+        { "id": "churn_rate", "template": "{{company_name}} churn rate" }
+      ]
+    }
+  ]
+}

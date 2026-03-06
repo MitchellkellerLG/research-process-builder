@@ -5,12 +5,16 @@ Tests search query patterns against real companies via Serper.dev API.
 Scores results automatically. Stores everything for analysis.
 
 Usage:
-    py scripts/pattern_tester.py                          # run all ~1000 searches
+    py scripts/pattern_tester.py                          # run all patterns from default config
     py scripts/pattern_tester.py --dry-run                # preview queries only
     py scripts/pattern_tester.py --category tech_stack    # single category
     py scripts/pattern_tester.py --company Clay           # single company
     py scripts/pattern_tester.py --report                 # classification table
     py scripts/pattern_tester.py --generate-doc           # generate serper-patterns.md
+
+    # Round 2 modes:
+    py scripts/pattern_tester.py --config dns_patterns.json --output ../searches/raw-results-dns.json
+    py scripts/pattern_tester.py --config combo_patterns.json --output ../searches/raw-results-combo.json
 """
 
 import json
@@ -67,6 +71,7 @@ class PatternExpander:
         query = query.replace("{{domain}}", company["domain"])
         query = query.replace("{{category}}", company["category"])
         query = query.replace("{{current_year}}", str(datetime.now().year))
+        query = query.replace("{{role_title}}", company.get("role_title", "Software Engineer"))
         return query
 
 
@@ -436,23 +441,30 @@ def generate_doc(results: list, config: dict):
 # ---------------------------------------------------------------------------
 
 def run(args):
-    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+    config_path = SCRIPT_DIR / (args.config if args.config else "patterns_config.json")
+    results_path = Path(args.output).resolve() if args.output else RESULTS_FILE
+
+    # Handle relative output paths from script dir
+    if args.output and not Path(args.output).is_absolute():
+        results_path = (SCRIPT_DIR / args.output).resolve()
+
+    with open(config_path, "r", encoding="utf-8") as f:
         config = json.load(f)
 
     if args.report:
-        store = ResultStore(RESULTS_FILE)
+        store = ResultStore(results_path)
         results = store.get_all()
         if not results:
-            print("No results found. Run tests first.")
+            print(f"No results found in {results_path}. Run tests first.")
             return
         generate_report(results)
         return
 
     if args.generate_doc:
-        store = ResultStore(RESULTS_FILE)
+        store = ResultStore(results_path)
         results = store.get_all()
         if not results:
-            print("No results found. Run tests first.")
+            print(f"No results found in {results_path}. Run tests first.")
             return
         generate_doc(results, config)
         return
@@ -460,7 +472,7 @@ def run(args):
     # Test run
     expander = PatternExpander()
     scorer = AutoScorer()
-    store = ResultStore(RESULTS_FILE)
+    store = ResultStore(results_path)
 
     total = 0
     skipped = 0
@@ -491,7 +503,8 @@ def run(args):
                 try:
                     search_mode = variant.get("search_mode", "web")
                     is_news = search_mode == "news"
-                    raw = serper_search.search(query=query, news=is_news)
+                    tbs = variant.get("tbs")
+                    raw = serper_search.search(query=query, news=is_news, tbs=tbs)
                     scores = scorer.score(raw, category["id"], company)
                     store.save(category["id"], variant["id"], company["company_name"], query, raw, scores)
                     run_count += 1
@@ -529,6 +542,8 @@ def main():
     parser.add_argument("--company", type=str, help="Run single company only")
     parser.add_argument("--report", action="store_true", help="Print classification report")
     parser.add_argument("--generate-doc", action="store_true", help="Generate serper-patterns.md")
+    parser.add_argument("--config", type=str, help="Config file (default: patterns_config.json)")
+    parser.add_argument("--output", type=str, help="Results output file (default: searches/raw-results.json)")
     args = parser.parse_args()
     run(args)
 

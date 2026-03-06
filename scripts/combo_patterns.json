@@ -1,0 +1,260 @@
+{
+  "description": "Round 2 optimization — combined boolean queries with advanced operators. Goal: ONE best search per category.",
+  "test_companies": [
+    {
+      "company_name": "Clay",
+      "domain": "clay.com",
+      "category": "GTM data enrichment",
+      "disambiguation_needed": true,
+      "role_title": "Solutions Engineer"
+    },
+    {
+      "company_name": "Cursor",
+      "domain": "cursor.com",
+      "category": "AI code editor",
+      "disambiguation_needed": true,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "ClickUp",
+      "domain": "clickup.com",
+      "category": "project management",
+      "disambiguation_needed": false,
+      "role_title": "Product Manager"
+    },
+    {
+      "company_name": "SpaceX",
+      "domain": "spacex.com",
+      "category": "aerospace",
+      "disambiguation_needed": false,
+      "role_title": "Propulsion Engineer"
+    },
+    {
+      "company_name": "Lovable",
+      "domain": "lovable.dev",
+      "category": "AI app builder",
+      "disambiguation_needed": false,
+      "role_title": "Full Stack Engineer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "company_profile",
+      "name": "Company Profile / Overview",
+      "variants": [
+        {"id": "combo_rocketreach_crunchbase", "template": "site:rocketreach.co OR site:crunchbase.com OR site:zoominfo.com {{company_name}}"},
+        {"id": "combo_intitle_about", "template": "{{company_name}} intitle:about OR intitle:overview OR intitle:company"},
+        {"id": "combo_domain_about", "template": "site:{{domain}} about OR team OR company"},
+        {"id": "combo_profile_exclusion", "template": "{{company_name}} company overview -jobs -careers -salary"}
+      ]
+    },
+    {
+      "id": "funding_financial",
+      "name": "Funding / Financial Signals",
+      "variants": [
+        {"id": "combo_funding_multi_site", "template": "site:crunchbase.com OR site:techcrunch.com OR site:pitchbook.com {{company_name}} funding"},
+        {"id": "combo_funding_intitle", "template": "{{company_name}} intitle:funding OR intitle:raises OR intitle:valuation"},
+        {"id": "combo_funding_after_date", "template": "{{company_name}} funding OR raised OR series after:2024-01-01"},
+        {"id": "combo_funding_exact_phrase", "template": "\"{{company_name}}\" raised OR funding OR valuation -jobs"}
+      ]
+    },
+    {
+      "id": "hiring_signals",
+      "name": "Hiring Signals",
+      "variants": [
+        {"id": "combo_ats_multi", "template": "{{company_name}} site:boards.greenhouse.io OR site:jobs.lever.co OR site:jobs.ashbyhq.com OR site:apply.workable.com"},
+        {"id": "combo_hiring_intitle", "template": "{{company_name}} intitle:careers OR intitle:jobs OR intitle:hiring"},
+        {"id": "combo_hiring_domain_careers", "template": "site:{{domain}} careers OR jobs OR \"open positions\" OR \"join us\""},
+        {"id": "combo_hiring_recent", "template": "{{company_name}} hiring OR careers after:2025-06-01"},
+        {"id": "combo_hiring_exclusion", "template": "{{company_name}} careers OR hiring -salary -glassdoor -interview"}
+      ]
+    },
+    {
+      "id": "competitor_identification",
+      "name": "Competitor Identification",
+      "variants": [
+        {"id": "combo_vs_intitle", "template": "{{company_name}} intitle:vs OR intitle:alternative OR intitle:compared"},
+        {"id": "combo_alt_multi_site", "template": "{{company_name}} alternatives site:g2.com OR site:capterra.com OR site:getapp.com"},
+        {"id": "combo_competitor_exclusion", "template": "{{company_name}} competitors OR alternatives OR \"compared to\" -jobs -careers"},
+        {"id": "combo_competitor_review_sites", "template": "{{company_name}} vs OR alternative OR competitor -site:{{domain}}"}
+      ]
+    },
+    {
+      "id": "reviews_sentiment",
+      "name": "Reviews / Sentiment",
+      "variants": [
+        {"id": "combo_review_intitle", "template": "{{company_name}} intitle:review OR intitle:honest OR intitle:pros"},
+        {"id": "combo_review_multi_site", "template": "{{company_name}} review site:g2.com OR site:trustpilot.com OR site:capterra.com"},
+        {"id": "combo_review_recent", "template": "{{company_name}} review after:2025-01-01"},
+        {"id": "combo_review_exclusion", "template": "{{company_name}} review OR rating OR pros cons -pricing -alternative"},
+        {"id": "combo_review_honest", "template": "\"{{company_name}}\" honest review OR real review OR in-depth review"}
+      ]
+    },
+    {
+      "id": "news_press",
+      "name": "News / Press Coverage",
+      "variants": [
+        {"id": "combo_news_curated_sites", "template": "{{company_name}} site:techcrunch.com OR site:forbes.com OR site:venturebeat.com OR site:theverge.com"},
+        {"id": "combo_news_intitle", "template": "{{company_name}} intitle:announces OR intitle:launches OR intitle:raises"},
+        {"id": "combo_news_recent", "template": "{{company_name}} news OR announcement after:2025-06-01"},
+        {"id": "combo_news_tbs_year", "template": "{{company_name}} news OR announcement OR launches", "tbs": "qdr:y"},
+        {"id": "combo_news_tbs_month", "template": "{{company_name}} news OR announcement", "tbs": "qdr:m"},
+        {"id": "combo_news_exclusion", "template": "{{company_name}} news announcement -jobs -careers -glassdoor -salary"},
+        {"id": "combo_news_search_mode", "template": "{{company_name}} announcement OR launch OR partnership", "search_mode": "news"}
+      ]
+    },
+    {
+      "id": "press_releases",
+      "name": "Press Releases / Official Announcements",
+      "variants": [
+        {"id": "combo_pr_multi_wire", "template": "{{company_name}} site:prnewswire.com OR site:businesswire.com OR site:globenewswire.com"},
+        {"id": "combo_pr_intitle", "template": "{{company_name}} intitle:announces OR intitle:launch OR intitle:partnership"},
+        {"id": "combo_pr_domain_news", "template": "site:{{domain}} news OR press OR announcements OR newsroom"},
+        {"id": "combo_pr_recent", "template": "\"{{company_name}}\" announces OR launched OR partnership after:2025-01-01"},
+        {"id": "combo_pr_newsroom_inurl", "template": "{{company_name}} inurl:press OR inurl:newsroom OR inurl:news"}
+      ]
+    },
+    {
+      "id": "social_media",
+      "name": "Social Media Presence",
+      "variants": [
+        {"id": "combo_social_linkedin_company", "template": "site:linkedin.com/company/{{company_name}}"},
+        {"id": "combo_social_twitter_handle", "template": "{{company_name}} official site:twitter.com OR site:x.com"},
+        {"id": "combo_social_all_platforms", "template": "{{company_name}} site:linkedin.com OR site:twitter.com OR site:instagram.com -jobs"},
+        {"id": "combo_social_intitle", "template": "{{company_name}} intitle:linkedin OR intitle:twitter OR intitle:instagram"},
+        {"id": "combo_social_accounts_query", "template": "\"{{company_name}}\" twitter OR linkedin OR instagram official account"},
+        {"id": "combo_social_domain_social", "template": "{{domain}} twitter OR linkedin OR instagram OR facebook"}
+      ]
+    },
+    {
+      "id": "community_platforms",
+      "name": "Community Platforms",
+      "variants": [
+        {"id": "combo_community_join", "template": "{{company_name}} \"join our\" discord OR slack OR community"},
+        {"id": "combo_community_multi_site", "template": "{{company_name}} site:discord.gg OR site:discord.com OR site:slack.com"},
+        {"id": "combo_community_forum", "template": "{{company_name}} community OR forum OR discord members"},
+        {"id": "combo_community_domain", "template": "site:{{domain}} community OR forum OR discord OR slack"}
+      ]
+    },
+    {
+      "id": "growth_marketing",
+      "name": "Growth / Marketing Infrastructure",
+      "variants": [
+        {"id": "combo_growth_inurl", "template": "site:{{domain}} inurl:pricing OR inurl:blog OR inurl:demo OR inurl:newsletter"},
+        {"id": "combo_growth_domain_pricing", "template": "site:{{domain}} pricing OR plans OR \"free trial\" OR \"book a demo\""},
+        {"id": "combo_growth_blog_inurl", "template": "site:{{domain}} inurl:blog"},
+        {"id": "combo_growth_newsletter_domain", "template": "site:{{domain}} subscribe OR newsletter OR \"get updates\""},
+        {"id": "combo_growth_content_marketing", "template": "{{company_name}} blog OR podcast OR newsletter OR webinar -jobs"},
+        {"id": "combo_growth_tbs", "template": "site:{{domain}} blog OR pricing OR demo", "tbs": "qdr:y"}
+      ]
+    },
+    {
+      "id": "tech_stack",
+      "name": "Tech Stack Detection",
+      "variants": [
+        {"id": "combo_tech_intitle", "template": "{{company_name}} intitle:tech OR intitle:stack OR intitle:technology"},
+        {"id": "combo_tech_multi_site", "template": "{{company_name}} site:stackshare.io OR site:builtwith.com OR site:github.com"},
+        {"id": "combo_tech_api_docs", "template": "{{company_name}} API documentation OR developer docs OR SDK"},
+        {"id": "combo_tech_job_infer", "template": "{{company_name}} engineer job react OR python OR node OR typescript OR golang"},
+        {"id": "combo_tech_built_with", "template": "{{company_name}} \"built with\" OR \"powered by\" OR \"tech stack\" OR infrastructure"}
+      ]
+    },
+    {
+      "id": "leadership_people",
+      "name": "Leadership / People Intelligence",
+      "variants": [
+        {"id": "combo_leader_intitle", "template": "{{company_name}} intitle:CEO OR intitle:founder OR intitle:CTO"},
+        {"id": "combo_leader_linkedin", "template": "{{company_name}} CEO OR founder site:linkedin.com/in"},
+        {"id": "combo_leader_interview", "template": "\"{{company_name}}\" founder OR CEO interview OR podcast OR keynote"},
+        {"id": "combo_leader_team_page", "template": "site:{{domain}} team OR about OR leadership"},
+        {"id": "combo_leader_board", "template": "{{company_name}} board of directors OR investors OR advisors -jobs"}
+      ]
+    },
+    {
+      "id": "customer_case_studies",
+      "name": "Customer Case Studies / Logos",
+      "variants": [
+        {"id": "combo_case_intitle", "template": "{{company_name}} intitle:case OR intitle:customer OR intitle:success"},
+        {"id": "combo_case_domain", "template": "site:{{domain}} customers OR case-study OR \"trusted by\""},
+        {"id": "combo_case_story", "template": "{{company_name}} \"case study\" OR \"customer story\" OR \"success story\" -template"},
+        {"id": "combo_case_used_by", "template": "\"powered by {{company_name}}\" OR \"built with {{company_name}}\" OR \"uses {{company_name}}\""}
+      ]
+    },
+    {
+      "id": "pricing_intelligence",
+      "name": "Pricing Intelligence",
+      "variants": [
+        {"id": "combo_pricing_intitle", "template": "{{company_name}} intitle:pricing OR intitle:plans OR intitle:cost"},
+        {"id": "combo_pricing_domain", "template": "site:{{domain}} pricing OR plans"},
+        {"id": "combo_pricing_comparison", "template": "{{company_name}} pricing vs OR pricing comparison OR pricing review"},
+        {"id": "combo_pricing_breakdown", "template": "{{company_name}} pricing \"per seat\" OR \"per user\" OR \"per month\" OR free tier"}
+      ]
+    },
+    {
+      "id": "partnerships_integrations",
+      "name": "Partnerships / Integrations",
+      "variants": [
+        {"id": "combo_partner_intitle", "template": "{{company_name}} intitle:integration OR intitle:partner OR intitle:marketplace"},
+        {"id": "combo_partner_domain", "template": "site:{{domain}} integrations OR partners OR marketplace OR apps"},
+        {"id": "combo_partner_zapier_multi", "template": "{{company_name}} site:zapier.com OR site:make.com OR site:n8n.io"},
+        {"id": "combo_partner_ecosystem", "template": "{{company_name}} integration OR partner OR plugin OR API -jobs -careers"}
+      ]
+    },
+    {
+      "id": "content_blog",
+      "name": "Content / Blog Activity",
+      "variants": [
+        {"id": "combo_blog_inurl", "template": "site:{{domain}} inurl:blog"},
+        {"id": "combo_blog_inurl_recent", "template": "site:{{domain}} inurl:blog after:2025-01-01"},
+        {"id": "combo_blog_resources", "template": "site:{{domain}} blog OR resources OR guides OR learn"},
+        {"id": "combo_blog_intitle", "template": "{{company_name}} intitle:blog OR intitle:guide OR intitle:tutorial"},
+        {"id": "combo_blog_tbs_year", "template": "site:{{domain}} blog", "tbs": "qdr:y"},
+        {"id": "combo_blog_third_party", "template": "{{company_name}} blog OR article OR guide -site:{{domain}} -jobs"},
+        {"id": "combo_blog_recent_content", "template": "{{company_name}} published OR wrote OR released blog after:2025-06-01"}
+      ]
+    },
+    {
+      "id": "newsletter_email",
+      "name": "Newsletter / Email Marketing",
+      "variants": [
+        {"id": "combo_newsletter_domain", "template": "site:{{domain}} newsletter OR subscribe OR \"sign up for updates\""},
+        {"id": "combo_newsletter_multi_platform", "template": "{{company_name}} site:substack.com OR site:beehiiv.com OR site:linkedin.com newsletter"},
+        {"id": "combo_newsletter_intitle", "template": "{{company_name}} intitle:newsletter OR intitle:subscribe OR intitle:digest"},
+        {"id": "combo_newsletter_signup", "template": "{{company_name}} \"subscribe\" OR \"weekly update\" OR \"monthly digest\" OR newsletter -product"}
+      ]
+    },
+    {
+      "id": "events_conferences",
+      "name": "Events / Conferences",
+      "variants": [
+        {"id": "combo_events_multi_site", "template": "{{company_name}} site:lu.ma OR site:eventbrite.com OR site:meetup.com"},
+        {"id": "combo_events_intitle", "template": "{{company_name}} intitle:event OR intitle:conference OR intitle:meetup"},
+        {"id": "combo_events_podcast", "template": "{{company_name}} founder OR CEO podcast OR keynote OR webinar"},
+        {"id": "combo_events_recent", "template": "{{company_name}} conference OR event OR hackathon after:2025-01-01"},
+        {"id": "combo_events_tbs", "template": "{{company_name}} event OR conference OR meetup OR hackathon", "tbs": "qdr:y"}
+      ]
+    },
+    {
+      "id": "customer_complaints",
+      "name": "Customer Complaints / Negativity",
+      "variants": [
+        {"id": "combo_complaints_intitle", "template": "{{company_name}} intitle:honest OR intitle:cons OR intitle:problems OR intitle:issues"},
+        {"id": "combo_complaints_downsides", "template": "{{company_name}} downsides OR limitations OR drawbacks OR cons"},
+        {"id": "combo_complaints_reddit_synth", "template": "{{company_name}} reddit problems OR complaints OR frustrated OR disappointed"},
+        {"id": "combo_complaints_review_negative", "template": "{{company_name}} review negative OR worst OR \"do not\" -pricing -alternative"},
+        {"id": "combo_complaints_exclusion", "template": "{{company_name}} problems OR issues OR complaints -careers -jobs -site:{{domain}}"},
+        {"id": "combo_complaints_glassdoor", "template": "{{company_name}} glassdoor OR indeed complaints OR reviews negative"}
+      ]
+    },
+    {
+      "id": "awards_recognition",
+      "name": "Awards / Recognition",
+      "variants": [
+        {"id": "combo_awards_intitle", "template": "{{company_name}} intitle:best OR intitle:top OR intitle:award OR intitle:winner"},
+        {"id": "combo_awards_lists", "template": "{{company_name}} \"fastest growing\" OR \"Inc 5000\" OR \"Forbes\" OR \"Deloitte Fast 500\""},
+        {"id": "combo_awards_g2_leader", "template": "{{company_name}} site:g2.com leader OR best OR award"},
+        {"id": "combo_awards_named", "template": "{{company_name}} named OR ranked OR recognized best OR top -jobs"}
+      ]
+    }
+  ]
+}
