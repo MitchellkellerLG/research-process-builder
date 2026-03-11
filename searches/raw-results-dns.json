@@ -36,7 +36,12 @@
         "snippet": "My favorite tool ever. I've tried every competitor. Always come back. The UI/UX is unbeatable. Simple. Convenient. Just works. What we canceled:."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "aa478f8162db",
@@ -75,7 +80,12 @@
         "snippet": "My thoughts: Cursor is genuinely performant. Its speed and the quality of its responses are satisfying. That said, even with well-crafted ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "4f7a465b36a1",
@@ -114,7 +124,12 @@
         "snippet": "It can be as robust as you want it to be, but it's important to note that ClickUp is not made to be a CRM but a project management tool. So ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "da6504050825",
@@ -153,7 +168,12 @@
         "snippet": "However, everyone who I know who has worked at SpaceX says that it essentially becomes your life. Staying late is built into the culture, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "60db5375f1dd",
@@ -192,7 +212,12 @@
         "snippet": "Lovable.ai is a fun tool to play with, but I haven't found it practical or helpful with the entire design process."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "8bd89e3aed76",
@@ -231,7 +256,12 @@
         "snippet": "From what my manager and RevOps guy told me we can mass enrich prospects via Salesforce to reduce needing to click around various tools. That ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "3503bd7ed948",
@@ -270,7 +300,12 @@
         "snippet": "My thoughts: Cursor is genuinely performant. Its speed and the quality of its responses are satisfying. That said, even with well-crafted ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "9123fea17e79",
@@ -309,7 +344,12 @@
         "snippet": "Totally agree—ClickUp's billing practices are pretty questionable. I had a similar experience, but with a huge twist: they hit me with a $1,100 ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "5f9cf6906e68",
@@ -348,7 +388,12 @@
         "snippet": "If you're looking for a place to kickstart your career and grow as an engineer, SpaceX is S tier. You'll get exposed to many different fields and learn a lot ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "75d07cc047ea",
@@ -387,7 +432,12 @@
         "snippet": "A lot of Lovable apps seem to fit into the categories of dashboards, trackers, reminders, journals or techy kind of apps that are aimed at other ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "reddit.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "f004b0500c71",
@@ -426,7 +476,12 @@
         "snippet": "Step 1: Capture and Normalize Lead Data · Step 2: Configure Enrichment · Step 3: Build Scoring Formulas · Step 4: Configure Routing Actions."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "linkedin.com",
+      "factors.ai"
+    ]
   },
   {
     "hash": "fdf136645f12",
@@ -465,7 +520,12 @@
         "snippet": "Tried Cursor - not that great since it can't create or edit multiple files which really is a requirement for large projects - especially game ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "cursor.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "9d5c8a134bf3",
@@ -504,7 +564,12 @@
         "snippet": "How to Build an Effective NPS Knowledge Base with ClickUp. Follow this 6-step framework to organize, analyze, and act on customer feedback ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "comparably.com",
+      "clickup.com"
+    ]
   },
   {
     "hash": "d55ea15ae886",
@@ -543,7 +608,12 @@
         "snippet": "Bringing back the podcast with a BANGER episode featuring Sam Korus of ARK Invest and Aaron Burnett of Mach33 research."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "comparably.com",
+      "portersfiveforce.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "e45a59f50d00",
@@ -582,7 +652,12 @@
         "snippet": "NPS Scores range from -100 to 100 and vary widely based on the industry. On average anything above 50 considered as “Excellent” and if you cross 75 then it's “ ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "mexc.co",
+      "medium.com"
+    ]
   },
   {
     "hash": "73d2033ed8b0",
@@ -621,7 +696,12 @@
         "snippet": "Clay enables teams to access 150+ data providers, enrich with best-in-class accuracy, build custom signals, score and qualify prospects with AI, and ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "sourceforge.net",
+      "sourceforge.net",
+      "sourceforge.net"
+    ]
   },
   {
     "hash": "dedab3135127",
@@ -660,7 +740,12 @@
         "snippet": "Cursor seamlessly integrates across environments—from GitHub and Slack to the command line—ensuring AI assistance is available wherever you code. Supporting ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "sourceforge.net",
+      "sourceforge.net",
+      "sourceforge.net"
+    ]
   },
   {
     "hash": "08fdc63c000c",
@@ -699,7 +784,12 @@
         "snippet": "Reviews/Ratings. Overall. 4.8 / 5. ease. 4.6 / 5. features. 4.8 / 5. design. 4.7 / 5. support. 4.6 / 5. Read all reviews. Reviews/Ratings. Overall. 5.0 / 5."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "sourceforge.net",
+      "sourceforge.net",
+      "sourceforge.net"
+    ]
   },
   {
     "hash": "e67d6a79d2ca",
@@ -738,7 +828,12 @@
         "snippet": "Compare and read user reviews of the best Online Escrow services in Canada currently available using the table below. This list is updated regularly. 1. Tazapay."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "sourceforge.net",
+      "sourceforge.net",
+      "sourceforge.net"
+    ]
   },
   {
     "hash": "43d5c5b9d0e5",
@@ -777,7 +872,12 @@
         "snippet": "Compare Anything vs. Lovable using this comparison chart. Compare price, features, and reviews of the software side-by-side to make the best choice for your ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "sourceforge.net",
+      "sourceforge.net",
+      "sourceforge.net"
+    ]
   },
   {
     "hash": "2c038a9c246b",
@@ -816,7 +916,12 @@
         "snippet": "Describe the outcome you want in plain English, and Apollo's AI Assistant runs your entire outbound motion — from prospecting to outreach."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "apollo.io",
+      "apollo.io",
+      "apollo.io"
+    ]
   },
   {
     "hash": "1351e791e7b8",
@@ -855,7 +960,12 @@
         "snippet": "Cheryl Amy Shaw. 1 Credential · A. Ajay. 1 Credential · BH. Brendan Haney. 1 Credential · M. Matt. 1 Credential · SD. Suvajit Das. 1 Credential."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "credentials.apollo.io",
+      "apollo.io",
+      "credentials.apollo.io"
+    ]
   },
   {
     "hash": "2da41cb50933",
@@ -894,7 +1004,12 @@
         "snippet": "Before Apollo, he built Competitive Intel programs at ClickUp and ZoomInfo during their hypergrowth phases. These days he's focused on cutting through AI ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "apollo.io",
+      "apollo.io",
+      "apollo.io"
+    ]
   },
   {
     "hash": "c0b0d4092e37",
@@ -914,7 +1029,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "4dee415271de",
@@ -941,7 +1057,10 @@
         "snippet": "At Apollo we hold the belief that momentum is the biggest maker and breaker of great products. What sets us apart is our investment into research to ensure that ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "apollo.io"
+    ]
   },
   {
     "hash": "b3c3a6c0c4ea",
@@ -961,7 +1080,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "cc6184d65366",
@@ -981,7 +1101,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "02d78082ad12",
@@ -1001,7 +1122,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "86295bb4e810",
@@ -1021,7 +1143,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "2b10b2489455",
@@ -1041,7 +1164,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "2a2edbeac507",
@@ -1080,7 +1204,12 @@
         "snippet": "CB Insights in Clay: CB Insights enables Clay users to enrich companies with funding history, valuations, revenue ranges, corporate hierarchies, competitors, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "linkedin.com",
+      "clay.com"
+    ]
   },
   {
     "hash": "6641ca33c27f",
@@ -1119,7 +1248,12 @@
         "snippet": "An editor where you whip up 2,000-line PRs with 50 lines of pseudo code. A tool where you get any codebase question answered instantly. Perhaps ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "investing.com",
+      "seekingalpha.com",
+      "cursor.com"
+    ]
   },
   {
     "hash": "276bfd5ad1ed",
@@ -1158,7 +1292,12 @@
         "snippet": "We'll share some of the best templates to build an informative annual report. You'll find templates for progress reports, work breakdowns, and annual reports ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "clickup.com",
+      "clickup.com"
+    ]
   },
   {
     "hash": "d6171c547207",
@@ -1197,7 +1336,12 @@
         "snippet": "SpaceX generated about $8 billion in profit on $15 billion to $16 billion of revenue last year, ​two people familiar with the company's ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reuters.com",
+      "scribd.com",
+      "finance.yahoo.com"
+    ]
   },
   {
     "hash": "fe1e7b12c9c4",
@@ -1236,7 +1380,12 @@
         "snippet": "Lovable Lingerie Ltd Annual Report FY2025. Review of financial performance, strategy, and achievements."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovableindia.in",
+      "lovable.dev",
+      "stockinsights.ai"
+    ]
   },
   {
     "hash": "bc9137d3e50a",
@@ -1275,7 +1424,12 @@
         "snippet": "It is a simple spreadsheet interface, yet powerful automation platform that allows you to build internal tooling and automations to streamline your marketing, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "stackshare.io",
+      "stackshare.io",
+      "stackshare.io"
+    ]
   },
   {
     "hash": "636a5d1da0f6",
@@ -1314,7 +1468,12 @@
         "snippet": "Screenhero gives you low-lag screen sharing, multiple mouse cursors, and voice chat. You each get your own mouse cursor, and you're both always in control. It ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "stackshare.io",
+      "stackshare.io",
+      "stackshare.io"
+    ]
   },
   {
     "hash": "bb09f1235690",
@@ -1353,7 +1512,12 @@
         "snippet": "Developers describe ClickUp as \"A cloud-based collaboration and project management tool\". Users can assign comments and tasks to specific team members or groups ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "stackshare.io",
+      "stackshare.io",
+      "stackshare.io"
+    ]
   },
   {
     "hash": "1ffbbc2373e0",
@@ -1392,7 +1556,12 @@
         "snippet": "SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "stackshare.io",
+      "stackshare.io",
+      "stackshare.io"
+    ]
   },
   {
     "hash": "8830d8988767",
@@ -1431,7 +1600,12 @@
         "snippet": "Launch it to a built-in audience with upvotes, leaderboards, and real-time discovery. Build like Lovable. Launch like Product Hunt. Grow like nothing else. 0 ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "stackshare.io",
+      "stackshare.io",
+      "stackshare.io"
+    ]
   },
   {
     "hash": "597a1adabc6d",
@@ -1470,7 +1644,12 @@
         "snippet": "Outreach's integration with Clay supports GTM teams in driving growth across outbound, inbound, expansion, and retention initiatives."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "wric.com",
+      "clay.com",
+      "businesswire.com"
+    ]
   },
   {
     "hash": "07ec7be852a7",
@@ -1509,7 +1688,12 @@
         "snippet": "Cursor, the wildly popular AI coding startup, is launching a new feature that lets people design the look and feel of web applications with AI."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cnbc.com",
+      "cursor.com",
+      "wired.com"
+    ]
   },
   {
     "hash": "fe664aed158d",
@@ -1548,7 +1732,12 @@
         "snippet": "Manage press release distribution with ClickUp. Track releases, send pitches, and monitor media coverage to maximize your PR efforts."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "prnewswire.com",
+      "clickup.com"
+    ]
   },
   {
     "hash": "4d28afb74e19",
@@ -1587,7 +1776,12 @@
         "snippet": "Upcoming launches ; Starlink Mission. Falcon 9, SLC-4E, California, Droneship, March 7, 2026 ; EchoStar XXV Mission. Falcon 9, SLC-40, Florida, Droneship, March 9 ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacex.com",
+      "spacex.com",
+      "spacex.com"
+    ]
   },
   {
     "hash": "8e9f0cf5f870",
@@ -1626,7 +1820,12 @@
         "snippet": "Announcing Lovable Launched. Learn how to launch and drive traffic to your Lovable app through Lovable Launched, Social Media, Product Hunt, and more. Stephane ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "lovable.dev",
+      "lovable.dev"
+    ]
   },
   {
     "hash": "396142c9dc2a",
@@ -1665,7 +1864,12 @@
         "snippet": "We have 3x our enrichment rate with Clay's combination of data providers. Clay makes it easy to use AI for GTM initiatives, unlocking new workflows that were ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "wric.com",
+      "clay.com"
+    ]
   },
   {
     "hash": "65ed51e2343a",
@@ -1704,7 +1908,12 @@
         "snippet": "Cursor is an AI-assisted integrated development environment for Windows, macOS, and Linux. It is a fork of Visual Studio Code with additional AI features."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cursor.com",
+      "x.com",
+      "en.wikipedia.org"
+    ]
   },
   {
     "hash": "7c336cf2c110",
@@ -1743,7 +1952,12 @@
         "snippet": "ClickUp today announced the launch of ClickUp 4.0, a groundbreaking release designed to end the chaos of work sprawl and usher in a new era ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "clickup.com",
+      "businesswire.com"
+    ]
   },
   {
     "hash": "25dbe8f0b99c",
@@ -1782,7 +1996,12 @@
         "snippet": "SpaceX leads the world in launches with its reliable, reusable rockets and is developing the fully and rapidly reusable rockets necessary to transform ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacex.com",
+      "spacex.com",
+      "spacex.com"
+    ]
   },
   {
     "hash": "5f7363f22665",
@@ -1821,7 +2040,12 @@
         "snippet": "Stockholm-based Lovable on Thursday said it had raised $330 million in a Series B funding round that was led by CapitalG and Menlo Ventures, at ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "lovable.dev",
+      "techcrunch.com"
+    ]
   },
   {
     "hash": "48cb83c6470f",
@@ -1860,7 +2084,12 @@
         "snippet": "Clay's approach is to treat data sourcing as a system, not a single provider bet. For example Clay's \"waterfall enrichment\" across 75+ data ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "databar.ai",
+      "growthcurve.co"
+    ]
   },
   {
     "hash": "eb36fb2631d6",
@@ -1899,7 +2128,12 @@
         "snippet": "Cursor has been, for many of us, the answer to the big question: \"What tools should we use to be more productive when we develop."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "itnext.io",
+      "cnbc.com",
+      "secture.com"
+    ]
   },
   {
     "hash": "87288a6126e7",
@@ -1938,7 +2172,12 @@
         "snippet": "ClickUp entered one of the most competitive software markets - project management and productivity tools. They were up against industry giants."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "medium.com",
+      "clickup.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "ae714e7eddb3",
@@ -1977,7 +2216,12 @@
         "snippet": "SpaceX hits $11.8B in 2024 revenue as Starlink surpasses launch. Discover key insights on profitability, funding, and future growth in our new report."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "finance.yahoo.com",
+      "fool.com",
+      "nova.space"
+    ]
   },
   {
     "hash": "8030f1960ec0",
@@ -2016,7 +2260,12 @@
         "snippet": "The global software market was worth $737 billion in 2024 and is expected to reach around $2.25 trillion by 2034, expanding at a CAGR of 11.8% ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "techcrunch.com",
+      "research.contrary.com"
+    ]
   },
   {
     "hash": "6e38fa56f079",
@@ -2055,7 +2304,12 @@
         "snippet": "A data-driven GTM strategy is critical for competitive advantage. Centralized data management improves efficiency and decision-making."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "clay.com",
+      "sixtysixten.com"
+    ]
   },
   {
     "hash": "c518d3eaf1a5",
@@ -2094,7 +2348,12 @@
         "snippet": "For Cursor, an AI-first code editor that grew rapidly on the back of OpenAI and Anthropic's models, the ground has fundamentally shifted."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cursor.com",
+      "zenml.io",
+      "i10x.ai"
+    ]
   },
   {
     "hash": "553e6ab1392c",
@@ -2133,7 +2392,12 @@
         "snippet": "... Competitive Intelligence at ClickUp, so we can find out how to actually do competitive analysis. ***** It's a simple truth that most ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "opensense.com",
+      "clickup.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "50da5c9442ca",
@@ -2172,7 +2436,12 @@
         "snippet": "Understanding SpaceX's competitive landscape is crucial. This involves examining its market position, key rivals, and differentiating advantages ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "rivalsense.co",
+      "abiresearch.com",
+      "pestel-analysis.com"
+    ]
   },
   {
     "hash": "d81d70402446",
@@ -2211,7 +2480,12 @@
         "snippet": "Stay ahead of your competition with AI-powered competitive intelligence. Discover competitors, track features, and uncover market opportunities instantly."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "lovable.dev",
+      "scout-pulse-insight.lovable.app"
+    ]
   },
   {
     "hash": "79729375c016",
@@ -2250,7 +2524,12 @@
         "snippet": "After a prolonged winter, the IPO market in 2025 has finally thawed, with companies from Chime to Figma to CoreWeave launching big debuts in ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "about.crunchbase.com",
+      "news.crunchbase.com",
+      "news.crunchbase.com"
+    ]
   },
   {
     "hash": "d6d14c5171a1",
@@ -2289,7 +2568,12 @@
         "snippet": "... Cursor, Canva, Intercom and Rippling. For its part, CapitalG said in a blog post that over the past 18 months, it spoke with more than 100 ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "news.crunchbase.com",
+      "crunchbase.com",
+      "news.crunchbase.com"
+    ]
   },
   {
     "hash": "c5af77b9612b",
@@ -2328,7 +2612,12 @@
         "snippet": "ClickUp Acquires Cursor Competitor Codegen To Advance AI Super Agents. Friday ... ClickUp Acquires Cursor Competitor Codegen to Supercharge AI Super Agents."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "crunchbase.com",
+      "crunchbase.com",
+      "crunchbase.com"
+    ]
   },
   {
     "hash": "25ebf4dd0a42",
@@ -2367,7 +2656,12 @@
         "snippet": "Companies like Elon Musk's SpaceX and Jeff Bezos' Blue Origin made big headlines, while others raised gobs of cash. However, we also saw a ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "news.crunchbase.com",
+      "news.crunchbase.com",
+      "news.crunchbase.com"
+    ]
   },
   {
     "hash": "44f5c78ab80e",
@@ -2406,7 +2700,12 @@
         "snippet": "Lovable Labels is located in Oakville, Ontario, Canada . Who are Lovable Labels 's competitors? Alternatives and possible competitors to Lovable Labels may ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "crunchbase.com",
+      "crunchbase.com",
+      "crunchbase.com"
+    ]
   },
   {
     "hash": "ca7e8b343b50",
@@ -2445,7 +2744,12 @@
         "snippet": "Compare sansuiki.com vs healthy-clay.com traffic analysis, see why sansuiki.com in ranked #4794 in the Construction and Maintenance category and ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "similarweb.com",
+      "similarweb.com",
+      "similarweb.com"
+    ]
   },
   {
     "hash": "28156cad5431",
@@ -2484,7 +2788,12 @@
         "snippet": "Traffic and Engagement​​ gemini.google.com had more total visits compared to cursor.com in January 2026."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "similarweb.com",
+      "similarweb.com",
+      "similarweb.com"
+    ]
   },
   {
     "hash": "9b2ca7553bf6",
@@ -2523,7 +2832,12 @@
         "snippet": "Traffic and Engagement​​ notion.com had more total visits compared to clickup.com in January 2026."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "similarweb.com",
+      "similarweb.com",
+      "similarweb.com"
+    ]
   },
   {
     "hash": "3044cd157440",
@@ -2562,7 +2876,12 @@
         "snippet": "space.com's top 5 competitors in January 2026 are: dailygalaxy.com, astronomy.com, livescience.com, nasa.gov, and more. ... According to Similarweb data of ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "similarweb.com",
+      "similarweb.com",
+      "similarweb.com"
+    ]
   },
   {
     "hash": "96895dbee7d8",
@@ -2601,7 +2920,12 @@
         "snippet": "cursor.com isn't lovable.dev's only competition in the AI Chatbots and Tools industry. See how lovable.dev stacks up against its other top competitors. lovable."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "similarweb.com",
+      "similarweb.com",
+      "similarweb.com"
+    ]
   },
   {
     "hash": "60e97103d950",
@@ -2640,7 +2964,12 @@
         "snippet": "The artist behind Mingtoo Art makes clay-cracking ASMR videos. She smashes plaster-coated clay sculptures to create satisfying sounds and ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "businessinsider.com",
+      "businessinsider.com",
+      "businessinsider.com"
+    ]
   },
   {
     "hash": "1351d8aebebd",
@@ -2679,7 +3008,12 @@
         "snippet": "The CEO behind Cursor said the AI coding tool spread from YC startups to tech giants thanks to just two things."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "businessinsider.com",
+      "businessinsider.com",
+      "businessinsider.com"
+    ]
   },
   {
     "hash": "440306b9f6a5",
@@ -2718,7 +3052,12 @@
         "snippet": "He rattled off a handful of AI and software tools that he uses to save time and money as a small-business owner — Usewhale.io, ChatGPT, Ingage, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "businessinsider.com",
+      "businessinsider.com",
+      "businessinsider.com"
+    ]
   },
   {
     "hash": "72da161f03ec",
@@ -2757,7 +3096,12 @@
         "snippet": "SpaceX has become a successful private company after nearly collapsing, with hundreds of launches and satellites sent to space."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "businessinsider.com",
+      "businessinsider.com",
+      "businessinsider.com"
+    ]
   },
   {
     "hash": "da61e805ab27",
@@ -2796,7 +3140,12 @@
         "snippet": "Fast-growing Swedish vibe coding startup Lovable is set to raise funding from Accel at a $1.5 billion valuation."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "businessinsider.com",
+      "businessinsider.com",
+      "businessinsider.com"
+    ]
   },
   {
     "hash": "1f4f1f01a951",
@@ -2835,7 +3184,12 @@
         "snippet": "Hardcourt specialist and world number one Aryna Sabalenka was told for years that claycourts were not her surface but on Thursday after ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reuters.com",
+      "reuters.com",
+      "reuters.com"
+    ]
   },
   {
     "hash": "9f3232691eab",
@@ -2874,7 +3228,12 @@
         "snippet": "An Amazon spokesperson confirmed the memo. Codex, Cursor and Claude Code have become popular ways for engineers to quickly spin up new services."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reuters.com",
+      "reuters.com",
+      "reuters.com"
+    ]
   },
   {
     "hash": "4bd4d66612b2",
@@ -2913,7 +3272,12 @@
         "snippet": "Task management software company ClickUp said on Wednesday it was valued at $4 billion after a $400 million funding round that was co-led by venture capital ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reuters.com",
+      "jp.reuters.com",
+      "reuters.com"
+    ]
   },
   {
     "hash": "974f093be4b0",
@@ -2952,7 +3316,12 @@
         "snippet": "Elon Musk's SpaceX has paused flights of its workhorse Falcon 9 rocket over an unspecified issue that its second stage experienced after successfully deploying ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reuters.com",
+      "reuters.com",
+      "reuters.com"
+    ]
   },
   {
     "hash": "497f6ba01dc4",
@@ -2991,7 +3360,12 @@
         "snippet": "Lovable Lingerie Limited is an India-based company, which is engaged in the business of manufacturing hosiery/garment products. The Company is engaged in the ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reuters.com",
+      "reuters.com",
+      "reuters.com"
+    ]
   },
   {
     "hash": "215fca9b7086",
@@ -3030,7 +3404,12 @@
         "snippet": "Learn AI-powered enrichment strategies, cost-saving API integrations, and expert GTM tips. Discover how to use Clay to scale smarter without ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "octavehq.com",
+      "clay.com",
+      "coldiq.com"
+    ]
   },
   {
     "hash": "2d39d7bb037e",
@@ -3069,7 +3448,12 @@
         "snippet": "Cursor Built a Web Browser Using a Swarm of AI Agents · Cursor Acquires Code Review Startup Graphite · Cursor Launches Visual Editor, an AI Coding Tool for ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cnbc.com",
+      "youtube.com",
+      "cursor.com"
+    ]
   },
   {
     "hash": "77ed2b45bb8f",
@@ -3108,7 +3492,12 @@
         "snippet": "This week's ClickUpdates brings you Timesheet Approvals, the ability to ask AI about Connected App links, and more!"
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "finance.yahoo.com",
+      "university.clickup.com"
+    ]
   },
   {
     "hash": "f04f418b52b0",
@@ -3147,7 +3536,12 @@
         "snippet": "Breaking News. [ March 3, 2026 ] SpaceX launches 600th Starlink satellite of 2026 during predawn Falcon 9 rocket flight from Cape Canaveral Falcon 9 · [ March ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacex.com",
+      "cbsnews.com",
+      "spaceflightnow.com"
+    ]
   },
   {
     "hash": "6d685a196f5f",
@@ -3186,7 +3580,12 @@
         "snippet": "Vibe-coding platform Lovable has been accused of hosting apps riddled with vulnerabilities after saying users are responsible for addressing ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "techradar.com",
+      "lovable.dev",
+      "theregister.com"
+    ]
   },
   {
     "hash": "b75eca49fcd9",
@@ -3225,7 +3624,12 @@
         "snippet": "Growth Engine X is an outbound agency that sends 8000000 emails per month on behalf of their clients. We specialize in data segmentation, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "clay.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "af86ac57f1a5",
@@ -3264,7 +3668,12 @@
         "snippet": "Watch now | 🎙️How to leverage Cursor's AI-powered code editor to automate tasks, clean up your code, and make software development more ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cursor.com",
+      "cursor.com",
+      "lennysnewsletter.com"
+    ]
   },
   {
     "hash": "4d337cddee3c",
@@ -3303,7 +3712,12 @@
         "snippet": "This month, we're tackling a challenge many businesses face: you started using ClickUp, but it didn't quite stick."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "clickup.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "38f588b5b5cc",
@@ -3342,7 +3756,12 @@
         "snippet": "Space Intelligence Newsletter. Access past issues packed with expert analysis and insights. Access SpaceX Monthly Email ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacex.com",
+      "spacex.com",
+      "research.33fg.com"
+    ]
   },
   {
     "hash": "66c0108c54ba",
@@ -3381,7 +3800,12 @@
         "snippet": "How to Create a Newsletter Signup API in Lovable | Lovable Tutorial (2025) ... Base44 vs Lovable: which AI app builder comes out on top? Santrel ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "53ca62acd07a",
@@ -3420,7 +3844,12 @@
         "snippet": "The Creative Tool for Growth! Enrich your data, automate personal outreach, and implement any idea for GTM"
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "b118fbc3779a",
@@ -3459,7 +3888,12 @@
         "snippet": "... editor? Contact Ekaterina: ekaterina.kochergina.business@gmail.com Social Twitter: https://twitter.com/monster_lessons Instagram: https ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "instagram.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "dc3e14ba7191",
@@ -3498,7 +3932,12 @@
         "snippet": "408K followers · 1.3K+ posts · The world's most productive AI Workspace that brings all software, humans, and AI agents together in one place."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "help.clickup.com",
+      "instagram.com"
+    ]
   },
   {
     "hash": "d49d817a93b9",
@@ -3537,7 +3976,12 @@
         "snippet": "17M followers · 3 following · 964 posts · @spacex: “SpaceX designs, manufactures and launches the world's most advanced rockets and spacecraft”"
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "instagram.com",
+      "x.com",
+      "instagram.com"
+    ]
   },
   {
     "hash": "e732d0155e69",
@@ -3576,7 +4020,12 @@
         "snippet": "... Twitter/X: https://x.com/lovable_dev LinkedIn: https://www.linkedin.com/company/lovable-dev/ Instagram ... Santrel Media•13K views · 11:16."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "lovable.dev",
+      "youtube.com"
+    ]
   },
   {
     "hash": "188d3e16a8b1",
@@ -3615,7 +4064,12 @@
         "snippet": "Clay molds us as we mold it. In theory, if you make clay into something good, it will also make you into something good. Nice video, Sir! 19 ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "e2d40b4a65a6",
@@ -3654,7 +4108,12 @@
         "snippet": "The latest feature releases, presented by the team at Cursor. · Building always-on coding agents with Cursor · Software is changing · Cursor now shows you demos, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "572bdfd49af3",
@@ -3693,7 +4152,12 @@
         "snippet": "ClickUp 4.0 is here. The biggest launch in our history. Every detail has been rebuilt with craft and quality to deliver clarity, speed, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "ecbc43c2d9a6",
@@ -3732,7 +4196,12 @@
         "snippet": "Download Opera at https://opr.as/02-Opera-browser-marcushouse This week has been huge for spaceflight. SpaceX Just Unleashed Starship's ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "3feb332a59ec",
@@ -3771,7 +4240,12 @@
         "snippet": "Today, in this Lovable tutorial, I share how you can use Lovable to generate web apps and tools in minutes by chatting with AI."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "344dcccea69c",
@@ -3810,7 +4284,12 @@
         "snippet": "... enrich the data you already have, and automate outreach using AI. I ... Go to channel Clay · I sent 10,000,000 cold emails and learned this."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "e4c25a4e3de4",
@@ -3849,7 +4328,12 @@
         "snippet": "Full AI Coding Course → https://bit.ly/ai-coding-volo ‍ Cursor is a powerful new AI-powered code editor that makes coding much faster with ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "0937c4d1089d",
@@ -3888,7 +4372,12 @@
         "snippet": "The world's most productive AI Workspace that brings all software, humans, and AI Agents together in one place. ...more"
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "af87e92a05c6",
@@ -3927,7 +4416,12 @@
         "snippet": "... youtube.com/@NASASpaceflight RGVAerialPhotography - https ... Go to channel GREAT SPACEX · SpaceX Did Something Never Done in Months ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "ac4993392d08",
@@ -3966,7 +4460,12 @@
         "snippet": "In this 30-minute Lovable tutorial i'll teach you what you need to get started building your own apps with this insane AI tool the moment ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "youtube.com",
+      "youtube.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "e0df9b338f22",
@@ -4005,7 +4504,12 @@
         "snippet": "Access 150+ premium data sources and AI research agents in one platform, then automate growth workflows to turn insights into revenue."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "university.clay.com",
+      "clay.com"
+    ]
   },
   {
     "hash": "29c093bd893e",
@@ -4044,7 +4548,12 @@
         "snippet": "Cursor is an AI-powered coding assistant and IDE that helps marketing teams build and automate digital tools through natural-language prompts ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "averi.ai",
+      "reddit.com",
+      "marketingagent.blog"
+    ]
   },
   {
     "hash": "277b1fef5fe4",
@@ -4083,7 +4592,12 @@
         "snippet": "This video explores the marketing plan list in ClickUp, including statuses, custom fields, and views to help structure and manage your plan."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "university.clickup.com",
+      "cxl.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "9e238777defd",
@@ -4122,7 +4636,12 @@
         "snippet": "Take a look at SpaceX or Elon Musk through a sales and marketing lens for learnings. Create lasting success for your sales teams through these key elements."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "marketingmaverick.io",
+      "pestel-analysis.com",
+      "televerde.com"
+    ]
   },
   {
     "hash": "e503c95c03dc",
@@ -4161,7 +4680,12 @@
         "snippet": "We're working on breaking down how Lovable hit $17M ARR in 3 months. Our team was obsessed with how Lovable could achieve such insane results."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "productmarketfit.tech",
+      "reddit.com"
+    ]
   },
   {
     "hash": "b5aedd88b04e",
@@ -4200,7 +4724,12 @@
         "snippet": "Access 150+ premium data sources and AI research agents in one platform, then automate growth workflows to turn insights into revenue."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "university.clay.com",
+      "linkedin.com",
+      "clay.com"
+    ]
   },
   {
     "hash": "1ae539187af2",
@@ -4239,7 +4768,12 @@
         "snippet": "Cursor is an intelligent code editor built as a fork of Visual Studio Code, designed to transform the coding experience through advanced AI capabilities. Unlike ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cursor.com",
+      "reddit.com",
+      "codecademy.com"
+    ]
   },
   {
     "hash": "7079710afcb7",
@@ -4278,7 +4812,12 @@
         "snippet": "ClickUp's Google Ads KPI Tracking template is designed to help you effectively track and manage your key performance indicators for your Google Ads campaigns."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "zapier.com",
+      "reddit.com",
+      "clickup.com"
+    ]
   },
   {
     "hash": "59ad214122a2",
@@ -4317,7 +4856,12 @@
         "snippet": "Tired of Wasting Money on Google Ads? 2D Explainer Video by SpaceX Animation. 141 views · 10 months ago. #2DAnimation #ExplainerVideo #GoogleAds."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacexdigitalsolution.com",
+      "investing.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "941112acc80f",
@@ -4356,7 +4900,12 @@
         "snippet": "Got an app or website idea but no clue where to start? This one's for you Lovable is an AI platform that lets you build real, functional ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "youtube.com",
+      "facebook.com"
+    ]
   },
   {
     "hash": "b8f5b9835ab6",
@@ -4395,7 +4944,12 @@
         "snippet": "Meta's advertising tools might not work as expected when an ad blocker is enabled in a web browser. Turn off the ad blocker or add this web page's URL as an ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "facebook.com",
+      "facebook.com",
+      "facebook.com"
+    ]
   },
   {
     "hash": "840414a6d51b",
@@ -4434,7 +4988,12 @@
         "snippet": "API-et for Annonsebiblioteket hjelper deg med å utføre tilpassede søk i Annonsebibliotek etter følgende: Annonser om samfunnsspørsmål, valg eller politikk ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "facebook.com",
+      "facebook.com",
+      "facebook.com"
+    ]
   },
   {
     "hash": "af402ab46064",
@@ -4473,7 +5032,12 @@
         "snippet": "Click up our NEW Hydro Gel Concealer for all-over, longwear coverage that looks like your best skin."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "facebook.com",
+      "facebook.com",
+      "facebook.com"
+    ]
   },
   {
     "hash": "787ac926e8da",
@@ -4493,7 +5057,8 @@
     },
     "result_count": 0,
     "top_results": [],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": []
   },
   {
     "hash": "0a364aeb72e7",
@@ -4526,7 +5091,11 @@
         "snippet": "With Lovable, you just describe what you want. AI turns it into a working product with UI, backend, and logic included."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "facebook.com",
+      "facebook.com"
+    ]
   },
   {
     "hash": "41c041e9c7cb",
@@ -4565,7 +5134,12 @@
         "snippet": "About Clay Our mission is to help organizations turn any growth idea into reality. We see growth as a creative practice, not a formula."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "ca.linkedin.com",
+      "linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "3912fd68d507",
@@ -4604,7 +5178,12 @@
         "snippet": "18 Features Editor Jobs in Greater Toronto Area, Canada · Editor: SHARP Magazine & SHARPMagazine.com · Bilingual Editor, Apple News Canada · Cursor Tutor · Cursor ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "ca.linkedin.com",
+      "ca.linkedin.com",
+      "ca.linkedin.com"
+    ]
   },
   {
     "hash": "cf12dfb86bd5",
@@ -4643,7 +5222,12 @@
         "snippet": "At ClickUp, we're not just building software. We're architecting the future of work! In a world overwhelmed by work sprawl, we saw a better way."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "ca.linkedin.com",
+      "linkedin.com",
+      "ca.linkedin.com"
+    ]
   },
   {
     "hash": "31244713cd0e",
@@ -4682,7 +5266,12 @@
         "snippet": "Today's top 2000+ Spacex jobs in United States. Leverage your professional network, and get hired. New Spacex jobs added daily."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "ca.linkedin.com",
+      "linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "20ce820b699f",
@@ -4721,7 +5310,12 @@
         "snippet": "As a tutor on the Varsity Tutors Platform, you'll have the flexibility to set your own schedule, earn competitive rates, and make a real impact on students' ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "ca.linkedin.com",
+      "ca.linkedin.com"
+    ]
   },
   {
     "hash": "5f6e16f576e6",
@@ -4760,7 +5354,12 @@
         "snippet": "Optimize GTM stack including tools like Clay, Salesforce, and enrichment APIs. ... Senior Technical Solutions Engineer. Programming. •. 2d ago ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "ca.linkedin.com",
+      "ziprecruiter.com",
+      "jaabz.com"
+    ]
   },
   {
     "hash": "5ee6d4c20052",
@@ -4799,7 +5398,12 @@
         "snippet": "Software Engineer 1. 1y. I've been using it a lot. Just having a ... Salary Negotiations. A community to ask questions and seek advice on ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "tiktok.com",
+      "glassdoor.co.in"
+    ]
   },
   {
     "hash": "a32a150da024",
@@ -4838,7 +5442,12 @@
         "snippet": "Data Scientist Salary, $523,886. Financial Analyst Salary, $316,575. Product Designer Salary, $150,690. Product Manager Salary, $276,375. Recruiter Salary ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "comparably.com",
+      "levels.fyi"
+    ]
   },
   {
     "hash": "c288e8a6e0f2",
@@ -4877,7 +5486,12 @@
         "snippet": "Search salaries ; Propulsion Engineer II · $156,000 ; Lead Launch Engineer · $130,000 ; Aerospace Engineer · $97,000 ; Structures Engineer · $112,000 ; Sr. RF Engineer."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "indeed.com",
+      "spacecrew.com"
+    ]
   },
   {
     "hash": "b1bb7ca3551e",
@@ -4916,7 +5530,12 @@
         "snippet": "You pay for what you use, and it scales effortlessly. 2️⃣Dedicated ... Full-Stack Engineer | PHP Laravel | MERN Stack | System Design ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "medium.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "cf2fd1aa6f2b",
@@ -4955,7 +5574,12 @@
         "snippet": "You'd pair them with a founding AE and either a solutions engineer or a former customer who knows the problem space. Then you'd hire an ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "nextplayso.substack.com",
+      "clay.com",
+      "thegtme.com"
+    ]
   },
   {
     "hash": "db06cbf835f5",
@@ -4994,7 +5618,12 @@
         "snippet": "Interview tips: Nailing the Mid-level Software Engineer interview. Congratulations! You've tackled the countless rejections from applications ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "tryexponent.com",
+      "reddit.com",
+      "medium.com"
+    ]
   },
   {
     "hash": "bea542b9544a",
@@ -5033,7 +5662,12 @@
         "snippet": "I'm hoping to get some tips to pass a second interview round for a product manager job where I'll be asked to ideate on how to improve a product on the spot."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "glassdoor.com",
+      "teamblind.com"
+    ]
   },
   {
     "hash": "d95acde92a6b",
@@ -5072,7 +5706,12 @@
         "snippet": "DOWNLOAD PDF WITH ALL INTERVIEW QUESTIONS AND ANSWERS:* https://mockinterviewpro.com/interview-questions/pdf/propulsion-engineer List of ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "jointaro.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "b3052247684b",
@@ -5111,7 +5750,12 @@
         "snippet": "Profile of Amaan A., Senior Full-Stack Engineer - AI, Python and. View full ... Ready-to-interview vetted Lovable Ai developers are waiting for your request."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "upwork.com",
+      "softaims.com"
+    ]
   },
   {
     "hash": "defdd93c43d6",
@@ -5150,7 +5794,12 @@
         "snippet": "Enrich your data, automate personalized outreach, and implement any idea for go-to-market. Creatively find customers from 100+ data sources — get live ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "ca.linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "f1407ffada31",
@@ -5189,7 +5838,12 @@
         "snippet": "It works best in very specific scenarios: rapid prototyping, exploring ideas, or helping a non-technical designer produce something functional ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "2cdf08373bb9",
@@ -5228,7 +5882,12 @@
         "snippet": "2,000+ Clickup Jobs in Worldwide (199 new) · Program Manager · Client Success Coach · Part Time Virtual Assistant · Operations & Client Success Coordinator."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "ca.linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "b6137c048fcf",
@@ -5267,7 +5926,12 @@
         "snippet": "5 Spacex Jobs in Canada (1 new) · Director – DeepSea Discovery Club · Global Ambassador & Lead Talent · Figure it out | Get stuff built Engineer - Canada Office."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "linkedin.com",
+      "ca.linkedin.com"
+    ]
   },
   {
     "hash": "0a8d322f6ba8",
@@ -5306,7 +5970,12 @@
         "snippet": "Lovable is a platform that lets you build apps and websites by chatting with AI. We are a small European team of serial founders, product engineers, physicists."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "b333b724c2cc",
@@ -5345,7 +6014,12 @@
         "snippet": "Clay operator - $1.5k - $2.5k-ish per month Focuses on setting up Clay tables without much strategic knowledge; just executing. A step above a ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "glassdoor.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "937e461ec48e",
@@ -5384,7 +6058,12 @@
         "snippet": "Get data insights into total compensation, benefits, perks, and rewards for working at CURSOR Software through real anonymous employees."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "reddit.com",
+      "glassdoor.com"
+    ]
   },
   {
     "hash": "8a7e90f27bba",
@@ -5423,7 +6102,12 @@
         "snippet": "The typical pay range is between $96,344 (25th percentile) and $165,496 (75th percentile) annually. This is based on 59 salaries submitted by ClickUp Account ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "glassdoor.com",
+      "glassdoor.com"
+    ]
   },
   {
     "hash": "57566c05db91",
@@ -5462,7 +6146,12 @@
         "snippet": "The average SpaceX salary in Los Angeles can vary greatly by role. Annual salaries typically range from $39,741 (or $19) for a Dining Room Attendant to $480,964 ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "glassdoor.com",
+      "glassdoor.com"
+    ]
   },
   {
     "hash": "3681702f4e5f",
@@ -5501,7 +6190,12 @@
         "snippet": "Cons. Low salary | Flexible timings | Politics | Discrimination based salaries | No process guidance | Low growth | No promotion | Directors are the Kings ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "glassdoor.com",
+      "glassdoor.com",
+      "glassdoor.com"
+    ]
   },
   {
     "hash": "234afa229c89",
@@ -5540,7 +6234,12 @@
         "snippet": "We're looking for a Product Manager to own Enrichment—one of Clay's most critical and technically complex product areas. You'll lead strategy across tables, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "clay.com",
+      "jobs.ashbyhq.com"
+    ]
   },
   {
     "hash": "ad5f6d54d1f6",
@@ -5579,7 +6278,12 @@
         "snippet": "This element contains an interactive demo for sighted users. It's a demonstration of Cursor's IDE showing AI-powered coding assistance features."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cursor.com",
+      "linkedin.com",
+      "cursor.com"
+    ]
   },
   {
     "hash": "1b6bff86b8e1",
@@ -5618,7 +6322,12 @@
         "snippet": "Browse 36 INTERNSHIP CLICKUP jobs ($14-$240/hr) from companies with openings that are hiring now. Find job postings near you and 1-click ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "linkedin.com",
+      "ziprecruiter.com"
+    ]
   },
   {
     "hash": "aeae16982adb",
@@ -5657,7 +6366,12 @@
         "snippet": "I know SpaceX is the “Prestigious” option for Aero at the moment and so I was wondering if anyone had any advice on how to have a chance or why not to apply?"
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacex.com",
+      "spacex.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "f4ec6c99e5ed",
@@ -5696,7 +6410,12 @@
         "snippet": "Careers at Lovable · Partnership Manager · Head of Brand Events · Product Partnership Engineer · Enterprise Account Executive · Growth Product Marketing Manager."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "linkedin.com",
+      "jobs.hummingbird.vc"
+    ]
   },
   {
     "hash": "d1a351899740",
@@ -5735,7 +6454,12 @@
         "snippet": "Overview We are looking for a highly experienced Clay GTM specialist to build advanced signal based outbound systems for B2B campaigns."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clay.com",
+      "clay.com",
+      "upwork.com"
+    ]
   },
   {
     "hash": "3f973b18e5eb",
@@ -5774,7 +6498,12 @@
         "snippet": "Browse 123 Cursor Developer job openings from Remote. Discover flexible, work-from-home opportunities on Indeed in fields like tech, admin, and customer ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cursor.com",
+      "ziprecruiter.com",
+      "indeed.com"
+    ]
   },
   {
     "hash": "de27b47d133a",
@@ -5813,7 +6542,12 @@
         "snippet": "2,000+ Clickup Jobs in Worldwide (199 new) · Program Manager · Client Success Coach · Part Time Virtual Assistant · Operations & Client Success Coordinator."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "ziprecruiter.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "45103d39a20f",
@@ -5852,7 +6586,12 @@
         "snippet": "Browse 67 Spacex Hybrid Remote job openings. Discover flexible, work-from-home opportunities on Indeed in fields like tech, admin, and customer service."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "spacex.com",
+      "linkedin.com",
+      "indeed.com"
+    ]
   },
   {
     "hash": "f3d809dca715",
@@ -5891,7 +6630,12 @@
         "snippet": "Today's top 1000+ Lovable jobs. Leverage your professional network, and get hired. New Lovable jobs added daily ... Remote. Remote. Remote (882). On-site (795)."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "lovable.dev",
+      "careers-remote.lovable.app",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "4ae64cebf887",
@@ -5930,7 +6674,12 @@
         "snippet": "Why we left Clay for 90% of our data research & enrichment workflows Don't get me wrong - we love Clay first of all as a super-fast ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "linkedin.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "b9f73c3d9177",
@@ -5969,7 +6718,12 @@
         "snippet": "I instantly switched from writing code to mostly prompting. I see ... left with 1. worse coding/swe skills 2. you're actually spending ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "forum.cursor.com",
+      "forum.cursor.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "ec4a33c0ae6c",
@@ -6008,7 +6762,12 @@
         "snippet": "In the upper-left corner of the Sidebar, click your Workspace avatar. From the menu, access your Workspace settings. Account settings menu. Everyone has ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "help.clickup.com",
+      "help.clickup.com"
+    ]
   },
   {
     "hash": "848b3de00461",
@@ -6047,7 +6806,12 @@
         "snippet": "... (left) and the Falcon Heavy GOES-U launch (right). The area decreased despite increased vehicle size and returning an additional booster. With new vehicles ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "cnbc.com",
+      "fortune.com",
+      "spacex.com"
+    ]
   },
   {
     "hash": "5899e634050c",
@@ -6086,7 +6850,12 @@
         "snippet": "I used lovable to build some apps 8 months ago (they ran - i basically just left them up for a client and didn't need to touch them) and ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "linkedin.com",
+      "reddit.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "0aca3d9a8a2c",
@@ -6125,7 +6894,12 @@
         "snippet": "“Constant bugs broken workflows and useless support not worth the money” — TrustPilot Review. Clay negative Trustpilot review screenshot 4."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "sales-echo.com",
+      "pipeline.zoominfo.com"
+    ]
   },
   {
     "hash": "9cf92188393d",
@@ -6164,7 +6938,12 @@
         "snippet": "Thought I'd give cursor as go, similar to VS Code and supposedly better AI integration and more. But just a poor experience overall."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "machine-learning-made-simple.medium.com",
+      "ca.trustpilot.com"
+    ]
   },
   {
     "hash": "83a9f78a8431",
@@ -6203,7 +6982,12 @@
         "snippet": "ClickUp's Unlimited plan starts at $7 ... ClickUp is not worth it for teams or individuals who get overwhelmed by feature complexity."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "ca.trustpilot.com",
+      "get-alfred.ai"
+    ]
   },
   {
     "hash": "225802894e1a",
@@ -6242,7 +7026,12 @@
         "snippet": "No waste of money, it is actually far more efficient than the build only 1 then fly it. They learn a lot from each build, make changes and move ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "quora.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "690fc30e9324",
@@ -6281,7 +7070,12 @@
         "snippet": "I found Lovable.dev underwhelming and not worth the investment. Yep, I said it. Might ruffle some feathers, but after trying Lovable's Pro ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "facebook.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "d8c0c3d26c03",
@@ -6320,7 +7114,12 @@
         "snippet": "The biggest issue isn't credits, the biggest issue is lack of data. You can do the 'all you can eat' pricing on Clay with a handful of data ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "bloomberry.com",
+      "linkedin.com"
+    ]
   },
   {
     "hash": "fd0e3857bbbe",
@@ -6359,7 +7158,12 @@
         "snippet": "Too expensive for me. Basically have unlimited responses with cursor for $20/month. The way I \"code\" I have 3 Cursor windows running and I just ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "medium.com",
+      "arstechnica.com",
+      "reddit.com"
+    ]
   },
   {
     "hash": "10287a5545d4",
@@ -6398,7 +7202,12 @@
         "snippet": "... ClickUp: https://askyvi.tips/clickup ⏱ Timestamps: 00:00 - Introduction to the ClickUp Controversy 00:24 - ClickUp Controversy: AI and ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "medium.com",
+      "youtube.com"
+    ]
   },
   {
     "hash": "f68fa949ff37",
@@ -6437,7 +7246,12 @@
         "snippet": "Eight former SpaceX employees are suing the rocket company and its CEO Elon Musk, alleging that Musk personally ordered their firing."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "planetary.org",
+      "nbcnews.com"
+    ]
   },
   {
     "hash": "6f1762f8c4b8",
@@ -6476,7 +7290,12 @@
         "snippet": "Lovable charges users “credits” for each AI interaction. Sounds fair, right? Except that the AI has developed an expensive habit of failing and ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "techcrunch.com",
+      "news.ycombinator.com",
+      "medium.com"
+    ]
   },
   {
     "hash": "76f43da93e02",
@@ -6515,7 +7334,12 @@
         "snippet": "In this lesson, we'll show you how to enrich companies with key firmographic and technographic details using Clay's waterfall enrichment system. Before ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "blog.revpartners.io",
+      "university.clay.com"
+    ]
   },
   {
     "hash": "7a4f58c1d469",
@@ -6554,7 +7378,12 @@
         "snippet": "This AI code editor hit $2B revenue with a shocking 92% retention rate. AI coding tools are evolving fast! Cursor editor just hit $2B in ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "forbes.com",
+      "aiproductivity.ai",
+      "instagram.com"
+    ]
   },
   {
     "hash": "4b952de54e61",
@@ -6593,7 +7422,12 @@
         "snippet": "Create and manage churn reduction plans in ClickUp. Track initiatives, monitor key metrics, and collaborate with your team to retain customers."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "clickup.com",
+      "hex.tech",
+      "clickup.com"
+    ]
   },
   {
     "hash": "e800f409f269",
@@ -6632,7 +7466,12 @@
         "snippet": "Over the past three months, SpaceX's Retention score has remained steady at 75/100. SpaceX ranks in 1st place versus 4 competitors which include Blue Origin, ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "news.satnews.com",
+      "comparably.com"
+    ]
   },
   {
     "hash": "3d75d364201b",
@@ -6671,6 +7510,11 @@
         "snippet": "$17M ARR, adding up to 2M new ARR each week. 25,000 new apps created every day. 30,000 paying customers. 85% one-month retention on paying users ..."
       }
     ],
-    "has_knowledge_graph": false
+    "has_knowledge_graph": false,
+    "all_domains": [
+      "reddit.com",
+      "lovable.dev",
+      "thegrowthmind.substack.com"
+    ]
   }
 ]

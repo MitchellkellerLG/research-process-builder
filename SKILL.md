@@ -236,6 +236,24 @@ Take the surviving patterns and arrange them into a numbered step sequence.
 
 **Step count target:** 5-8 steps is the sweet spot. Each step should earn its place by improving accuracy. More than 10 means your primary stack is too weak. If you can hit 90%+ in 5 steps, stop there.
 
+### Phase 7: Source Review (After 50+ Results)
+
+After assembling the process file, run source analysis to validate your pattern choices against real data.
+
+```bash
+py scripts/pattern_tester.py --sources    # generates searches/source-analysis.md
+```
+
+This surfaces which domains consistently appear in high-quality (Q3+) results by category. Use it to:
+
+1. **Validate PRIMARY patterns** — If g2.com dominates review results at 60%+, confirm you have a `site:g2.com` pattern in your stack. If not, add one and retest.
+2. **Inform new process design** — When starting a new research process, check source-analysis.md first. The dominant sources for your category type are your first-round candidates.
+3. **Catch missing coverage** — If a high-value platform (wellfound, pitchbook, tracxn) appears in source analysis but not your process, evaluate whether to add it.
+
+The feedback loop: **test patterns → analyze sources → build patterns targeting dominant sources → test again.**
+
+Skip this phase for your first iteration. Run it after you have 50+ results in a category to get statistically meaningful source distribution.
+
 ---
 
 ## Quality Checklist
@@ -251,6 +269,7 @@ Before calling a process "done":
 - [ ] Conditional steps have clear "when to run" guards
 - [ ] Fallback steps have clear "when to trigger" criteria
 - [ ] Year references use `{{current_year}}` variable, not hardcoded years
+- [ ] Source analysis reviewed — dominant platforms have `site:` patterns in the stack
 - [ ] At least one OR-combined query tested (highest-leverage technique)
 - [ ] Ungated platform coverage checked (ZoomInfo, RocketReach, Crunchbase, LinkedIn, Wellfound)
 - [ ] Each step has a `**stop if:**` condition where applicable

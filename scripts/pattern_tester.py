@@ -11,8 +11,10 @@ Usage:
     py scripts/pattern_tester.py --company Clay           # single company
     py scripts/pattern_tester.py --report                 # classification table
     py scripts/pattern_tester.py --generate-doc           # generate serper-patterns.md
+    py scripts/pattern_tester.py --sources                # generate source-analysis.md (domain frequency)
+    py scripts/pattern_tester.py --migrate                # backfill all_domains on old entries
 
-    # Round 2 modes:
+    # Custom config/output:
     py scripts/pattern_tester.py --config dns_patterns.json --output ../searches/raw-results-dns.json
     py scripts/pattern_tester.py --config combo_patterns.json --output ../searches/raw-results-combo.json
 """
@@ -109,7 +111,8 @@ class AutoScorer:
     def score(self, raw_result: dict, category_id: str, company: dict) -> dict:
         if "error" in raw_result:
             return {"quality": 0, "result_count": 0, "relevance_ratio": 0,
-                    "keyword_hits": 0, "has_knowledge_graph": False, "top_domains": [], "notes": "API error"}
+                    "keyword_hits": 0, "has_knowledge_graph": False, "top_domains": [],
+                    "all_domains": [], "notes": "API error"}
 
         organic = raw_result.get("organic", [])
         knowledge_graph = raw_result.get("knowledgeGraph", {})
@@ -117,7 +120,7 @@ class AutoScorer:
         if not organic:
             return {"quality": 1, "result_count": 0, "relevance_ratio": 0,
                     "keyword_hits": 0, "has_knowledge_graph": bool(knowledge_graph),
-                    "top_domains": [], "notes": "zero organic results"}
+                    "top_domains": [], "all_domains": [], "notes": "zero organic results"}
 
         # Relevance: how many results mention the company?
         company_lower = company["company_name"].lower()
@@ -148,7 +151,7 @@ class AutoScorer:
         raw_score = relevance_score + keyword_score + kg_bonus
         quality = min(5, max(1, round(raw_score)))
 
-        # Extract top domains
+        # Extract top domains (top 3 for backward compat)
         top_domains = []
         for r in organic[:3]:
             link = r.get("link", "")
@@ -159,6 +162,17 @@ class AutoScorer:
             except Exception:
                 pass
 
+        # Extract ALL domains (all organic results) for source analysis
+        all_domains = []
+        for r in organic:
+            link = r.get("link", "")
+            try:
+                domain = re.search(r"https?://(?:www\.)?([^/]+)", link)
+                if domain:
+                    all_domains.append(domain.group(1))
+            except Exception:
+                pass
+
         return {
             "quality": quality,
             "result_count": len(organic),
@@ -166,6 +180,7 @@ class AutoScorer:
             "keyword_hits": keyword_hits,
             "has_knowledge_graph": bool(knowledge_graph),
             "top_domains": top_domains,
+            "all_domains": all_domains,
         }
 
 
@@ -202,6 +217,8 @@ class ResultStore:
 
     def save(self, category_id, variant_id, company_name, query, raw_result, scores):
         h = self.query_hash(query)
+        # Pop all_domains from scores (it's raw data, not a score dimension)
+        all_domains = scores.pop("all_domains", [])
         entry = {
             "hash": h,
             "category_id": category_id,
@@ -210,6 +227,7 @@ class ResultStore:
             "query": query,
             "timestamp": datetime.utcnow().isoformat(),
             "scores": scores,
+            "all_domains": all_domains,
             "result_count": len(raw_result.get("organic", [])),
             "top_results": [
                 {"title": r.get("title", ""), "link": r.get("link", ""), "snippet": r.get("snippet", "")[:200]}
@@ -350,6 +368,9 @@ def generate_doc(results: list, config: dict):
     lines.append("---")
     lines.append("")
 
+    # Get dominant source data for each category
+    dominant_sources = get_dominant_sources()
+
     # Group by category, then by classification
     for cat in config["categories"]:
         cat_id = cat["id"]
@@ -386,6 +407,9 @@ def generate_doc(results: list, config: dict):
         lines.append(f"## {cat['name']}")
         if cat.get("clay_enrichment_replaced"):
             lines.append(f"**replaces:** {cat['clay_enrichment_replaced']}")
+        dom = dominant_sources.get(cat_id)
+        if dom:
+            lines.append(f"**dominant sources:** {dom}")
         lines.append("")
 
         primary = [p for p in cat_patterns if p["classification"] == "PRIMARY"]
@@ -434,6 +458,176 @@ def generate_doc(results: list, config: dict):
     with open(DOC_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
     print(f"Generated: {DOC_FILE}")
+
+
+# ---------------------------------------------------------------------------
+# Source Analyzer
+# ---------------------------------------------------------------------------
+
+RESULTS_FILES = [
+    SCRIPT_DIR.parent / "searches" / "raw-results.json",
+    SCRIPT_DIR.parent / "searches" / "raw-results-combo.json",
+    SCRIPT_DIR.parent / "searches" / "raw-results-dns.json",
+]
+
+SOURCE_ANALYSIS_FILE = SCRIPT_DIR.parent / "searches" / "source-analysis.md"
+
+
+def _extract_domain(link: str):
+    """Extract domain from a URL, stripping www."""
+    try:
+        m = re.search(r"https?://(?:www\.)?([^/]+)", link)
+        return m.group(1) if m else None
+    except Exception:
+        return None
+
+
+def migrate_all_domains():
+    """Backfill all_domains field on existing entries from top_results links."""
+    total_migrated = 0
+    for fpath in RESULTS_FILES:
+        if not fpath.exists():
+            continue
+        with open(fpath, "r", encoding="utf-8") as f:
+            results = json.load(f)
+
+        changed = 0
+        for entry in results:
+            if "all_domains" in entry:
+                continue
+            domains = []
+            for r in entry.get("top_results", []):
+                d = _extract_domain(r.get("link", ""))
+                if d:
+                    domains.append(d)
+            entry["all_domains"] = domains
+            changed += 1
+
+        if changed:
+            with open(fpath, "w", encoding="utf-8") as f:
+                json.dump(results, f, indent=2, ensure_ascii=False)
+            print(f"Migrated {changed} entries in {fpath.name}")
+            total_migrated += changed
+        else:
+            print(f"No migration needed for {fpath.name}")
+
+    print(f"\nTotal migrated: {total_migrated}")
+
+
+def analyze_sources(min_quality: int = 3) -> dict:
+    """Analyze domain frequency across all result files, filtered to Q{min_quality}+.
+
+    Returns: {category_id: {"total": N, "domains": {domain: count}}}
+    """
+    all_results = []
+    for fpath in RESULTS_FILES:
+        if not fpath.exists():
+            continue
+        with open(fpath, "r", encoding="utf-8") as f:
+            all_results.extend(json.load(f))
+
+    # Group by category, filter to min quality
+    categories = {}
+    for r in all_results:
+        q = r.get("scores", {}).get("quality", 0)
+        if q < min_quality:
+            continue
+        cat = r.get("category_id", "unknown")
+        if cat not in categories:
+            categories[cat] = {"total": 0, "domains": {}}
+        categories[cat]["total"] += 1
+
+        domains = r.get("all_domains", r.get("scores", {}).get("top_domains", []))
+        seen = set()
+        for d in domains:
+            if d not in seen:
+                categories[cat]["domains"][d] = categories[cat]["domains"].get(d, 0) + 1
+                seen.add(d)
+
+    return categories
+
+
+def generate_source_analysis():
+    """Generate searches/source-analysis.md from all result files."""
+    categories = analyze_sources(min_quality=3)
+
+    if not categories:
+        print("No Q3+ results found across any result files.")
+        return
+
+    total_entries = sum(c["total"] for c in categories.values())
+
+    lines = []
+    lines.append("# source analysis")
+    lines.append("")
+    lines.append(f"**generated:** {datetime.now().strftime('%Y-%m-%d')}")
+    lines.append(f"**entries analyzed:** {total_entries} (Q3+ only)")
+    lines.append(f"**categories:** {len(categories)}")
+    lines.append(f"**files:** {', '.join(f.name for f in RESULTS_FILES if f.exists())}")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    for cat_id in sorted(categories.keys()):
+        data = categories[cat_id]
+        total = data["total"]
+        if total == 0:
+            continue
+
+        # Sort domains by frequency descending
+        sorted_domains = sorted(data["domains"].items(), key=lambda x: x[1], reverse=True)
+
+        lines.append(f"## {cat_id}")
+        lines.append(f"**Q3+ results analyzed:** {total}")
+        lines.append("")
+        lines.append("| Domain | Frequency | Tier |")
+        lines.append("|--------|-----------|------|")
+
+        primary_domains = []
+        for domain, count in sorted_domains[:15]:
+            pct = count / total * 100
+            if pct >= 60:
+                tier = "PRIMARY"
+                primary_domains.append(domain)
+            elif pct >= 30:
+                tier = "SECONDARY"
+            else:
+                tier = "occasional"
+            lines.append(f"| {domain} | {pct:.0f}% ({count}/{total}) | {tier} |")
+
+        lines.append("")
+        if primary_domains:
+            site_suggestions = ", ".join(f"`site:{d}`" for d in primary_domains)
+            lines.append(f"**recommendation:** Include {site_suggestions} as primary patterns for this category.")
+        else:
+            lines.append("**recommendation:** No single source dominates. Use broad queries.")
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+
+    SOURCE_ANALYSIS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SOURCE_ANALYSIS_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"Generated: {SOURCE_ANALYSIS_FILE}")
+
+
+def get_dominant_sources(min_quality: int = 3) -> dict:
+    """Returns {category_id: "domain1 (X%), domain2 (Y%)"} for generate-doc integration."""
+    categories = analyze_sources(min_quality)
+    result = {}
+    for cat_id, data in categories.items():
+        total = data["total"]
+        if total == 0:
+            continue
+        sorted_domains = sorted(data["domains"].items(), key=lambda x: x[1], reverse=True)
+        top = []
+        for domain, count in sorted_domains[:5]:
+            pct = count / total * 100
+            if pct >= 20:
+                top.append(f"{domain} ({pct:.0f}%)")
+        if top:
+            result[cat_id] = ", ".join(top)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -518,7 +712,8 @@ def run(args):
                     print(f"[ERR] {category['id']}/{variant['id']}/{company['company_name']}: {e}")
                     store.save(category["id"], variant["id"], company["company_name"], query,
                               {"error": str(e)}, {"quality": 0, "result_count": 0, "relevance_ratio": 0,
-                                                   "keyword_hits": 0, "has_knowledge_graph": False, "top_domains": []})
+                                                   "keyword_hits": 0, "has_knowledge_graph": False,
+                                                   "top_domains": [], "all_domains": []})
 
                 time.sleep(0.2)  # Rate limit
 
@@ -542,9 +737,20 @@ def main():
     parser.add_argument("--company", type=str, help="Run single company only")
     parser.add_argument("--report", action="store_true", help="Print classification report")
     parser.add_argument("--generate-doc", action="store_true", help="Generate serper-patterns.md")
+    parser.add_argument("--sources", action="store_true", help="Generate source-analysis.md from all result files")
+    parser.add_argument("--migrate", action="store_true", help="Backfill all_domains on existing entries")
     parser.add_argument("--config", type=str, help="Config file (default: patterns_config.json)")
     parser.add_argument("--output", type=str, help="Results output file (default: searches/raw-results.json)")
     args = parser.parse_args()
+
+    if args.migrate:
+        migrate_all_domains()
+        return
+
+    if args.sources:
+        generate_source_analysis()
+        return
+
     run(args)
 
 
