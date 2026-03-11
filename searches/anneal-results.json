@@ -1,0 +1,131 @@
+{
+  "run_date": "2026-03-11T16:57:44.851913",
+  "budget": 0.1,
+  "spent": 0.0051,
+  "searches_run": 51,
+  "improvements": {},
+  "unchanged": [
+    "company_profile",
+    "funding_financial",
+    "hiring_signals",
+    "competitor_identification",
+    "reviews_sentiment",
+    "news_press",
+    "press_releases",
+    "social_media",
+    "community_platforms",
+    "growth_marketing",
+    "tech_stack",
+    "leadership_people",
+    "customer_case_studies",
+    "pricing_intelligence",
+    "partnerships_integrations",
+    "content_blog",
+    "newsletter_email",
+    "events_conferences",
+    "customer_complaints",
+    "awards_recognition"
+  ],
+  "final_champions": {
+    "company_profile": {
+      "template": "site:rocketreach.co {{company_name}}",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "funding_financial": {
+      "template": "{{company_name}} funding",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "hiring_signals": {
+      "template": "{{company_name}} careers",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "competitor_identification": {
+      "template": "{{company_name}} {{category}} alternatives OR competitors OR \"vs\" OR \"compared to\"",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "reviews_sentiment": {
+      "template": "{{company_name}} review",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "news_press": {
+      "template": "{{domain}} news",
+      "avg_q": 3.6,
+      "tbs": null
+    },
+    "press_releases": {
+      "template": "{{company_name}} \"press release\" OR \"announces\" OR \"newsroom\"",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "social_media": {
+      "template": "site:linkedin.com/company/{{company_name}}",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "community_platforms": {
+      "template": "{{company_name}} {{category}} discord OR slack OR community",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "growth_marketing": {
+      "template": "site:{{domain}} blog OR pricing OR demo",
+      "avg_q": 4.0,
+      "tbs": "qdr:y"
+    },
+    "tech_stack": {
+      "template": "{{company_name}} tech stack",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "leadership_people": {
+      "template": "{{company_name}} CEO OR founder",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "customer_case_studies": {
+      "template": "{{company_name}} {{category}} case study OR customer story",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "pricing_intelligence": {
+      "template": "{{company_name}} pricing",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "partnerships_integrations": {
+      "template": "{{company_name}} partnerships OR integrations",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "content_blog": {
+      "template": "site:{{domain}} resources OR guides OR whitepapers",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "newsletter_email": {
+      "template": "site:{{domain}} \"subscribe\" OR \"newsletter\" OR \"sign up\"",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "events_conferences": {
+      "template": "{{company_name}} meetup OR community event",
+      "avg_q": 4.0,
+      "tbs": null
+    },
+    "customer_complaints": {
+      "template": "{{company_name}} problems OR issues OR complaints -careers -jobs -site:{{domain}}",
+      "avg_q": 3.8,
+      "tbs": null
+    },
+    "awards_recognition": {
+      "template": "{{company_name}} top OR best {{category}} company",
+      "avg_q": 4.0,
+      "tbs": null
+    }
+  }
+}
