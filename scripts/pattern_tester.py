@@ -102,6 +102,24 @@ CATEGORY_KEYWORDS = {
     "events_conferences": ["event", "conference", "webinar", "podcast", "meetup", "summit", "hackathon"],
     "customer_complaints": ["complaint", "problem", "issue", "negative", "disappointed", "frustrated", "drawback"],
     "awards_recognition": ["award", "recognition", "best", "top", "winner", "ranked", "fastest growing"],
+    # People-finding categories
+    "founders_ceo": ["founder", "co-founder", "ceo", "president", "owner", "chief executive", "founded", "started"],
+    "c_suite_technical": ["cto", "chief technology", "cpo", "chief product", "ciso", "cio", "chief information"],
+    "c_suite_commercial": ["cmo", "chief marketing", "cro", "chief revenue", "cfo", "chief financial", "coo", "chief operating"],
+    "vp_sales_revenue": ["vp", "vice president", "sales", "revenue", "business development", "partnerships"],
+    "vp_marketing_growth": ["vp", "vice president", "marketing", "growth", "demand gen", "brand"],
+    "vp_engineering_product": ["vp", "vice president", "engineering", "product", "design", "vpe"],
+    "director_sales_bd": ["director", "sales", "business development", "partnerships", "account", "revenue"],
+    "director_marketing_content": ["director", "marketing", "content", "demand", "brand", "growth"],
+    "director_engineering_product": ["director", "engineering", "product", "design", "platform"],
+    "head_of_department": ["head of", "growth", "customer success", "operations", "revenue", "partnerships"],
+    "sales_ops_leads": ["sdr", "bdr", "sales manager", "revops", "revenue operations", "sales ops", "account executive"],
+    "hr_people_talent": ["people", "talent", "hr", "human resources", "recruiting", "culture"],
+    "finance_legal_ops": ["finance", "controller", "operations", "legal", "counsel", "revops", "strategy"],
+    "technical_leads": ["staff engineer", "principal", "tech lead", "architect", "engineering manager", "senior engineer"],
+    "people_via_media": ["speaker", "podcast", "interview", "keynote", "conference", "said", "according to", "appointed"],
+    "people_via_platforms": ["rocketreach", "zoominfo", "apollo", "wellfound", "theorg", "profile", "team"],
+    "people_via_content": ["author", "wrote", "published", "blog", "article", "medium", "substack", "maker"],
 }
 
 
@@ -468,6 +486,8 @@ RESULTS_FILES = [
     SCRIPT_DIR.parent / "searches" / "raw-results.json",
     SCRIPT_DIR.parent / "searches" / "raw-results-combo.json",
     SCRIPT_DIR.parent / "searches" / "raw-results-dns.json",
+    SCRIPT_DIR.parent / "searches" / "raw-results-people.json",
+    SCRIPT_DIR.parent / "searches" / "raw-results-people-combo.json",
 ]
 
 SOURCE_ANALYSIS_FILE = SCRIPT_DIR.parent / "searches" / "source-analysis.md"

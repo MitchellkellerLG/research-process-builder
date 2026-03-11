@@ -1,0 +1,192 @@
+{
+  "description": "Round 2 optimization — combined boolean queries for people-finding. Focused on boosting 4 weak categories to PRIMARY and finding ONE best pattern per category.",
+  "test_companies": [
+    {
+      "company_name": "Clay",
+      "domain": "clay.com",
+      "category": "GTM data enrichment",
+      "disambiguation_needed": true,
+      "role_title": "Solutions Engineer"
+    },
+    {
+      "company_name": "Cursor",
+      "domain": "cursor.com",
+      "category": "AI code editor",
+      "disambiguation_needed": true,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "ClickUp",
+      "domain": "clickup.com",
+      "category": "project management",
+      "disambiguation_needed": false,
+      "role_title": "Product Manager"
+    },
+    {
+      "company_name": "SpaceX",
+      "domain": "spacex.com",
+      "category": "aerospace",
+      "disambiguation_needed": false,
+      "role_title": "Propulsion Engineer"
+    },
+    {
+      "company_name": "Lovable",
+      "domain": "lovable.dev",
+      "category": "AI app builder",
+      "disambiguation_needed": false,
+      "role_title": "Full Stack Engineer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "founders_ceo",
+      "name": "Founders / CEO / President",
+      "variants": [
+        {"id": "combo_media_attr", "template": "{{company_name}} CEO OR founder OR \"co-founder\" interview OR podcast OR \"founded by\" -jobs"},
+        {"id": "combo_li_excl", "template": "site:linkedin.com/in {{company_name}} founder OR CEO OR \"co-founder\" -jobs -careers"},
+        {"id": "combo_multi_platform", "template": "{{company_name}} CEO OR co-founder site:linkedin.com/in OR site:crunchbase.com"}
+      ]
+    },
+    {
+      "id": "c_suite_technical",
+      "name": "C-Suite Technical (CTO / CPO / CISO)",
+      "variants": [
+        {"id": "combo_full_title", "template": "{{company_name}} \"chief technology\" OR \"chief product\" OR \"chief security\" -jobs -careers"},
+        {"id": "combo_li_chief", "template": "site:linkedin.com/in {{company_name}} \"chief\" technology OR product OR security OR information"},
+        {"id": "combo_media_cto", "template": "{{company_name}} CTO OR \"chief technology officer\" interview OR podcast OR \"said\" -jobs"},
+        {"id": "combo_li_multi", "template": "{{company_name}} CTO OR CPO site:linkedin.com/in OR site:crunchbase.com -jobs"},
+        {"id": "combo_cto_broad_excl", "template": "{{company_name}} CTO OR CPO OR CISO OR CIO -jobs -careers -salary"}
+      ]
+    },
+    {
+      "id": "c_suite_commercial",
+      "name": "C-Suite Commercial (CMO / CRO / CFO / COO)",
+      "variants": [
+        {"id": "combo_full_expanded", "template": "{{company_name}} \"chief marketing\" OR \"chief revenue\" OR \"chief financial\" OR \"chief operating\" -jobs -careers"},
+        {"id": "combo_li_excl", "template": "site:linkedin.com/in {{company_name}} CMO OR CRO OR CFO OR COO -jobs -careers"},
+        {"id": "combo_abbrev_excl", "template": "{{company_name}} CMO OR CRO OR CFO OR COO -jobs -careers -salary"}
+      ]
+    },
+    {
+      "id": "vp_sales_revenue",
+      "name": "VP Sales / Revenue / Business Development",
+      "variants": [
+        {"id": "combo_expanded", "template": "{{company_name}} \"VP\" OR \"Vice President\" sales OR revenue OR partnerships OR \"business development\" -jobs -careers -salary"},
+        {"id": "combo_li_general", "template": "site:linkedin.com/in {{company_name}} \"VP\" OR \"Vice President\" sales OR revenue"},
+        {"id": "combo_head_vp", "template": "{{company_name}} \"VP Sales\" OR \"VP Revenue\" OR \"Head of Sales\" OR \"Head of Revenue\" -jobs -careers"}
+      ]
+    },
+    {
+      "id": "vp_marketing_growth",
+      "name": "VP Marketing / Growth / Demand Gen",
+      "variants": [
+        {"id": "combo_expanded", "template": "{{company_name}} \"VP\" OR \"Vice President\" marketing OR growth OR brand OR \"demand gen\" -jobs -careers -salary"},
+        {"id": "combo_li_general", "template": "site:linkedin.com/in {{company_name}} \"VP\" marketing OR growth OR brand"},
+        {"id": "combo_head_vp", "template": "{{company_name}} \"VP Marketing\" OR \"VP Growth\" OR \"Head of Marketing\" OR \"Head of Growth\" -jobs -careers"}
+      ]
+    },
+    {
+      "id": "vp_engineering_product",
+      "name": "VP Engineering / Product / Design",
+      "variants": [
+        {"id": "combo_expanded_excl", "template": "{{company_name}} \"VP Engineering\" OR \"VP Product\" OR \"VP Design\" OR VPE -jobs -careers -salary"},
+        {"id": "combo_li_general", "template": "site:linkedin.com/in {{company_name}} \"VP\" OR \"Vice President\" engineering OR product OR design"},
+        {"id": "combo_vp_broad", "template": "{{company_name}} \"VP\" OR \"Vice President\" engineering OR product -jobs -careers"},
+        {"id": "combo_head_vp", "template": "{{company_name}} \"VP Engineering\" OR \"VP Product\" OR \"Head of Engineering\" OR \"Head of Product\" -jobs -careers"}
+      ]
+    },
+    {
+      "id": "director_sales_bd",
+      "name": "Director Sales / BD / Partnerships",
+      "variants": [
+        {"id": "combo_expanded_li", "template": "site:linkedin.com/in {{company_name}} \"Director\" OR \"Senior Director\" sales OR \"business development\" OR partnerships OR revenue -jobs"},
+        {"id": "combo_expanded_broad", "template": "{{company_name}} \"Director\" OR \"Senior Director\" sales OR revenue OR partnerships -jobs -careers -salary"}
+      ]
+    },
+    {
+      "id": "director_marketing_content",
+      "name": "Director Marketing / Content / Demand Gen",
+      "variants": [
+        {"id": "combo_expanded_li", "template": "site:linkedin.com/in {{company_name}} \"Director\" marketing OR content OR \"demand gen\" OR brand -jobs"},
+        {"id": "combo_expanded_broad", "template": "{{company_name}} \"Director\" OR \"Senior Director\" marketing OR content OR growth OR brand -jobs -careers -salary"}
+      ]
+    },
+    {
+      "id": "director_engineering_product",
+      "name": "Director Engineering / Product / Design",
+      "variants": [
+        {"id": "combo_expanded_li", "template": "site:linkedin.com/in {{company_name}} \"Director\" OR \"Senior Director\" engineering OR product OR design -jobs"},
+        {"id": "combo_expanded_broad", "template": "{{company_name}} \"Director\" engineering OR product OR design OR platform -jobs -careers -salary"}
+      ]
+    },
+    {
+      "id": "head_of_department",
+      "name": "Head of Department (Growth / CS / Ops / Revenue)",
+      "variants": [
+        {"id": "combo_expanded_li", "template": "site:linkedin.com/in {{company_name}} \"Head of\" growth OR revenue OR operations OR \"customer success\" OR partnerships"},
+        {"id": "combo_expanded_broad", "template": "{{company_name}} \"Head of\" growth OR revenue OR operations OR partnerships OR \"customer success\" -jobs -careers"}
+      ]
+    },
+    {
+      "id": "sales_ops_leads",
+      "name": "Sales Ops / SDR Managers / RevOps",
+      "variants": [
+        {"id": "combo_expanded_li", "template": "site:linkedin.com/in {{company_name}} \"SDR Manager\" OR \"BDR Manager\" OR \"Sales Manager\" OR \"Revenue Operations\" OR RevOps"},
+        {"id": "combo_expanded_broad", "template": "{{company_name}} \"SDR Manager\" OR \"Sales Manager\" OR RevOps OR \"Revenue Operations\" -jobs -careers"}
+      ]
+    },
+    {
+      "id": "hr_people_talent",
+      "name": "HR / People / Talent Leadership",
+      "variants": [
+        {"id": "combo_expanded", "template": "{{company_name}} \"Head of Recruiting\" OR \"Head of Talent\" OR \"Talent Acquisition\" OR \"VP People\" -jobs -careers"},
+        {"id": "combo_li_general", "template": "site:linkedin.com/in {{company_name}} \"Head of\" OR \"VP\" people OR talent OR recruiting OR HR"}
+      ]
+    },
+    {
+      "id": "finance_legal_ops",
+      "name": "Finance / Legal / Operations Leadership",
+      "variants": [
+        {"id": "combo_li_excl", "template": "site:linkedin.com/in {{company_name}} \"VP\" OR \"Director\" finance OR operations OR legal -jobs -careers"},
+        {"id": "combo_expanded_broad", "template": "{{company_name}} \"VP Finance\" OR \"VP Operations\" OR \"General Counsel\" OR \"Director of Finance\" -jobs -careers -salary"},
+        {"id": "combo_very_general", "template": "{{company_name}} finance OR operations OR legal director OR VP OR head -jobs -careers -salary"},
+        {"id": "combo_revops_finance", "template": "{{company_name}} \"VP Finance\" OR \"VP Operations\" OR RevOps OR \"Director of Finance\" -jobs -careers"}
+      ]
+    },
+    {
+      "id": "technical_leads",
+      "name": "Technical Leads / Staff Engineers / Architects",
+      "variants": [
+        {"id": "combo_fully_expanded", "template": "{{company_name}} \"Engineering Manager\" OR \"Staff Engineer\" OR \"Principal Engineer\" OR \"Architect\" OR \"Tech Lead\" -jobs -careers -salary"},
+        {"id": "combo_li_expanded", "template": "site:linkedin.com/in {{company_name}} \"Engineering Manager\" OR \"Staff Engineer\" OR \"Principal\" OR \"Architect\""}
+      ]
+    },
+    {
+      "id": "people_via_media",
+      "name": "People Discovery via Media / Events",
+      "variants": [
+        {"id": "combo_merged", "template": "{{company_name}} podcast OR interview OR keynote OR conference speaker -jobs -careers"},
+        {"id": "combo_attr_media", "template": "{{company_name}} \"said\" OR \"according to\" OR interview OR podcast -jobs -careers"}
+      ]
+    },
+    {
+      "id": "people_via_platforms",
+      "name": "People Discovery via Data Platforms",
+      "variants": [
+        {"id": "combo_zoom_rocket", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co -jobs"},
+        {"id": "combo_zoom_wellfound", "template": "{{company_name}} site:zoominfo.com OR site:wellfound.com"},
+        {"id": "combo_multi_platform", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co OR site:wellfound.com -jobs"}
+      ]
+    },
+    {
+      "id": "people_via_content",
+      "name": "People Discovery via Authored Content",
+      "variants": [
+        {"id": "combo_expanded_blog", "template": "site:{{domain}} blog OR news team OR \"by\" OR author"},
+        {"id": "combo_broad_author", "template": "{{company_name}} author OR \"written by\" OR \"published by\" blog OR article OR post -jobs -careers"},
+        {"id": "combo_li_pulse", "template": "{{company_name}} site:medium.com OR site:substack.com OR site:linkedin.com/pulse"},
+        {"id": "combo_blog_team", "template": "site:{{domain}} blog OR team OR \"about us\" OR author"}
+      ]
+    }
+  ]
+}

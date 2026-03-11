@@ -1,0 +1,515 @@
+{
+  "description": "People-finding patterns — optimized search queries for locating employees by role at target companies. Round 1 baseline testing across LinkedIn, data platforms, company sites, media, and creative sources.",
+  "test_companies": [
+    {
+      "company_name": "Clay",
+      "domain": "clay.com",
+      "category": "GTM data enrichment",
+      "disambiguation_needed": true,
+      "role_title": "Solutions Engineer"
+    },
+    {
+      "company_name": "Cursor",
+      "domain": "cursor.com",
+      "category": "AI code editor",
+      "disambiguation_needed": true,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "ClickUp",
+      "domain": "clickup.com",
+      "category": "project management",
+      "disambiguation_needed": false,
+      "role_title": "Product Manager"
+    },
+    {
+      "company_name": "SpaceX",
+      "domain": "spacex.com",
+      "category": "aerospace",
+      "disambiguation_needed": false,
+      "role_title": "Propulsion Engineer"
+    },
+    {
+      "company_name": "Lovable",
+      "domain": "lovable.dev",
+      "category": "AI app builder",
+      "disambiguation_needed": false,
+      "role_title": "Full Stack Engineer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "founders_ceo",
+      "name": "Founders / CEO / President",
+      "variants": [
+        {
+          "id": "li_founder",
+          "template": "site:linkedin.com/in {{company_name}} founder OR CEO OR co-founder"
+        },
+        {
+          "id": "broad_founder",
+          "template": "{{company_name}} founder OR CEO OR president -jobs -careers -salary"
+        },
+        {
+          "id": "crunchbase_founder",
+          "template": "{{company_name}} founder OR CEO site:crunchbase.com OR site:pitchbook.com"
+        },
+        {
+          "id": "team_page_founder",
+          "template": "site:{{domain}} founder OR CEO OR team OR about"
+        },
+        {
+          "id": "media_founder",
+          "template": "{{company_name}} CEO OR founder interview OR podcast"
+        },
+        {
+          "id": "attribution_founder",
+          "template": "{{company_name}} \"founded by\" OR \"co-founded\" OR \"started by\""
+        },
+        {
+          "id": "data_platform_founder",
+          "template": "{{company_name}} CEO OR founder site:rocketreach.co OR site:zoominfo.com"
+        },
+        {
+          "id": "startup_founder",
+          "template": "{{company_name}} founder site:wellfound.com OR site:theorg.com"
+        }
+      ]
+    },
+    {
+      "id": "c_suite_technical",
+      "name": "C-Suite Technical (CTO / CPO / CISO)",
+      "variants": [
+        {
+          "id": "li_csuite_tech",
+          "template": "site:linkedin.com/in {{company_name}} CTO OR CPO OR CISO OR CIO"
+        },
+        {
+          "id": "broad_csuite_tech",
+          "template": "{{company_name}} CTO OR \"chief technology officer\" OR CPO -jobs -careers"
+        },
+        {
+          "id": "data_csuite_tech",
+          "template": "{{company_name}} CTO OR CPO site:crunchbase.com OR site:rocketreach.co"
+        },
+        {
+          "id": "team_page_csuite_tech",
+          "template": "site:{{domain}} CTO OR \"chief technology\" OR leadership"
+        },
+        {
+          "id": "media_csuite_tech",
+          "template": "{{company_name}} CTO OR CPO interview OR podcast OR talk"
+        },
+        {
+          "id": "github_csuite_tech",
+          "template": "{{company_name}} CTO OR \"chief technology\" site:github.com OR site:linkedin.com/in"
+        }
+      ]
+    },
+    {
+      "id": "c_suite_commercial",
+      "name": "C-Suite Commercial (CMO / CRO / CFO / COO)",
+      "variants": [
+        {
+          "id": "li_csuite_com",
+          "template": "site:linkedin.com/in {{company_name}} CMO OR CRO OR CFO OR COO"
+        },
+        {
+          "id": "broad_csuite_com",
+          "template": "{{company_name}} CMO OR CRO OR \"chief marketing\" OR \"chief revenue\" -jobs"
+        },
+        {
+          "id": "data_csuite_com",
+          "template": "{{company_name}} CMO OR CRO site:crunchbase.com OR site:rocketreach.co"
+        },
+        {
+          "id": "media_csuite_com",
+          "template": "{{company_name}} CMO OR CRO OR CFO interview OR podcast"
+        },
+        {
+          "id": "full_title_csuite_com",
+          "template": "{{company_name}} \"chief marketing\" OR \"chief revenue\" OR \"chief operating\" -careers"
+        }
+      ]
+    },
+    {
+      "id": "vp_sales_revenue",
+      "name": "VP Sales / Revenue / Business Development",
+      "variants": [
+        {
+          "id": "li_vp_sales",
+          "template": "site:linkedin.com/in {{company_name}} \"VP Sales\" OR \"VP Revenue\" OR \"VP Business Development\""
+        },
+        {
+          "id": "broad_vp_sales",
+          "template": "{{company_name}} \"VP Sales\" OR \"VP Revenue\" OR \"VP Business Development\" -jobs"
+        },
+        {
+          "id": "data_vp_sales",
+          "template": "{{company_name}} \"VP Sales\" OR \"VP Revenue\" site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "speaker_vp_sales",
+          "template": "{{company_name}} \"VP Sales\" OR \"head of sales\" speaker OR conference"
+        },
+        {
+          "id": "general_vp_sales",
+          "template": "{{company_name}} \"VP\" sales OR revenue OR partnerships -careers -salary"
+        }
+      ]
+    },
+    {
+      "id": "vp_marketing_growth",
+      "name": "VP Marketing / Growth / Demand Gen",
+      "variants": [
+        {
+          "id": "li_vp_mktg",
+          "template": "site:linkedin.com/in {{company_name}} \"VP Marketing\" OR \"VP Growth\" OR \"VP Demand\""
+        },
+        {
+          "id": "broad_vp_mktg",
+          "template": "{{company_name}} \"VP Marketing\" OR \"VP Growth\" OR \"VP Demand Gen\" -jobs"
+        },
+        {
+          "id": "data_vp_mktg",
+          "template": "{{company_name}} \"VP Marketing\" OR \"VP Growth\" site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "media_vp_mktg",
+          "template": "{{company_name}} \"VP Marketing\" OR \"VP Growth\" podcast OR interview"
+        },
+        {
+          "id": "general_vp_mktg",
+          "template": "{{company_name}} \"VP\" marketing OR growth OR brand OR content -careers"
+        }
+      ]
+    },
+    {
+      "id": "vp_engineering_product",
+      "name": "VP Engineering / Product / Design",
+      "variants": [
+        {
+          "id": "li_vp_eng",
+          "template": "site:linkedin.com/in {{company_name}} \"VP Engineering\" OR \"VP Product\" OR \"VP Design\""
+        },
+        {
+          "id": "broad_vp_eng",
+          "template": "{{company_name}} \"VP Engineering\" OR \"VP Product\" OR VPE -jobs -careers"
+        },
+        {
+          "id": "data_vp_eng",
+          "template": "{{company_name}} \"VP Engineering\" OR \"VP Product\" site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "media_vp_eng",
+          "template": "{{company_name}} \"VP Engineering\" OR \"VP Product\" conference OR talk"
+        },
+        {
+          "id": "github_vp_eng",
+          "template": "{{company_name}} \"VP Engineering\" OR \"VP Product\" site:github.com OR site:linkedin.com/in"
+        }
+      ]
+    },
+    {
+      "id": "director_sales_bd",
+      "name": "Director Sales / BD / Partnerships",
+      "variants": [
+        {
+          "id": "li_dir_sales",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" sales OR \"business development\""
+        },
+        {
+          "id": "broad_dir_sales",
+          "template": "{{company_name}} \"Director of Sales\" OR \"Sales Director\" OR \"Director of BD\" -jobs"
+        },
+        {
+          "id": "data_dir_sales",
+          "template": "{{company_name}} \"Director\" sales site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "general_dir_sales",
+          "template": "{{company_name}} \"Director\" sales OR revenue OR partnerships -careers -salary"
+        },
+        {
+          "id": "li_dir_acct",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" account OR partnerships OR revenue"
+        }
+      ]
+    },
+    {
+      "id": "director_marketing_content",
+      "name": "Director Marketing / Content / Demand Gen",
+      "variants": [
+        {
+          "id": "li_dir_mktg",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" marketing OR content OR \"demand gen\""
+        },
+        {
+          "id": "broad_dir_mktg",
+          "template": "{{company_name}} \"Director of Marketing\" OR \"Marketing Director\" OR \"Director of Content\" -jobs"
+        },
+        {
+          "id": "data_dir_mktg",
+          "template": "{{company_name}} \"Director\" marketing site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "general_dir_mktg",
+          "template": "{{company_name}} \"Director\" marketing OR brand OR growth -careers -salary"
+        },
+        {
+          "id": "media_dir_mktg",
+          "template": "{{company_name}} \"Director\" marketing conference OR speaker OR podcast"
+        }
+      ]
+    },
+    {
+      "id": "director_engineering_product",
+      "name": "Director Engineering / Product / Design",
+      "variants": [
+        {
+          "id": "li_dir_eng",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" engineering OR product OR design"
+        },
+        {
+          "id": "broad_dir_eng",
+          "template": "{{company_name}} \"Director of Engineering\" OR \"Engineering Director\" OR \"Director of Product\" -jobs"
+        },
+        {
+          "id": "data_dir_eng",
+          "template": "{{company_name}} \"Director\" engineering site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "general_dir_eng",
+          "template": "{{company_name}} \"Director\" engineering OR product OR platform -careers -salary"
+        },
+        {
+          "id": "github_dir_eng",
+          "template": "{{company_name}} \"Director\" engineering OR product site:github.com OR site:linkedin.com/in"
+        }
+      ]
+    },
+    {
+      "id": "head_of_department",
+      "name": "Head of Department (Growth / CS / Ops / Revenue)",
+      "variants": [
+        {
+          "id": "li_head_of",
+          "template": "site:linkedin.com/in {{company_name}} \"Head of\" growth OR revenue OR operations"
+        },
+        {
+          "id": "broad_head_of",
+          "template": "{{company_name}} \"Head of Growth\" OR \"Head of Revenue\" OR \"Head of Operations\" -jobs"
+        },
+        {
+          "id": "head_cs_partner",
+          "template": "{{company_name}} \"Head of Customer Success\" OR \"Head of Partnerships\" -careers"
+        },
+        {
+          "id": "data_head_of",
+          "template": "{{company_name}} \"Head of\" site:rocketreach.co OR site:apollo.io"
+        },
+        {
+          "id": "li_head_broad",
+          "template": "site:linkedin.com/in {{company_name}} \"Head of\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "sales_ops_leads",
+      "name": "Sales Ops / SDR Managers / RevOps",
+      "variants": [
+        {
+          "id": "li_sales_ops",
+          "template": "site:linkedin.com/in {{company_name}} \"SDR Manager\" OR \"BDR Manager\" OR \"Sales Manager\""
+        },
+        {
+          "id": "broad_sales_ops",
+          "template": "{{company_name}} \"SDR Manager\" OR \"Sales Operations\" OR \"Revenue Operations\" -jobs"
+        },
+        {
+          "id": "revops_lead",
+          "template": "{{company_name}} RevOps OR \"Revenue Operations\" OR \"Sales Ops\" -careers"
+        },
+        {
+          "id": "li_ae_lead",
+          "template": "site:linkedin.com/in {{company_name}} \"Account Executive\" OR \"Sales Lead\" OR \"Sales Manager\""
+        },
+        {
+          "id": "data_sales_ops",
+          "template": "{{company_name}} \"SDR Manager\" OR RevOps site:rocketreach.co OR site:apollo.io"
+        }
+      ]
+    },
+    {
+      "id": "hr_people_talent",
+      "name": "HR / People / Talent Leadership",
+      "variants": [
+        {
+          "id": "li_hr",
+          "template": "site:linkedin.com/in {{company_name}} \"VP People\" OR \"Head of People\" OR \"HR Director\""
+        },
+        {
+          "id": "broad_hr",
+          "template": "{{company_name}} \"VP People\" OR \"Chief People Officer\" OR \"Head of Talent\" -jobs"
+        },
+        {
+          "id": "recruiting_lead",
+          "template": "{{company_name}} \"Head of Recruiting\" OR \"Talent Acquisition\" OR \"VP HR\" -careers"
+        },
+        {
+          "id": "general_hr",
+          "template": "{{company_name}} people OR HR OR talent director OR VP -careers -jobs -salary"
+        },
+        {
+          "id": "data_hr",
+          "template": "{{company_name}} \"VP People\" OR \"Head of HR\" site:rocketreach.co OR site:apollo.io"
+        }
+      ]
+    },
+    {
+      "id": "finance_legal_ops",
+      "name": "Finance / Legal / Operations Leadership",
+      "variants": [
+        {
+          "id": "li_finance",
+          "template": "site:linkedin.com/in {{company_name}} \"VP Finance\" OR \"Controller\" OR \"VP Operations\""
+        },
+        {
+          "id": "broad_finance",
+          "template": "{{company_name}} \"VP Finance\" OR \"General Counsel\" OR \"VP Operations\" -jobs"
+        },
+        {
+          "id": "data_finance",
+          "template": "{{company_name}} CFO OR \"VP Finance\" OR Controller site:crunchbase.com OR site:rocketreach.co"
+        },
+        {
+          "id": "revops_finance",
+          "template": "{{company_name}} \"Director of Finance\" OR RevOps OR \"Revenue Operations\" -careers"
+        },
+        {
+          "id": "li_ops_legal",
+          "template": "site:linkedin.com/in {{company_name}} finance OR operations OR legal VP OR director"
+        }
+      ]
+    },
+    {
+      "id": "technical_leads",
+      "name": "Technical Leads / Staff Engineers / Architects",
+      "variants": [
+        {
+          "id": "li_tech_lead",
+          "template": "site:linkedin.com/in {{company_name}} \"Staff Engineer\" OR \"Principal Engineer\" OR \"Tech Lead\""
+        },
+        {
+          "id": "broad_tech_lead",
+          "template": "{{company_name}} \"Engineering Manager\" OR \"Staff Engineer\" OR \"Architect\" -jobs -careers"
+        },
+        {
+          "id": "github_tech",
+          "template": "{{company_name}} engineer OR developer site:github.com"
+        },
+        {
+          "id": "senior_tech",
+          "template": "{{company_name}} \"Staff\" OR \"Principal\" OR \"Lead\" engineer -junior -intern -jobs"
+        },
+        {
+          "id": "li_eng_mgr",
+          "template": "site:linkedin.com/in {{company_name}} \"Engineering Manager\" OR \"Staff\" OR \"Principal\""
+        },
+        {
+          "id": "stackoverflow_tech",
+          "template": "{{company_name}} engineer OR developer site:stackoverflow.com OR site:dev.to"
+        }
+      ]
+    },
+    {
+      "id": "people_via_media",
+      "name": "People Discovery via Media / Events",
+      "variants": [
+        {
+          "id": "conference_speaker",
+          "template": "{{company_name}} speaker conference OR summit OR event"
+        },
+        {
+          "id": "podcast_guest",
+          "template": "{{company_name}} podcast guest OR interview OR episode"
+        },
+        {
+          "id": "press_attribution",
+          "template": "{{company_name}} \"said\" OR \"according to\" OR \"told\" -jobs -careers"
+        },
+        {
+          "id": "youtube_appearance",
+          "template": "{{company_name}} site:youtube.com interview OR talk OR keynote"
+        },
+        {
+          "id": "career_announcement",
+          "template": "{{company_name}} \"joins\" OR \"appointed\" OR \"promoted\" OR \"hires\" -jobs"
+        },
+        {
+          "id": "recent_media",
+          "template": "{{company_name}} speaker OR podcast OR interview OR keynote",
+          "tbs": "qdr:y"
+        }
+      ]
+    },
+    {
+      "id": "people_via_platforms",
+      "name": "People Discovery via Data Platforms",
+      "variants": [
+        {
+          "id": "rocketreach",
+          "template": "{{company_name}} site:rocketreach.co -jobs"
+        },
+        {
+          "id": "zoominfo",
+          "template": "{{company_name}} site:zoominfo.com -jobs"
+        },
+        { "id": "apollo", "template": "{{company_name}} site:apollo.io" },
+        {
+          "id": "wellfound",
+          "template": "{{company_name}} site:wellfound.com"
+        },
+        { "id": "theorg", "template": "{{company_name}} site:theorg.com" },
+        {
+          "id": "crunchbase_people",
+          "template": "{{company_name}} site:crunchbase.com people OR team OR founder"
+        },
+        {
+          "id": "pitchbook_craft",
+          "template": "{{company_name}} site:pitchbook.com OR site:craft.co"
+        }
+      ]
+    },
+    {
+      "id": "people_via_content",
+      "name": "People Discovery via Authored Content",
+      "variants": [
+        {
+          "id": "blog_author",
+          "template": "{{company_name}} author OR \"written by\" blog OR article -jobs"
+        },
+        {
+          "id": "medium_substack",
+          "template": "{{company_name}} site:medium.com OR site:substack.com"
+        },
+        {
+          "id": "dev_community",
+          "template": "{{company_name}} site:dev.to OR site:hackernoon.com"
+        },
+        {
+          "id": "company_blog_author",
+          "template": "site:{{domain}} blog author OR \"by\" OR \"written by\""
+        },
+        {
+          "id": "producthunt_maker",
+          "template": "{{company_name}} site:producthunt.com maker OR launch"
+        },
+        {
+          "id": "board_advisors",
+          "template": "{{company_name}} board OR advisors OR investors -jobs -careers"
+        }
+      ]
+    }
+  ]
+}
