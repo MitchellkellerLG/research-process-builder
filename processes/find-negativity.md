@@ -1,5 +1,7 @@
 # find customer complaints and negative sentiment
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). FALLBACK at Q3.4. T1:Q4.0, T2:Q3.4, T3:Q3.5, T4:Q2.8. structurally limited: micro companies rarely have indexed complaints. all combo patterns (reddit, negative review) scored KILL. the current approach is the best available.
+
 surface recent complaints, negative reviews, and controversy about a company from their customer base. this tells you what pain points exist, how severe they are, and whether the negativity is recent or historical.
 
 ## inputs
@@ -16,7 +18,7 @@ surface recent complaints, negative reviews, and controversy about a company fro
 
 search: `{{company_name}} {{category}} complaints OR "negative reviews" OR problems OR issues`
 
-this single query catches customer complaints, negative review roundups, problem reports, and issue discussions in one shot. tested Q4.25/C3.5 across SpaceX, Clay, Lovable, Cursor, Cluely. returns rich results for T1-T2 companies.
+this single query catches customer complaints, negative review roundups, problem reports, and issue discussions in one shot. tested Q4.25/C3.5 across SpaceX, Clay, Lovable, Cursor, Cluely. returns rich results for T1-T2 companies. 25-company tier test: best_complaints scored FALLBACK Q3.4. reddit and negative review combos all scored KILL. this pattern is the ceiling for negativity research.
 
 extract from results:
 

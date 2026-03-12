@@ -1,5 +1,7 @@
 # find company profile and funding data
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). company_profile: multi-platform site: queries ENRICHMENT Q3.8 (T3-T4 actually strong at Q3.8-4.0). funding_financial: `{{company_name}} {{category}} funding` PRIMARY Q4.0 all tiers.
+
 build a company fact sheet from structured data platforms. this should run first because it feeds context (category, size, funding) to every other research process.
 
 ## inputs
@@ -13,6 +15,8 @@ build a company fact sheet from structured data platforms. this should run first
 ### step 1: multi-platform sweep
 
 search: `{{company_name}} {{category}} company overview`
+
+25-company tier test: multi-platform site: queries (combo_multi_platform) scored ENRICHMENT Q3.8. performs surprisingly well for T3-T4 companies (Q3.8-4.0). the simple `{{company_name}} funding` variant also scored ENRICHMENT Q3.8, while `{{company_name}} {{category}} funding` (runner_cat_funding) scored PRIMARY Q4.0 across all tiers.
 
 extract from results:
 
@@ -35,6 +39,8 @@ count the platforms found:
 ### step 2: crunchbase funding data
 
 search: `site:crunchbase.com {{company_name}}`
+
+25-company tier test: funding searches with category qualifier (`{{company_name}} {{category}} funding`) consistently outperformed generic funding queries. PRIMARY Q4.0 all tiers.
 
 extract from results:
 

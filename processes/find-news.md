@@ -1,5 +1,7 @@
 # find recent news and company events
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). ENRICHMENT at Q3.6. T1:Q4.0, T2:Q3.8, T3:Q4.0, T4:Q2.2. T4 micro companies have inherently thin news coverage. accept this limitation.
+
 surface everything newsworthy about a company in the last 6-12 months. partnerships, funding, acquisitions, product launches, expansions, leadership changes, controversies.
 
 ## inputs
@@ -14,6 +16,8 @@ surface everything newsworthy about a company in the last 6-12 months. partnersh
 ### step 1: general news sweep
 
 search: `{{company_name}} {{category}} recent news`
+
+25-company tier test: `{{company_name}} {{category}} news OR announced OR launch` (combo_name_news) scored ENRICHMENT Q3.6. `{{domain}} news` (best_domain_news) is a FALLBACK at Q3.5. news is structurally weak for T4 micro companies (Q2.2).
 
 extract from results:
 

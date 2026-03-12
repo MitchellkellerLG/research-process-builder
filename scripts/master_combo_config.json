@@ -1,0 +1,276 @@
+{
+  "description": "Round 2 combo fixes — targeted patterns for categories that dropped below PRIMARY at 25-company scale. Focused on T3-T4 resilience: broader keywords, multi-platform OR, domain fallbacks, category injection.",
+  "test_companies": [
+    { "company_name": "SpaceX", "domain": "spacex.com", "category": "aerospace", "tier": 1, "disambiguation_needed": false, "role_title": "Propulsion Engineer" },
+    { "company_name": "Salesforce", "domain": "salesforce.com", "category": "CRM platform", "tier": 1, "disambiguation_needed": false, "role_title": "Account Executive" },
+    { "company_name": "Stripe", "domain": "stripe.com", "category": "payments infrastructure", "tier": 1, "disambiguation_needed": false, "role_title": "Software Engineer" },
+    { "company_name": "HubSpot", "domain": "hubspot.com", "category": "marketing automation", "tier": 1, "disambiguation_needed": false, "role_title": "Marketing Manager" },
+    { "company_name": "Datadog", "domain": "datadoghq.com", "category": "cloud monitoring", "tier": 1, "disambiguation_needed": false, "role_title": "Site Reliability Engineer" },
+    { "company_name": "Clay", "domain": "clay.com", "category": "GTM data enrichment", "tier": 2, "disambiguation_needed": true, "role_title": "Solutions Engineer" },
+    { "company_name": "Cursor", "domain": "cursor.com", "category": "AI code editor", "tier": 2, "disambiguation_needed": true, "role_title": "Software Engineer" },
+    { "company_name": "ClickUp", "domain": "clickup.com", "category": "project management", "tier": 2, "disambiguation_needed": false, "role_title": "Product Manager" },
+    { "company_name": "Lovable", "domain": "lovable.dev", "category": "AI app builder", "tier": 2, "disambiguation_needed": true, "role_title": "Full Stack Engineer" },
+    { "company_name": "Notion", "domain": "notion.so", "category": "workspace productivity", "tier": 2, "disambiguation_needed": false, "role_title": "Product Designer" },
+    { "company_name": "Figma", "domain": "figma.com", "category": "design collaboration", "tier": 2, "disambiguation_needed": false, "role_title": "Design Engineer" },
+    { "company_name": "Ramp", "domain": "ramp.com", "category": "corporate cards and spend", "tier": 2, "disambiguation_needed": true, "role_title": "Financial Analyst" },
+    { "company_name": "Mercury", "domain": "mercury.com", "category": "startup banking", "tier": 2, "disambiguation_needed": true, "role_title": "Risk Analyst" },
+    { "company_name": "Baseten", "domain": "baseten.co", "category": "ML model deployment", "tier": 3, "disambiguation_needed": false, "role_title": "ML Engineer" },
+    { "company_name": "Hyperbound", "domain": "hyperbound.ai", "category": "AI sales roleplay", "tier": 3, "disambiguation_needed": false, "role_title": "Sales Development Rep" },
+    { "company_name": "Tavus", "domain": "tavus.io", "category": "AI video personalization", "tier": 3, "disambiguation_needed": false, "role_title": "Video Engineer" },
+    { "company_name": "Tinybird", "domain": "tinybird.co", "category": "real-time analytics API", "tier": 3, "disambiguation_needed": false, "role_title": "Data Engineer" },
+    { "company_name": "Vapi", "domain": "vapi.ai", "category": "voice AI platform", "tier": 3, "disambiguation_needed": false, "role_title": "AI Engineer" },
+    { "company_name": "Causal", "domain": "causal.app", "category": "financial planning", "tier": 3, "disambiguation_needed": true, "role_title": "Financial Analyst" },
+    { "company_name": "Rewatch", "domain": "rewatch.com", "category": "video knowledge base", "tier": 3, "disambiguation_needed": true, "role_title": "Customer Success Manager" },
+    { "company_name": "Hoo.be", "domain": "hoo.be", "category": "link in bio for creators", "tier": 4, "disambiguation_needed": true, "role_title": "Growth Marketer" },
+    { "company_name": "Cluely", "domain": "cluely.com", "category": "AI interview assistant", "tier": 4, "disambiguation_needed": false, "role_title": "Product Manager" },
+    { "company_name": "Gumloop", "domain": "gumloop.com", "category": "AI workflow automation", "tier": 4, "disambiguation_needed": false, "role_title": "Software Engineer" },
+    { "company_name": "Attio", "domain": "attio.com", "category": "next-gen CRM", "tier": 4, "disambiguation_needed": false, "role_title": "Account Executive" },
+    { "company_name": "Grain", "domain": "grain.com", "category": "AI meeting notes", "tier": 4, "disambiguation_needed": true, "role_title": "Customer Success Manager" }
+  ],
+  "categories": [
+    {
+      "id": "company_profile",
+      "name": "Company Profile / Overview",
+      "keywords": ["company", "overview", "founded", "employees", "headquarters", "about", "description"],
+      "variants": [
+        { "id": "combo_multi_platform", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co OR site:crunchbase.com" },
+        { "id": "combo_domain_about", "template": "site:{{domain}} about OR company OR team" },
+        { "id": "combo_cat_overview", "template": "{{company_name}} {{category}} company overview OR about" }
+      ]
+    },
+    {
+      "id": "competitor_identification",
+      "name": "Competitor Identification",
+      "keywords": ["competitor", "alternative", "vs", "compared", "similar", "comparison"],
+      "variants": [
+        { "id": "combo_broad_alts", "template": "{{company_name}} alternatives OR competitors" },
+        { "id": "combo_cat_vs", "template": "{{company_name}} {{category}} vs OR \"compared to\" OR alternatives" }
+      ]
+    },
+    {
+      "id": "reviews_sentiment",
+      "name": "Reviews / Sentiment",
+      "keywords": ["review", "rating", "opinion", "pros", "cons", "honest", "recommend"],
+      "variants": [
+        { "id": "combo_review_cat", "template": "{{company_name}} {{category}} review OR reviews OR rating" },
+        { "id": "combo_g2_trustpilot", "template": "{{company_name}} site:g2.com OR site:trustpilot.com OR site:capterra.com" }
+      ]
+    },
+    {
+      "id": "social_media",
+      "name": "Social Media Presence",
+      "keywords": ["twitter", "linkedin", "instagram", "facebook", "x.com", "followers", "social"],
+      "variants": [
+        { "id": "combo_twitter_x", "template": "{{company_name}} site:x.com OR site:twitter.com" },
+        { "id": "combo_multi_social", "template": "{{company_name}} site:linkedin.com OR site:x.com OR site:instagram.com" }
+      ]
+    },
+    {
+      "id": "community_platforms",
+      "name": "Community Platforms",
+      "keywords": ["discord", "slack", "community", "forum", "members"],
+      "variants": [
+        { "id": "combo_broader_community", "template": "{{company_name}} community OR discord OR slack OR forum OR github" },
+        { "id": "combo_domain_community", "template": "site:{{domain}} community OR forum OR support" }
+      ]
+    },
+    {
+      "id": "growth_marketing",
+      "name": "Growth / Marketing Infrastructure",
+      "keywords": ["blog", "pricing", "newsletter", "demo", "free trial", "marketing"],
+      "variants": [
+        { "id": "combo_domain_blog_pricing", "template": "site:{{domain}} blog OR pricing OR newsletter OR demo" },
+        { "id": "combo_name_blog", "template": "{{company_name}} blog OR newsletter OR pricing page" }
+      ]
+    },
+    {
+      "id": "content_blog",
+      "name": "Content / Blog Activity",
+      "keywords": ["blog", "article", "post", "guide", "resource", "whitepaper"],
+      "variants": [
+        { "id": "combo_domain_blog", "template": "site:{{domain}} blog OR resources OR guides" },
+        { "id": "combo_name_content", "template": "{{company_name}} blog OR guide OR tutorial OR resource" }
+      ]
+    },
+    {
+      "id": "tech_stack",
+      "name": "Tech Stack",
+      "keywords": ["built with", "powered by", "stack", "framework", "technology", "api", "react", "python", "node"],
+      "variants": [
+        { "id": "combo_stackshare_wappalyzer", "template": "{{company_name}} site:stackshare.io OR \"built with\" OR \"powered by\"" },
+        { "id": "combo_domain_tech", "template": "site:{{domain}} api OR docs OR developers OR engineering" }
+      ]
+    },
+    {
+      "id": "customer_complaints",
+      "name": "Customer Complaints / Negativity",
+      "keywords": ["complaint", "problem", "issue", "negative", "disappointed", "frustrated", "drawback"],
+      "variants": [
+        { "id": "combo_reddit_complaints", "template": "{{company_name}} reddit problems OR issues OR complaints -jobs -careers" },
+        { "id": "combo_negative_review", "template": "{{company_name}} \"worst\" OR \"terrible\" OR \"don't\" OR \"bad\" review -jobs -careers -site:{{domain}}" }
+      ]
+    },
+    {
+      "id": "awards_recognition",
+      "name": "Awards / Recognition",
+      "keywords": ["award", "recognition", "best", "top", "winner", "ranked", "fastest growing"],
+      "variants": [
+        { "id": "combo_cat_best", "template": "best {{category}} tools OR software {{current_year}}" },
+        { "id": "combo_name_award", "template": "{{company_name}} award OR winner OR \"fastest growing\" OR \"top\" {{current_year}}" }
+      ]
+    },
+    {
+      "id": "news_press",
+      "name": "News / Press Coverage",
+      "keywords": ["news", "announced", "launch", "acquisition", "partnership", "expansion"],
+      "variants": [
+        { "id": "combo_name_news", "template": "{{company_name}} {{category}} news OR announced OR launch" },
+        { "id": "combo_techcrunch", "template": "{{company_name}} site:techcrunch.com OR site:venturebeat.com OR site:sifted.eu" }
+      ]
+    },
+    {
+      "id": "events_conferences",
+      "name": "Events / Conferences",
+      "keywords": ["event", "conference", "webinar", "podcast", "meetup", "summit", "hackathon"],
+      "variants": [
+        { "id": "combo_broader_events", "template": "{{company_name}} conference OR webinar OR summit OR workshop OR event" },
+        { "id": "combo_podcast_event", "template": "{{company_name}} podcast OR webinar OR event {{current_year}}" }
+      ]
+    },
+    {
+      "id": "c_suite_commercial",
+      "name": "C-Suite Commercial",
+      "keywords": ["cmo", "chief marketing", "cro", "chief revenue", "cfo", "chief financial", "coo", "chief operating"],
+      "variants": [
+        { "id": "combo_zoom_csuite", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co CMO OR CRO OR CFO" },
+        { "id": "combo_broader_chief", "template": "{{company_name}} \"chief\" OR C-level executive team -jobs -careers" }
+      ]
+    },
+    {
+      "id": "c_suite_technical",
+      "name": "C-Suite Technical",
+      "keywords": ["cto", "chief technology", "cpo", "chief product", "ciso", "cio", "chief information"],
+      "variants": [
+        { "id": "combo_zoom_cto", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co CTO OR CPO" },
+        { "id": "combo_tech_leader", "template": "{{company_name}} CTO OR \"chief technology\" OR \"tech lead\" -jobs -careers" }
+      ]
+    },
+    {
+      "id": "director_sales_bd",
+      "name": "Director Sales / BD",
+      "keywords": ["director", "sales", "business development", "partnerships", "account", "revenue"],
+      "variants": [
+        { "id": "combo_zoom_dir_sales", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co director sales" },
+        { "id": "combo_broader_sales_lead", "template": "{{company_name}} \"sales\" director OR manager OR lead -jobs -careers" }
+      ]
+    },
+    {
+      "id": "director_marketing_content",
+      "name": "Director Marketing / Content",
+      "keywords": ["director", "marketing", "content", "demand", "brand", "growth"],
+      "variants": [
+        { "id": "combo_zoom_dir_mktg", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co director marketing" },
+        { "id": "combo_broader_mktg_lead", "template": "{{company_name}} \"marketing\" director OR manager OR lead -jobs -careers" }
+      ]
+    },
+    {
+      "id": "director_engineering_product",
+      "name": "Director Engineering / Product",
+      "keywords": ["director", "engineering", "product", "design", "platform"],
+      "variants": [
+        { "id": "combo_zoom_dir_eng", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co director engineering" },
+        { "id": "combo_broader_eng_lead", "template": "{{company_name}} \"engineering\" director OR manager OR lead -jobs -careers" }
+      ]
+    },
+    {
+      "id": "vp_sales_revenue",
+      "name": "VP Sales / Revenue",
+      "keywords": ["vp", "vice president", "sales", "revenue", "business development", "partnerships"],
+      "variants": [
+        { "id": "combo_zoom_vp_sales", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co VP sales" },
+        { "id": "combo_head_sales", "template": "{{company_name}} \"Head of Sales\" OR \"VP Sales\" OR \"VP Revenue\" -jobs -careers" }
+      ]
+    },
+    {
+      "id": "vp_marketing_growth",
+      "name": "VP Marketing / Growth",
+      "keywords": ["vp", "vice president", "marketing", "growth", "demand gen", "brand"],
+      "variants": [
+        { "id": "combo_zoom_vp_mktg", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co VP marketing" },
+        { "id": "combo_head_mktg", "template": "{{company_name}} \"Head of Marketing\" OR \"VP Marketing\" OR \"VP Growth\" -jobs -careers" }
+      ]
+    },
+    {
+      "id": "vp_engineering_product",
+      "name": "VP Engineering / Product",
+      "keywords": ["vp", "vice president", "engineering", "product", "design", "vpe"],
+      "variants": [
+        { "id": "combo_zoom_vp_eng", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co VP engineering" },
+        { "id": "combo_head_eng", "template": "{{company_name}} \"Head of Engineering\" OR \"VP Engineering\" OR \"VP Product\" -jobs -careers" }
+      ]
+    },
+    {
+      "id": "sales_ops_leads",
+      "name": "Sales Ops / SDR Managers",
+      "keywords": ["sdr", "bdr", "sales manager", "revops", "revenue operations", "sales ops", "account executive"],
+      "variants": [
+        { "id": "combo_zoom_sales_ops", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co sales operations OR RevOps" },
+        { "id": "combo_broader_sdr", "template": "{{company_name}} SDR OR BDR OR \"sales manager\" OR \"sales operations\" -jobs -careers" }
+      ]
+    },
+    {
+      "id": "head_of_department",
+      "name": "Head of Department",
+      "keywords": ["head of", "growth", "customer success", "operations", "revenue", "partnerships"],
+      "variants": [
+        { "id": "combo_zoom_head", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co \"head of\"" },
+        { "id": "combo_li_head_broader", "template": "site:linkedin.com/in {{company_name}} \"Head of\" OR \"Director of\" growth OR customer OR operations" }
+      ]
+    },
+    {
+      "id": "finance_legal_ops",
+      "name": "Finance / Legal / Operations",
+      "keywords": ["finance", "controller", "operations", "legal", "counsel", "revops", "strategy"],
+      "variants": [
+        { "id": "combo_zoom_finance", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co finance OR legal OR operations" },
+        { "id": "combo_broader_finance", "template": "{{company_name}} finance OR operations OR legal team leadership -jobs -careers" }
+      ]
+    },
+    {
+      "id": "technical_leads",
+      "name": "Technical Leads / Staff Engineers",
+      "keywords": ["staff engineer", "principal", "tech lead", "architect", "engineering manager", "senior engineer"],
+      "variants": [
+        { "id": "combo_zoom_tech_lead", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co engineer OR architect" },
+        { "id": "combo_github_eng", "template": "{{company_name}} engineer OR developer OR architect site:github.com OR site:linkedin.com/in" }
+      ]
+    },
+    {
+      "id": "people_via_platforms",
+      "name": "People Discovery via Platforms",
+      "keywords": ["rocketreach", "zoominfo", "apollo", "wellfound", "theorg", "profile", "team"],
+      "variants": [
+        { "id": "combo_all_platforms", "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co OR site:wellfound.com OR site:theorg.com" },
+        { "id": "combo_domain_team", "template": "site:{{domain}} team OR about OR people" }
+      ]
+    },
+    {
+      "id": "people_via_content",
+      "name": "People Discovery via Content",
+      "keywords": ["author", "wrote", "published", "blog", "article", "medium", "substack", "maker"],
+      "variants": [
+        { "id": "combo_domain_author_broader", "template": "site:{{domain}} author OR \"by\" OR team OR blog" },
+        { "id": "combo_name_author", "template": "{{company_name}} author OR writer OR contributor blog OR article -jobs" }
+      ]
+    },
+    {
+      "id": "people_via_media",
+      "name": "People Discovery via Media",
+      "keywords": ["speaker", "podcast", "interview", "keynote", "conference", "said", "according to", "appointed"],
+      "variants": [
+        { "id": "combo_broader_media", "template": "{{company_name}} podcast OR interview OR talk OR keynote OR conference speaker" },
+        { "id": "combo_youtube_podcast", "template": "{{company_name}} site:youtube.com OR site:podcasts.apple.com OR site:spotify.com" }
+      ]
+    }
+  ]
+}

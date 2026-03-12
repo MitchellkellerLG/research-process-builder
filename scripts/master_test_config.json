@@ -1,0 +1,1041 @@
+{
+  "description": "Master validation config — 25 companies across 4 tiers, ONE BEST pattern per category from company intel + people finding. Validates all PRIMARY and top FALLBACK patterns across the expanded company set.",
+  "test_companies": [
+    {
+      "company_name": "SpaceX",
+      "domain": "spacex.com",
+      "category": "aerospace",
+      "tier": 1,
+      "disambiguation_needed": false,
+      "role_title": "Propulsion Engineer"
+    },
+    {
+      "company_name": "Salesforce",
+      "domain": "salesforce.com",
+      "category": "CRM platform",
+      "tier": 1,
+      "disambiguation_needed": false,
+      "role_title": "Account Executive"
+    },
+    {
+      "company_name": "Stripe",
+      "domain": "stripe.com",
+      "category": "payments infrastructure",
+      "tier": 1,
+      "disambiguation_needed": false,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "HubSpot",
+      "domain": "hubspot.com",
+      "category": "marketing automation",
+      "tier": 1,
+      "disambiguation_needed": false,
+      "role_title": "Marketing Manager"
+    },
+    {
+      "company_name": "Datadog",
+      "domain": "datadoghq.com",
+      "category": "cloud monitoring",
+      "tier": 1,
+      "disambiguation_needed": false,
+      "role_title": "Site Reliability Engineer"
+    },
+    {
+      "company_name": "Clay",
+      "domain": "clay.com",
+      "category": "GTM data enrichment",
+      "tier": 2,
+      "disambiguation_needed": true,
+      "role_title": "Solutions Engineer"
+    },
+    {
+      "company_name": "Cursor",
+      "domain": "cursor.com",
+      "category": "AI code editor",
+      "tier": 2,
+      "disambiguation_needed": true,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "ClickUp",
+      "domain": "clickup.com",
+      "category": "project management",
+      "tier": 2,
+      "disambiguation_needed": false,
+      "role_title": "Product Manager"
+    },
+    {
+      "company_name": "Lovable",
+      "domain": "lovable.dev",
+      "category": "AI app builder",
+      "tier": 2,
+      "disambiguation_needed": true,
+      "role_title": "Full Stack Engineer"
+    },
+    {
+      "company_name": "Notion",
+      "domain": "notion.so",
+      "category": "workspace productivity",
+      "tier": 2,
+      "disambiguation_needed": false,
+      "role_title": "Product Designer"
+    },
+    {
+      "company_name": "Figma",
+      "domain": "figma.com",
+      "category": "design collaboration",
+      "tier": 2,
+      "disambiguation_needed": false,
+      "role_title": "Design Engineer"
+    },
+    {
+      "company_name": "Ramp",
+      "domain": "ramp.com",
+      "category": "corporate cards and spend",
+      "tier": 2,
+      "disambiguation_needed": true,
+      "role_title": "Financial Analyst"
+    },
+    {
+      "company_name": "Mercury",
+      "domain": "mercury.com",
+      "category": "startup banking",
+      "tier": 2,
+      "disambiguation_needed": true,
+      "role_title": "Risk Analyst"
+    },
+    {
+      "company_name": "Baseten",
+      "domain": "baseten.co",
+      "category": "ML model deployment",
+      "tier": 3,
+      "disambiguation_needed": false,
+      "role_title": "ML Engineer"
+    },
+    {
+      "company_name": "Hyperbound",
+      "domain": "hyperbound.ai",
+      "category": "AI sales roleplay",
+      "tier": 3,
+      "disambiguation_needed": false,
+      "role_title": "Sales Development Rep"
+    },
+    {
+      "company_name": "Tavus",
+      "domain": "tavus.io",
+      "category": "AI video personalization",
+      "tier": 3,
+      "disambiguation_needed": false,
+      "role_title": "Video Engineer"
+    },
+    {
+      "company_name": "Tinybird",
+      "domain": "tinybird.co",
+      "category": "real-time analytics API",
+      "tier": 3,
+      "disambiguation_needed": false,
+      "role_title": "Data Engineer"
+    },
+    {
+      "company_name": "Vapi",
+      "domain": "vapi.ai",
+      "category": "voice AI platform",
+      "tier": 3,
+      "disambiguation_needed": false,
+      "role_title": "AI Engineer"
+    },
+    {
+      "company_name": "Causal",
+      "domain": "causal.app",
+      "category": "financial planning",
+      "tier": 3,
+      "disambiguation_needed": true,
+      "role_title": "Financial Analyst"
+    },
+    {
+      "company_name": "Rewatch",
+      "domain": "rewatch.com",
+      "category": "video knowledge base",
+      "tier": 3,
+      "disambiguation_needed": true,
+      "role_title": "Customer Success Manager"
+    },
+    {
+      "company_name": "Hoo.be",
+      "domain": "hoo.be",
+      "category": "link in bio for creators",
+      "tier": 4,
+      "disambiguation_needed": true,
+      "role_title": "Growth Marketer"
+    },
+    {
+      "company_name": "Cluely",
+      "domain": "cluely.com",
+      "category": "AI interview assistant",
+      "tier": 4,
+      "disambiguation_needed": false,
+      "role_title": "Product Manager"
+    },
+    {
+      "company_name": "Gumloop",
+      "domain": "gumloop.com",
+      "category": "AI workflow automation",
+      "tier": 4,
+      "disambiguation_needed": false,
+      "role_title": "Software Engineer"
+    },
+    {
+      "company_name": "Attio",
+      "domain": "attio.com",
+      "category": "next-gen CRM",
+      "tier": 4,
+      "disambiguation_needed": false,
+      "role_title": "Account Executive"
+    },
+    {
+      "company_name": "Grain",
+      "domain": "grain.com",
+      "category": "AI meeting notes",
+      "tier": 4,
+      "disambiguation_needed": true,
+      "role_title": "Customer Success Manager"
+    }
+  ],
+  "categories": [
+    {
+      "id": "company_profile",
+      "name": "Company Profile / Overview",
+      "keywords": [
+        "company",
+        "overview",
+        "founded",
+        "employees",
+        "headquarters",
+        "about",
+        "description"
+      ],
+      "variants": [
+        {
+          "id": "best_rocketreach",
+          "template": "site:rocketreach.co {{company_name}}"
+        },
+        {
+          "id": "runner_overview",
+          "template": "{{company_name}} company overview"
+        }
+      ]
+    },
+    {
+      "id": "funding_financial",
+      "name": "Funding / Financial",
+      "keywords": [
+        "funding",
+        "raised",
+        "series",
+        "investors",
+        "valuation",
+        "round",
+        "capital",
+        "revenue",
+        "arr"
+      ],
+      "variants": [
+        { "id": "best_funding", "template": "{{company_name}} funding" },
+        {
+          "id": "runner_cat_funding",
+          "template": "{{company_name}} {{category}} funding"
+        }
+      ]
+    },
+    {
+      "id": "hiring_signals",
+      "name": "Hiring Signals",
+      "keywords": [
+        "hiring",
+        "careers",
+        "jobs",
+        "open roles",
+        "greenhouse",
+        "lever",
+        "ashby",
+        "recruiting"
+      ],
+      "variants": [
+        { "id": "best_careers", "template": "{{company_name}} careers" },
+        {
+          "id": "runner_cat_careers",
+          "template": "{{company_name}} {{category}} careers"
+        }
+      ]
+    },
+    {
+      "id": "competitor_identification",
+      "name": "Competitor Identification",
+      "keywords": [
+        "competitor",
+        "alternative",
+        "vs",
+        "compared",
+        "similar",
+        "comparison"
+      ],
+      "variants": [
+        {
+          "id": "best_alts",
+          "template": "{{company_name}} {{category}} alternatives OR competitors OR \"vs\" OR \"compared to\""
+        },
+        {
+          "id": "runner_competitors",
+          "template": "{{company_name}} competitors"
+        }
+      ]
+    },
+    {
+      "id": "reviews_sentiment",
+      "name": "Reviews / Sentiment",
+      "keywords": [
+        "review",
+        "rating",
+        "opinion",
+        "pros",
+        "cons",
+        "honest",
+        "recommend"
+      ],
+      "variants": [
+        { "id": "best_review", "template": "{{company_name}} review" },
+        {
+          "id": "runner_glassdoor",
+          "template": "{{company_name}} glassdoor reviews"
+        }
+      ]
+    },
+    {
+      "id": "news_press",
+      "name": "News / Press Coverage",
+      "keywords": [
+        "news",
+        "announced",
+        "launch",
+        "acquisition",
+        "partnership",
+        "expansion"
+      ],
+      "variants": [
+        { "id": "best_domain_news", "template": "{{domain}} news" },
+        {
+          "id": "runner_news_exclusion",
+          "template": "{{company_name}} news announcement -jobs -careers -glassdoor -salary"
+        }
+      ]
+    },
+    {
+      "id": "press_releases",
+      "name": "Press Releases",
+      "keywords": [
+        "announce",
+        "press release",
+        "newsroom",
+        "blog",
+        "businesswire",
+        "prnewswire"
+      ],
+      "variants": [
+        {
+          "id": "best_pr",
+          "template": "{{company_name}} \"press release\" OR \"announces\" OR \"newsroom\""
+        },
+        {
+          "id": "runner_site_news",
+          "template": "site:{{domain}} news OR press OR announcements"
+        }
+      ]
+    },
+    {
+      "id": "social_media",
+      "name": "Social Media Presence",
+      "keywords": [
+        "twitter",
+        "linkedin",
+        "instagram",
+        "facebook",
+        "x.com",
+        "followers",
+        "social"
+      ],
+      "variants": [
+        {
+          "id": "best_linkedin_co",
+          "template": "site:linkedin.com/company/{{company_name}}"
+        },
+        {
+          "id": "runner_social",
+          "template": "{{company_name}} social media accounts"
+        }
+      ]
+    },
+    {
+      "id": "community_platforms",
+      "name": "Community Platforms",
+      "keywords": ["discord", "slack", "community", "forum", "members"],
+      "variants": [
+        {
+          "id": "best_community",
+          "template": "{{company_name}} {{category}} discord OR slack OR community"
+        },
+        { "id": "runner_discord", "template": "{{company_name}} discord" }
+      ]
+    },
+    {
+      "id": "growth_marketing",
+      "name": "Growth / Marketing Infrastructure",
+      "keywords": [
+        "blog",
+        "pricing",
+        "newsletter",
+        "demo",
+        "free trial",
+        "marketing"
+      ],
+      "variants": [
+        {
+          "id": "best_site_growth",
+          "template": "site:{{domain}} blog OR pricing OR demo",
+          "tbs": "qdr:y"
+        },
+        {
+          "id": "runner_site_subscribe",
+          "template": "site:{{domain}} \"subscribe\" OR \"newsletter\" OR \"sign up\" OR \"book a demo\""
+        }
+      ]
+    },
+    {
+      "id": "tech_stack",
+      "name": "Tech Stack",
+      "keywords": [
+        "built with",
+        "powered by",
+        "stack",
+        "framework",
+        "technology",
+        "api",
+        "react",
+        "python",
+        "node"
+      ],
+      "variants": [
+        { "id": "best_techstack", "template": "{{company_name}} tech stack" },
+        {
+          "id": "runner_cat_tech",
+          "template": "{{company_name}} {{category}} tech stack OR technology"
+        }
+      ]
+    },
+    {
+      "id": "leadership_people",
+      "name": "Leadership / People",
+      "keywords": [
+        "ceo",
+        "founder",
+        "cto",
+        "vp",
+        "leadership",
+        "team",
+        "executive",
+        "co-founder"
+      ],
+      "variants": [
+        {
+          "id": "best_ceo_founder",
+          "template": "{{company_name}} CEO OR founder"
+        },
+        {
+          "id": "runner_leadership",
+          "template": "{{company_name}} leadership team"
+        }
+      ]
+    },
+    {
+      "id": "customer_case_studies",
+      "name": "Customer Case Studies",
+      "keywords": [
+        "case study",
+        "customer",
+        "client",
+        "success story",
+        "testimonial",
+        "trusted by"
+      ],
+      "variants": [
+        {
+          "id": "best_case_study",
+          "template": "{{company_name}} {{category}} case study OR customer story"
+        },
+        {
+          "id": "runner_site_customers",
+          "template": "site:{{domain}} customers"
+        }
+      ]
+    },
+    {
+      "id": "pricing_intelligence",
+      "name": "Pricing Intelligence",
+      "keywords": [
+        "pricing",
+        "cost",
+        "plan",
+        "tier",
+        "free",
+        "enterprise",
+        "per seat",
+        "per month"
+      ],
+      "variants": [
+        { "id": "best_pricing", "template": "{{company_name}} pricing" },
+        {
+          "id": "runner_cat_pricing",
+          "template": "{{company_name}} {{category}} pricing plans"
+        }
+      ]
+    },
+    {
+      "id": "partnerships_integrations",
+      "name": "Partnerships / Integrations",
+      "keywords": [
+        "partner",
+        "integration",
+        "integrates",
+        "marketplace",
+        "plugin",
+        "api"
+      ],
+      "variants": [
+        {
+          "id": "best_partnerships",
+          "template": "{{company_name}} partnerships OR integrations"
+        },
+        {
+          "id": "runner_cat_integrations",
+          "template": "{{company_name}} {{category}} integrations"
+        }
+      ]
+    },
+    {
+      "id": "content_blog",
+      "name": "Content / Blog Activity",
+      "keywords": [
+        "blog",
+        "article",
+        "post",
+        "guide",
+        "resource",
+        "whitepaper"
+      ],
+      "variants": [
+        {
+          "id": "best_site_resources",
+          "template": "site:{{domain}} resources OR guides OR whitepapers"
+        },
+        {
+          "id": "runner_howto",
+          "template": "{{company_name}} \"how to\" guide OR tutorial"
+        }
+      ]
+    },
+    {
+      "id": "newsletter_email",
+      "name": "Newsletter / Email Marketing",
+      "keywords": [
+        "newsletter",
+        "subscribe",
+        "email",
+        "substack",
+        "beehiiv",
+        "digest"
+      ],
+      "variants": [
+        {
+          "id": "best_site_subscribe",
+          "template": "site:{{domain}} \"subscribe\" OR \"newsletter\" OR \"sign up\""
+        },
+        {
+          "id": "runner_newsletter",
+          "template": "{{company_name}} \"subscribe\" OR \"weekly update\" OR \"monthly digest\" OR newsletter -product"
+        }
+      ]
+    },
+    {
+      "id": "events_conferences",
+      "name": "Events / Conferences",
+      "keywords": [
+        "event",
+        "conference",
+        "webinar",
+        "podcast",
+        "meetup",
+        "summit",
+        "hackathon"
+      ],
+      "variants": [
+        {
+          "id": "best_meetup",
+          "template": "{{company_name}} meetup OR community event"
+        },
+        {
+          "id": "runner_conference",
+          "template": "{{company_name}} conference OR event {{current_year}}"
+        }
+      ]
+    },
+    {
+      "id": "customer_complaints",
+      "name": "Customer Complaints / Negativity",
+      "keywords": [
+        "complaint",
+        "problem",
+        "issue",
+        "negative",
+        "disappointed",
+        "frustrated",
+        "drawback"
+      ],
+      "variants": [
+        {
+          "id": "best_complaints",
+          "template": "{{company_name}} problems OR issues OR complaints -careers -jobs -site:{{domain}}"
+        },
+        {
+          "id": "runner_intitle_complaints",
+          "template": "{{company_name}} intitle:honest OR intitle:cons OR intitle:problems OR intitle:issues"
+        }
+      ]
+    },
+    {
+      "id": "awards_recognition",
+      "name": "Awards / Recognition",
+      "keywords": [
+        "award",
+        "recognition",
+        "best",
+        "top",
+        "winner",
+        "ranked",
+        "fastest growing"
+      ],
+      "variants": [
+        {
+          "id": "best_awards",
+          "template": "{{company_name}} top OR best {{category}} company"
+        },
+        {
+          "id": "runner_named_ranked",
+          "template": "{{company_name}} named OR ranked OR recognized"
+        }
+      ]
+    },
+    {
+      "id": "founders_ceo",
+      "name": "Founders / CEO / President",
+      "keywords": [
+        "founder",
+        "co-founder",
+        "ceo",
+        "president",
+        "owner",
+        "chief executive",
+        "founded",
+        "started"
+      ],
+      "variants": [
+        {
+          "id": "best_media",
+          "template": "{{company_name}} CEO OR founder interview OR podcast"
+        },
+        {
+          "id": "runner_founded_by",
+          "template": "{{company_name}} \"founded by\" OR \"co-founded\" OR \"started by\""
+        },
+        {
+          "id": "fallback_li",
+          "template": "site:linkedin.com/in {{company_name}} founder OR CEO OR \"co-founder\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "c_suite_technical",
+      "name": "C-Suite Technical (CTO / CPO / CISO)",
+      "keywords": [
+        "cto",
+        "chief technology",
+        "cpo",
+        "chief product",
+        "ciso",
+        "cio",
+        "chief information"
+      ],
+      "variants": [
+        {
+          "id": "best_full_title",
+          "template": "{{company_name}} \"chief technology\" OR \"chief product\" OR \"chief security\" -jobs -careers"
+        },
+        {
+          "id": "runner_interview",
+          "template": "{{company_name}} CTO OR CPO interview OR podcast OR talk"
+        },
+        {
+          "id": "fallback_li",
+          "template": "site:linkedin.com/in {{company_name}} \"chief\" technology OR product OR security OR information"
+        }
+      ]
+    },
+    {
+      "id": "c_suite_commercial",
+      "name": "C-Suite Commercial (CMO / CRO / CFO / COO)",
+      "keywords": [
+        "cmo",
+        "chief marketing",
+        "cro",
+        "chief revenue",
+        "cfo",
+        "chief financial",
+        "coo",
+        "chief operating"
+      ],
+      "variants": [
+        {
+          "id": "best_full_title",
+          "template": "{{company_name}} \"chief marketing\" OR \"chief revenue\" OR \"chief operating\" -careers"
+        },
+        {
+          "id": "runner_abbrev",
+          "template": "{{company_name}} CMO OR CRO OR CFO OR COO -jobs -careers"
+        },
+        {
+          "id": "fallback_li",
+          "template": "site:linkedin.com/in {{company_name}} \"chief\" marketing OR revenue OR financial OR operating"
+        }
+      ]
+    },
+    {
+      "id": "vp_sales_revenue",
+      "name": "VP Sales / Revenue / Business Development",
+      "keywords": [
+        "vp",
+        "vice president",
+        "sales",
+        "revenue",
+        "business development",
+        "partnerships"
+      ],
+      "variants": [
+        {
+          "id": "best_general",
+          "template": "{{company_name}} \"VP\" sales OR revenue OR partnerships -careers -salary"
+        },
+        {
+          "id": "runner_li",
+          "template": "site:linkedin.com/in {{company_name}} \"VP\" OR \"Vice President\" sales OR revenue"
+        }
+      ]
+    },
+    {
+      "id": "vp_marketing_growth",
+      "name": "VP Marketing / Growth / Demand Gen",
+      "keywords": [
+        "vp",
+        "vice president",
+        "marketing",
+        "growth",
+        "demand gen",
+        "brand"
+      ],
+      "variants": [
+        {
+          "id": "best_general",
+          "template": "{{company_name}} \"VP\" marketing OR growth OR brand OR content -careers"
+        },
+        {
+          "id": "runner_li",
+          "template": "site:linkedin.com/in {{company_name}} \"VP\" OR \"Vice President\" marketing OR growth"
+        }
+      ]
+    },
+    {
+      "id": "vp_engineering_product",
+      "name": "VP Engineering / Product / Design",
+      "keywords": [
+        "vp",
+        "vice president",
+        "engineering",
+        "product",
+        "design",
+        "vpe"
+      ],
+      "variants": [
+        {
+          "id": "best_vp_broad",
+          "template": "{{company_name}} \"VP\" OR \"Vice President\" engineering OR product -jobs -careers"
+        },
+        {
+          "id": "runner_li",
+          "template": "site:linkedin.com/in {{company_name}} \"VP\" engineering OR product OR design"
+        }
+      ]
+    },
+    {
+      "id": "director_sales_bd",
+      "name": "Director Sales / BD / Partnerships",
+      "keywords": [
+        "director",
+        "sales",
+        "business development",
+        "partnerships",
+        "account",
+        "revenue"
+      ],
+      "variants": [
+        {
+          "id": "best_li",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" sales OR \"business development\""
+        },
+        {
+          "id": "runner_broad",
+          "template": "{{company_name}} \"Director of Sales\" OR \"Director of Business Development\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "director_marketing_content",
+      "name": "Director Marketing / Content / Demand Gen",
+      "keywords": [
+        "director",
+        "marketing",
+        "content",
+        "demand",
+        "brand",
+        "growth"
+      ],
+      "variants": [
+        {
+          "id": "best_li",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" marketing OR content OR \"demand gen\""
+        },
+        {
+          "id": "runner_broad",
+          "template": "{{company_name}} \"Director of Marketing\" OR \"Director of Content\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "director_engineering_product",
+      "name": "Director Engineering / Product / Design",
+      "keywords": ["director", "engineering", "product", "design", "platform"],
+      "variants": [
+        {
+          "id": "best_li",
+          "template": "site:linkedin.com/in {{company_name}} \"Director\" engineering OR product OR design"
+        },
+        {
+          "id": "runner_broad",
+          "template": "{{company_name}} \"Director of Engineering\" OR \"Director of Product\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "head_of_department",
+      "name": "Head of Department",
+      "keywords": [
+        "head of",
+        "growth",
+        "customer success",
+        "operations",
+        "revenue",
+        "partnerships"
+      ],
+      "variants": [
+        {
+          "id": "best_li",
+          "template": "site:linkedin.com/in {{company_name}} \"Head of\" growth OR revenue OR operations"
+        },
+        {
+          "id": "runner_broad",
+          "template": "{{company_name}} \"Head of\" growth OR operations OR partnerships OR \"customer success\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "sales_ops_leads",
+      "name": "Sales Ops / SDR Managers / RevOps",
+      "keywords": [
+        "sdr",
+        "bdr",
+        "sales manager",
+        "revops",
+        "revenue operations",
+        "sales ops",
+        "account executive"
+      ],
+      "variants": [
+        {
+          "id": "best_li",
+          "template": "site:linkedin.com/in {{company_name}} \"SDR Manager\" OR \"BDR Manager\" OR \"Sales Manager\""
+        },
+        {
+          "id": "runner_broad",
+          "template": "{{company_name}} \"RevOps\" OR \"Revenue Operations\" OR \"Sales Operations\" -jobs -careers"
+        }
+      ]
+    },
+    {
+      "id": "hr_people_talent",
+      "name": "HR / People / Talent Leadership",
+      "keywords": [
+        "people",
+        "talent",
+        "hr",
+        "human resources",
+        "recruiting",
+        "culture"
+      ],
+      "variants": [
+        {
+          "id": "best_recruiting",
+          "template": "{{company_name}} \"Head of Recruiting\" OR \"Talent Acquisition\" OR \"VP HR\" -careers"
+        },
+        {
+          "id": "runner_li",
+          "template": "site:linkedin.com/in {{company_name}} \"People\" OR \"Talent\" OR \"HR\" VP OR director OR head"
+        }
+      ]
+    },
+    {
+      "id": "finance_legal_ops",
+      "name": "Finance / Legal / Operations Leadership",
+      "keywords": [
+        "finance",
+        "controller",
+        "operations",
+        "legal",
+        "counsel",
+        "revops",
+        "strategy"
+      ],
+      "variants": [
+        {
+          "id": "best_li",
+          "template": "site:linkedin.com/in {{company_name}} finance OR operations OR legal VP OR director"
+        },
+        {
+          "id": "runner_broad",
+          "template": "{{company_name}} \"VP Finance\" OR \"VP Operations\" OR \"General Counsel\" -jobs -careers"
+        },
+        {
+          "id": "fallback_zoom",
+          "template": "{{company_name}} site:zoominfo.com finance OR operations OR legal"
+        }
+      ]
+    },
+    {
+      "id": "technical_leads",
+      "name": "Technical Leads / Staff Engineers / Architects",
+      "keywords": [
+        "staff engineer",
+        "principal",
+        "tech lead",
+        "architect",
+        "engineering manager",
+        "senior engineer"
+      ],
+      "variants": [
+        {
+          "id": "best_broad",
+          "template": "{{company_name}} \"Engineering Manager\" OR \"Staff Engineer\" OR \"Architect\" -jobs -careers"
+        },
+        {
+          "id": "runner_li",
+          "template": "site:linkedin.com/in {{company_name}} \"Staff Engineer\" OR \"Principal Engineer\" OR \"Tech Lead\""
+        }
+      ]
+    },
+    {
+      "id": "people_via_media",
+      "name": "People Discovery via Media / Events",
+      "keywords": [
+        "speaker",
+        "podcast",
+        "interview",
+        "keynote",
+        "conference",
+        "said",
+        "according to",
+        "appointed"
+      ],
+      "variants": [
+        {
+          "id": "best_podcast",
+          "template": "{{company_name}} podcast guest OR interview OR episode"
+        },
+        {
+          "id": "runner_appointed",
+          "template": "{{company_name}} \"appointed\" OR \"joined\" OR \"named\" VP OR director OR head"
+        }
+      ]
+    },
+    {
+      "id": "people_via_platforms",
+      "name": "People Discovery via Data Platforms",
+      "keywords": [
+        "rocketreach",
+        "zoominfo",
+        "apollo",
+        "wellfound",
+        "theorg",
+        "profile",
+        "team"
+      ],
+      "variants": [
+        {
+          "id": "best_zoominfo",
+          "template": "{{company_name}} site:zoominfo.com -jobs"
+        },
+        {
+          "id": "runner_multi_platform",
+          "template": "{{company_name}} site:zoominfo.com OR site:rocketreach.co -jobs"
+        },
+        {
+          "id": "fallback_wellfound",
+          "template": "{{company_name}} site:wellfound.com"
+        }
+      ]
+    },
+    {
+      "id": "people_via_content",
+      "name": "People Discovery via Authored Content",
+      "keywords": [
+        "author",
+        "wrote",
+        "published",
+        "blog",
+        "article",
+        "medium",
+        "substack",
+        "maker"
+      ],
+      "variants": [
+        {
+          "id": "best_blog_author",
+          "template": "site:{{domain}} blog author OR \"by\" OR \"written by\""
+        },
+        {
+          "id": "runner_medium",
+          "template": "{{company_name}} site:medium.com OR site:substack.com OR site:linkedin.com/pulse"
+        },
+        {
+          "id": "fallback_expanded",
+          "template": "site:{{domain}} blog OR news team OR \"by\" OR author"
+        }
+      ]
+    }
+  ]
+}

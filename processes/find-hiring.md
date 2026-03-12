@@ -1,5 +1,7 @@
 # find hiring activity
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). PRIMARY at Q4.0. T1:Q4.0, T2:Q4.0, T3:Q3.8, T4:Q4.0. `{{company_name}} careers` is the strongest single pattern.
+
 surface who a company is currently hiring for — roles, departments, seniority levels, and hiring velocity.
 
 ## inputs
@@ -14,6 +16,8 @@ surface who a company is currently hiring for — roles, departments, seniority 
 ### step 1: general careers search
 
 search: `{{company_name}} {{category}} careers`
+
+25-company tier test: `{{company_name}} careers` (best_careers) scored PRIMARY Q4.0 across T1, T2, T4, and Q3.8 for T3. adding `{{category}}` (runner_cat_careers) scored ENRICHMENT Q3.6. the simpler query is the stronger pattern.
 
 extract from results:
 

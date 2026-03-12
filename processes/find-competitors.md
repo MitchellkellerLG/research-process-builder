@@ -1,5 +1,7 @@
 # find competitors and competitive positioning
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). PRIMARY at Q4.0. T1:Q4.0, T2:Q4.0, T3:Q4.0, T4:Q4.0. Rock solid across all tiers.
+
 find the direct competitors of a company and explain why each one competes.
 
 ## inputs
@@ -14,7 +16,7 @@ find the direct competitors of a company and explain why each one competes.
 
 search: `{{company_name}} {{category}} alternatives OR competitors OR "vs" OR "compared to"`
 
-this single query catches competitor lists, "alternatives to" roundups, and head-to-head comparisons in one shot. tested at Q5/C5 across all company tiers.
+this single query catches competitor lists, "alternatives to" roundups, and head-to-head comparisons in one shot. tested at Q5/C5 across all company tiers. 25-company tier test: ENRICHMENT Q3.8 (combo_broad_alts variant at Q3.7). strong across all tiers but the simpler `{{company_name}} competitors` pattern scored Q4.0 as PRIMARY.
 
 extract from results:
 
@@ -28,6 +30,8 @@ extract from results:
 ### step 2: direct competitor search
 
 search: `{{company_name}} {{category}} competitors`
+
+25-company tier test: `{{company_name}} competitors` (runner_competitors) scored PRIMARY Q4.0 across all tiers. the `{{category}}` qualifier adds precision but the name-only variant is the strongest single pattern tested.
 
 extract from results:
 

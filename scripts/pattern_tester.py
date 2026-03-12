@@ -488,6 +488,8 @@ RESULTS_FILES = [
     SCRIPT_DIR.parent / "searches" / "raw-results-dns.json",
     SCRIPT_DIR.parent / "searches" / "raw-results-people.json",
     SCRIPT_DIR.parent / "searches" / "raw-results-people-combo.json",
+    SCRIPT_DIR.parent / "searches" / "raw-results-master.json",
+    SCRIPT_DIR.parent / "searches" / "raw-results-master-combo.json",
 ]
 
 SOURCE_ANALYSIS_FILE = SCRIPT_DIR.parent / "searches" / "source-analysis.md"

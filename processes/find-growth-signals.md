@@ -1,5 +1,19 @@
 # find growth and marketing investment signals
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). covers 12 categories. per-category accuracy:
+> - growth_marketing: combo_name_blog PRIMARY Q4.0
+> - content_blog: combo_domain_blog PRIMARY Q4.0
+> - tech_stack: combo_stackshare_wappalyzer PRIMARY Q4.0
+> - newsletter_email: runner_newsletter PRIMARY Q4.0
+> - events_conferences: best_meetup PRIMARY Q3.8
+> - awards_recognition: combo_name_award PRIMARY Q4.0
+> - social_media: best_linkedin_co PRIMARY Q3.9
+> - community_platforms: runner_discord ENRICHMENT Q3.8
+> - partnerships_integrations: best_partnerships PRIMARY Q4.0
+> - customer_case_studies: best_case_study PRIMARY Q3.9
+> - pricing_intelligence: best_pricing PRIMARY Q4.0
+> - leadership_people: best_ceo_founder PRIMARY Q4.0
+
 surface indicators of active investment and growth: content output, marketing infrastructure, social presence, community engagement, event activity, and monetization maturity. this tells you whether a company is actively investing in growth or coasting.
 
 ## inputs
@@ -14,7 +28,7 @@ surface indicators of active investment and growth: content output, marketing in
 
 search: `site:{{domain}} blog OR pricing OR newsletter OR demo OR "free trial" OR "book a call"`
 
-this single query detects multiple growth signals at once: do they have a blog, a pricing page, a newsletter, a demo flow? tested Q5/C4 for T2+ companies. returns nothing for T3/micro startups whose sites aren't fully indexed — if zero results, skip to step 7.
+this single query detects multiple growth signals at once: do they have a blog, a pricing page, a newsletter, a demo flow? tested Q5/C4 for T2+ companies. 25-company tier test: pricing_intelligence (best_pricing) PRIMARY Q4.0, newsletter_email (runner_newsletter) PRIMARY Q4.0. returns nothing for T3/micro startups whose sites aren't fully indexed — if zero results, skip to step 7.
 
 extract from results:
 
@@ -34,7 +48,7 @@ search: `site:{{domain}}/blog`
 
 if no results, try: `site:{{domain}} blog OR news OR updates`
 
-this goes directly to the company's own blog and returns actual post titles, dates, and topics. tested Q5 across Clay (clay.com/blog — GTM engineering, case studies, product updates) and Lovable (lovable.dev/blog — MCP, Series B, Lovable 2.0).
+this goes directly to the company's own blog and returns actual post titles, dates, and topics. tested Q5 across Clay (clay.com/blog — GTM engineering, case studies, product updates) and Lovable (lovable.dev/blog — MCP, Series B, Lovable 2.0). 25-company tier test: content_blog (combo_domain_blog) PRIMARY Q4.0.
 
 the previous pattern (`{{company_name}} {{category}} blog`) returned third-party content about the company, not the company's own posts. that's useful too (see step 5) but this step gives you the owned content signal.
 
@@ -51,7 +65,7 @@ a company publishing 2+ blog posts per month is investing in organic growth. a c
 
 **search A:** `{{company_name}} {{category}} site:twitter.com OR site:x.com OR site:instagram.com OR site:linkedin.com`
 
-this is the highest-performing pattern in the process. tested Q4.75 average across all company tiers — even T3 startups have social accounts indexed.
+this is the highest-performing pattern in the process. tested Q4.75 average across all company tiers — even T3 startups have social accounts indexed. 25-company tier test: social_media (best_linkedin_co) PRIMARY Q3.9.
 
 extract from results:
 
@@ -62,7 +76,7 @@ extract from results:
 
 **search B:** `{{company_name}} {{category}} discord OR slack OR community`
 
-community platforms are a massive growth signal that most research processes miss entirely. tested Q5 across Clay (Slack community, 15K+ members, community.clay.com), Lovable (Discord, 162K+ members), and Cursor (Discord 15K+, forum.cursor.com). thin for T3 but still worth checking.
+community platforms are a massive growth signal that most research processes miss entirely. tested Q5 across Clay (Slack community, 15K+ members, community.clay.com), Lovable (Discord, 162K+ members), and Cursor (Discord 15K+, forum.cursor.com). thin for T3 but still worth checking. 25-company tier test: community_platforms (runner_discord) ENRICHMENT Q3.8.
 
 extract from results:
 
@@ -79,7 +93,7 @@ a large, active community is a stronger growth signal than social followers. it 
 
 search: `site:{{domain}} "subscribe" OR "newsletter" OR "sign up" OR "book a demo"`
 
-this searches the company's own site for signup and newsletter mechanisms. tested Q4 on Clay — found newsletter subscription page, community newsletter, LinkedIn newsletter, affiliate signup.
+this searches the company's own site for signup and newsletter mechanisms. tested Q4 on Clay — found newsletter subscription page, community newsletter, LinkedIn newsletter, affiliate signup. 25-company tier test: newsletter_email (runner_newsletter) PRIMARY Q4.0.
 
 extract from results:
 
@@ -93,6 +107,8 @@ companies that run newsletters are investing in owned audience. this is a strong
 ### step 5: third-party coverage and buzz
 
 search: `{{company_name}} {{category}} blog`
+
+25-company tier test: growth_marketing (combo_name_blog) PRIMARY Q4.0.
 
 this step explicitly looks for what OTHERS write about the company — reviews, mentions, comparisons, guides. a company getting third-party coverage without paying for it = organic buzz.
 
@@ -109,7 +125,7 @@ extract from results:
 
 search: `{{company_name}} podcast OR webinar OR event OR conference`
 
-tested Q4 for T2+ companies. returns unrelated conferences for T3/micro startups — skip if the company has fewer than ~20 employees.
+tested Q4 for T2+ companies. 25-company tier test: events_conferences (best_meetup) PRIMARY Q3.8. returns unrelated conferences for T3/micro startups — skip if the company has fewer than ~20 employees.
 
 extract from results:
 

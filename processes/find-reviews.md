@@ -1,5 +1,7 @@
 # find customer and employee reviews
 
+> **validated:** 25 companies across 4 tiers (3,357 searches). PRIMARY at Q4.0 all tiers. `{{company_name}} review` is the strongest single pattern. site: combos (G2/Trustpilot/Capterra) scored ENRICHMENT Q3.7.
+
 surface customer and employee reviews for a company. each review is its own item, tagged positive or negative.
 
 ## inputs
@@ -14,6 +16,8 @@ surface customer and employee reviews for a company. each review is its own item
 ### step 1: general review sweep
 
 search: `{{company_name}} {{category}} review`
+
+25-company tier test: `{{company_name}} review` (best_review) scored PRIMARY Q4.0 across all tiers. combo site: queries across G2/Trustpilot/Capterra (combo_g2_trustpilot) scored ENRICHMENT Q3.7.
 
 extract from results:
 
