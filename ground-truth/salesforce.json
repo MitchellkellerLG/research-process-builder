@@ -1,0 +1,159 @@
+{
+  "company": "Salesforce",
+  "domain": "salesforce.com",
+  "tier": 1,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": [
+        "Marc Benioff",
+        "Parker Harris",
+        "Dave Moellenhoff",
+        "Frank Dominguez"
+      ],
+      "titles": [
+        "Chair, CEO & Co-Founder",
+        "Co-Founder & CTO",
+        "Co-Founder",
+        "Co-Founder"
+      ],
+      "confidence": "verified",
+      "sources": ["salesforce.com", "wikipedia.org"]
+    },
+    "c_suite_technical": {
+      "names": ["Parker Harris", "Brad Arkin"],
+      "titles": ["Co-Founder & CTO", "Chief Trust Officer"],
+      "confidence": "verified",
+      "sources": ["salesforce.com", "digitaldefynd.com"]
+    },
+    "c_suite_commercial": {
+      "names": ["Robin Washington", "Ariel Kelman", "Miguel Milano"],
+      "titles": ["President & COFO", "President & CMO", "President & CRO"],
+      "confidence": "verified",
+      "sources": ["salesforce.com", "fortune.com"]
+    },
+    "funding_financial": {
+      "total_raised": "$65.4M pre-IPO",
+      "last_round_type": "IPO June 2004",
+      "key_investors": [
+        "Larry Ellison",
+        "Halsey Minor",
+        "Emergence Capital",
+        "New Enterprise Associates"
+      ],
+      "confidence": "verified",
+      "sources": ["crunchbase.com", "wikipedia.org"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "HubSpot",
+        "Microsoft Dynamics 365",
+        "Oracle CX",
+        "SAP CX",
+        "Zoho CRM",
+        "ServiceNow",
+        "Zendesk"
+      ],
+      "confidence": "verified",
+      "sources": ["appsruntheworld.com", "gestisoft.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Marc Benioff",
+      "other_leaders": [
+        "Parker Harris",
+        "Robin Washington",
+        "Ariel Kelman",
+        "Miguel Milano",
+        "Brad Arkin"
+      ],
+      "confidence": "verified",
+      "sources": ["salesforce.com"]
+    },
+    "company_profile": {
+      "description": "World's #1 CRM platform providing cloud-based software for sales, service, marketing, and AI automation",
+      "employee_count": "76453",
+      "headquarters": "San Francisco, CA",
+      "founded_year": "1999",
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "macrotrends.net"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "Apex",
+        "Visualforce",
+        "Lightning Web Components",
+        "Heroku",
+        "MuleSoft",
+        "Tableau",
+        "Einstein AI",
+        "Data Cloud"
+      ],
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "trailhead.salesforce.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Per-user per-month subscription",
+      "has_free_tier": true,
+      "price_points": [
+        "$25/user/month Starter",
+        "$100/user/month Pro",
+        "$165/user/month Enterprise"
+      ],
+      "confidence": "verified",
+      "sources": ["salesforce.com/pricing"]
+    },
+    "customer_case_studies": {
+      "known_customers": [
+        "IBM",
+        "Accenture",
+        "T-Mobile",
+        "Amazon",
+        "Toyota",
+        "Adidas",
+        "OpenTable",
+        "Checkmarx",
+        "Nexo",
+        "Fisher & Paykel"
+      ],
+      "has_case_studies": true,
+      "customer_types": [
+        "financial services and fintech",
+        "enterprise software and cybersecurity",
+        "luxury consumer appliances and manufacturing",
+        "healthcare and medical technology",
+        "retail, e-commerce, and consumer goods",
+        "travel, hospitality, and transportation"
+      ],
+      "quoted_results": [
+        "41% faster case closures (resolution dropped from 9.5 to 5.6 days)",
+        "66% increase in first contact resolution rate (18% to 30%)",
+        "70% boost in autonomous case resolution, saving 2,600+ hours of manual work",
+        "Self-service rates projected to increase from 33% to 65%, call handle times cut 50%",
+        "427% boost in lead engagement and $575K in annual savings"
+      ],
+      "testimonial_quotes": [
+        "Agentforce is transforming how we support customers by accelerating resolutions and freeing our team to focus on impact. — Chris Merritt, VP of Global Support, Checkmarx",
+        "We're elevating the client experience and Agentforce is central to that ambition. Our dedicated Client Care team delivers specialized support 24/7. — Dimitar Bonev, Director of CRM, Nexo",
+        "When you buy a premium product from Fisher & Paykel, you expect the same level of service after your purchase. — Marisa Lioi, CRM Operations Manager, Fisher & Paykel"
+      ],
+      "confidence": "verified",
+      "sources": ["salesforce.com/customer-stories", "salesforce.com/news"]
+    },
+    "partnerships_integrations": {
+      "key_integrations": [
+        "Slack",
+        "MuleSoft",
+        "Tableau",
+        "Heroku",
+        "Google Cloud",
+        "AWS",
+        "Microsoft",
+        "OpenAI",
+        "Stripe"
+      ],
+      "has_marketplace": true,
+      "confidence": "verified",
+      "sources": ["salesforce.com"]
+    }
+  }
+}

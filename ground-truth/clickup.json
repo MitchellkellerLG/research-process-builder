@@ -1,0 +1,101 @@
+{
+  "company": "ClickUp",
+  "domain": "clickup.com",
+  "tier": 2,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Zeb Evans", "Alex Yurkowski"],
+      "titles": ["Founder & CEO", "Co-Founder & CTO"],
+      "confidence": "verified",
+      "sources": ["clickup.com", "wikipedia.org", "crunchbase.com"]
+    },
+    "funding_financial": {
+      "total_raised": "$535M",
+      "last_round_type": "Series C",
+      "key_investors": [
+        "Andreessen Horowitz",
+        "Tiger Global",
+        "Lightspeed Venture Partners"
+      ],
+      "confidence": "verified",
+      "sources": ["techcrunch.com", "clickup.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "Asana",
+        "Monday.com",
+        "Notion",
+        "Trello",
+        "Wrike",
+        "Airtable",
+        "Smartsheet"
+      ],
+      "confidence": "verified",
+      "sources": ["efficient.app", "smartsuite.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Zeb Evans",
+      "other_leaders": ["Alex Yurkowski"],
+      "confidence": "verified",
+      "sources": ["clickup.com", "wikipedia.org"]
+    },
+    "company_profile": {
+      "description": "All-in-one productivity and project management platform consolidating tasks, docs, goals into a single workspace",
+      "employee_count": "1487",
+      "headquarters": "San Diego, CA",
+      "founded_year": "2017",
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "tracxn.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Per-seat per-month",
+      "has_free_tier": true,
+      "price_points": [
+        "$7/user/month Unlimited",
+        "$12/user/month Business",
+        "$19/user/month Business Plus"
+      ],
+      "confidence": "verified",
+      "sources": ["clickup.com/pricing"]
+    },
+    "customer_case_studies": {
+      "known_customers": [
+        "Netflix",
+        "IBM",
+        "Spotify",
+        "Google",
+        "Nike",
+        "Uber",
+        "Airbnb",
+        "Chick-fil-A",
+        "Cartoon Network",
+        "Lids",
+        "Mayo Clinic"
+      ],
+      "has_case_studies": true,
+      "customer_types": [
+        "quick-service restaurant franchises",
+        "media and entertainment companies",
+        "retail and e-commerce brands",
+        "healthcare systems and institutions",
+        "universities and higher education",
+        "gaming and software development firms"
+      ],
+      "quoted_results": [
+        "Chick-fil-A: 33% reduction in overhead, 10+ hours saved weekly for store managers",
+        "Yggdrasil Gaming: $120,000 saved per game, 37% productivity increase with ClickUp AI",
+        "Lids: 66% more efficient weekly meetings, 100+ hours saved across teams",
+        "Cartoon Network: managing 2x as many social channels with same team, 4 months ahead of schedule",
+        "Made In Cookware: 3-5 minutes saved per service ticket, 80% adoption in under 4 months"
+      ],
+      "testimonial_quotes": [
+        "Before ClickUp, our project tracking was scattered across various platforms. ClickUp centralized our processes. — Kelly Smunk, Director of Data Platform, Shipt",
+        "When it comes to managing social media, no other tool is as robust as ClickUp. — Sarah Lively, Director of Social Media, Cartoon Network",
+        "ClickUp was our best implementation and adoption of any new platform that we've ever helped roll out. — Tiffany Vedamunthu, Project Manager, Mayo Clinic"
+      ],
+      "confidence": "verified",
+      "sources": ["clickup.com/customers"]
+    }
+  }
+}

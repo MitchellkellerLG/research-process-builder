@@ -1,0 +1,151 @@
+{
+  "company": "Stripe",
+  "domain": "stripe.com",
+  "tier": 1,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Patrick Collison", "John Collison"],
+      "titles": ["Co-Founder & CEO", "Co-Founder & President"],
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "stripe.com"]
+    },
+    "c_suite_technical": {
+      "names": ["Rahul Patil"],
+      "titles": ["Chief Technology Officer"],
+      "confidence": "verified",
+      "sources": ["financemagnates.com", "siliconrepublic.com"]
+    },
+    "c_suite_commercial": {
+      "names": [
+        "Steffan Tomlinson",
+        "Jeff Titterton",
+        "William Alvarado",
+        "Tyler Bryson"
+      ],
+      "titles": ["CFO", "CMO", "Chief Business Officer", "CRO Americas"],
+      "confidence": "verified",
+      "sources": ["stripe.com", "craft.co"]
+    },
+    "funding_financial": {
+      "total_raised": "$9.81B",
+      "last_round_type": "Series I",
+      "key_investors": [
+        "Sequoia Capital",
+        "Andreessen Horowitz",
+        "Founders Fund",
+        "Thrive Capital",
+        "General Catalyst"
+      ],
+      "confidence": "verified",
+      "sources": ["stripe.com", "crunchbase.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "Adyen",
+        "Braintree",
+        "Square",
+        "Checkout.com",
+        "PayPal",
+        "Worldpay"
+      ],
+      "confidence": "verified",
+      "sources": ["paymentsdive.com", "vendr.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Patrick Collison",
+      "other_leaders": [
+        "John Collison",
+        "Rahul Patil",
+        "Steffan Tomlinson",
+        "Jeff Titterton"
+      ],
+      "confidence": "verified",
+      "sources": ["craft.co", "stripe.com"]
+    },
+    "company_profile": {
+      "description": "Financial infrastructure platform providing payment processing APIs for internet businesses",
+      "employee_count": "8500-10000",
+      "headquarters": "South San Francisco, CA",
+      "founded_year": "2010",
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "tracxn.com"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "Ruby",
+        "JavaScript",
+        "Go",
+        "Scala",
+        "Python",
+        "AWS",
+        "PostgreSQL",
+        "Redis",
+        "Kubernetes"
+      ],
+      "confidence": "verified",
+      "sources": ["blog.back4app.com", "newsletter.pragmaticengineer.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Pay-per-transaction",
+      "has_free_tier": false,
+      "price_points": [
+        "2.9% + $0.30 per card charge",
+        "2.7% + $0.05 in-person"
+      ],
+      "confidence": "verified",
+      "sources": ["stripe.com/pricing"]
+    },
+    "customer_case_studies": {
+      "known_customers": [
+        "Amazon",
+        "Shopify",
+        "Lyft",
+        "Instacart",
+        "DoorDash",
+        "Atlassian",
+        "Twilio",
+        "Zoom",
+        "Notion",
+        "OpenAI"
+      ],
+      "has_case_studies": true,
+      "customer_types": [
+        "SaaS / workflow automation platform",
+        "enterprise software company",
+        "ride-sharing and gig-economy marketplace",
+        "subscription media and publishing",
+        "small business vertical SaaS",
+        "peer-to-peer car-sharing marketplace"
+      ],
+      "quoted_results": [
+        "4% uplift in authorization rates, generating $3M+ in additional revenue",
+        "10% overall uplift in authorization rates after switching processor",
+        "4.7% increase in recaptured revenue, equivalent to $114M per year",
+        "23% uplift in subscription revenue after moving to Stripe Billing",
+        "Stripe smart retries recover 14% more revenue than fixed-schedule retries"
+      ],
+      "testimonial_quotes": [
+        "Since changing processors, we have seen a 4% uplift in auth rates which has resulted in an additional $3M in revenue to our business that we wouldn't have had without Stripe. — Ryan Roccon, Controller, Zapier",
+        "We were seeing ~10% uplift overall in authorization rates. Stripe has a relentless focus on innovation. — Chris Nasson, Director of Investor Relations & Treasury, Twilio",
+        "When you serve over 200,000 businesses ranging from 10 to 100,000 employees, building a homegrown billing solution to serve both SMB and enterprise businesses is a massive undertaking. — Chandra Elango, Head of Go To Market IT, Atlassian"
+      ],
+      "confidence": "verified",
+      "sources": ["stripe.com/customers", "stripe.com/newsroom", "stripe.com annual letter 2024"]
+    },
+    "partnerships_integrations": {
+      "key_integrations": [
+        "Shopify",
+        "Salesforce",
+        "NetSuite",
+        "WooCommerce",
+        "QuickBooks",
+        "Xero",
+        "Amazon"
+      ],
+      "has_marketplace": true,
+      "confidence": "verified",
+      "sources": ["marketplace.stripe.com"]
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "company": "HubSpot",
+  "domain": "hubspot.com",
+  "tier": 1,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Brian Halligan", "Dharmesh Shah", "Yamini Rangan"],
+      "titles": ["Co-Founder", "Co-Founder & CTO", "CEO"],
+      "confidence": "verified",
+      "sources": ["hubspot.com", "wikipedia.org"]
+    },
+    "c_suite_technical": {
+      "names": ["Dharmesh Shah", "Duncan Lennox"],
+      "titles": ["Co-Founder & CTO", "Chief Product and Technology Officer"],
+      "confidence": "verified",
+      "sources": ["hubspot.com", "ir.hubspot.com"]
+    },
+    "c_suite_commercial": {
+      "names": ["Kate Bueker", "Kipp Bodnar", "Rob Giglio", "David Cohen"],
+      "titles": ["CFO", "CMO", "Chief Customer Officer", "Chief Sales Officer"],
+      "confidence": "verified",
+      "sources": ["ir.hubspot.com", "hubspot.com"]
+    },
+    "funding_financial": {
+      "total_raised": "$101M pre-IPO",
+      "last_round_type": "IPO October 2014",
+      "key_investors": [
+        "Sequoia Capital",
+        "General Catalyst",
+        "Google Ventures",
+        "Matrix Partners"
+      ],
+      "confidence": "verified",
+      "sources": ["crunchbase.com", "ir.hubspot.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "Salesforce",
+        "Adobe Marketo",
+        "ActiveCampaign",
+        "Zoho CRM",
+        "Klaviyo",
+        "Pipedrive",
+        "Brevo"
+      ],
+      "confidence": "verified",
+      "sources": ["brevo.com", "atakinteractive.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Yamini Rangan",
+      "other_leaders": [
+        "Brian Halligan",
+        "Dharmesh Shah",
+        "Duncan Lennox",
+        "Kate Bueker",
+        "Kipp Bodnar"
+      ],
+      "confidence": "verified",
+      "sources": ["hubspot.com", "ir.hubspot.com"]
+    },
+    "company_profile": {
+      "description": "Cloud-based CRM, marketing, sales, and customer service platform that pioneered inbound marketing",
+      "employee_count": "8900-11000",
+      "headquarters": "Cambridge, MA",
+      "founded_year": "2006",
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "hubspot.com"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "AWS",
+        "Python",
+        "React",
+        "MySQL",
+        "Snowflake",
+        "HubSpot CMS Hub",
+        "Breeze AI"
+      ],
+      "confidence": "probable",
+      "sources": ["elandz.com", "clevyr.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Freemium SaaS per-seat per-hub pricing",
+      "has_free_tier": true,
+      "price_points": [
+        "$15/seat/month Starter",
+        "$800/month Professional",
+        "$150/seat/month Enterprise"
+      ],
+      "confidence": "verified",
+      "sources": ["featurebase.app", "hubxpert.com"]
+    },
+    "customer_case_studies": {
+      "known_customers": [
+        "Motorola Solutions",
+        "Pennylane",
+        "Nutribees",
+        "Morehouse College",
+        "Shore",
+        "Ving",
+        "Cold Jet",
+        "ResellerRatings",
+        "Marq"
+      ],
+      "has_case_studies": true,
+      "customer_types": [
+        "SaaS / B2B software companies",
+        "e-commerce and direct-to-consumer brands",
+        "professional services and consulting firms",
+        "manufacturing and industrial companies",
+        "startups and venture-backed growth companies"
+      ],
+      "quoted_results": [
+        "Shore reduced customer acquisition costs by 35% and achieved 12X increase in leads",
+        "Ving increased revenue by 96% after switching to HubSpot",
+        "Cold Jet cut lead response time by 66%, 216 meetings booked, 65 deals won",
+        "ResellerRatings increased new customer growth by 60%",
+        "Marq saves $77,000 per year after consolidating tools onto HubSpot"
+      ],
+      "testimonial_quotes": [
+        "If you're looking for an all-in-one platform that goes far beyond a CRM, I would 100 percent go with HubSpot. — Stephanie, Ving",
+        "HubSpot helped us automate our sales and marketing cycles as one whole unit. — Marta Forero Sepulveda, Co-founder, UBits",
+        "Sales Hub helps us achieve a more tailored outreach to the customer. — Kevin Must, Director of Commercial Tech Stack, Cold Jet"
+      ],
+      "confidence": "verified",
+      "sources": ["hubspot.com/case-studies"]
+    },
+    "partnerships_integrations": {
+      "key_integrations": [
+        "Salesforce",
+        "Slack",
+        "Shopify",
+        "Zoom",
+        "WordPress",
+        "Zapier",
+        "Snowflake",
+        "Google Workspace"
+      ],
+      "has_marketplace": true,
+      "confidence": "verified",
+      "sources": ["hubspot.com", "pixcell.io"]
+    }
+  }
+}

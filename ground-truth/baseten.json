@@ -1,0 +1,110 @@
+{
+  "company": "Baseten",
+  "domain": "baseten.co",
+  "tier": 3,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": [
+        "Tuhin Srivastava",
+        "Amir Haghighat",
+        "Philip Howes",
+        "Pankaj Gupta"
+      ],
+      "titles": [
+        "CEO & Co-Founder",
+        "CTO & Co-Founder",
+        "Co-Founder",
+        "Co-Founder"
+      ],
+      "confidence": "verified",
+      "sources": ["baseten.co", "tracxn.com", "wellfound.com"]
+    },
+    "c_suite_technical": {
+      "names": ["Amir Haghighat"],
+      "titles": ["CTO & Co-Founder"],
+      "confidence": "verified",
+      "sources": ["baseten.co/blog"]
+    },
+    "funding_financial": {
+      "total_raised": "$585M",
+      "last_round_type": "Series E",
+      "key_investors": [
+        "IVP",
+        "CapitalG",
+        "NVIDIA",
+        "Greylock",
+        "BOND",
+        "Conviction"
+      ],
+      "confidence": "verified",
+      "sources": ["businesswire.com", "fortune.com", "cnbc.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "Replicate",
+        "Fireworks AI",
+        "Modal",
+        "RunPod",
+        "Together AI",
+        "AWS SageMaker"
+      ],
+      "confidence": "verified",
+      "sources": ["cbinsights.com", "northflank.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Tuhin Srivastava",
+      "other_leaders": ["Amir Haghighat", "Philip Howes", "Pankaj Gupta"],
+      "confidence": "verified",
+      "sources": ["baseten.co", "tracxn.com"]
+    },
+    "company_profile": {
+      "description": "Inference-first AI infrastructure platform for deploying and serving ML models in production",
+      "employee_count": "147-186",
+      "headquarters": "San Francisco, CA",
+      "founded_year": "2019",
+      "confidence": "verified",
+      "sources": ["crunchbase.com", "tracxn.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Pay-per-use compute billed per minute",
+      "has_free_tier": false,
+      "confidence": "verified",
+      "sources": ["baseten.co/pricing"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "Truss",
+        "Python",
+        "Docker",
+        "Kubernetes",
+        "vLLM",
+        "TensorRT-LLM",
+        "PyTorch"
+      ],
+      "confidence": "verified",
+      "sources": ["github.com/basetenlabs/truss", "docs.baseten.co"]
+    },
+    "customer_case_studies": {
+      "known_customers": ["Superhuman", "Writer", "Patreon", "Cursor", "Notion", "HeyGen"],
+      "has_case_studies": true,
+      "customer_types": [
+        "AI/SaaS application companies",
+        "enterprise AI platform companies",
+        "creator economy / consumer SaaS platforms",
+        "AI tooling and developer tools"
+      ],
+      "quoted_results": [
+        "Patreon: saved 440+ engineer hours/year, $600K in annual resources, 70% reduction in GPU costs",
+        "Superhuman: 80% P95 latency reduction across 20+ fine-tuned embedding models, hitting 100ms response times",
+        "Writer: 60% higher tokens/second, 23% lower time to first token, 35% lower cost per million tokens"
+      ],
+      "testimonial_quotes": [
+        "Baseten cut our P95 latency by 80% across the dozens of fine-tuned embedding models that power core features. — Loic Houssier, CTO at Superhuman",
+        "Thanks to Baseten, we're getting cost-effective high-performance model serving without any extra burden on our internal engineering teams. — Waseem Alshikh, CTO and Co-Founder of Writer"
+      ],
+      "confidence": "verified",
+      "sources": ["baseten.co/customers"]
+    }
+  }
+}

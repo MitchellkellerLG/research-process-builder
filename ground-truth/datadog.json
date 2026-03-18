@@ -1,0 +1,136 @@
+{
+  "company": "Datadog",
+  "domain": "datadoghq.com",
+  "tier": 1,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Olivier Pomel", "Alexis Le-Quoc"],
+      "titles": ["Co-Founder & CEO", "Co-Founder & CTO"],
+      "confidence": "verified",
+      "sources": ["datadoghq.com", "wikipedia.org"]
+    },
+    "c_suite_technical": {
+      "names": ["Alexis Le-Quoc"],
+      "titles": ["Co-Founder & CTO"],
+      "confidence": "verified",
+      "sources": ["datadoghq.com", "craft.co"]
+    },
+    "c_suite_commercial": {
+      "names": ["David Obstler", "Sara Varni", "Sean Walters", "Adam Blitzer"],
+      "titles": ["CFO", "CMO", "CRO", "COO"],
+      "confidence": "verified",
+      "sources": ["datadoghq.com", "craft.co"]
+    },
+    "funding_financial": {
+      "total_raised": "$147.9M pre-IPO",
+      "last_round_type": "IPO September 2019",
+      "key_investors": [
+        "Index Ventures",
+        "OpenView Venture Partners",
+        "ICONIQ Capital",
+        "Battery Ventures"
+      ],
+      "confidence": "verified",
+      "sources": ["crunchbase.com", "cbinsights.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "New Relic",
+        "Dynatrace",
+        "Splunk",
+        "Grafana Labs",
+        "SigNoz",
+        "Honeycomb",
+        "Elastic"
+      ],
+      "confidence": "verified",
+      "sources": ["signoz.io", "uptrace.dev"]
+    },
+    "leadership_people": {
+      "ceo_name": "Olivier Pomel",
+      "other_leaders": [
+        "Alexis Le-Quoc",
+        "David Obstler",
+        "Sara Varni",
+        "Sean Walters",
+        "Adam Blitzer"
+      ],
+      "confidence": "verified",
+      "sources": ["datadoghq.com"]
+    },
+    "company_profile": {
+      "description": "SaaS cloud monitoring and observability platform for infrastructure, APM, logs, and security",
+      "employee_count": "9700",
+      "headquarters": "New York City, NY",
+      "founded_year": "2010",
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "linkedin.com"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "Go",
+        "Cassandra",
+        "Kafka",
+        "PostgreSQL",
+        "D3.js",
+        "OpenTelemetry",
+        "eBPF"
+      ],
+      "confidence": "verified",
+      "sources": ["docs.datadoghq.com", "wikipedia.org"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Per-host per-month plus usage-based",
+      "has_free_tier": true,
+      "price_points": [
+        "$15/host/month Pro",
+        "$23/host/month Enterprise",
+        "$0.10/GB logs"
+      ],
+      "confidence": "verified",
+      "sources": ["datadoghq.com/pricing"]
+    },
+    "customer_case_studies": {
+      "known_customers": ["Neto", "TymeX", "Go1", "Birdie", "Forbes", "Nectar", "Fundbox"],
+      "has_case_studies": true,
+      "customer_types": [
+        "financial services and fintech companies",
+        "media and digital publishing companies",
+        "cloud-native SaaS and learning platforms",
+        "e-commerce and retail",
+        "healthcare technology and digital health"
+      ],
+      "quoted_results": [
+        "Go1: 75% increase in monthly active users, outages reduced from weekly to 2 in 6 months, infrastructure costs down 28%",
+        "TymeX: MTTI reduced from 1 hour to 1 minute for failed card transactions, 35% drop in customer service calls",
+        "Birdie: overall mobile app performance improved 80%, one action reduced from 40 seconds to 4 seconds",
+        "Forbes: cloud costs reduced 2-3% through APM-driven right-sizing, 99.5%+ uptime SLA maintained",
+        "Fundbox: consolidated 8 monitoring tools into 1, false alarms eliminated"
+      ],
+      "testimonial_quotes": [
+        "Datadog has become embedded into our way of working. Teams are proactively notified about any potential issues before they escalate. — Jon Ducrou, EVP of Engineering, Go1",
+        "With Datadog, I have visibility through our entire stack from top to bottom. — JD Weiner, Director of DevOps, Forbes",
+        "One of the team leads told me Datadog was the friend I never knew I was missing. — Tal Turgeman, Environments Lead, Fundbox"
+      ],
+      "confidence": "verified",
+      "sources": ["datadoghq.com/case-studies", "datadoghq.com/customer-testimonial"]
+    },
+    "partnerships_integrations": {
+      "key_integrations": [
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "Slack",
+        "PagerDuty",
+        "OpenTelemetry"
+      ],
+      "has_marketplace": true,
+      "confidence": "verified",
+      "sources": ["datadoghq.com"]
+    }
+  }
+}

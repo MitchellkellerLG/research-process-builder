@@ -1,0 +1,102 @@
+{
+  "company": "Tinybird",
+  "domain": "tinybird.co",
+  "tier": 3,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": [
+        "Jorge Gomez Sancha",
+        "Javi Santana",
+        "Raul Ochoa",
+        "Javier Alvarez Medina",
+        "Sergio Alvarez-Leiva"
+      ],
+      "titles": [
+        "Co-Founder & CEO",
+        "Co-Founder",
+        "Co-Founder",
+        "Co-Founder",
+        "Co-Founder"
+      ],
+      "confidence": "verified",
+      "sources": ["crunchbase.com", "tracxn.com", "theorg.com"]
+    },
+    "funding_financial": {
+      "total_raised": "$70M",
+      "last_round_type": "Series B",
+      "key_investors": [
+        "Balderton Capital",
+        "CRV",
+        "Singular",
+        "Crane Venture Partners"
+      ],
+      "confidence": "verified",
+      "sources": ["techcrunch.com", "balderton.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "ClickHouse Cloud",
+        "StarTree",
+        "Imply",
+        "Materialize",
+        "Apache Doris"
+      ],
+      "confidence": "verified",
+      "sources": ["tinybird.co", "g2.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Jorge Gomez Sancha",
+      "other_leaders": ["Javi Santana", "Raul Ochoa"],
+      "confidence": "verified",
+      "sources": ["crunchbase.com", "tracxn.com"]
+    },
+    "company_profile": {
+      "description": "Real-time analytics API platform built on ClickHouse for publishing SQL as low-latency HTTP endpoints",
+      "employee_count": "65-89",
+      "headquarters": "Madrid, Spain",
+      "founded_year": "2019",
+      "confidence": "verified",
+      "sources": ["cbinsights.com", "techcrunch.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "vCPU-hours based tiered plans",
+      "has_free_tier": true,
+      "price_points": ["Free: 10GB storage, 0.5 vCPU", "$25/month Developer"],
+      "confidence": "verified",
+      "sources": ["tinybird.co/pricing"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "ClickHouse",
+        "Kafka",
+        "REST API",
+        "TypeScript SDK",
+        "Python SDK"
+      ],
+      "confidence": "verified",
+      "sources": ["tinybird.co/clickhouse", "kai-waehner.de"]
+    },
+    "customer_case_studies": {
+      "known_customers": ["Vercel", "Factorial", "The Hotels Network", "Genially"],
+      "has_case_studies": true,
+      "customer_types": [
+        "frontend/developer deployment platforms",
+        "HR software companies",
+        "hospitality / hotel tech platforms",
+        "interactive content / online presentation platforms"
+      ],
+      "quoted_results": [
+        "Vercel: 14.5B rows written per day, 15.9PB processed per month, data latency reduced from 30 minutes to seconds",
+        "The Hotels Network: 3.9B scanned rows/day, 200TB+ processed/day, 75M API requests/day",
+        "Factorial: 12 new analytics features shipped in months, sub-50ms query latency, 1 month from POC to production"
+      ],
+      "testimonial_quotes": [
+        "Tinybird is the most exciting data company since Snowflake. It's revolutionized the way we think about real-time data analytics at Vercel. — Guillermo Rauch, CEO at Vercel",
+        "We decided to go with Tinybird rather than continuing to invest in our internal ClickHouse cluster. — Jordi Miro, CTO at The Hotels Network"
+      ],
+      "confidence": "verified",
+      "sources": ["tinybird.co/customers"]
+    }
+  }
+}

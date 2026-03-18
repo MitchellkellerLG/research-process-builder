@@ -1,0 +1,125 @@
+{
+  "company": "Notion",
+  "domain": "notion.so",
+  "tier": 2,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Ivan Zhao", "Simon Last", "Akshay Kothari"],
+      "titles": ["Co-Founder & CEO", "Co-Founder", "Co-Founder & COO"],
+      "confidence": "verified",
+      "sources": ["notion.com", "crunchbase.com"]
+    },
+    "c_suite_technical": {
+      "names": ["Fuzzy Khosrowshahi"],
+      "titles": ["CTO"],
+      "confidence": "verified",
+      "sources": ["notion.com/blog/notion-new-cto"]
+    },
+    "c_suite_commercial": {
+      "names": ["Erica Anderson", "Lena Waters", "Rama Katkar"],
+      "titles": [
+        "Chief Revenue Officer",
+        "Chief Marketing Officer",
+        "Chief Financial Officer"
+      ],
+      "confidence": "verified",
+      "sources": ["craft.co", "comparably.com"]
+    },
+    "funding_financial": {
+      "total_raised": "$418M",
+      "last_round_type": "Series C",
+      "key_investors": [
+        "Sequoia Capital",
+        "Coatue Management",
+        "Index Ventures",
+        "Base10 Partners"
+      ],
+      "confidence": "verified",
+      "sources": ["sacra.com", "tracxn.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "Confluence",
+        "ClickUp",
+        "Coda",
+        "Microsoft Loop",
+        "Obsidian",
+        "Asana",
+        "Monday.com"
+      ],
+      "confidence": "verified",
+      "sources": ["zapier.com", "nuclino.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Ivan Zhao",
+      "other_leaders": [
+        "Simon Last",
+        "Akshay Kothari",
+        "Fuzzy Khosrowshahi",
+        "Erica Anderson"
+      ],
+      "confidence": "verified",
+      "sources": ["notion.com", "craft.co"]
+    },
+    "company_profile": {
+      "description": "All-in-one workspace combining notes, databases, wikis, and project management with AI",
+      "employee_count": "1200",
+      "headquarters": "San Francisco, CA",
+      "founded_year": "2013",
+      "confidence": "verified",
+      "sources": ["wikipedia.org", "unifygtm.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Freemium SaaS per-seat",
+      "has_free_tier": true,
+      "price_points": [
+        "$10/user/month Plus",
+        "$20/user/month Business",
+        "Custom Enterprise"
+      ],
+      "confidence": "verified",
+      "sources": ["notion.com/pricing"]
+    },
+    "customer_case_studies": {
+      "known_customers": ["Figma", "Duolingo", "Pixar", "Faire", "Vercel", "Ramp", "Heidi", "Planful", "Cursor", "OpenAI"],
+      "has_case_studies": true,
+      "customer_types": [
+        "AI/ML startups",
+        "fintech and financial services",
+        "design and creative agencies",
+        "enterprise software and developer tools",
+        "healthcare and wellness",
+        "e-commerce and marketplace platforms"
+      ],
+      "quoted_results": [
+        "Faire: workflows 30% faster, teams reclaim 9 hours weekly",
+        "Vercel: 35% faster shipping, 89% increase in employee confidence",
+        "Ramp: 70% reduction in productivity-tool costs, 3x faster team movement",
+        "Heidi: saves 260+ hours monthly previously spent hunting for answers",
+        "Planful: cut employee onboarding time in half"
+      ],
+      "testimonial_quotes": [
+        "Notion is the first tool people open each morning. It gives clarity on priorities. — Jean-Philippe Denis, Tech Operations Principal, Qonto",
+        "In 27 years as a software executive, I've never seen adoption enthusiasm like what we experienced with Notion. — Grant Halloran, Executive, Planful",
+        "There's real power in a single platform where you do all your work. Notion is that place for us. — Nick Erdenberger, GTM, OpenAI"
+      ],
+      "confidence": "verified",
+      "sources": ["notion.com/customers"]
+    },
+    "partnerships_integrations": {
+      "key_integrations": [
+        "Slack",
+        "Google Drive",
+        "Zapier",
+        "GitHub",
+        "Jira",
+        "Typeform",
+        "Make"
+      ],
+      "has_marketplace": true,
+      "confidence": "verified",
+      "sources": ["notion.com/integrations"]
+    }
+  }
+}

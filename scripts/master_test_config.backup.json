@@ -1,5 +1,5 @@
 {
-  "description": "Master validation config \u2014 25 companies across 4 tiers, ONE BEST pattern per category from company intel + people finding. Validates all PRIMARY and top FALLBACK patterns across the expanded company set.",
+  "description": "Master validation config — 25 companies across 4 tiers, ONE BEST pattern per category from company intel + people finding. Validates all PRIMARY and top FALLBACK patterns across the expanded company set.",
   "test_companies": [
     {
       "company_name": "SpaceX",
@@ -217,20 +217,12 @@
       ],
       "variants": [
         {
-          "id": "ch1_structured",
-          "template": "{{company_name}} \"founded in\" OR \"headquartered\" OR \"employees\""
+          "id": "best_rocketreach",
+          "template": "site:rocketreach.co {{company_name}}"
         },
         {
-          "id": "ch3_wiki_about",
-          "template": "{{company_name}} {{category}} company \"founded\" \"employees\" OR \"headquartered\""
-        },
-        {
-          "id": "ch5_about_overview",
-          "template": "{{company_name}} \"founded in\" OR \"headquartered in\" company profile overview"
-        },
-        {
-          "id": "ch6_linkedin_about",
-          "template": "site:linkedin.com/company/{{company_name}}"
+          "id": "runner_overview",
+          "template": "{{company_name}} company overview"
         }
       ]
     },
@@ -249,17 +241,10 @@
         "arr"
       ],
       "variants": [
-        {
-          "id": "best_funding",
-          "template": "{{company_name}} funding"
-        },
+        { "id": "best_funding", "template": "{{company_name}} funding" },
         {
           "id": "runner_cat_funding",
           "template": "{{company_name}} {{category}} funding"
-        },
-        {
-          "id": "ch7_raises_series",
-          "template": "{{company_name}} raises OR raised series OR funding OR \"round\" million OR billion"
         }
       ]
     },
@@ -277,10 +262,7 @@
         "recruiting"
       ],
       "variants": [
-        {
-          "id": "best_careers",
-          "template": "{{company_name}} careers"
-        },
+        { "id": "best_careers", "template": "{{company_name}} careers" },
         {
           "id": "runner_cat_careers",
           "template": "{{company_name}} {{category}} careers"
@@ -300,12 +282,12 @@
       ],
       "variants": [
         {
-          "id": "runner_competitors",
-          "template": "{{company_name}} competitors"
+          "id": "best_alts",
+          "template": "{{company_name}} {{category}} alternatives OR competitors OR \"vs\" OR \"compared to\""
         },
         {
-          "id": "ch5_top_alternatives",
-          "template": "best {{company_name}} alternatives OR competitors {{category}}"
+          "id": "runner_competitors",
+          "template": "{{company_name}} competitors"
         }
       ]
     },
@@ -322,10 +304,7 @@
         "recommend"
       ],
       "variants": [
-        {
-          "id": "best_review",
-          "template": "{{company_name}} review"
-        },
+        { "id": "best_review", "template": "{{company_name}} review" },
         {
           "id": "runner_glassdoor",
           "template": "{{company_name}} glassdoor reviews"
@@ -344,10 +323,7 @@
         "expansion"
       ],
       "variants": [
-        {
-          "id": "best_domain_news",
-          "template": "{{domain}} news"
-        },
+        { "id": "best_domain_news", "template": "{{domain}} news" },
         {
           "id": "runner_news_exclusion",
           "template": "{{company_name}} news announcement -jobs -careers -glassdoor -salary"
@@ -402,22 +378,13 @@
     {
       "id": "community_platforms",
       "name": "Community Platforms",
-      "keywords": [
-        "discord",
-        "slack",
-        "community",
-        "forum",
-        "members"
-      ],
+      "keywords": ["discord", "slack", "community", "forum", "members"],
       "variants": [
         {
           "id": "best_community",
           "template": "{{company_name}} {{category}} discord OR slack OR community"
         },
-        {
-          "id": "runner_discord",
-          "template": "{{company_name}} discord"
-        }
+        { "id": "runner_discord", "template": "{{company_name}} discord" }
       ]
     },
     {
@@ -458,17 +425,10 @@
         "node"
       ],
       "variants": [
+        { "id": "best_techstack", "template": "{{company_name}} tech stack" },
         {
-          "id": "best_techstack",
-          "template": "{{company_name}} tech stack"
-        },
-        {
-          "id": "ch2_jobs_tech",
-          "template": "{{company_name}} jobs requirements Python OR React OR AWS OR Kubernetes"
-        },
-        {
-          "id": "ch3_eng_hiring",
-          "template": "{{company_name}} engineer requirements \"experience with\" OR \"proficiency in\""
+          "id": "runner_cat_tech",
+          "template": "{{company_name}} {{category}} tech stack OR technology"
         }
       ]
     },
@@ -509,20 +469,28 @@
       ],
       "variants": [
         {
+          "id": "best_case_study",
+          "template": "{{company_name}} {{category}} case study OR customer story"
+        },
+        {
+          "id": "runner_site_customers",
+          "template": "site:{{domain}} customers"
+        },
+        {
+          "id": "cs_results_metrics",
+          "template": "\"{{company_name}}\" case study results metrics"
+        },
+        {
+          "id": "cs_testimonial",
+          "template": "\"{{company_name}}\" customer testimonial quote success story"
+        },
+        {
           "id": "cs_site_stories",
           "template": "site:{{domain}} case-study OR customer-story OR success-story"
         },
         {
-          "id": "ch1_trusted_by",
-          "template": "{{company_name}} \"trusted by\" OR \"used by\" OR \"powers\""
-        },
-        {
-          "id": "ch2_site_case_study",
-          "template": "site:{{domain}} \"case study\" OR \"customer story\""
-        },
-        {
-          "id": "ch9_customer_spotlight",
-          "template": "{{company_name}} \"customer spotlight\" OR \"customer story\" OR \"case study\" {{category}}"
+          "id": "cs_roi_outcomes",
+          "template": "\"{{company_name}}\" customer case study ROI revenue increase"
         }
       ]
     },
@@ -540,13 +508,10 @@
         "per month"
       ],
       "variants": [
+        { "id": "best_pricing", "template": "{{company_name}} pricing" },
         {
-          "id": "best_pricing",
-          "template": "{{company_name}} pricing"
-        },
-        {
-          "id": "ch2_price_numbers",
-          "template": "{{company_name}} pricing \"$\" OR \"per month\" OR \"per seat\" OR \"per user\""
+          "id": "runner_cat_pricing",
+          "template": "{{company_name}} {{category}} pricing plans"
         }
       ]
     },
@@ -563,20 +528,12 @@
       ],
       "variants": [
         {
-          "id": "ch2_zapier_integrations",
-          "template": "{{company_name}} Zapier OR Slack OR Salesforce OR HubSpot integration"
+          "id": "best_partnerships",
+          "template": "{{company_name}} partnerships OR integrations"
         },
         {
-          "id": "ch3_named_partners",
-          "template": "{{company_name}} integration Salesforce OR HubSpot OR Slack OR Zapier OR Stripe"
-        },
-        {
-          "id": "ch4_api_docs",
-          "template": "site:{{domain}} integrations OR api OR \"connect\" OR plugins"
-        },
-        {
-          "id": "ch6_ecosystem_named",
-          "template": "{{company_name}} integrates Salesforce OR HubSpot OR Slack OR Google OR Microsoft OR Stripe"
+          "id": "runner_cat_integrations",
+          "template": "{{company_name}} {{category}} integrations"
         }
       ]
     },
@@ -708,16 +665,16 @@
       ],
       "variants": [
         {
+          "id": "best_media",
+          "template": "{{company_name}} CEO OR founder interview OR podcast"
+        },
+        {
           "id": "runner_founded_by",
           "template": "{{company_name}} \"founded by\" OR \"co-founded\" OR \"started by\""
         },
         {
-          "id": "ch2_crunchbase_founder",
-          "template": "site:crunchbase.com {{company_name}} CEO OR founder"
-        },
-        {
-          "id": "ch2_techcrunch_founder",
-          "template": "{{company_name}} CEO OR founder site:techcrunch.com OR site:businessinsider.com"
+          "id": "fallback_li",
+          "template": "site:linkedin.com/in {{company_name}} founder OR CEO OR \"co-founder\" -jobs -careers"
         }
       ]
     },
@@ -739,16 +696,12 @@
           "template": "{{company_name}} \"chief technology\" OR \"chief product\" OR \"chief security\" -jobs -careers"
         },
         {
-          "id": "ch1_appoint_tech",
-          "template": "{{company_name}} \"appointed\" OR \"named\" CTO OR CPO OR \"Chief Technology\""
+          "id": "runner_interview",
+          "template": "{{company_name}} CTO OR CPO interview OR podcast OR talk"
         },
         {
-          "id": "ch5_hires_cto",
-          "template": "{{company_name}} \"hires\" OR \"appoints\" OR \"new\" CTO OR CPO OR \"Chief Technology\""
-        },
-        {
-          "id": "ch6_cto_name",
-          "template": "{{company_name}} CTO name OR who OR profile"
+          "id": "fallback_li",
+          "template": "site:linkedin.com/in {{company_name}} \"chief\" technology OR product OR security OR information"
         }
       ]
     },
@@ -771,16 +724,12 @@
           "template": "{{company_name}} \"chief marketing\" OR \"chief revenue\" OR \"chief operating\" -careers"
         },
         {
-          "id": "ch3_rocket_full_title",
-          "template": "site:rocketreach.co {{company_name}} \"Chief Marketing\" OR \"Chief Revenue\" OR \"Chief Financial\""
+          "id": "runner_abbrev",
+          "template": "{{company_name}} CMO OR CRO OR CFO OR COO -jobs -careers"
         },
         {
-          "id": "ch6_revenue_leader",
-          "template": "{{company_name}} revenue OR marketing leader OR executive profile name"
-        },
-        {
-          "id": "ch8_exact_roles",
-          "template": "{{company_name}} \"Chief Marketing Officer\" OR \"Chief Revenue Officer\" OR \"Chief Financial Officer\""
+          "id": "fallback_li",
+          "template": "site:linkedin.com/in {{company_name}} \"chief\" marketing OR revenue OR financial OR operating"
         }
       ]
     },
@@ -897,13 +846,7 @@
     {
       "id": "director_engineering_product",
       "name": "Director Engineering / Product / Design",
-      "keywords": [
-        "director",
-        "engineering",
-        "product",
-        "design",
-        "platform"
-      ],
+      "keywords": ["director", "engineering", "product", "design", "platform"],
       "variants": [
         {
           "id": "best_li",

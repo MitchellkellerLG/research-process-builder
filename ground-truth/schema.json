@@ -1,0 +1,681 @@
+{
+  "description": "Ground truth schema — defines expected answer fields per category with match strategies. Used by gt_evaluator.py to score search results against verified facts.",
+  "match_strategies": {
+    "name_in_text": "Case-insensitive substring match. Full name → exact match (1.0). Last name only → partial (0.5). Levenshtein distance <= 2 → fuzzy (0.8).",
+    "names_in_text": "Count how many expected names appear in snippets. Score = found / expected. Minimum 1 match for non-zero score.",
+    "field_present": "Check if data type exists in snippets. Money pattern ($X, raised X), date pattern, URL pattern, etc.",
+    "text_match": "Check if expected text or close semantic equivalent appears. Exact match = 1.0, substring = 0.8.",
+    "list_overlap": "Count overlap between expected list and found items. Score = intersection / expected.",
+    "boolean_present": "Check if the expected signal exists at all. 1.0 if found, 0.0 if not."
+  },
+  "categories": {
+    "company_profile": {
+      "fields": {
+        "description": {
+          "type": "text",
+          "required": true,
+          "description": "What the company does (one sentence)"
+        },
+        "employee_count": {
+          "type": "text",
+          "required": false,
+          "description": "Employee count or range"
+        },
+        "headquarters": {
+          "type": "text",
+          "required": false,
+          "description": "HQ city/location"
+        },
+        "founded_year": {
+          "type": "text",
+          "required": false,
+          "description": "Year founded"
+        }
+      },
+      "match_strategy": "field_present",
+      "description": "Basic company overview data"
+    },
+    "funding_financial": {
+      "fields": {
+        "total_raised": {
+          "type": "money",
+          "required": true,
+          "description": "Total funding raised"
+        },
+        "last_round_type": {
+          "type": "text",
+          "required": false,
+          "description": "Most recent round type (Seed, Series A, etc.)"
+        },
+        "key_investors": {
+          "type": "name_list",
+          "min": 1,
+          "required": false,
+          "description": "Notable investors"
+        }
+      },
+      "match_strategy": "field_present",
+      "description": "Funding rounds and financial data"
+    },
+    "hiring_signals": {
+      "fields": {
+        "ats_platform": {
+          "type": "text",
+          "required": false,
+          "description": "ATS used (Greenhouse, Lever, Ashby, etc.)"
+        },
+        "careers_url": {
+          "type": "text",
+          "required": false,
+          "description": "Careers page URL or indicator"
+        },
+        "active_hiring": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether company is actively hiring"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Hiring activity and job posting signals"
+    },
+    "competitor_identification": {
+      "fields": {
+        "competitors": {
+          "type": "name_list",
+          "min": 3,
+          "required": true,
+          "description": "Direct competitors"
+        }
+      },
+      "match_strategy": "names_in_text",
+      "description": "Direct competitors and alternatives"
+    },
+    "reviews_sentiment": {
+      "fields": {
+        "review_platforms": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Platforms with reviews (G2, Capterra, Glassdoor, etc.)"
+        },
+        "sentiment_signal": {
+          "type": "text",
+          "required": false,
+          "description": "General sentiment direction"
+        }
+      },
+      "match_strategy": "names_in_text",
+      "description": "Product/employer reviews and sentiment"
+    },
+    "news_press": {
+      "fields": {
+        "recent_headlines": {
+          "type": "text_list",
+          "min": 1,
+          "required": true,
+          "description": "Recent notable news items"
+        },
+        "news_sources": {
+          "type": "name_list",
+          "min": 1,
+          "required": false,
+          "description": "Publications covering them"
+        }
+      },
+      "match_strategy": "text_match",
+      "description": "Recent news and press coverage"
+    },
+    "press_releases": {
+      "fields": {
+        "has_newsroom": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether company has a newsroom/press page"
+        },
+        "recent_announcements": {
+          "type": "text_list",
+          "min": 1,
+          "required": false,
+          "description": "Recent press releases or announcements"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Official press releases and announcements"
+    },
+    "social_media": {
+      "fields": {
+        "linkedin_url": {
+          "type": "text",
+          "required": true,
+          "description": "LinkedIn company page URL or handle"
+        },
+        "twitter_handle": {
+          "type": "text",
+          "required": false,
+          "description": "X/Twitter handle"
+        },
+        "other_platforms": {
+          "type": "name_list",
+          "min": 0,
+          "required": false,
+          "description": "Other social platforms present on"
+        }
+      },
+      "match_strategy": "field_present",
+      "description": "Social media presence and accounts"
+    },
+    "community_platforms": {
+      "fields": {
+        "community_platforms": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Community platforms (Discord, Slack, forum, etc.)"
+        },
+        "community_exists": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether any community exists"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Community platforms and user groups"
+    },
+    "growth_marketing": {
+      "fields": {
+        "has_blog": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether company has an active blog"
+        },
+        "has_pricing_page": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether pricing page exists"
+        },
+        "has_demo_cta": {
+          "type": "boolean",
+          "required": false,
+          "description": "Whether demo/free trial CTA exists"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Growth and marketing infrastructure signals"
+    },
+    "tech_stack": {
+      "fields": {
+        "known_technologies": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Known technologies, frameworks, or infrastructure"
+        }
+      },
+      "match_strategy": "names_in_text",
+      "description": "Technology stack and infrastructure"
+    },
+    "leadership_people": {
+      "fields": {
+        "ceo_name": {
+          "type": "name",
+          "required": true,
+          "description": "CEO or primary leader full name"
+        },
+        "other_leaders": {
+          "type": "name_list",
+          "min": 0,
+          "required": false,
+          "description": "Other known leadership names with titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Leadership team overview"
+    },
+    "customer_case_studies": {
+      "fields": {
+        "known_customers": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Named customers or case study subjects. Use business type if unnamed (e.g., 'Fortune 500 retailer')"
+        },
+        "has_case_studies": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether published case studies exist"
+        },
+        "customer_types": {
+          "type": "text_list",
+          "required": false,
+          "description": "Business types of case study companies (e.g., 'e-commerce platform', 'fintech startup', 'enterprise SaaS')"
+        },
+        "quoted_results": {
+          "type": "text_list",
+          "required": false,
+          "description": "Quantified results from case studies (e.g., '40% increase in conversion', '3x pipeline growth', '$2M saved')"
+        },
+        "testimonial_quotes": {
+          "type": "text_list",
+          "required": false,
+          "description": "Direct customer quotes from case studies or testimonial pages"
+        }
+      },
+      "match_strategy": "names_in_text",
+      "description": "Customer case studies, social proof, results, and testimonials"
+    },
+    "pricing_intelligence": {
+      "fields": {
+        "pricing_model": {
+          "type": "text",
+          "required": true,
+          "description": "Pricing model type (per seat, usage-based, tiered, etc.)"
+        },
+        "has_free_tier": {
+          "type": "boolean",
+          "required": false,
+          "description": "Whether a free plan exists"
+        },
+        "price_points": {
+          "type": "text_list",
+          "min": 0,
+          "required": false,
+          "description": "Known price points or ranges"
+        }
+      },
+      "match_strategy": "text_match",
+      "description": "Pricing structure and intelligence"
+    },
+    "partnerships_integrations": {
+      "fields": {
+        "key_integrations": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Known integration partners"
+        },
+        "has_marketplace": {
+          "type": "boolean",
+          "required": false,
+          "description": "Whether an integration marketplace exists"
+        }
+      },
+      "match_strategy": "names_in_text",
+      "description": "Partnership and integration ecosystem"
+    },
+    "content_blog": {
+      "fields": {
+        "has_blog": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether active blog exists"
+        },
+        "content_types": {
+          "type": "name_list",
+          "min": 0,
+          "required": false,
+          "description": "Types of content (guides, whitepapers, tutorials, etc.)"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Content marketing and blog activity"
+    },
+    "newsletter_email": {
+      "fields": {
+        "has_newsletter": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether email newsletter exists"
+        },
+        "newsletter_platform": {
+          "type": "text",
+          "required": false,
+          "description": "Platform used (Substack, Beehiiv, etc.) if known"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Newsletter and email marketing presence"
+    },
+    "events_conferences": {
+      "fields": {
+        "recent_events": {
+          "type": "text_list",
+          "min": 1,
+          "required": false,
+          "description": "Recent events participated in or hosted"
+        },
+        "hosts_events": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether company hosts its own events"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Event and conference participation"
+    },
+    "customer_complaints": {
+      "fields": {
+        "common_complaints": {
+          "type": "text_list",
+          "min": 1,
+          "required": true,
+          "description": "Known complaint themes or issues"
+        },
+        "complaint_sources": {
+          "type": "name_list",
+          "min": 1,
+          "required": false,
+          "description": "Where complaints surface (Reddit, G2, etc.)"
+        }
+      },
+      "match_strategy": "text_match",
+      "description": "Customer complaints and negative sentiment"
+    },
+    "awards_recognition": {
+      "fields": {
+        "known_awards": {
+          "type": "text_list",
+          "min": 1,
+          "required": false,
+          "description": "Awards or recognitions received"
+        },
+        "has_recognition": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether any notable awards/recognition exist"
+        }
+      },
+      "match_strategy": "boolean_present",
+      "description": "Awards, rankings, and industry recognition"
+    },
+    "founders_ceo": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Founder and CEO full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their titles (CEO, President, Co-founder, etc.)"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "CEO and founder identification with names"
+    },
+    "c_suite_technical": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "CTO, CPO, CISO full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Technical C-suite identification"
+    },
+    "c_suite_commercial": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "CMO, CRO, CFO, COO full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Commercial C-suite identification"
+    },
+    "vp_sales_revenue": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "VP Sales / Revenue / BD full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "VP-level sales and revenue leaders"
+    },
+    "vp_marketing_growth": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "VP Marketing / Growth full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "VP-level marketing and growth leaders"
+    },
+    "vp_engineering_product": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "VP Engineering / Product full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "VP-level engineering and product leaders"
+    },
+    "director_sales_bd": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Director Sales / BD full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Director-level sales and BD"
+    },
+    "director_marketing_content": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Director Marketing / Content full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Director-level marketing and content"
+    },
+    "director_engineering_product": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Director Engineering / Product full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Director-level engineering and product"
+    },
+    "head_of_department": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Head of Department full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles (Head of Growth, Head of CS, etc.)"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Head of department identification"
+    },
+    "sales_ops_leads": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Sales ops / SDR manager / RevOps full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Sales operations and RevOps leaders"
+    },
+    "hr_people_talent": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "HR / People / Talent leader full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "HR and people leadership"
+    },
+    "finance_legal_ops": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Finance / Legal / Ops leader full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Finance, legal, and operations leadership"
+    },
+    "technical_leads": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Staff engineers / architects / tech leads full names"
+        },
+        "titles": {
+          "type": "title_list",
+          "required": false,
+          "description": "Their exact titles"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "Technical leads and senior engineers"
+    },
+    "people_via_media": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "People discovered via media appearances"
+        },
+        "context": {
+          "type": "text_list",
+          "required": false,
+          "description": "Media context (podcast name, event, etc.)"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "People discovered through media and events"
+    },
+    "people_via_platforms": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "People found on data platforms"
+        },
+        "platforms_with_data": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "Which platforms have their data (ZoomInfo, RocketReach, etc.)"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "People discovered via data platforms"
+    },
+    "people_via_content": {
+      "fields": {
+        "names": {
+          "type": "name_list",
+          "min": 1,
+          "required": true,
+          "description": "People who authored content"
+        },
+        "content_types": {
+          "type": "text_list",
+          "required": false,
+          "description": "Type of content (blog post, Medium article, etc.)"
+        }
+      },
+      "match_strategy": "name_in_text",
+      "description": "People discovered via authored content"
+    }
+  }
+}

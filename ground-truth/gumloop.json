@@ -1,0 +1,94 @@
+{
+  "company": "Gumloop",
+  "domain": "gumloop.com",
+  "tier": 4,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Max Brodeur-Urbas", "Rahul Behal"],
+      "titles": ["Co-Founder & CEO", "Co-Founder"],
+      "confidence": "verified",
+      "sources": ["techcrunch.com", "ycombinator.com", "betakit.com"]
+    },
+    "funding_financial": {
+      "total_raised": "$77.6M",
+      "last_round_type": "Series B",
+      "key_investors": [
+        "Benchmark",
+        "Nexus Venture Partners",
+        "First Round Capital",
+        "Y Combinator",
+        "Shopify Ventures"
+      ],
+      "confidence": "verified",
+      "sources": ["techcrunch.com", "gumloop.com", "betakit.com"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "Zapier",
+        "Make",
+        "n8n",
+        "Lindy",
+        "Pipedream",
+        "Activepieces"
+      ],
+      "confidence": "verified",
+      "sources": ["vellum.ai", "lindy.ai", "metaflow.life"]
+    },
+    "leadership_people": {
+      "ceo_name": "Max Brodeur-Urbas",
+      "other_leaders": ["Rahul Behal"],
+      "confidence": "verified",
+      "sources": ["techcrunch.com", "ycombinator.com"]
+    },
+    "company_profile": {
+      "description": "No-code AI workflow automation platform for building autonomous agents via visual drag-and-drop canvas",
+      "employee_count": "25",
+      "headquarters": "San Francisco, CA",
+      "founded_year": "2023",
+      "confidence": "verified",
+      "sources": ["techcrunch.com", "ycombinator.com", "pitchbook.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Credit-based usage tiers",
+      "has_free_tier": true,
+      "price_points": [
+        "Free: 2000 credits",
+        "$37/month Solo: 10000 credits",
+        "$244/month Team: 60000 credits"
+      ],
+      "confidence": "verified",
+      "sources": ["gumloop.com/pricing", "lindy.ai"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "React",
+        "TypeScript",
+        "Python",
+        "ReactFlow",
+        "LangGraph",
+        "Tailwind CSS"
+      ],
+      "confidence": "probable",
+      "sources": ["e2b.dev", "composio.dev"]
+    },
+    "customer_case_studies": {
+      "known_customers": ["Triptease", "Instacart", "Rippling"],
+      "has_case_studies": true,
+      "customer_types": [
+        "hotel marketing / travel tech companies",
+        "enterprise SaaS teams"
+      ],
+      "quoted_results": [
+        "Triptease: 207% increase in revenue wins over five months",
+        "Triptease: 65% more meetings generated year-over-year",
+        "Triptease: scaled from 1 user to 60+ employees on the platform"
+      ],
+      "testimonial_quotes": [
+        "Gumlooping has become a verb. — Triptease team"
+      ],
+      "confidence": "verified",
+      "sources": ["gumloop.com/customers"]
+    }
+  }
+}

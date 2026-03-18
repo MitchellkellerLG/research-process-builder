@@ -1,0 +1,102 @@
+{
+  "company": "Attio",
+  "domain": "attio.com",
+  "tier": 4,
+  "verified_date": "2026-03-13",
+  "categories": {
+    "founders_ceo": {
+      "names": ["Nicolas Sharp", "Alexander Christie"],
+      "titles": ["CEO & Co-Founder", "CTO & Co-Founder"],
+      "confidence": "verified",
+      "sources": ["gv.com", "june.so", "craft.co"]
+    },
+    "c_suite_technical": {
+      "names": ["Alexander Christie"],
+      "titles": ["CTO & Co-Founder"],
+      "confidence": "verified",
+      "sources": ["craft.co", "june.so"]
+    },
+    "funding_financial": {
+      "total_raised": "$116M",
+      "last_round_type": "Series B",
+      "key_investors": [
+        "GV",
+        "Redpoint Ventures",
+        "Balderton Capital",
+        "Point Nine"
+      ],
+      "confidence": "verified",
+      "sources": ["attio.com", "prnewswire.com", "tech.eu"]
+    },
+    "competitor_identification": {
+      "competitors": [
+        "HubSpot CRM",
+        "Salesforce",
+        "Pipedrive",
+        "Affinity",
+        "Folk CRM",
+        "Salesflare"
+      ],
+      "confidence": "verified",
+      "sources": ["softr.io", "affinity.co", "capsulecrm.com"]
+    },
+    "leadership_people": {
+      "ceo_name": "Nicolas Sharp",
+      "other_leaders": ["Alexander Christie"],
+      "confidence": "verified",
+      "sources": ["gv.com", "craft.co"]
+    },
+    "company_profile": {
+      "description": "AI-native CRM for go-to-market teams replacing legacy platforms with flexible data-model-first approach",
+      "employee_count": "51-115",
+      "headquarters": "London, UK",
+      "founded_year": "2017",
+      "confidence": "verified",
+      "sources": ["company-information.service.gov.uk", "techcrunch.com"]
+    },
+    "pricing_intelligence": {
+      "pricing_model": "Per-seat tiered subscription",
+      "has_free_tier": true,
+      "price_points": [
+        "Free: up to 3 seats",
+        "$29/user/month Plus",
+        "$59/user/month Pro",
+        "$119/user/month Enterprise"
+      ],
+      "confidence": "verified",
+      "sources": ["attio.com/pricing", "g2.com"]
+    },
+    "tech_stack": {
+      "known_technologies": [
+        "Algolia",
+        "Amazon CloudFront",
+        "Sentry",
+        "Zapier",
+        "Make"
+      ],
+      "confidence": "probable",
+      "sources": ["rocketreach.co", "crunchbase.com"]
+    },
+    "customer_case_studies": {
+      "known_customers": ["Granola", "Snackpass", "Passionfroot", "Union Square Ventures"],
+      "has_case_studies": true,
+      "customer_types": [
+        "AI SaaS / productivity tools",
+        "restaurant tech / vertical SaaS",
+        "creator economy platforms",
+        "venture capital firms"
+      ],
+      "quoted_results": [
+        "Granola: 83% faster lead triage (2 hours to 20 minutes/day), 5 hours/week saved on deal updates, 100% GTM team adoption",
+        "Passionfroot: 25% revenue boost attributed to Attio-powered creator-first CRM",
+        "Snackpass: eliminated a full-time position previously dedicated to CRM maintenance"
+      ],
+      "testimonial_quotes": [
+        "When I think of revenue, I think of Attio. It's become an indispensable platform for understanding our users as we scale. — Shreman Shrestha, Head of Business at Granola",
+        "Attio is by far the most powerful CRM I've ever used. It's a central source of truth for our whole team. — Jamie Marshall, Co-founder and COO at Snackpass"
+      ],
+      "confidence": "verified",
+      "sources": ["attio.com/customers"]
+    }
+  }
+}

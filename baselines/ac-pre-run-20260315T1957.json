@@ -1,0 +1,227 @@
+{
+  "timestamp": "2026-03-15T19:57:10",
+  "name": "ac-pre-run-20260315T1957",
+  "pearson_r": 0.3165,
+  "overall_gt_mean": 0.3169,
+  "overall_auto_mean": 0.7421,
+  "total_evaluations": 342,
+  "categories": {
+    "company_profile": {
+      "gt_avg": 0.2064,
+      "auto_avg": 0.712,
+      "n": 50
+    },
+    "funding_financial": {
+      "gt_avg": 0.656,
+      "auto_avg": 0.8,
+      "n": 20
+    },
+    "competitor_identification": {
+      "gt_avg": 0.3548,
+      "auto_avg": 0.785,
+      "n": 40
+    },
+    "tech_stack": {
+      "gt_avg": 0.1653,
+      "auto_avg": 0.7938,
+      "n": 32
+    },
+    "leadership_people": {
+      "gt_avg": 1.0,
+      "auto_avg": 0.8,
+      "n": 20
+    },
+    "customer_case_studies": {
+      "gt_avg": 0.1288,
+      "auto_avg": 0.7167,
+      "n": 60
+    },
+    "pricing_intelligence": {
+      "gt_avg": 0.4925,
+      "auto_avg": 0.8,
+      "n": 20
+    },
+    "partnerships_integrations": {
+      "gt_avg": 0.149,
+      "auto_avg": 0.8,
+      "n": 10
+    },
+    "founders_ceo": {
+      "gt_avg": 0.4327,
+      "auto_avg": 0.7133,
+      "n": 30
+    },
+    "c_suite_technical": {
+      "gt_avg": 0.2286,
+      "auto_avg": 0.6743,
+      "n": 35
+    },
+    "c_suite_commercial": {
+      "gt_avg": 0.2164,
+      "auto_avg": 0.696,
+      "n": 25
+    }
+  },
+  "per_variant": {
+    "company_profile/best_rocketreach": {
+      "gt_avg": 0.366,
+      "n": 10
+    },
+    "company_profile/runner_overview": {
+      "gt_avg": 0.197,
+      "n": 10
+    },
+    "funding_financial/best_funding": {
+      "gt_avg": 0.654,
+      "n": 10
+    },
+    "funding_financial/runner_cat_funding": {
+      "gt_avg": 0.658,
+      "n": 10
+    },
+    "competitor_identification/best_alts": {
+      "gt_avg": 0.287,
+      "n": 10
+    },
+    "competitor_identification/runner_competitors": {
+      "gt_avg": 0.517,
+      "n": 10
+    },
+    "tech_stack/best_techstack": {
+      "gt_avg": 0.2475,
+      "n": 8
+    },
+    "tech_stack/runner_cat_tech": {
+      "gt_avg": 0.15,
+      "n": 8
+    },
+    "leadership_people/best_ceo_founder": {
+      "gt_avg": 1.0,
+      "n": 10
+    },
+    "leadership_people/runner_leadership": {
+      "gt_avg": 1.0,
+      "n": 10
+    },
+    "customer_case_studies/best_case_study": {
+      "gt_avg": 0.111,
+      "n": 10
+    },
+    "customer_case_studies/runner_site_customers": {
+      "gt_avg": 0.11,
+      "n": 10
+    },
+    "pricing_intelligence/best_pricing": {
+      "gt_avg": 0.647,
+      "n": 10
+    },
+    "pricing_intelligence/runner_cat_pricing": {
+      "gt_avg": 0.338,
+      "n": 10
+    },
+    "partnerships_integrations/best_partnerships": {
+      "gt_avg": 0.152,
+      "n": 5
+    },
+    "partnerships_integrations/runner_cat_integrations": {
+      "gt_avg": 0.146,
+      "n": 5
+    },
+    "founders_ceo/best_media": {
+      "gt_avg": 0.504,
+      "n": 10
+    },
+    "founders_ceo/runner_founded_by": {
+      "gt_avg": 0.774,
+      "n": 10
+    },
+    "founders_ceo/fallback_li": {
+      "gt_avg": 0.02,
+      "n": 10
+    },
+    "c_suite_technical/best_full_title": {
+      "gt_avg": 0.5,
+      "n": 7
+    },
+    "c_suite_technical/runner_interview": {
+      "gt_avg": 0.2143,
+      "n": 7
+    },
+    "c_suite_technical/fallback_li": {
+      "gt_avg": 0.0,
+      "n": 7
+    },
+    "c_suite_commercial/best_full_title": {
+      "gt_avg": 0.35,
+      "n": 5
+    },
+    "c_suite_commercial/runner_abbrev": {
+      "gt_avg": 0.234,
+      "n": 5
+    },
+    "c_suite_commercial/fallback_li": {
+      "gt_avg": 0.232,
+      "n": 5
+    },
+    "customer_case_studies/cs_results_metrics": {
+      "gt_avg": 0.121,
+      "n": 10
+    },
+    "customer_case_studies/cs_testimonial": {
+      "gt_avg": 0.124,
+      "n": 10
+    },
+    "customer_case_studies/cs_site_stories": {
+      "gt_avg": 0.214,
+      "n": 10
+    },
+    "customer_case_studies/cs_roi_outcomes": {
+      "gt_avg": 0.093,
+      "n": 10
+    },
+    "company_profile/combo_multi_platform": {
+      "gt_avg": 0.323,
+      "n": 10
+    },
+    "company_profile/combo_domain_about": {
+      "gt_avg": 0.047,
+      "n": 10
+    },
+    "company_profile/combo_cat_overview": {
+      "gt_avg": 0.099,
+      "n": 10
+    },
+    "competitor_identification/combo_broad_alts": {
+      "gt_avg": 0.412,
+      "n": 10
+    },
+    "competitor_identification/combo_cat_vs": {
+      "gt_avg": 0.203,
+      "n": 10
+    },
+    "tech_stack/combo_stackshare_wappalyzer": {
+      "gt_avg": 0.1088,
+      "n": 8
+    },
+    "tech_stack/combo_domain_tech": {
+      "gt_avg": 0.155,
+      "n": 8
+    },
+    "c_suite_commercial/combo_zoom_csuite": {
+      "gt_avg": 0.216,
+      "n": 5
+    },
+    "c_suite_commercial/combo_broader_chief": {
+      "gt_avg": 0.05,
+      "n": 5
+    },
+    "c_suite_technical/combo_zoom_cto": {
+      "gt_avg": 0.0714,
+      "n": 7
+    },
+    "c_suite_technical/combo_tech_leader": {
+      "gt_avg": 0.3571,
+      "n": 7
+    }
+  }
+}
