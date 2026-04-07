@@ -1,0 +1,36 @@
+company_name,domain,category,tier,ambiguous_name,eu_company,expected_round_type,expected_amount,expected_date,expected_lead_investor,bootstrapped,notes
+OpenAI,openai.com,AI research,T1,false,false,funding round,$122B,Mar 2026,SoftBank / a16z,false,largest private raise in history
+Stripe,stripe.com,payments infrastructure,T1,false,false,Series I,$694M,Apr 2024,Andreessen Horowitz,false,employee liquidity round
+Cohere,cohere.com,enterprise AI,T1,false,false,Series D,$100M,Sep 2025,Alumni Ventures,false,total raised ~$1.5B
+Anthropic,anthropic.com,AI safety,T1,false,false,investment,$4B,2024,Google,false,strategic investment from Google
+Databricks,databricks.com,data and AI platform,T1,false,false,Series J,$15.3B,Dec 2024,Thrive Capital,false,one of largest private rounds ever
+ElevenLabs,elevenlabs.io,voice AI,T2,false,false,funding round,$500M,Feb 2026,Sequoia,false,valued at $11B
+Harvey AI,harvey.ai,legal AI,T2,true,false,growth round,$200M,Mar 2026,GIC / Sequoia,false,ambiguous name — search as "Harvey legal AI"
+Cursor,cursor.com,AI code editor,T2,true,false,Series D,$2.3B,Nov 2025,Thrive / a16z,false,ambiguous name — search as "Cursor AI code editor"
+Lovable,lovable.dev,vibe coding,T2,false,true,Series B,$330M,Dec 2025,CapitalG / Menlo Ventures,false,Swedish company — EU press coverage
+Clay,clay.com,GTM software,T2,true,false,Series C,$100M,Aug 2025,CapitalG,false,ambiguous name — search as "Clay GTM software"
+Glean,glean.com,enterprise AI search,T2,true,false,Series F,$150M,Jun 2025,Wellington Management,false,ambiguous name — search as "Glean enterprise AI"
+Mistral AI,mistral.ai,LLM / AI models,T2,false,true,Series C,$2B,Sep 2025,ASML / undisclosed,false,French company — EU and US press coverage
+Perplexity,perplexity.ai,AI search,T2,false,false,funding round,$500M,Jan 2025,IVP,false,rapidly growing AI search engine
+Ramp,ramp.com,spend management,T2,false,false,Series D,$150M,Aug 2023,Thrive Capital,false,fintech — note round may be aging
+Rippling,rippling.com,HR and IT platform,T2,false,false,Series F,$200M,Apr 2024,Coatue,false,HR tech unicorn
+Vercel,vercel.com,frontend cloud,T2,false,false,Series E,$150M,May 2024,Accel,false,Next.js creator
+Supabase,supabase.com,open source database,T2,false,false,Series C,$80M,Jan 2024,Felicis,false,open source Firebase alternative
+Linear,linear.app,project management,T2,true,false,Series B,$35M,2022,Accel,false,ambiguous name — search as "Linear project management" — round may be stale
+Infisical,infisical.com,secrets management,T3,false,false,Series A,$16M,Jun 2025,Elad Gil,false,open source — cash-flow positive before raise
+Mintlify,mintlify.com,developer documentation,T3,false,false,Series A,$18.5M,Sep 2024,Andreessen Horowitz,false,powers docs for Anthropic and Perplexity
+Doola,doola.com,business formation,T3,false,false,strategic investment,$8M,Jan 2024,HubSpot Ventures,false,fintech for global founders
+Nango,nango.dev,API integrations,T3,false,true,Seed,$2.5M,Apr 2023,Y Combinator / Calendly,false,YC W23 — French founders — minimal press coverage
+Basecamp,basecamp.com,project management,T3,false,false,Series B,undisclosed,2015,undisclosed,true,famously self-funded and profitable — no recent funding
+Trigger.dev,trigger.dev,background jobs,T3,false,true,Seed,$2.5M,2022,undisclosed,false,UK-based — minimal press — good T3 stress test
+Resend,resend.com,email API,T3,false,false,Seed,$3M,2023,Y Combinator,false,YC-backed — small seed — limited press
+Inngest,inngest.com,event-driven functions,T3,false,false,Seed,$6M,2023,GGV Capital,false,developer infra — small seed
+Loops,loops.so,email for SaaS,T3,false,false,Seed,$2M,2022,undisclosed,false,very early — minimal coverage — good negative-signal test
+Plain,plain.com,customer support,T3,true,true,Seed,$6M,2022,undisclosed,false,UK company — ambiguous name — search as "Plain customer support"
+PostHog,posthog.com,product analytics,T3,false,false,Series B,$27M,2022,Y Combinator,false,open source — round may be stale — search as "PostHog analytics"
+Liveblocks,liveblocks.io,real-time collaboration,T3,false,true,Seed,$5M,2022,undisclosed,false,EU-based — small seed — thin coverage
+Descript,descript.com,video and audio editing,T2,false,false,Series C,$50M,2022,OpenAI,false,AI media tool — round may be aging
+Figma,figma.com,design platform,T1,false,false,Series E,$200M,2021,undisclosed,false,acquired by Adobe (blocked) — last VC round 2021 — good stale test
+Notion,notion.so,productivity,T2,false,false,Series C,$275M,2021,Coatue,false,well-known — round is stale (2021) — tests recency flag
+Retool,retool.com,internal tools,T2,false,false,Series C,$45M,2021,Sequoia,false,round is stale — tests recency flag
+Canva,canva.com,design platform,T1,false,false,Series A extension,$200M,2021,undisclosed,false,Australian — may have more recent secondary rounds
