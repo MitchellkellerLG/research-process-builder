@@ -1,0 +1,44 @@
+import { schedules, logger } from "@trigger.dev/sdk";
+import { runFundingPipeline } from "./pipeline/pipeline.js";
+import { SERIES_A_CONFIG } from "./pipeline/round-configs.js";
+
+export const seriesAWeekly = schedules.task({
+  id: "series-a-weekly",
+  cron: {
+    pattern: "0 8 * * 1",
+    timezone: "America/New_York",
+  },
+  retry: {
+    maxAttempts: 3,
+    factor: 2,
+    minTimeoutInMs: 10_000,
+    maxTimeoutInMs: 120_000,
+    randomize: true,
+  },
+  run: async (payload) => {
+    const scheduledDate = payload.timestamp.toISOString().split("T")[0];
+
+    logger.info("Starting Series A weekly catch-up", {
+      scheduledDate,
+      scheduleId: payload.scheduleId,
+      lastRun: payload.lastTimestamp?.toISOString() ?? "none",
+    });
+
+    const result = await runFundingPipeline({
+      roundConfig: SERIES_A_CONFIG,
+      pipelineId: "series_a_weekly",
+      tbs: "qdr:w",
+      date: scheduledDate,
+      skipEnrich: false,
+      maxEnrich: 20,
+      dryRun: false,
+    });
+
+    return {
+      date: result.date,
+      companyCount: result.companyCount,
+      durationMs: result.stats.durationMs,
+      stats: result.stats,
+    };
+  },
+});
