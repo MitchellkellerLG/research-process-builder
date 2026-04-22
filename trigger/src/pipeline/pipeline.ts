@@ -14,6 +14,79 @@ import { isSupabaseConfigured, checkTable, pushToSupabase } from "./supabase.js"
 import { pushToWebhook } from "./webhook.js";
 import { lookupDomainMultiSignal } from "./domain-lookup.js";
 
+const SUSPECT_DOMAIN_PATTERNS = [
+  /newswire|businesswire|prnewswire|einpresswire|globenewswire/i,
+  /techcrunch|thesaasnews|finsmes|alleywatch|vcnewsdaily/i,
+  /yahoo|reuters|bloomberg|forbes|fortune|cnbc|wsj/i,
+  /linkedin|crunchbase|pitchbook|wikipedia|facebook/i,
+  /eu-startups|tech\.eu|venturebeat|siliconangle/i,
+  /finanzwire|therecursive|netinfluencer|biospace/i,
+  /kitsapsun|cincinnati|bandt\.com/i,
+  /googletagmanager|googleapis|gstatic|cloudfront|cloudflare/i,
+  /wistia|cision|adobedtm|doubleclick|googlesyndication/i,
+  /cdn\.|analytics\.|tracker\.|pixel\.|tag\./i,
+  /fonts\.|static\.|assets\.|media\.|images\./i,
+  /licdn|fbcdn|twimg|ytimg|akamai/i,
+  /gravatar|wordpress\.com|wp\.com|disqus/i,
+  /newrelic|segment\.io|mixpanel|hotjar|intercom/i,
+  /yoast|schema\.org|w3\.org/i,
+];
+
+function isExtractedDomainSuspect(domain: string, sourceUrl: string): boolean {
+  if (SUSPECT_DOMAIN_PATTERNS.some(p => p.test(domain))) return true;
+  try {
+    const sourceDomain = new URL(sourceUrl).hostname.replace(/^www\./, "");
+    if (domain === sourceDomain) return true;
+  } catch { /* ignore */ }
+  return false;
+}
+
+function extractDomainFromArticle(articleText: string, companyName: string, sourceUrl: string): string | null {
+  const sourceDomain = (() => {
+    try { return new URL(sourceUrl).hostname.replace(/^www\./, ""); }
+    catch { return ""; }
+  })();
+
+  const normCompany = companyName.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  const patterns = [
+    /(?:visit|learn more|more (?:info|information|at)|about us|website)\s*(?:at\s*)?[:.]?\s*(?:https?:\/\/)?(?:www\.)?([a-z0-9][-a-z0-9]*\.[a-z]{2,}(?:\.[a-z]{2,})?)/gi,
+    /(?:https?:\/\/)?(?:www\.)?([a-z0-9][-a-z0-9]*\.(?:com|io|ai|co|dev|app|tech|health|bio))\b/gi,
+    /[\w.+-]+@([a-z0-9][-a-z0-9]*\.[a-z]{2,}(?:\.[a-z]{2,})?)/gi,
+  ];
+
+  const candidates = new Map<string, number>();
+
+  for (const pattern of patterns) {
+    let match;
+    while ((match = pattern.exec(articleText)) !== null) {
+      const domain = match[1].toLowerCase().replace(/^www\./, "");
+      if (isExtractedDomainSuspect(domain, sourceUrl)) continue;
+      if (domain === sourceDomain) continue;
+      if (domain.length < 4) continue;
+
+      const normDomain = domain.split(".")[0].replace(/[^a-z0-9]/g, "");
+      let score = candidates.get(domain) ?? 0;
+
+      if (normDomain.includes(normCompany) || normCompany.includes(normDomain)) {
+        score += 10;
+      }
+      score += 1;
+      candidates.set(domain, score);
+    }
+  }
+
+  if (candidates.size === 0) return null;
+
+  const sorted = [...candidates.entries()].sort((a, b) => b[1] - a[1]);
+  const [bestDomain, bestScore] = sorted[0];
+
+  if (bestScore >= 10) return bestDomain;
+  if (sorted.length === 1 && bestScore >= 2) return bestDomain;
+
+  return null;
+}
+
 function extractContextClues(
   extracted: { round_reasoning?: string; lead_investors?: string } | null,
   articleTitle: string
@@ -135,16 +208,39 @@ async function enrichCompanies(
     }
 
     let domain = "not_found";
-    if (extracted?.company_domain && extracted.company_domain !== "not_stated") {
-      domain = extracted.company_domain;
-      logger.info(`Domain from article: ${domain}`);
-    } else {
+    let domainSource = "not_found";
+
+    // Step 1: Extract domain directly from PR article text (cheapest, most reliable)
+    if (articleText) {
+      const articleDomain = extractDomainFromArticle(articleText, company.company_name, sourceUrl);
+      if (articleDomain) {
+        domain = articleDomain;
+        domainSource = "article_text_extract";
+        logger.info(`Domain from article text: ${domain}`);
+      }
+    }
+
+    // Step 2: Trust GPT extraction if article text extraction missed it
+    if (domain === "not_found") {
+      const extractedDomain = extracted?.company_domain?.replace(/^www\./, "");
+      if (extractedDomain && extractedDomain !== "not_stated" && !isExtractedDomainSuspect(extractedDomain, sourceUrl)) {
+        domain = extractedDomain;
+        domainSource = "gpt_extraction";
+        logger.info(`Domain from GPT extraction: ${domain}`);
+      }
+    }
+
+    // Step 3: Search-based lookup as last resort
+    if (domain === "not_found") {
       const clues = extractContextClues(extracted, company.sources[0]?.title ?? "");
       logger.info(`Domain lookup with clues: ${JSON.stringify(clues)}`);
-      const result = await lookupDomainMultiSignal(company.company_name, clues);
+      const result = await lookupDomainMultiSignal(company.company_name, clues, sourceUrl);
       domain = result.domain;
+      domainSource = result.source;
       logger.info(`Domain found: ${result.domain} (${result.confidence}, ${result.evidence})`);
     }
+
+    logger.info(`Domain resolved: ${domain} via ${domainSource}`);
 
     const record = buildEnrichedRecord(company, extracted, domain, sourceUrl, roundConfig.roundLabel, articleText, pipelineId);
     enriched.push(record);
