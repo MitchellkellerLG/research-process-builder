@@ -99,6 +99,8 @@ export interface PipelineConfig {
   skipEnrich: boolean;
   maxEnrich: number;
   dryRun: boolean;
+  skipKnownCompanies?: boolean;
+  skipKnownDays?: number;
   stage?: number;
 }
 

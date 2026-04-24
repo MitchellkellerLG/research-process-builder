@@ -32,6 +32,8 @@ export const seriesCDaily = schedules.task({
       skipEnrich: false,
       maxEnrich: 20,
       dryRun: false,
+      skipKnownCompanies: true,
+      skipKnownDays: 7,
     });
 
     return {

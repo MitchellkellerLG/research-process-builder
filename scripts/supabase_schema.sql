@@ -8,7 +8,7 @@ create table if not exists funding_discoveries (
   company_name text,
   company_domain text,
   amount_raised text,
-  round_type text default 'Series A',
+  round_type text default 'Unknown',
   source_url text,
   lead_investors text,
   round_reasoning text,
@@ -23,7 +23,8 @@ create table if not exists funding_discoveries (
   created_at timestamptz default now(),
   updated_at timestamptz default now(),
 
-  unique (company_name, discovered_date)
+  unique (company_name, discovered_date),
+  unique (source_url)
 );
 
 create index if not exists idx_funding_date on funding_discoveries (discovered_date desc);

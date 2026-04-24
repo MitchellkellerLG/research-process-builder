@@ -31,7 +31,7 @@ const TIER_A_DOMAINS = new Set([
   "siliconangle.com",
 ]);
 
-function normalizeCompanyName(name: string): string {
+export function normalizeCompanyName(name: string): string {
   name = name.trim();
   name = name.replace(
     /\s*[,.]?\s*\b(Inc|Ltd|Corp|LLC|GmbH|Co|PLC|SA|AG|BV|Pty|SAS|SRL)\b\.?\s*$/i,

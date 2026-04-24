@@ -148,8 +148,30 @@ function isDomainNews(domain: string): boolean {
   return false;
 }
 
-function isDomainBlocked(domain: string): boolean {
-  return isDomainDisqualified(domain) || isDomainNews(domain);
+function isDomainSuspectByTLD(domain: string): boolean {
+  const clean = domain.replace(/^www\./, "").toLowerCase();
+  const parts = clean.split(".");
+  if (parts.length < 2) return false;
+
+  // Check all TLD segments for institutional patterns
+  // Handles: .edu, .edu.au, .ac.uk, .ac.kr, .gov, .gov.uk, .go.kr, .mil, .mil.us
+  for (let i = 1; i < parts.length; i++) {
+    const segment = parts[i];
+    if (
+      segment === "edu" ||
+      segment === "ac" ||
+      segment === "gov" ||
+      segment === "go" ||
+      segment === "mil"
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function isDomainBlocked(domain: string): boolean {
+  return isDomainDisqualified(domain) || isDomainNews(domain) || isDomainSuspectByTLD(domain);
 }
 
 function normalizeForComparison(s: string): string {

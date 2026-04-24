@@ -10,9 +10,9 @@ import { runDiscovery } from "./serper.js";
 import { fetchUrl } from "./spider.js";
 import { extractWithOpenAI } from "./openai.js";
 import { scoreAndFilter } from "./filters.js";
-import { isSupabaseConfigured, checkTable, pushToSupabase } from "./supabase.js";
+import { isSupabaseConfigured, checkTable, pushToSupabase, getRecentCompanyNames } from "./supabase.js";
 import { pushToWebhook } from "./webhook.js";
-import { lookupDomainMultiSignal } from "./domain-lookup.js";
+import { lookupDomainMultiSignal, isDomainBlocked } from "./domain-lookup.js";
 
 const SUSPECT_DOMAIN_PATTERNS = [
   /newswire|businesswire|prnewswire|einpresswire|globenewswire/i,
@@ -34,11 +34,19 @@ const SUSPECT_DOMAIN_PATTERNS = [
 
 function isExtractedDomainSuspect(domain: string, sourceUrl: string): boolean {
   if (SUSPECT_DOMAIN_PATTERNS.some(p => p.test(domain))) return true;
+  if (isDomainBlocked(domain)) return true;
   try {
     const sourceDomain = new URL(sourceUrl).hostname.replace(/^www\./, "");
     if (domain === sourceDomain) return true;
   } catch { /* ignore */ }
   return false;
+}
+
+function sanitizeDomain(domain: string): string {
+  return domain
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .replace(/\/+$/, "");
 }
 
 function extractDomainFromArticle(articleText: string, companyName: string, sourceUrl: string): string | null {
@@ -139,7 +147,7 @@ function buildEnrichedRecord(
 ): EnrichedRecord {
   return {
     company_name: extracted?.company_name ?? company.company_name,
-    company_domain: domain,
+    company_domain: sanitizeDomain(domain),
     amount_raised: extracted?.amount_raised ?? company.amount ?? "",
     round_type: company.round_type ?? roundLabel,
     source_url: sourceUrl,
@@ -290,13 +298,33 @@ export async function runFundingPipeline(
     `Stage 2 complete: ${scored.stats.company_count} companies (filtered ${scored.stats.filtered_count})`
   );
 
+  let companiesForEnrich = scored.companies;
+
+  if (config.skipKnownCompanies) {
+    const days = config.skipKnownDays ?? 7;
+    logger.info(`Cross-date dedup: checking Supabase for companies from last ${days} days`);
+    const knownNames = await getRecentCompanyNames(rc.supabaseTable, days);
+    if (knownNames.size > 0) {
+      const before = companiesForEnrich.length;
+      companiesForEnrich = companiesForEnrich.filter(
+        (c) => !knownNames.has(c.company_name_normalized)
+      );
+      const skipped = before - companiesForEnrich.length;
+      if (skipped > 0) {
+        logger.info(`Skipped ${skipped} known companies from last ${days} days`);
+      }
+    } else {
+      logger.info("Cross-date dedup: no known companies found (or Supabase unavailable)");
+    }
+  }
+
   let enriched: EnrichedRecord[];
   if (config.skipEnrich) {
     logger.info("Stage 3: Skipped (skipEnrich)");
-    enriched = scored.companies.map((c) => buildSkipEnrichRecord(c, rc.roundLabel, config.pipelineId));
+    enriched = companiesForEnrich.map((c) => buildSkipEnrichRecord(c, rc.roundLabel, config.pipelineId));
   } else {
     logger.info(`Stage 3: Enrich (max ${config.maxEnrich})`);
-    enriched = await enrichCompanies(scored.companies, config.maxEnrich, rc, config.pipelineId);
+    enriched = await enrichCompanies(companiesForEnrich, config.maxEnrich, rc, config.pipelineId);
     logger.info(`Stage 3 complete: ${enriched.length} enriched`);
   }
 

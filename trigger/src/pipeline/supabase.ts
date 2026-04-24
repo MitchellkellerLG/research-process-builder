@@ -1,4 +1,5 @@
 import type { EnrichedRecord } from "./types.js";
+import { normalizeCompanyName } from "./filters.js";
 
 const SUPABASE_URL = (() => {
   const url =
@@ -55,6 +56,42 @@ function toRow(record: EnrichedRecord, dateStr: string) {
     score: record.score,
     pipeline_version: "1.0-ts",
   };
+}
+
+export async function getRecentCompanyNames(
+  tableName: string,
+  days: number
+): Promise<Set<string>> {
+  if (!SUPABASE_URL || !SUPABASE_KEY) return new Set();
+
+  try {
+    const since = new Date();
+    since.setDate(since.getDate() - days);
+    const sinceStr = since.toISOString().split("T")[0];
+
+    const url =
+      `${SUPABASE_URL}/rest/v1/${tableName}` +
+      `?discovered_date=gte.${sinceStr}` +
+      `&select=company_name`;
+
+    const resp = await fetch(url, {
+      headers: headers(),
+      signal: AbortSignal.timeout(15_000),
+    });
+
+    if (!resp.ok) return new Set();
+
+    const rows: { company_name: string }[] = await resp.json();
+    const names = new Set<string>();
+    for (const row of rows) {
+      if (row.company_name) {
+        names.add(normalizeCompanyName(row.company_name));
+      }
+    }
+    return names;
+  } catch {
+    return new Set();
+  }
 }
 
 export async function pushToSupabase(
@@ -119,9 +156,14 @@ export async function pushToSupabase(
           signal: AbortSignal.timeout(15_000),
         }
       );
-      if (resp.ok) upserted++;
-    } catch {
-      // continue with next row
+      if (resp.ok) {
+        upserted++;
+      } else {
+        const errText = await resp.text().catch(() => "");
+        console.error(`Supabase upsert failed for ${row.company_name}: ${resp.status} ${errText.slice(0, 200)}`);
+      }
+    } catch (err) {
+      console.error(`Supabase upsert error for ${row.company_name}:`, err instanceof Error ? err.message : err);
     }
   }
 
@@ -154,9 +196,14 @@ export async function pushRaisingFiRows<T extends Record<string, unknown>>(
           signal: AbortSignal.timeout(15_000),
         }
       );
-      if (resp.ok) upserted++;
-    } catch {
-      // continue with next row
+      if (resp.ok) {
+        upserted++;
+      } else {
+        const errText = await resp.text().catch(() => "");
+        console.error(`RaisingFi upsert failed for ${row.company_name}: ${resp.status} ${errText.slice(0, 200)}`);
+      }
+    } catch (err) {
+      console.error(`RaisingFi upsert error for ${row.company_name}:`, err instanceof Error ? err.message : err);
     }
   }
 
