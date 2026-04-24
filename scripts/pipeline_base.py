@@ -80,7 +80,7 @@ class ResearchPipeline:
     # --- Subclass config (override these) ---
     QUERIES: list[dict] = []
     PIPELINE_NAME: str = "Research Pipeline"
-    SUPABASE_TABLE: str = "research_discoveries"
+    SUPABASE_TABLE: str = "funding_discoveries"
     OUTPUT_PREFIX: str = "research"
     OUTPUT_FIELDNAMES: list[str] = []
     WEBHOOK_URL: str = ""
@@ -306,6 +306,56 @@ class ResearchPipeline:
             "discovered_by": ",".join(set(s["query_source"] for s in company["sources"])),
         }
 
+    @staticmethod
+    def clean_article_content(text: str) -> str:
+        """Strip nav, ads, footer, and link garbage from scraped markdown before GPT extraction."""
+        lines = text.split("\n")
+        cleaned = []
+        skip_section = False
+
+        nav_link_re = re.compile(r'^\s*[\*\-]\s*\[.+?\]\(.+?\)\s*$')
+        bare_url_re = re.compile(r'https?://\S+')
+        social_re = re.compile(r'\b(share|tweet|facebook|twitter|whatsapp|linkedin|pinterest|reddit)\b', re.IGNORECASE)
+        signup_re = re.compile(r'\b(sign\s*in|log\s*in|your\s+username|your\s+password|subscribe|newsletter|create\s+account|forgot\s+password)\b', re.IGNORECASE)
+        related_re = re.compile(r'\b(related\s+articles?|previous\s+article|next\s+article|you\s+may\s+also|more\s+from|read\s+more|also\s+read)\b', re.IGNORECASE)
+        footer_re = re.compile(r'\b(privacy\s+policy|terms\s+(&|and)\s+conditions?|cookie\s+policy|advertise\s+with|contact\s+us|about\s+us|all\s+rights\s+reserved|©)\b', re.IGNORECASE)
+
+        for line in lines:
+            stripped = line.strip()
+
+            if not stripped:
+                cleaned.append("")
+                continue
+
+            if related_re.search(stripped) or footer_re.search(stripped):
+                skip_section = True
+                continue
+
+            if skip_section:
+                if stripped.startswith("#"):
+                    skip_section = False
+                else:
+                    continue
+
+            if nav_link_re.match(stripped):
+                continue
+            if signup_re.search(stripped) and len(stripped) < 120:
+                continue
+            if social_re.search(stripped) and len(stripped) < 100:
+                continue
+
+            line = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', line)
+            line = bare_url_re.sub('', line).rstrip()
+
+            if line.strip():
+                cleaned.append(line)
+            else:
+                cleaned.append("")
+
+        result = "\n".join(cleaned)
+        result = re.sub(r'\n{3,}', '\n\n', result).strip()
+        return result
+
     def enrich_companies(self, scored: dict) -> list[dict]:
         """Stage 3: Scrape, extract, and enrich each company."""
         companies = scored["companies"]
@@ -322,13 +372,16 @@ class ResearchPipeline:
                 print(f"    Scraping {source_url[:80]}...")
                 article_text = self.fetch_url(source_url)
                 if article_text:
-                    print(f"    Got {len(article_text)} chars")
+                    raw_len = len(article_text)
+                    article_text = self.clean_article_content(article_text)
+                    print(f"    Got {raw_len} chars, cleaned to {len(article_text)}")
                 else:
                     print(f"    Scrape failed, trying next source...")
                     for src in company["sources"]:
                         if src["url"] != source_url:
                             article_text = self.fetch_url(src["url"])
                             if article_text:
+                                article_text = self.clean_article_content(article_text)
                                 source_url = src["url"]
                                 print(f"    Fallback worked: {src['url'][:80]}")
                                 break
