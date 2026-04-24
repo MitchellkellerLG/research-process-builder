@@ -25,7 +25,11 @@ PROJECT_DIR = SCRIPT_DIR.parent
 # ---------------------------------------------------------------------------
 
 _ac_src_env = os.environ.get("AUTOCONTEXT_SRC_PATH")
-AC_SRC = Path(_ac_src_env) if _ac_src_env else None
+if not _ac_src_env:
+    print("ERROR: AUTOCONTEXT_SRC_PATH env var not set.")
+    print("Set it to the autocontext/src/autocontext directory.")
+    sys.exit(1)
+AC_SRC = Path(_ac_src_env)
 
 
 def _load_ac_module(name: str, file_path: Path):
