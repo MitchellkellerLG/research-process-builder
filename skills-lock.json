@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "trigger-agents": {
+      "source": "triggerdotdev/skills",
+      "sourceType": "github",
+      "computedHash": "54171ea9ca464f537292f8d8aeec1a0bab2319e1030aeed2ffb5fc6ff07cf7a9"
+    },
+    "trigger-config": {
+      "source": "triggerdotdev/skills",
+      "sourceType": "github",
+      "computedHash": "0da4d2718b736032a018bc8302959246c21af6ec21d64b42db429eca3c0c96fd"
+    },
+    "trigger-cost-savings": {
+      "source": "triggerdotdev/skills",
+      "sourceType": "github",
+      "computedHash": "3a3a3941a776b373051ce9059dffbc44389d9c9965e238abc7c62c6f2570c479"
+    },
+    "trigger-realtime": {
+      "source": "triggerdotdev/skills",
+      "sourceType": "github",
+      "computedHash": "24f7a4be42df1b7220eccad4fd5c8188ec844c9dd8352f9f84b5164a6da4882c"
+    },
+    "trigger-setup": {
+      "source": "triggerdotdev/skills",
+      "sourceType": "github",
+      "computedHash": "24e7a670526144a278a7d0c9c7df2204408d3c9894aae290f1e9a3c4664a863b"
+    },
+    "trigger-tasks": {
+      "source": "triggerdotdev/skills",
+      "sourceType": "github",
+      "computedHash": "471b0183afc35a7f8cf03472c0140cdc7cbd662776881882fb65814dff40ecec"
+    }
+  }
+}
