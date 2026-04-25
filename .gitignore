@@ -10,6 +10,9 @@ __pycache__/
 output/
 *.json.out
 
+# Monitor worktrees (isolated orphan branches)
+monitors/
+
 # OS
 .DS_Store
 Thumbs.db
