@@ -18,12 +18,13 @@
     "city": "Manitou Springs",
     "state": "CO",
     "zip": "80829",
-    "known_website": "roofingcontractormanitouspringsco.com",
+    "known_website": "highpointbuilderscs.com",
+    "known_website_alt": "roofingcontractormanitouspringsco.com",
     "known_bbb": "https://www.bbb.org/us/co/colorado-springs/profile/roofing-contractors/highpoint-builders-0785-1000031782",
     "known_owner": null,
     "segment": "mca",
     "difficulty": "hard",
-    "notes": "Domain is generic roofing URL, not company name. Also goes by Highpoint Builders."
+    "notes": "Two domains: highpointbuilderscs.com (primary) and roofingcontractormanitouspringsco.com (SEO). BBB lists as Highpoint Builders, not Contractors."
   },
   {
     "id": "gt-03",
@@ -122,12 +123,13 @@
     "city": "Mystic",
     "state": "CT",
     "zip": "06355",
-    "known_website": "justbrandapparel.com",
+    "known_website": "justmystic.com",
+    "known_website_alt": "justbrandapparel.com",
     "known_bbb": null,
     "known_owner": "Robert Nelson, Amanda Cummings",
     "segment": "bank",
     "difficulty": "hard",
-    "notes": "Domain is 'justbrandapparel.com' — rebranded/umbrella name. Yelp/FB have original name."
+    "notes": "justmystic.com is the primary site (same store). justbrandapparel.com is parent brand. Both valid."
   },
   {
     "id": "gt-11",

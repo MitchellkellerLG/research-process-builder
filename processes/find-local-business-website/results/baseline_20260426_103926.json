@@ -1,0 +1,39 @@
+{
+  "run_name": "baseline_20260426_103926",
+  "timestamp": "20260426_103926",
+  "model": "gpt-4o-mini",
+  "max_turns": 7,
+  "total_companies": 1,
+  "website_accuracy": 0.0,
+  "total_cost_usd": 0.001338,
+  "results": [
+    {
+      "id": "gt-02",
+      "company_name": "Highpoint Contractors LLC",
+      "city": "Manitou Springs",
+      "state": "CO",
+      "difficulty": "hard",
+      "known_website": "roofingcontractormanitouspringsco.com",
+      "known_owner": null,
+      "known_bbb": "https://www.bbb.org/us/co/colorado-springs/profile/roofing-contractors/highpoint-builders-0785-1000031782",
+      "website_correct": false,
+      "owner_correct": null,
+      "bbb_found": true,
+      "confidence_calibrated": false,
+      "found_website": "https://www.highpointbuilderscs.com/",
+      "found_owner": "Mr. Michal Neppl",
+      "found_bbb": "https://www.bbb.org/us/co/colorado-springs/profile/roofing-contractors/highpoint-builders-0785-1000031782",
+      "found_confidence": "high",
+      "found_source": "bbb",
+      "cost_usd": 0.001338,
+      "elapsed_sec": 34.1,
+      "turns": 4,
+      "tools_used": [
+        "web_search",
+        "web_search",
+        "scrape_url"
+      ],
+      "raw_content": "{\n  \"website\": \"https://www.highpointbuilderscs.com/\",\n  \"bbb_url\": \"https://www.bbb.org/us/co/colorado-springs/profile/roofing-contractors/highpoint-builders-0785-1000031782\",\n  \"owner_name\": \"Mr. Michal Neppl\",\n  \"owner_title\": \"Owner\",\n  \"phone\": \"(720) 408-6219\",\n  \"address_match\": \"none\",\n  \"confidence\": \"high\",\n  \"source\": \"bbb\"\n}"
+    }
+  ]
+}

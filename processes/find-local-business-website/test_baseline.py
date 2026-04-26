@@ -311,33 +311,36 @@ Location: {city}, {state}{zip_clause}
 
 ## Instructions
 
-You have web_search and scrape_url tools. Follow this strategy:
+You have web_search and scrape_url tools. Use MINIMAL searches — return your JSON as soon as you have a confident answer.
 
 ### Step 1: BBB Search (preferred — gives website + owner)
 Search: "{name}" {city} site:bbb.org
 
+If no BBB result, try ONE variant with key words from the name (strip LLC/Inc/Corp, try common trade name variants like "Contractors" → "Builders").
+
 If a BBB page is found:
 - Scrape it with scrape_url
 - Extract: website URL, owner/principal name, business address, phone
-- Verify the BBB listing address matches {city}, {state} (not a different business with the same name)
+- Verify the BBB listing address matches {city}, {state}
+- RETURN JSON IMMEDIATELY — do not keep searching if BBB gave you a website
 
-### Step 2: Direct Search (if BBB misses)
+### Step 2: Direct Search (only if BBB found no website)
 Search: "{name}" {city} {state}
 
-From results, identify the business website. Scoring:
+From results, pick the business website (not directory pages ABOUT the business):
+- The business's OWN domain is the target, not Yelp/YP/Manta pages
 - Domain contains company name words → strong signal
 - Result mentions {city} or {state} → confirms identity
-- Directory pages (Yelp, YellowPages, Manta, Facebook) often link to website
-- Ignore: LinkedIn, Crunchbase, news articles ABOUT the company
 
-### Step 3: Directory Fallback (if still no website)
-Search: "{name}" {zip_code or city} website OR homepage
+### Step 3: Give up quickly
+If 2 searches return nothing useful, return null. Do NOT keep searching — "no website found" is valid.
 
 ## Rules
 - Strip LLC, Inc, Corp, Ltd from the company name when searching
-- "No website found" is a valid answer — some local businesses have no web presence
+- "No website found" is a valid answer — return null with low confidence
 - If multiple businesses share the name, use {city}/{state} to disambiguate
-- BBB address match = high confidence. Search-only = medium confidence.
+- If a candidate website is in a DIFFERENT city/state, it's the wrong business — return null
+- BBB address match = high confidence. Search-only = medium. Unverified = low.
 
 ## Return JSON only — no other text:
 
@@ -371,12 +374,20 @@ def score_result(result: dict, gt: dict) -> dict:
     known_website = (gt.get("known_website") or "").lower().rstrip("/")
 
     def domain(url):
-        return url.replace("https://", "").replace("http://", "").replace("www.", "").rstrip("/")
+        return url.replace("https://", "").replace("http://", "").replace("www.", "").rstrip("/").split("/")[0]
+
+    def domain_match(found, known):
+        """Match on root domain — subpages count as correct."""
+        if not found or not known:
+            return False
+        return domain(found) == domain(known) or domain(known) in found
 
     if not known_website:
         website_correct = not found_website or parsed.get("website") is None
     else:
-        website_correct = domain(found_website) == domain(known_website) if found_website else False
+        website_correct = domain_match(found_website, known_website)
+        if not website_correct and gt.get("known_website_alt"):
+            website_correct = domain_match(found_website, gt["known_website_alt"])
 
     known_owner = gt.get("known_owner")
     found_owner = parsed.get("owner_name")

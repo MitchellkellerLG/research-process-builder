@@ -1,0 +1,70 @@
+{
+  "run_name": "baseline_20260426_103729",
+  "timestamp": "20260426_103729",
+  "model": "gpt-4o-mini",
+  "max_turns": 7,
+  "total_companies": 2,
+  "website_accuracy": 0.0,
+  "total_cost_usd": 0.003838,
+  "results": [
+    {
+      "id": "gt-02",
+      "company_name": "Highpoint Contractors LLC",
+      "city": "Manitou Springs",
+      "state": "CO",
+      "difficulty": "hard",
+      "known_website": "roofingcontractormanitouspringsco.com",
+      "known_owner": null,
+      "known_bbb": "https://www.bbb.org/us/co/colorado-springs/profile/roofing-contractors/highpoint-builders-0785-1000031782",
+      "website_correct": false,
+      "owner_correct": null,
+      "bbb_found": false,
+      "confidence_calibrated": false,
+      "found_website": null,
+      "found_owner": null,
+      "found_bbb": null,
+      "found_confidence": "medium",
+      "found_source": "directory",
+      "cost_usd": 0.001254,
+      "elapsed_sec": 20.6,
+      "turns": 4,
+      "tools_used": [
+        "web_search",
+        "web_search",
+        "scrape_url"
+      ],
+      "raw_content": "{\n  \"website\": null,\n  \"bbb_url\": null,\n  \"owner_name\": null,\n  \"owner_title\": null,\n  \"phone\": \"(719) 210-1316\",\n  \"address_match\": \"exact\",\n  \"confidence\": \"medium\",\n  \"source\": \"directory\"\n}"
+    },
+    {
+      "id": "gt-13",
+      "company_name": "OPAL GROUP LLC",
+      "city": "New Haven",
+      "state": "CT",
+      "difficulty": "hard",
+      "known_website": null,
+      "known_owner": null,
+      "known_bbb": null,
+      "website_correct": false,
+      "owner_correct": null,
+      "bbb_found": null,
+      "confidence_calibrated": false,
+      "found_website": "https://theopalgroup.com/",
+      "found_owner": "Not specified",
+      "found_bbb": "https://www.bbb.org/us/ct/new-haven/category/loan-signing-agent",
+      "found_confidence": "medium",
+      "found_source": "bbb",
+      "cost_usd": 0.002584,
+      "elapsed_sec": 67.7,
+      "turns": 6,
+      "tools_used": [
+        "web_search",
+        "web_search",
+        "scrape_url",
+        "scrape_url",
+        "web_search",
+        "scrape_url"
+      ],
+      "raw_content": "{\n  \"website\": \"https://theopalgroup.com/\",\n  \"bbb_url\": \"https://www.bbb.org/us/ct/new-haven/category/loan-signing-agent\",\n  \"owner_name\": \"Not specified\",\n  \"owner_title\": null,\n  \"phone\": null,\n  \"address_match\": \"none\",\n  \"confidence\": \"medium\",\n  \"source\": \"bbb\"\n}"
+    }
+  ]
+}
