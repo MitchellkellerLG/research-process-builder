@@ -1,0 +1,38 @@
+{
+  "run_name": "baseline_20260426_100901",
+  "timestamp": "20260426_100901",
+  "model": "gpt-4o-mini",
+  "max_turns": 5,
+  "total_companies": 1,
+  "website_accuracy": 1.0,
+  "total_cost_usd": 0.000683,
+  "results": [
+    {
+      "id": "gt-04",
+      "company_name": "Three Little Griddles Inc",
+      "city": "Aurora",
+      "state": "CO",
+      "difficulty": "easy",
+      "known_website": "threelittlegriddles.com",
+      "known_owner": null,
+      "known_bbb": null,
+      "website_correct": true,
+      "owner_correct": null,
+      "bbb_found": null,
+      "confidence_calibrated": true,
+      "found_website": "https://www.threelittlegriddles.com/",
+      "found_owner": "Francine Garman",
+      "found_bbb": "https://www.bbb.org/us/co/aurora/profile/breakfast/three-little-griddles-inc-1296-90272346",
+      "found_confidence": "high",
+      "found_source": "bbb",
+      "cost_usd": 0.000683,
+      "elapsed_sec": 79.6,
+      "turns": 3,
+      "tools_used": [
+        "web_search",
+        "scrape_url"
+      ],
+      "raw_content": "{\n  \"website\": \"https://www.threelittlegriddles.com/\",\n  \"bbb_url\": \"https://www.bbb.org/us/co/aurora/profile/breakfast/three-little-griddles-inc-1296-90272346\",\n  \"owner_name\": \"Francine Garman\",\n  \"owner_title\": \"Registered Agent\",\n  \"phone\": \"(303) 693-4100\",\n  \"address_match\": \"exact\",\n  \"confidence\": \"high\",\n  \"source\": \"bbb\"\n}"
+    }
+  ]
+}
