@@ -94,27 +94,54 @@ py scripts/gt_validation.py --reset-conflicts                # re-verify only pr
 
 ---
 
-## Open conflicts to triage (manual, ~10 min)
+## Open conflicts — TRIAGED 2026-04-27, awaiting destructive cleanup
 
-These were surfaced by today's run, both look like real production data quality issues:
+Full investigation in `HANDOFF-2026-04-27-triage.md` (commit `c5078fa`). TL;DR:
 
-### Kajaani
+### Mosaic — 3 Supabase rows = same $18M Series A funding event
 
-- Stored in Supabase: `iiwari.com` (correct per `BAD_DOMAIN_CASES` — Kajaani is the city name, the company is Iiwari)
-- Agent returned: `kitkagames.com`
-- Verdict: agent confused company-vs-city. Stored value is correct. **No action needed in DB**, but consider whether the source row's `company_name` should be `Iiwari` not `Kajaani` to prevent future agent confusion.
+Verified by scraping all 3 source URLs + 5 candidate domains:
 
-### Mosaic
+| id | stored domain | actual co at that domain | verdict |
+|---|---|---|---|
+| 18 | mosaicco.com | NYSE-listed potash mining giant | DELETE |
+| 145 | mosaic.pe | Mosaic — AI Deal Modeling Platform (matches articles) | KEEP |
+| 142 | mosaic.ai | mosaic.ai = AI recruiting / HR Q&A | DELETE |
 
-- Stored in Supabase: `mosaic.ai`
-- Agent returned: `mosaic.pe`
-- Existing KNOWN_GOOD entry: `mosaic.pe`
-- This is the 3-way Mosaic problem flagged in the prior handoff (mosaic.pe / mosaic.ai / mosaicco.com are 3 different companies). Pick one canonical; if the Supabase row is actually a different Mosaic, leave stored as-is and add a disambiguation strategy. Probably needs a one-off Stage 1 source-URL inspection to know which company the article was actually about.
+Cross-day dedup did NOT merge these — bug. Each source resolved a wrong domain (3 different real companies named "Mosaic" exist).
 
-After resolving, you can re-trigger the check with:
-```bash
-py scripts/gt_validation.py --reset-conflicts
+### Kajaani — id=141, likely bad Stage 2 extraction
+
+Source = Instagram (no body), amount = "€1.7 billion" Series C — implausible for Iiwari (small Finnish indoor positioning startup). Pattern matches Ricerca (Japanese AI co, 1.7B JPY ≈ $11M) → looks like Stage 2 mis-extracted "Kajaani" as the company name from an article actually about Ricerca.
+
+### Destructive cleanup SQL (not run, awaiting dev)
+
+```sql
+-- Mosaic: keep id=145, merge sources, delete dups
+UPDATE funding_discoveries SET source_count = (
+   SELECT COALESCE(SUM(source_count), 0) FROM funding_discoveries WHERE id IN (18,142,145)
+) WHERE id = 145;
+DELETE FROM funding_discoveries WHERE id IN (18, 142);
+
+-- Kajaani: bad extraction
+DELETE FROM funding_discoveries WHERE id = 141;
 ```
+
+**Recommended workflow before running:**
+1. Export the 4 rows to JSON (`backups/2026-04-27-pre-cleanup.json`) so cleanup is reversible
+2. Run SQL via Supabase SQL editor (logged + auditable)
+3. `py scripts/gt_validation.py --reset-conflicts` to re-verify and clear state file conflict entries
+
+Mitch declined to run autonomously this session — your call whether to do path (a) backup+delete, (b) mark superseded if schema has an `archived` column, or (c) leave alone and chase the dedup root cause first.
+
+### Dedup root cause (the real bug)
+
+`match_existing_company` (in `domain_resolver.py`) merges on domain-exact OR fuzzy name. Same-name same-day rows from independent batches still need to merge. Audit:
+- did cross-day dedup actually run on Apr 25 when ids 145 + 142 were inserted?
+- did `fetch_recent_companies` return id=18 (Apr 22) into the dedup pool?
+- if both yes, `match_existing_company` returned ex by name and the upsert path PATCHed onto it — but we'd see only one row, not three. Something silently broke.
+
+Killing the 4 rows treats the symptom. The real fix is here.
 
 ---
 
