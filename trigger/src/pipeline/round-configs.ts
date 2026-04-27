@@ -73,8 +73,9 @@ export const SERIES_B_CONFIG: RoundConfig = {
     { id: "bq8", query: '"Series B" startup funding site:eu-startups.com OR site:tech.eu OR site:techround.co.uk', num: 10, desc: "European" },
   ],
   supabaseTable: "funding_discoveries",
-  webhookUrl: process.env.CLAY_WEBHOOK_URL_SERIES_B ?? "",
-  webhookAuthToken: process.env.CLAY_WEBHOOK_AUTH_SERIES_B ?? "",
+  webhookUrl:
+    "https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-d1b53ce2-fe64-40e4-a86c-faef265c5a63",
+  webhookAuthToken: "0be318b702699f40b68f",
   extractionPrompt: buildExtractionPrompt("Series B", "NOT_SERIES_B"),
 };
 
@@ -99,7 +100,8 @@ export const SERIES_C_CONFIG: RoundConfig = {
     { id: "cq8", query: '"Series C" startup funding site:eu-startups.com OR site:tech.eu OR site:techround.co.uk', num: 10, desc: "European" },
   ],
   supabaseTable: "funding_discoveries",
-  webhookUrl: process.env.CLAY_WEBHOOK_URL_SERIES_C ?? "",
-  webhookAuthToken: process.env.CLAY_WEBHOOK_AUTH_SERIES_C ?? "",
+  webhookUrl:
+    "https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-d1b53ce2-fe64-40e4-a86c-faef265c5a63",
+  webhookAuthToken: "0be318b702699f40b68f",
   extractionPrompt: buildExtractionPrompt("Series C", "NOT_SERIES_C"),
 };
