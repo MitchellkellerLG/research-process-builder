@@ -44,6 +44,8 @@ SCRIPT_DIR_EARLY = Path(__file__).resolve().parent
 
 from dotenv import load_dotenv
 load_dotenv(SCRIPT_DIR_EARLY.parent / ".env")
+# Workspace root .env (C:/Users/mitch/Everything_CC/.env) — primary key store
+load_dotenv(SCRIPT_DIR_EARLY.parent.parent / ".env", override=False)
 load_dotenv(Path.home() / ".env", override=False)
 
 _shared = os.environ.get("SHARED_SCRIPTS_PATH", str(SCRIPT_DIR_EARLY))
