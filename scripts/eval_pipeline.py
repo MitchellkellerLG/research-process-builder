@@ -148,6 +148,8 @@ KNOWN_GOOD_DOMAINS = [
     {"company": "Zapata Quantum", "domain": "zapataquantum.com"},
     {"company": "Zetta", "domain": "zettatech.sa"},
     {"company": "inploi", "domain": "inploi.com"},
+    # === AUTO-PROMOTED BY gt_validation.py BEGIN ===
+    # === AUTO-PROMOTED BY gt_validation.py END ===
 ]
 
 # Dedup test cases (from screenshot failures)

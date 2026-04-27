@@ -1,0 +1,40 @@
+{
+  "validated": {
+    "kajaani|iiwari.com": {
+      "agent_domain": "kitkagames.com",
+      "confidence": "high",
+      "reason": "agent=kitkagames.com stored=iiwari.com (high)",
+      "row_id": 141,
+      "stored_domain": "iiwari.com",
+      "ts": "2026-04-27T03:21:08.949167+00:00",
+      "verdict": "conflict"
+    },
+    "mosaic|mosaic.ai": {
+      "agent_domain": "mosaic.pe",
+      "confidence": "high",
+      "reason": "agent=mosaic.pe stored=mosaic.ai (high)",
+      "row_id": 142,
+      "stored_domain": "mosaic.ai",
+      "ts": "2026-04-27T03:21:14.540635+00:00",
+      "verdict": "conflict"
+    },
+    "nox mobility|noxmobility.com": {
+      "agent_domain": "noxmobility.com",
+      "confidence": "high",
+      "reason": "agent matches stored (high)",
+      "row_id": 36,
+      "stored_domain": "noxmobility.com",
+      "ts": "2026-04-27T03:20:36.274010+00:00",
+      "verdict": "confirmed"
+    },
+    "visiolab|visiolab.io": {
+      "agent_domain": "visiolab.io",
+      "confidence": "high",
+      "reason": "agent matches stored (high)",
+      "row_id": 1,
+      "stored_domain": "visiolab.io",
+      "ts": "2026-04-27T03:20:30.685421+00:00",
+      "verdict": "confirmed"
+    }
+  }
+}

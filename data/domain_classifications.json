@@ -383,6 +383,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "kitkagames.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-27T03:21:08.947157Z"
+  },
   "kitsapsun.com": {
     "category": "news",
     "confidence": "high",
