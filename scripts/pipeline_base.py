@@ -182,6 +182,97 @@ class ResearchPipeline:
         raise NotImplementedError("Subclasses must implement score_and_filter()")
 
     # -----------------------------------------------------------------------
+    # Batch GPT name extraction (replaces regex band-aid pile)
+    # -----------------------------------------------------------------------
+
+    def extract_companies_batch(
+        self, items: list[dict], batch_size: int = 25
+    ) -> dict[int, dict]:
+        """
+        Identify the funded company in each item using a single GPT-4o-mini call
+        per batch. Items must carry a unique 'idx' plus 'title' and 'snippet'.
+
+        Returns: {idx: {"company": str|None, "is_funding": bool}}.
+
+        Snippet is the structural unlock — title alone misses cases like
+        "TechCrunch Mobility: Elon's admission" where the company only
+        appears in the snippet. This replaces the FUNDING_VERBS / PREFIX_STRIP /
+        BAD_NAME_PHRASES regex pile by reading both signals.
+        """
+        out: dict[int, dict] = {}
+        if not items:
+            return out
+        if not OPENAI_API_KEY:
+            print("    [WARN] OPENAI_API_KEY missing — Stage 2 GPT extract no-op'd")
+            return out
+
+        for start in range(0, len(items), batch_size):
+            batch = items[start : start + batch_size]
+            payload_lines = []
+            for it in batch:
+                snippet = (it.get("snippet") or "")[:280].replace("\n", " ").strip()
+                title = (it.get("title") or "").replace("\n", " ").strip()
+                payload_lines.append(
+                    f'[{it["idx"]}] TITLE: {title} | SNIPPET: {snippet}'
+                )
+
+            user_msg = (
+                "For each numbered news item, identify the COMPANY THAT RAISED FUNDING.\n"
+                "The company is usually the subject of a verb like raises/secures/closes/"
+                "announces/eyes/snags/lands.\n"
+                "Read both TITLE and SNIPPET — the snippet often names the company when the "
+                "title is generic\n"
+                "(e.g. title \"TechCrunch Mobility: Elon's admission\" but snippet starts "
+                '"A&K Robotics raised $8M").\n'
+                "NEVER return the investor / VC firm. NEVER return a publication name "
+                "(TechCrunch, AI Market Watch, FemWealth).\n"
+                "If the item is a roundup / column / multi-company piece with no single "
+                "subject, return null.\n"
+                "If it isn't a funding announcement at all, set is_funding=false and company=null.\n\n"
+                "Return STRICT JSON: "
+                '{"results":[{"idx":1,"company":"Auth0","is_funding":true},...]}\n\n'
+                "Items:\n" + "\n".join(payload_lines)
+            )
+
+            try:
+                resp = requests.post(
+                    "https://api.openai.com/v1/chat/completions",
+                    headers={
+                        "Authorization": f"Bearer {OPENAI_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": "gpt-4o-mini",
+                        "temperature": 0,
+                        "response_format": {"type": "json_object"},
+                        "max_tokens": 2000,
+                        "messages": [
+                            {
+                                "role": "system",
+                                "content": "You extract structured data. Output strict JSON.",
+                            },
+                            {"role": "user", "content": user_msg},
+                        ],
+                    },
+                    timeout=60,
+                )
+                resp.raise_for_status()
+                body = json.loads(resp.json()["choices"][0]["message"]["content"])
+                for r in body.get("results", []):
+                    idx = r.get("idx")
+                    if idx is None:
+                        continue
+                    company = (r.get("company") or "").strip() or None
+                    out[idx] = {
+                        "company": company,
+                        "is_funding": bool(r.get("is_funding")),
+                    }
+            except Exception as e:
+                print(f"    [WARN] GPT batch extract failed: {e}")
+
+        return out
+
+    # -----------------------------------------------------------------------
     # STAGE 3: Enrich & Extract (generic with hooks)
     # -----------------------------------------------------------------------
 

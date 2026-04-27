@@ -92,84 +92,10 @@ def normalize_company_name(name: str) -> str:
     return name.lower().strip()
 
 
-FUNDING_VERBS = r'(?:raises?|secures?|closes?|announces?|gets?|lands?|nabs?|bags?|receives?|completes?|eyes?|scores?|pockets?|wraps?\s+up|picks?\s+up|pulls?\s+in|hauls?\s+in|snags?|grabs?|locks?\s+in|banks?)'
-
-# Article-style prefixes to strip — "AI Startup Auth0" → "Auth0"
-PREFIX_STRIP = re.compile(
-    r'^(?:AI|Fintech|Tech|Identity\s+Authentication|Cloud|Crypto|Healthcare|Biotech|SaaS|Cybersecurity|Robotics|Climate|Edtech|Insurtech|Foodtech|Proptech)\s+(?:Startup|Company|Firm|Platform|Provider)\s+',
-    re.IGNORECASE
-)
-
-# Phrases that indicate a non-company extraction (column header, post slug, generic phrase)
-BAD_NAME_PHRASES = (
-    ":",                         # "TechCrunch Mobility: Elon's admission"
-    "'s post",                   # LinkedIn post slugs
-    "'s newsletter",
-    "'s admission",
-    "deal closing",
-    "fund managers",
-    "tech trends",
-    "latest tech",
-    "closing for",
-    "market watch",
-    "series a funding",
-    "series a round",
-    "weekly news",
-    "daily roundup",
-    "funding roundup",
-    "press release",
-)
-
-
-def _is_bad_extraction(name: str) -> bool:
-    """Heuristic filter for known-bad extracted names."""
-    if not name:
-        return True
-    low = name.lower()
-    for phrase in BAD_NAME_PHRASES:
-        if phrase in low:
-            return True
-    # All-lowercase or mostly-lowercase = title fragment, not a name
-    letters = [c for c in name if c.isalpha()]
-    if letters and sum(1 for c in letters if c.isupper()) / len(letters) < 0.10:
-        return True
-    return False
-
-
-def _clean_extracted_name(name: str) -> str:
-    """Strip article-style prefixes and possessive-noise from an extracted name."""
-    name = name.strip()
-    # Strip "AI Startup ", "Fintech Startup ", etc.
-    name = PREFIX_STRIP.sub("", name).strip()
-    # Strip leading "Startup " on its own
-    name = re.sub(r'^Startup\s+', '', name, flags=re.IGNORECASE).strip()
-    # Possessive prefix: "Elizabeth Dorman & Megan Gole's Era" -> "Era",
-    # "Sam Altman's Worldcoin" -> "Worldcoin".
-    # Trigger when prefix has 2+ capitalized words (founder-style possessive).
-    m = re.match(
-        r"^[A-Z][\w'-]+(?:\s+(?:&\s+)?[A-Z][\w'-]+)+\s*'s\s+([A-Z][\w&'-]{1,25}(?:\s+[A-Z][\w&'-]{1,25}){0,2})\s*$",
-        name
-    )
-    if m:
-        name = m.group(1).strip()
-    return name
-
-
-def extract_company_name_from_title(title: str) -> str:
-    """Best-effort company name extraction from article title."""
-    m = re.match(rf'^([A-Z][\w\s.&\'-]{{1,40}}?)\s+{FUNDING_VERBS}\b', title, re.IGNORECASE)
-    if m:
-        name = _clean_extracted_name(m.group(1))
-        if not VC_PATTERNS.search(name) and not _is_bad_extraction(name):
-            return name
-
-    m = re.search(r'(?:in|into|backs?|for)\s+([A-Z][\w\s.&\'-]{1,30}?)(?:\s*[,.]|\s+to\b|\s+for\b|$)', title)
-    if m:
-        name = _clean_extracted_name(m.group(1))
-        if not VC_PATTERNS.search(name) and not _is_bad_extraction(name):
-            return name
-
-    return ""
+# NOTE: Stage-2 name extraction is done by ResearchPipeline.extract_companies_batch
+# (single GPT-4o-mini call on title+snippet). Removed regex band-aids:
+# FUNDING_VERBS, PREFIX_STRIP, BAD_NAME_PHRASES, _is_bad_extraction,
+# _clean_extracted_name, extract_company_name_from_title. All replaced by GPT.
 
 
 # ---------------------------------------------------------------------------
@@ -191,18 +117,19 @@ class SeriesAPipeline(ResearchPipeline):
     # --- Stage 2: Series-A-specific filter ---
 
     def score_and_filter(self, raw_results: list[dict]) -> dict:
-        """Stage 2: Filter to Series A, dedup, score."""
-        candidates = {}
+        """
+        Stage 2: Apply funnel filters, then GPT-4o-mini batch extraction
+        identifies the funded company per surviving item. Dedup, score.
+        """
         filtered_out = []
+        survivors: list[dict] = []  # items that passed funnel filters; awaiting GPT name extract
 
-        for r in raw_results:
+        for i, r in enumerate(raw_results):
             title = r.get("title", "")
             snippet = r.get("snippet", "")
             combined = f"{title} {snippet}"
             url = r.get("source_url", "")
-            domain = r.get("source_domain", "")
 
-            # Noise filter
             if NOISE_PATTERNS.search(title):
                 filtered_out.append({"title": title[:80], "reason": "noise (report/listicle/filing)", "url": url})
                 continue
@@ -210,54 +137,55 @@ class SeriesAPipeline(ResearchPipeline):
             title_has_series_a = bool(SERIES_A_PATTERN.search(title))
             title_has_hard_non_a = bool(NON_SERIES_A.search(title))
             title_has_soft_non_a = bool(SOFT_NON_A.search(title))
-
             has_series_a = bool(SERIES_A_PATTERN.search(combined))
             has_hard_non_a = bool(NON_SERIES_A.search(combined))
 
             if title_has_hard_non_a:
                 filtered_out.append({"title": title[:80], "reason": "non-Series A in title", "url": url})
                 continue
-
             if title_has_soft_non_a and not title_has_series_a:
                 filtered_out.append({"title": title[:80], "reason": "Seed/Growth in title, no Series A", "url": url})
                 continue
-
             if has_hard_non_a and not has_series_a:
                 filtered_out.append({"title": title[:80], "reason": "non-Series A round detected", "url": url})
                 continue
-
-            if not has_series_a:
-                if not re.search(r'(?:raises?|raised|secures?|closes?)\s+[\$\u20ac\u00a3]', combined, re.IGNORECASE):
-                    filtered_out.append({"title": title[:80], "reason": "no Series A and no funding amount", "url": url})
-                    continue
-
-            # Extract company name
-            company = extract_company_name_from_title(title)
-            if not company:
-                fallback = title.split(" - ")[0].split(" | ")[0]
-                fallback = re.split(rf'\s+{FUNDING_VERBS}\b', fallback, flags=re.IGNORECASE)[0]
-                fallback = _clean_extracted_name(fallback.strip()[:50])
-                if not _is_bad_extraction(fallback):
-                    company = fallback
-
-            company = re.sub(r'\s+Tag$', '', company, flags=re.IGNORECASE).strip()
-            company = re.sub(r'^\[PDF\]\s*', '', company).strip()
-
-            if not company or len(company) < 3:
-                filtered_out.append({"title": title[:80], "reason": "no extractable company name", "url": url})
+            if not has_series_a and not re.search(
+                r'(?:raises?|raised|secures?|closes?)\s+[\$\u20ac\u00a3]', combined, re.IGNORECASE
+            ):
+                filtered_out.append({"title": title[:80], "reason": "no Series A and no funding amount", "url": url})
                 continue
 
-            if _is_bad_extraction(company):
-                filtered_out.append({"title": title[:80], "reason": "extracted name flagged as bad pattern", "url": url})
-                continue
+            survivors.append({"idx": i, **r})
 
-            if company.lower() in {"u.s", "u.s.", "us", "series a", "series a funding", "funding", "startup", "the"}:
-                continue
+        print(f"\n  Stage 2 funnel: {len(raw_results)} raw -> {len(survivors)} survivors")
+        print(f"  Stage 2 GPT batch: extracting company names from {len(survivors)} items...")
+        gpt_extractions = self.extract_companies_batch(survivors)
 
-            if len(company) > 45:
-                filtered_out.append({"title": title[:80], "reason": "company name too long (likely bad parse)", "url": url})
-                continue
+        # Build candidates from GPT-named survivors
+        candidates: dict[str, dict] = {}
+        for r in survivors:
+            idx = r["idx"]
+            title = r.get("title", "")
+            snippet = r.get("snippet", "")
+            combined = f"{title} {snippet}"
+            url = r.get("source_url", "")
+            domain = r.get("source_domain", "")
 
+            extraction = gpt_extractions.get(idx, {})
+            company = (extraction.get("company") or "").strip()
+            is_funding = extraction.get("is_funding", False)
+
+            if not company or not is_funding:
+                filtered_out.append({"title": title[:80], "reason": "GPT: not a funding event or no company", "url": url})
+                continue
+            if len(company) < 3 or len(company) > 60:
+                filtered_out.append({"title": title[:80], "reason": "GPT name length out of range", "url": url})
+                continue
+            if VC_PATTERNS.search(company):
+                # GPT instructed not to return investors, but flag for downstream review
+                pass
+
+            has_series_a_combined = bool(SERIES_A_PATTERN.search(combined))
             needs_disambiguation = bool(VC_PATTERNS.search(company))
 
             amount_match = AMOUNT_PATTERN.search(combined)
@@ -279,7 +207,7 @@ class SeriesAPipeline(ResearchPipeline):
                 data_completeness += 1
             if amount:
                 data_completeness += 1
-            if has_series_a:
+            if has_series_a_combined:
                 data_completeness += 1
             if re.search(r'(?:led by|investors?|participated)', combined, re.IGNORECASE):
                 data_completeness += 1
@@ -294,7 +222,7 @@ class SeriesAPipeline(ResearchPipeline):
                     "company_name": company.strip(),
                     "company_name_normalized": norm,
                     "amount": amount,
-                    "round_type": "Series A" if has_series_a else "Unknown",
+                    "round_type": "Series A" if has_series_a_combined else "Unknown",
                     "needs_disambiguation": needs_disambiguation,
                     "sources": [],
                     "best_score": 0,
