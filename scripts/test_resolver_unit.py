@@ -158,12 +158,54 @@ def test_match_existing_company():
     return all_pass
 
 
+def test_classifier_conservative_branch():
+    """Name-mismatch domains must be gated by classifier; only `real_company`
+    verdict accepts. Anything else (unknown / blocked / classifier exception)
+    rejects. Locks in the kill-the-band-aid contract.
+
+    Uses cache seed to avoid live API calls.
+    """
+    import domain_classifier as dc
+    from domain_resolver import validate_domain
+
+    print("\n=== validate_domain: classifier-gated LOW branch ===")
+    all_pass = True
+
+    # Seed deterministic verdicts; bypass cache file by writing the in-memory dict.
+    dc._load_cache()
+    dc._cache["fakerealco-xyz999.com"] = {"category": "real_company", "confidence": "high", "source": "test"}
+    dc._cache["fakeunknown-xyz999.com"] = {"category": "unknown", "confidence": "low", "source": "test"}
+    dc._cache["fakenewsblog-xyz999.com"] = {"category": "news", "confidence": "high", "source": "test"}
+
+    cases = [
+        ("fakerealco-xyz999.com", "Totally Different Co", True, "real_company verdict"),
+        ("fakeunknown-xyz999.com", "Totally Different Co", False, "unknown verdict"),
+        ("fakenewsblog-xyz999.com", "Totally Different Co", False, "news verdict"),
+    ]
+    for domain, company, expect_valid, label in cases:
+        v = validate_domain(domain, company, "")
+        ok = v["valid"] == expect_valid
+        if not ok:
+            all_pass = False
+            print(f"  FAIL: {label} -> valid={v['valid']} expected {expect_valid} ({v['reason']})")
+        else:
+            print(f"  PASS: {label} -> valid={v['valid']} ({v['reason']})")
+
+    # Cleanup test cache entries (don't persist).
+    for k in ["fakerealco-xyz999.com", "fakeunknown-xyz999.com", "fakenewsblog-xyz999.com"]:
+        dc._cache.pop(k, None)
+
+    print(f"\nclassifier_conservative_branch: {'ALL PASS' if all_pass else 'FAILURES DETECTED'}")
+    return all_pass
+
+
 if __name__ == "__main__":
     r1 = test_validate_domain()
     r2 = test_names_are_similar()
     r3 = test_fuzzy_dedup()
     r4 = test_match_existing_company()
+    r5 = test_classifier_conservative_branch()
 
     print(f"\n{'='*50}")
-    print(f"OVERALL: {'ALL PASS' if all([r1, r2, r3, r4]) else 'FAILURES DETECTED'}")
+    print(f"OVERALL: {'ALL PASS' if all([r1, r2, r3, r4, r5]) else 'FAILURES DETECTED'}")
     print(f"{'='*50}")

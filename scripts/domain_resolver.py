@@ -188,27 +188,39 @@ def validate_domain(
     if domain_matches_company(d, company_name):
         return {"valid": True, "reason": "name matches domain", "confidence": "high"}
 
-    # LOW-confidence path: name mismatch. Ask classifier before accepting.
+    # LOW-confidence path: name mismatch. Classifier is the gate — only
+    # `real_company` verdicts pass. Anything else (blocked, unknown, error,
+    # missing key) rejects. Conservative default kills the band-aid surface
+    # where unrecognized news/legal/aggregator domains slipped through and
+    # forced manual BLOCKED_DOMAINS additions.
     try:
         from domain_classifier import classify_domain
         verdict = classify_domain(d)
-        if verdict.get("blocked"):
-            return {
-                "valid": False,
-                "reason": f"classifier rejected: {verdict.get('category')} ({verdict.get('source')})",
-                "confidence": "high",
-            }
-        if verdict.get("category") == "real_company":
-            return {
-                "valid": True,
-                "reason": f"classifier accepted as real_company ({verdict.get('confidence')})",
-                "confidence": "medium",
-            }
     except Exception as e:
-        # Classifier failure is non-fatal — fall through to legacy LOW accept
-        pass
+        return {
+            "valid": False,
+            "reason": f"classifier exception ({type(e).__name__}) — rejecting conservatively",
+            "confidence": "low",
+        }
 
-    return {"valid": True, "reason": "accepted (name mismatch — low confidence)", "confidence": "low"}
+    category = verdict.get("category", "unknown")
+    if category == "real_company":
+        return {
+            "valid": True,
+            "reason": f"classifier accepted as real_company ({verdict.get('confidence')})",
+            "confidence": "medium",
+        }
+    if verdict.get("blocked"):
+        return {
+            "valid": False,
+            "reason": f"classifier rejected: {category} ({verdict.get('source')})",
+            "confidence": "high",
+        }
+    return {
+        "valid": False,
+        "reason": f"classifier verdict={category} ({verdict.get('source')}) — not real_company, rejecting",
+        "confidence": "low",
+    }
 
 
 # ---------------------------------------------------------------------------
