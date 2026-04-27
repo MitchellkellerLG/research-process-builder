@@ -83,16 +83,18 @@ Current pipeline returns `not_found` when all 3 tiers fail. The agent fallback (
 - Watch for `Cross-day merged: N` log line — proof it's firing
 - Spot-check a merged row: source_count should reflect cumulative cross-day appearances
 
-### 5. Block list expansion from production data
-Run backfill audit weekly. Any new BAD_BLOCKED or BAD_SOURCE domains → add to domain_resolver.py BLOCKED_DOMAINS.
+### 5. Block list expansion from production data — DONE 2026-04-26 (offline pass)
 
-**Anneal approach:**
-- `py scripts/backfill_domains.py` (audit only, no fix)
-- Check SUSPECT list for patterns
-- Add new blocked domains
-- Re-run eval to confirm no regression
+**Shipped:**
+- Audited 7 backfill JSONs in `output/`. Found 7 candidate bad-domain patterns.
+- Added to NEWS_DOMAINS: `ai-market-watch.com`, `oled-info.com` (industry newsletters/aggregators)
+- New `LEGAL_SERVICES_DOMAINS` category added (law firms appearing in funding press as advisors): `gunder.com`, `wsgr.com`, `cooley.com`, `fenwick.com`, `lw.com`, `sidley.com`, `orrick.com`, `dlapiper.com`, `morganlewis.com`, `skadden.com`, `kirkland.com`, `morrisonforester.com`, `mofo.com`. Pre-loaded common funding-counsel domains beyond what backfill surfaced.
+- `anu.edu.au` already caught by EDU_PATTERN — no change needed.
+- 4 new test cases in `test_resolver_unit.py` (all pass).
 
-**Budget:** ~$0.50
+**Eval impact: 38/39 (97%) → 39/39 (100%).** gunder.com was the failing case.
+
+**Next pass:** re-run audit weekly against new backfill JSONs, append new bad domains.
 
 ### 6. Prompt annealing for GPT extraction
 The extraction prompt in `series_a_pipeline.py:get_extraction_prompt()` can be formally annealed using the anneal loop system.
@@ -139,7 +141,7 @@ py backfill_domains.py --fix --commit
 
 ## Success Criteria
 
-- eval_pipeline.py passes at 99%+ (currently 97%)
+- eval_pipeline.py passes at 99%+ (currently 100% as of 2026-04-26)
 - Ground truth expanded to 80+ companies
 - not_found rate < 10% on weekly pipeline runs
 - Zero wrong domains on any run
@@ -154,7 +156,7 @@ py backfill_domains.py --fix --commit
 | Reduce not_found (agent comparison) | $3.00 |
 | ~~Name extraction tightening~~ DONE | $0 (offline) |
 | ~~Cross-day dedup testing~~ DONE | $0 (offline) |
-| Block list expansion | $0.50 |
+| ~~Block list expansion~~ DONE | $0 (offline) |
 | Prompt annealing | $2.50 |
 | **Total** | **$7.50** |
 

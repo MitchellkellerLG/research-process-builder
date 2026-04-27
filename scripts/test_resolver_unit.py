@@ -18,6 +18,10 @@ def test_validate_domain():
         ("giotto.ai", "BLP Digital", ""),
         ("securitybrief.co", "Cloudsmith", ""),
         ("technews180.com", "Verda", ""),
+        ("gunder.com", "Resolve AI", ""),
+        ("ai-market-watch.com", "Alcatraz", ""),
+        ("oled-info.com", "BCDTek", ""),
+        ("anu.edu.au", "Syenta", ""),
         # Good domains should pass
     ]
 

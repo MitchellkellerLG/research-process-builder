@@ -57,6 +57,15 @@ NEWS_DOMAINS = {
     "investing.com", "technews180.com", "securitybrief.co.nz",
     "securitybrief.co", "statnews.com", "economictimes.com",
     "infomoney.com", "livemint.com", "moneycontrol.com",
+    "ai-market-watch.com", "oled-info.com",
+}
+
+LEGAL_SERVICES_DOMAINS = {
+    # Law firms / professional services that show up in funding press as advisors
+    "gunder.com", "wsgr.com", "cooley.com", "fenwick.com",
+    "lw.com", "sidley.com", "orrick.com", "dlapiper.com",
+    "morganlewis.com", "skadden.com", "kirkland.com",
+    "morrisonforester.com", "mofo.com",
 }
 
 SOCIAL_DOMAINS = {
@@ -93,6 +102,7 @@ SHORT_URL_DOMAINS = {
 BLOCKED_DOMAINS = (
     NEWS_DOMAINS | SOCIAL_DOMAINS | DATA_PLATFORM_DOMAINS
     | TRACKER_DOMAINS | CDN_DOMAINS | SHORT_URL_DOMAINS
+    | LEGAL_SERVICES_DOMAINS
 )
 
 CDN_PATTERNS = re.compile(
