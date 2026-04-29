@@ -24,25 +24,28 @@ import re
 
 from pipeline_base import ResearchPipeline
 from domain_resolver import fuzzy_dedup_companies, names_are_similar
+from confidence_scorer import score_confidence, ConfidenceLevel
 
 # ---------------------------------------------------------------------------
-# Query Definitions (validated 2026-04-20, 88% GT hit rate)
+# Query Definitions (last audited 2026-04-29 via query_audit.py — see data/query-audit-2026-04-29.md)
 # ---------------------------------------------------------------------------
 
+# Query set updated 2026-04-29: expanded from Series A-only to all valid funding rounds.
+# Site-specific queries: dropped round-type constraint (these sources only publish funding news).
+# Broad queries: removed "Series A" requirement, use funding announcement language instead.
+# TechCrunch kept specific — too noisy without round-type anchor.
 AGENT_A_QUERIES = [
-    {"id": "q3", "query": "site:thesaasnews.com Series A", "num": 30, "desc": "TheSaaSNews"},
-    {"id": "q4", "query": "site:finsmes.com Series A", "num": 30, "desc": "FinSMEs"},
+    {"id": "q3", "query": "site:thesaasnews.com funding", "num": 30, "desc": "TheSaaSNews"},
+    {"id": "q4", "query": "site:finsmes.com funding", "num": 30, "desc": "FinSMEs"},
     {"id": "q5", "query": "site:alleywatch.com funding report", "num": 10, "desc": "AlleyWatch"},
-    {"id": "q9", "query": "site:vcnewsdaily.com Series A", "num": 10, "desc": "VCNewsDaily"},
-    {"id": "q10", "query": "site:infotechlead.com venture capital funding", "num": 10, "desc": "InfotechLead"},
+    {"id": "qTC", "query": 'site:techcrunch.com funding round raises million', "num": 20, "desc": "TechCrunch"},
+    {"id": "q8", "query": 'startup funding round raises OR secures site:eu-startups.com OR site:tech.eu OR site:techround.co.uk', "num": 20, "desc": "European"},
 ]
 
 AGENT_B_QUERIES = [
-    {"id": "q1", "query": '"Series A" raises OR raised OR funding OR round million', "num": 30, "desc": "broad sweep"},
-    {"id": "q2", "query": '"Series A" announces OR secures OR closes OR completes funding', "num": 20, "desc": "announcement language"},
-    {"id": "q6", "query": '"Series A" site:businesswire.com OR site:prnewswire.com OR site:einpresswire.com', "num": 10, "desc": "press wires"},
-    {"id": "q7", "query": '"led the round" OR "led the Series A" OR "led a" Series A investment startup', "num": 20, "desc": "VC language"},
-    {"id": "q8", "query": '"Series A" startup funding site:eu-startups.com OR site:tech.eu OR site:techround.co.uk', "num": 10, "desc": "European"},
+    {"id": "q1", "query": 'startup raises OR raised funding round million 2026', "num": 30, "desc": "broad sweep"},
+    {"id": "q2", "query": 'funding round announces OR secures OR closes OR completes million startup', "num": 20, "desc": "announcement language"},
+    {"id": "q6", "query": 'funding round site:businesswire.com OR site:prnewswire.com OR site:einpresswire.com', "num": 10, "desc": "press wires"},
 ]
 
 # ---------------------------------------------------------------------------
@@ -56,15 +59,21 @@ VC_PATTERNS = re.compile(
     re.IGNORECASE
 )
 
-NON_SERIES_A = re.compile(
-    r'\b(Series\s+[B-Z]|Pre-Seed|pre-seed|Pre-IPO|IPO|Debt|Grant|'
-    r'acquisition|acquires|acquired|merger|SPAC|refinanc)',
+INVALID_ROUND = re.compile(
+    r'\b(Pre-IPO|IPO|Debt|Grant|acquisition|acquires|acquired|merger|SPAC|refinanc)',
     re.IGNORECASE
 )
 
-SOFT_NON_A = re.compile(r'\b(Seed|Growth)\b', re.IGNORECASE)
+FUNDING_ROUND_PATTERN = re.compile(
+    r'\b(Series\s+[A-Z](?:\s*[-+]\s*\d+)?|Seed|Pre-Seed|Growth|Bridge|'
+    r'raises?|raised|secures?|closes?|completes?)\b',
+    re.IGNORECASE
+)
 
-SERIES_A_PATTERN = re.compile(r'\bSeries\s+A\b', re.IGNORECASE)
+ROUND_TYPE_EXTRACT = re.compile(
+    r'\b(Series\s+[A-Z](?:\s*(?:Extension|[-+]\d+))?|Pre-Seed|Seed|Growth|Bridge)\b',
+    re.IGNORECASE
+)
 AMOUNT_PATTERN = re.compile(r'[\$\u20ac\u00a3\u00a5]\s*[\d,.]+\s*[MBmb](?:illion)?|\d+\s*(?:million|billion)', re.IGNORECASE)
 
 NOISE_PATTERNS = re.compile(
@@ -134,25 +143,21 @@ class SeriesAPipeline(ResearchPipeline):
                 filtered_out.append({"title": title[:80], "reason": "noise (report/listicle/filing)", "url": url})
                 continue
 
-            title_has_series_a = bool(SERIES_A_PATTERN.search(title))
-            title_has_hard_non_a = bool(NON_SERIES_A.search(title))
-            title_has_soft_non_a = bool(SOFT_NON_A.search(title))
-            has_series_a = bool(SERIES_A_PATTERN.search(combined))
-            has_hard_non_a = bool(NON_SERIES_A.search(combined))
+            title_has_invalid = bool(INVALID_ROUND.search(title))
+            has_invalid = bool(INVALID_ROUND.search(combined))
+            has_funding_signal = bool(FUNDING_ROUND_PATTERN.search(combined))
+            has_amount = bool(AMOUNT_PATTERN.search(combined))
 
-            if title_has_hard_non_a:
-                filtered_out.append({"title": title[:80], "reason": "non-Series A in title", "url": url})
+            if title_has_invalid:
+                filtered_out.append({"title": title[:80], "reason": "acquisition/IPO/debt/grant in title", "url": url})
                 continue
-            if title_has_soft_non_a and not title_has_series_a:
-                filtered_out.append({"title": title[:80], "reason": "Seed/Growth in title, no Series A", "url": url})
+            if has_invalid and not has_funding_signal:
+                filtered_out.append({"title": title[:80], "reason": "non-funding event detected", "url": url})
                 continue
-            if has_hard_non_a and not has_series_a:
-                filtered_out.append({"title": title[:80], "reason": "non-Series A round detected", "url": url})
-                continue
-            if not has_series_a and not re.search(
-                r'(?:raises?|raised|secures?|closes?)\s+[\$\u20ac\u00a3]', combined, re.IGNORECASE
+            if not has_funding_signal and not re.search(
+                r'(?:raises?|raised|secures?|closes?)\s+[$€£]', combined, re.IGNORECASE
             ):
-                filtered_out.append({"title": title[:80], "reason": "no Series A and no funding amount", "url": url})
+                filtered_out.append({"title": title[:80], "reason": "no funding round signal and no funding amount", "url": url})
                 continue
 
             survivors.append({"idx": i, **r})
@@ -181,12 +186,18 @@ class SeriesAPipeline(ResearchPipeline):
             if len(company) < 3 or len(company) > 60:
                 filtered_out.append({"title": title[:80], "reason": "GPT name length out of range", "url": url})
                 continue
+            if re.match(r"^(we'?re|we are|i'?m|excited|proud|thrilled|delighted|happy|pleased)\b", company, re.IGNORECASE):
+                filtered_out.append({"title": title[:80], "reason": "GPT returned social post phrase as company name", "url": url})
+                continue
+            if re.search(r"\bstartup\b", company, re.IGNORECASE):
+                filtered_out.append({"title": title[:80], "reason": f"GPT name contains 'startup' — likely a headline: {company[:50]}", "url": url})
+                continue
             if VC_PATTERNS.search(company):
-                # GPT instructed not to return investors, but flag for downstream review
-                pass
+                filtered_out.append({"title": title[:80], "reason": f"GPT name matches VC/fund pattern: {company[:50]}", "url": url})
+                continue
 
-            has_series_a_combined = bool(SERIES_A_PATTERN.search(combined))
-            needs_disambiguation = bool(VC_PATTERNS.search(company))
+            round_match = ROUND_TYPE_EXTRACT.search(combined)
+            detected_round_type = round_match.group(0).title() if round_match else "Unknown"
 
             amount_match = AMOUNT_PATTERN.search(combined)
             amount = amount_match.group(0) if amount_match else ""
@@ -207,7 +218,7 @@ class SeriesAPipeline(ResearchPipeline):
                 data_completeness += 1
             if amount:
                 data_completeness += 1
-            if has_series_a_combined:
+            if round_match:
                 data_completeness += 1
             if re.search(r'(?:led by|investors?|participated)', combined, re.IGNORECASE):
                 data_completeness += 1
@@ -222,8 +233,7 @@ class SeriesAPipeline(ResearchPipeline):
                     "company_name": company.strip(),
                     "company_name_normalized": norm,
                     "amount": amount,
-                    "round_type": "Series A" if has_series_a_combined else "Unknown",
-                    "needs_disambiguation": needs_disambiguation,
+                    "round_type": detected_round_type,
                     "sources": [],
                     "best_score": 0,
                     "best_source_url": "",
@@ -235,6 +245,7 @@ class SeriesAPipeline(ResearchPipeline):
                 "score": score,
                 "query_source": r.get("query_source", ""),
                 "title": title[:100],
+                "snippet": snippet[:200],
             })
 
             if score > candidates[norm]["best_score"]:
@@ -242,6 +253,18 @@ class SeriesAPipeline(ResearchPipeline):
                 candidates[norm]["best_source_url"] = url
                 if amount and not candidates[norm]["amount"]:
                     candidates[norm]["amount"] = amount
+
+        # Confidence scoring — uses best source title/snippet/domain
+        for c in candidates.values():
+            best_src = max(c["sources"], key=lambda s: s["score"])
+            signals = score_confidence(
+                c["company_name"],
+                best_src.get("title", ""),
+                best_src.get("snippet", ""),
+                best_src.get("domain", ""),
+            )
+            c["confidence"] = signals.composite.value
+            c["confidence_reasons"] = signals.reasons
 
         # Sort by score descending
         companies = sorted(candidates.values(), key=lambda x: x["best_score"], reverse=True)
@@ -254,10 +277,9 @@ class SeriesAPipeline(ResearchPipeline):
 
         print(f"\n  Stage 2: {len(raw_results)} raw -> {len(companies)} companies (filtered {len(filtered_out)})")
         for c in companies:
-            flag = " [VC?]" if c["needs_disambiguation"] else ""
             amt = (c['amount'] or '?').encode('ascii', 'replace').decode()
             name = c['company_name'].encode('ascii', 'replace').decode()
-            print(f"    {name}{flag} - {amt} - score {c['best_score']} - {len(c['sources'])} sources")
+            print(f"    {name} - {amt} - score {c['best_score']} - {len(c['sources'])} sources")
 
         return {
             "companies": companies,
@@ -274,7 +296,7 @@ class SeriesAPipeline(ResearchPipeline):
     def get_extraction_prompt(self, article_text: str, company_hint: str, amount_hint: str) -> list[dict]:
         return [
             {"role": "system", "content": "You extract structured funding data from articles. Return valid JSON only, no markdown fences, no explanation."},
-            {"role": "user", "content": f"""Extract Series A funding data from this article.
+            {"role": "user", "content": f"""Extract funding round data from this article.
 
 Company hint: {company_hint}
 Amount hint: {amount_hint}
@@ -291,7 +313,7 @@ Rules:
 - amount_raised = exact amount with currency symbol (e.g. "$15M", "EUR10M", "KRW 90B")
 - lead_investors = who led the round, comma-separated. "not_stated" if unknown
 - round_reasoning = why they raised / what funds are for, 1-2 sentences. "not_stated" if unknown
-- If this is NOT actually a Series A funding announcement, set company_name to "NOT_SERIES_A"
+- If this is NOT a funding announcement (e.g. earnings, acquisition, job post), set company_name to "NOT_FUNDING_EVENT"
 
 CRITICAL — company_domain must be the company's OWN website. NEVER return:
 - The article source domain (e.g. infomoney.com, thesaasnews.com, finsmes.com)
@@ -305,7 +327,7 @@ If you cannot find the company's actual website in the article, return "not_stat
 
     def post_extract_filter(self, extracted: dict) -> bool:
         """Filter out results GPT identifies as not Series A."""
-        if extracted.get("company_name") == "NOT_SERIES_A":
+        if extracted.get("company_name") in ("NOT_SERIES_A", "NOT_FUNDING_EVENT"):
             return False
         return True
 
@@ -316,13 +338,14 @@ If you cannot find the company's actual website in the article, return "not_stat
             "company_name": extracted.get("company_name", company["company_name"]) if extracted else company["company_name"],
             "company_domain": domain,
             "amount_raised": extracted.get("amount_raised", company.get("amount", "")) if extracted else company.get("amount", ""),
-            "round_type": company.get("round_type", "Series A"),
+            "round_type": company.get("round_type", "Unknown"),
             "source_url": source_url,
             "lead_investors": extracted.get("lead_investors", "not_stated") if extracted else "not_stated",
             "round_reasoning": extracted.get("round_reasoning", "not_stated") if extracted else "not_stated",
             "source_count": len(company["sources"]),
             "score": company["best_score"],
             "discovered_by": ",".join(set(s["query_source"] for s in company["sources"])),
+            "confidence": company.get("confidence", "medium"),
         }
 
     def build_skip_enrich_record(self, company: dict) -> dict:
@@ -330,13 +353,14 @@ If you cannot find the company's actual website in the article, return "not_stat
             "company_name": company["company_name"],
             "company_domain": "not_enriched",
             "amount_raised": company.get("amount", ""),
-            "round_type": company.get("round_type", "Series A"),
+            "round_type": company.get("round_type", "Unknown"),
             "source_url": company["best_source_url"],
             "lead_investors": "not_enriched",
             "round_reasoning": "not_enriched",
             "source_count": len(company["sources"]),
             "score": company["best_score"],
             "discovered_by": ",".join(set(s["query_source"] for s in company["sources"])),
+            "confidence": company.get("confidence", "medium"),
         }
 
     # --- Supabase schema ---

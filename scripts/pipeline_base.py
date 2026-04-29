@@ -409,7 +409,30 @@ class ResearchPipeline:
             industry=industry,
             use_agent_fallback=getattr(self, '_use_domain_agent', False),
         )
+        self._log_domain_resolution(company_name, source_url, result)
         return result["domain"]
+
+    def _log_domain_resolution(self, company_name: str, source_url: str, result: dict) -> None:
+        """Append one resolution record to data/domain_resolution_log.jsonl."""
+        try:
+            log_path = Path(__file__).resolve().parent.parent / "data" / "domain_resolution_log.jsonl"
+            log_path.parent.mkdir(parents=True, exist_ok=True)
+            entry = {
+                "ts": datetime.utcnow().isoformat() + "Z",
+                "run_date": getattr(self, '_run_date', datetime.utcnow().strftime("%Y-%m-%d")),
+                "company_name": company_name,
+                "source_url": source_url,
+                "domain": result.get("domain", ""),
+                "tier": result.get("tier"),
+                "tier_name": result.get("tier_name", ""),
+                "confidence": result.get("confidence", ""),
+                "evidence": result.get("evidence", ""),
+                "failed": result.get("domain", "") in ("", "not_found"),
+            }
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        except Exception:
+            pass  # never let logging break the pipeline
 
     def post_extract_filter(self, extracted: dict) -> bool:
         """Return True to KEEP the record, False to filter it out. Override in subclass."""
@@ -627,23 +650,36 @@ class ResearchPipeline:
 
         print(f"  Master CSV: {master_path} (appended {len(enriched)} rows)")
 
-        # Supabase upsert
+        # Confidence gate: split before Supabase write
+        high_medium = [r for r in enriched if r.get("confidence", "medium") in ("high", "medium")]
+        low_conf = [r for r in enriched if r.get("confidence", "medium") == "low"]
+        if low_conf:
+            print(f"\n  Confidence gate: dropped {len(low_conf)} LOW-confidence records")
+            for r in low_conf:
+                print(f"    DROP: {r.get('company_name', '?')} ({r.get('confidence', '?')})")
+        review_records = [r for r in enriched if r.get("confidence", "medium") == "medium"]
+        if review_records:
+            review_path = OUTPUT_DIR / f"review-{date_str}.json"
+            review_path.write_text(json.dumps(review_records, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"  Review queue: {len(review_records)} MEDIUM-confidence records -> {review_path}")
+
+        # Supabase upsert (high + medium only)
         if SUPABASE_URL and SUPABASE_KEY:
             if self.check_supabase_table():
                 print(f"\n  Pushing to Supabase...")
-                upserted = self.push_to_supabase(enriched, date_str)
-                print(f"  Supabase: {upserted}/{len(enriched)} rows upserted")
+                upserted = self.push_to_supabase(high_medium, date_str)
+                print(f"  Supabase: {upserted}/{len(high_medium)} rows upserted")
             else:
                 print(f"\n  Supabase: table '{self.SUPABASE_TABLE}' not found")
                 self.create_supabase_table()
         else:
             print(f"\n  Supabase: SKIPPED (no SUPABASE_URL/SUPABASE_KEY)")
 
-        # Webhook push (Clay, Zapier, etc.)
+        # Webhook push (Clay, Zapier, etc.) — high + medium only
         if self.WEBHOOK_URL:
             print(f"\n  Pushing to webhook...")
-            sent = self.push_to_webhook(enriched, date_str)
-            print(f"  Webhook: {sent}/{len(enriched)} rows sent")
+            sent = self.push_to_webhook(high_medium, date_str)
+            print(f"  Webhook: {sent}/{len(high_medium)} rows sent")
 
         return csv_path, json_path
 
@@ -896,6 +932,7 @@ class ResearchPipeline:
             date_str = args.date if hasattr(args, 'date') and args.date else datetime.now().strftime("%Y-%m-%d")
 
         self._use_domain_agent = getattr(args, 'domain_agent', False)
+        self._run_date = date_str
 
         STAGE_DIR.mkdir(parents=True, exist_ok=True)
 
