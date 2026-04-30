@@ -1,0 +1,92 @@
+{
+  "description": "Best-known configuration snapshot. Auto-research loop should load this as starting point. Updated after deploy-skill iter1 (2026-04-29).",
+  "source_baseline": "post-deploy-skill-iter1",
+  "source_date": "2026-04-29",
+  "overall_gt_mean": 0.4479,
+  "best_variants_by_category": {
+    "company_profile": {
+      "best_variant": "ch5_about_overview",
+      "gt_avg": 0.587,
+      "notes": "deploy_crunchbase_profile (0.366) adds diversity but not category leader. ch1_structured (0.525) is solid backup."
+    },
+    "funding_financial": {
+      "best_variant": "runner_cat_funding",
+      "gt_avg": 0.667,
+      "notes": "Category-qualified funding query. domain_anchored hit 1.0 on n=1 - needs more testing."
+    },
+    "competitor_identification": {
+      "best_variant": "runner_competitors",
+      "gt_avg": 0.517,
+      "notes": "alternatives_to, vs_format, direct, domain_competitors, with_category all hit 1.0 on n=1. Need full-set testing."
+    },
+    "tech_stack": {
+      "best_variant": "ch2_jobs_tech",
+      "gt_avg": 0.269,
+      "notes": "deploy_jobs_tech_stack (0.265) matches via ATS sites. stackshare (0.125) and builtwith (0.147) confirmed dead via SERP. SERP-capped category - Spider page visits needed for >0.3."
+    },
+    "leadership_people": {
+      "best_variant": "best_ceo_founder",
+      "gt_avg": 1.0,
+      "notes": "Solved. Don't touch."
+    },
+    "customer_case_studies": {
+      "best_variant": "cs_site_stories",
+      "gt_avg": 0.214,
+      "notes": "G2 reviews (0.084), TrustRadius (0.092), site:domain customers (0.097) all confirmed dead via SERP. Case studies are gated behind forms - SERP can't reach them. Spider page visits needed."
+    },
+    "pricing_intelligence": {
+      "best_variant": "best_pricing",
+      "gt_avg": 0.651,
+      "notes": "Simple query dominates. discount/per_seat/pricing_page/with_category all hit 1.0 on n=1 - promising but need full testing."
+    },
+    "partnerships_integrations": {
+      "best_variant": "ch4_api_docs",
+      "gt_avg": 0.270,
+      "notes": "zapier.com (0.096) and site:domain integrations (0.022) confirmed dead via SERP. SERP-capped. Spider needed."
+    },
+    "founders_ceo": {
+      "best_variant": "runner_founded_by",
+      "gt_avg": 0.774,
+      "notes": "Quoted 'founded by' dominates. LinkedIn fallback (0.02) still dead."
+    },
+    "c_suite_technical": {
+      "best_variant": "deploy_question_cto",
+      "gt_avg": 0.857,
+      "notes": "NEW BEST. 'Who is the CTO of X' triggers knowledge panels. Massive jump from 0.524 (best_full_title). theorg (0.143) and crunchbase (0.143) dead for this category."
+    },
+    "c_suite_commercial": {
+      "best_variant": "ch8_exact_roles",
+      "gt_avg": 0.643,
+      "notes": "deploy_theorg_commercial (0.432) adds diversity. Question format CMO (0.282) weaker than theorg for commercial roles."
+    }
+  },
+  "dead_end_patterns": [
+    "site:linkedin.com for executive names (0.0-0.02 GT consistently)",
+    "site:zoominfo.com for CTO/technical roles (0.071 GT)",
+    "company_profile/combo_domain_about - 'site:domain about' returns generic pages (0.047 GT)",
+    "customer_case_studies via G2/TrustRadius SERP snippets - all below 0.1 GT",
+    "site:zapier.com for partnerships (0.096 GT)",
+    "site:domain integrations/customers pages via SERP (0.022-0.097 GT)",
+    "site:stackshare.io and site:builtwith.com via SERP (0.125-0.147 GT)",
+    "site:pitchbook.com for company profiles (0.074 GT)",
+    "c_suite_commercial/combo_broader_chief - over-broadened 'chief' queries (0.05 GT)",
+    "Category-qualified pricing queries - adding category hurts pricing search"
+  ],
+  "confirmed_winners_from_deploy_iter1": [
+    "deploy_question_cto: 0.857 GT — 'who is the CTO of X' triggers knowledge panels",
+    "deploy_theorg_commercial: 0.432 GT — theorg.com works for commercial C-suite",
+    "deploy_crunchbase_profile: 0.366 GT — crunchbase structured data for company profiles",
+    "deploy_jobs_tech_stack: 0.265 GT — ATS site targeting for tech stack"
+  ],
+  "promising_untested": [
+    "'Who is the CMO/CFO/COO of {{company_name}}' - question format worked for CTO (0.857), untested for other roles at scale",
+    "Temporal anchoring ('appointed' OR 'named' + current_year) for all people categories",
+    "Spider page visits for SERP-capped categories (tech_stack, partnerships, customer_case_studies)"
+  ],
+  "cost_limits": {
+    "per_iteration_queries": 75,
+    "per_session_budget_usd": 0.25,
+    "test_new_variants_on_5_companies_first": true,
+    "prune_below_gt": 0.15
+  }
+}
