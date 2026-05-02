@@ -8,7 +8,7 @@ import type {
 } from "./types.js";
 import { runDiscovery } from "./serper.js";
 import { fetchUrl } from "./spider.js";
-import { extractWithOpenAI } from "./openai.js";
+import { extractWithOpenAI, validateDomainSemantic } from "./openai.js";
 import { scoreAndFilter } from "./filters.js";
 import { isSupabaseConfigured, checkTable, pushToSupabase, getRecentCompanyNames } from "./supabase.js";
 import { pushToWebhook } from "./webhook.js";
@@ -251,6 +251,32 @@ async function enrichOneCompany(
     const result = await lookupDomainMultiSignal(company.company_name, clues, sourceUrl);
     domain = result.domain;
     domainSource = result.source;
+  }
+
+  if (domain !== "not_found" && articleText) {
+    const vresult = await validateDomainSemantic(sourceUrl, company.company_name, domain, articleText);
+    const vstatus = vresult.status;
+
+    if (vstatus === "Wrong") {
+      const corrected = vresult.correctDomain?.trim() ?? "";
+      if (corrected && corrected !== "not_found" && corrected !== "not_stated" && !isDomainBlocked(corrected)) {
+        logger.info(`Semantic: corrected ${domain} -> ${corrected} (${vresult.reason})`);
+        domain = corrected;
+        domainSource = "semantic_validation";
+        if (vresult.correctCompanyName && vresult.correctCompanyName !== company.company_name) {
+          company = { ...company, company_name: vresult.correctCompanyName };
+        }
+      } else {
+        logger.info(`Semantic: rejected ${domain}, no valid correction (${vresult.reason})`);
+        domain = "not_found";
+        domainSource = "semantic_rejected";
+      }
+    } else if (vstatus === "Unclear") {
+      logger.info(`Semantic: unclear (${vresult.reason}) — demoting confidence`);
+      company = { ...company, confidence: "low" };
+    } else {
+      logger.info(`Semantic: correct`);
+    }
   }
 
   logger.info(`${company.company_name} → ${domain} (${domainSource})`);
