@@ -521,6 +521,93 @@ class ResearchPipeline:
         result = re.sub(r'\n{3,}', '\n\n', result).strip()
         return result
 
+    def validate_domain_semantic(
+        self,
+        source_url: str,
+        company_name: str,
+        domain: str,
+        raw_article_text: str,
+    ) -> dict:
+        """
+        Post-resolution semantic validation via LLM.
+
+        Uses the raw (uncleaned) article text so hyperlinks are preserved —
+        a hyperlinked company name in the article is the strongest possible
+        signal for the correct domain.
+
+        Returns: {"correctCompanyName": str, "correctDomain": str,
+                  "status": "Correct"|"Wrong"|"Unclear", "reason": str}
+        """
+        if not OPENAI_API_KEY or not raw_article_text:
+            return {"status": "Unclear", "reason": "no API key or article text", "correctCompanyName": company_name, "correctDomain": domain}
+
+        system_prompt = (
+            "You are a company domain verification agent. You are given a CANDIDATE domain to verify — "
+            "it may be correct or wrong. Your job: find the TRUE domain, then compare.\n\n"
+            "Step 1 — Find the true domain from the article:\n"
+            "  a) Is the company name a markdown hyperlink like [Company](https://example.com)?\n"
+            "     YES → that hyperlinked URL is the true domain. Stop here.\n"
+            "  b) Is there a URL in the article that belongs to the company itself (not a news site, not social media)?\n"
+            "     YES → that is the true domain.\n"
+            "  c) Neither → the article does not contain a verifiable domain.\n\n"
+            "Step 2 — Validate the CANDIDATE domain from the article context:\n"
+            "  A candidate is VALID only if ALL of these hold:\n"
+            "  - Belongs to the company that raised funding (not a news site, CDN, investor, or social platform)\n"
+            "  - Product/service described on that site matches the article\n"
+            "  - Industry matches\n"
+            "  - Geography matches (if stated)\n"
+            "  NEVER accept a news/media domain as the company's domain.\n\n"
+            "Step 3 — Set status:\n"
+            "  - If true domain found AND it EXACTLY matches the candidate → status = 'Correct'\n"
+            "  - If true domain found AND it DIFFERS from the candidate → status = 'Wrong', set correctDomain\n"
+            "  - If no true domain found in article AND candidate passes Step 2 validation → status = 'Correct'\n"
+            "  - If no true domain found AND candidate fails validation → status = 'Unclear'\n"
+            "  - If you cannot confidently determine anything → status = 'Unclear', DO NOT GUESS\n\n"
+            "Rules:\n"
+            "  - NEVER guess a domain not explicitly in the article\n"
+            "  - NEVER default to company-name.com as a guess\n"
+            "  - News/media sites (techcrunch.com, finsmes.com, etc.) are NEVER the company domain\n\n"
+            'Output ONLY valid JSON:\n'
+            '{"correctCompanyName": "", "correctDomain": "", "status": "Correct / Wrong / Unclear", "reason": ""}\n\n'
+            "reason: max 2 short sentences explaining your decision."
+        )
+
+        user_msg = (
+            f"source_url: {source_url}\n"
+            f"company_name: {company_name}\n"
+            f"domain: {domain}\n\n"
+            f"Article text:\n{raw_article_text[:8000]}"
+        )
+
+        try:
+            resp = requests.post(
+                "https://api.openai.com/v1/chat/completions",
+                headers={"Authorization": f"Bearer {OPENAI_API_KEY}", "Content-Type": "application/json"},
+                json={
+                    "model": "gpt-4o-mini",
+                    "temperature": 0,
+                    "max_tokens": 200,
+                    "messages": [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_msg},
+                    ],
+                },
+                timeout=25,
+            )
+            if resp.status_code == 200:
+                content = resp.json()["choices"][0]["message"]["content"].strip()
+                m = re.search(r"\{[\s\S]*\}", content)
+                if m:
+                    result = json.loads(m.group(0))
+                    # Normalize correctDomain to bare domain (GPT sometimes returns full URLs)
+                    if result.get("correctDomain"):
+                        result["correctDomain"] = _normalize_domain_resolver(result["correctDomain"])
+                    return result
+        except Exception as e:
+            print(f"    [WARN] Semantic validation error: {e}")
+
+        return {"status": "Unclear", "reason": "validation call failed", "correctCompanyName": company_name, "correctDomain": domain}
+
     def enrich_companies(self, scored: dict) -> list[dict]:
         """Stage 3: Scrape, extract, and enrich each company."""
         companies = scored["companies"]
@@ -530,23 +617,24 @@ class ResearchPipeline:
             name = company["company_name"]
             print(f"\n  [{i+1}/{len(companies)}] Enriching: {name}")
 
-            # Scrape best source
+            # Scrape best source — keep raw text for semantic validation (hyperlinks intact)
+            raw_article_text = None
             article_text = None
             source_url = company["best_source_url"]
             if source_url:
                 print(f"    Scraping {source_url[:80]}...")
-                article_text = self.fetch_url(source_url)
-                if article_text:
-                    raw_len = len(article_text)
-                    article_text = self.clean_article_content(article_text)
+                raw_article_text = self.fetch_url(source_url)
+                if raw_article_text:
+                    raw_len = len(raw_article_text)
+                    article_text = self.clean_article_content(raw_article_text)
                     print(f"    Got {raw_len} chars, cleaned to {len(article_text)}")
                 else:
                     print(f"    Scrape failed, trying next source...")
                     for src in company["sources"]:
                         if src["url"] != source_url:
-                            article_text = self.fetch_url(src["url"])
-                            if article_text:
-                                article_text = self.clean_article_content(article_text)
+                            raw_article_text = self.fetch_url(src["url"])
+                            if raw_article_text:
+                                article_text = self.clean_article_content(raw_article_text)
                                 source_url = src["url"]
                                 print(f"    Fallback worked: {src['url'][:80]}")
                                 break
@@ -577,6 +665,35 @@ class ResearchPipeline:
             if domain == "not_found":
                 print(f"    Running domain resolver...")
                 domain = self.lookup_domain(name, source_url, article_text, industry)
+
+            # Semantic validation — uses raw text so hyperlinks are preserved
+            if domain != "not_found" and raw_article_text:
+                vresult = self.validate_domain_semantic(source_url, name, domain, raw_article_text)
+                vstatus = vresult.get("status", "Unclear")
+                if vstatus == "Wrong":
+                    corrected = (vresult.get("correctDomain") or "").strip()
+                    if corrected and corrected not in ("", "not_found", "not_stated"):
+                        cv = validate_domain(corrected, name, source_domain)
+                        if cv["valid"]:
+                            print(f"    Semantic: corrected {domain} -> {corrected} ({vresult.get('reason', '')})")
+                            domain = corrected
+                            corrected_name = (vresult.get("correctCompanyName") or "").strip()
+                            if corrected_name and corrected_name != name:
+                                company = dict(company)
+                                company["company_name"] = corrected_name
+                                name = corrected_name
+                        else:
+                            print(f"    Semantic: corrected domain {corrected} failed structural validation — marking not_found")
+                            domain = "not_found"
+                    else:
+                        print(f"    Semantic: domain rejected, no correction available ({vresult.get('reason', '')})")
+                        domain = "not_found"
+                elif vstatus == "Unclear":
+                    print(f"    Semantic: unclear ({vresult.get('reason', '')}) — demoting to low confidence")
+                    company = dict(company)
+                    company["confidence"] = "low"
+                else:
+                    print(f"    Semantic: correct ✓")
 
             record = self.build_enriched_record(company, extracted, domain, source_url)
             enriched.append(record)
