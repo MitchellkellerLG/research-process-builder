@@ -231,6 +231,10 @@
         {
           "id": "ch6_linkedin_about",
           "template": "site:linkedin.com/company/{{company_name}}"
+        },
+        {
+          "id": "deploy_crunchbase_profile",
+          "template": "site:crunchbase.com {{company_name}} \"founded\" OR \"employees\" OR \"headquarters\""
         }
       ]
     },
@@ -469,6 +473,10 @@
         {
           "id": "ch3_eng_hiring",
           "template": "{{company_name}} engineer requirements \"experience with\" OR \"proficiency in\""
+        },
+        {
+          "id": "deploy_jobs_tech_stack",
+          "template": "{{company_name}} jobs \"experience with\" Python OR React OR AWS OR Kubernetes site:lever.co OR site:greenhouse.io OR site:ashbyhq.com"
         }
       ]
     },
@@ -523,7 +531,7 @@
         {
           "id": "ch9_customer_spotlight",
           "template": "{{company_name}} \"customer spotlight\" OR \"customer story\" OR \"case study\" {{category}}"
-        }
+        },
       ]
     },
     {
@@ -577,7 +585,7 @@
         {
           "id": "ch6_ecosystem_named",
           "template": "{{company_name}} integrates Salesforce OR HubSpot OR Slack OR Google OR Microsoft OR Stripe"
-        }
+        },
       ]
     },
     {
@@ -749,6 +757,10 @@
         {
           "id": "ch6_cto_name",
           "template": "{{company_name}} CTO name OR who OR profile"
+        },
+        {
+          "id": "deploy_question_cto",
+          "template": "who is the CTO of {{company_name}}"
         }
       ]
     },
@@ -781,6 +793,10 @@
         {
           "id": "ch8_exact_roles",
           "template": "{{company_name}} \"Chief Marketing Officer\" OR \"Chief Revenue Officer\" OR \"Chief Financial Officer\""
+        },
+        {
+          "id": "deploy_theorg_commercial",
+          "template": "site:theorg.com {{company_name}} CMO OR CFO OR CRO OR COO"
         }
       ]
     },

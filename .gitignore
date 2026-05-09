@@ -13,6 +13,19 @@ output/
 # Monitor worktrees (isolated orphan branches)
 monitors/
 
+# Node
+node_modules/
+
+# Trigger.dev local cache
+.trigger/
+
+# Claude Code agent context (auto-generated)
+.claude/agent-context/
+.claude/scheduled_tasks.lock
+
+# Supabase temp
+trigger/supabase/.temp/
+
 # OS
 .DS_Store
 Thumbs.db

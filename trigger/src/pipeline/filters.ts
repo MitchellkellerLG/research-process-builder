@@ -13,6 +13,12 @@ const VC_PATTERNS =
 const AMOUNT_PATTERN =
   /[$€£¥]\s*[\d,.]+\s*[MBmb](?:illion)?|\d+\s*(?:million|billion)/i;
 
+const SOCIAL_DOMAINS = new Set([
+  "whatsapp.com", "whatsapp.net", "t.me", "telegram.me", "telegram.org",
+  "twitter.com", "x.com", "instagram.com", "facebook.com",
+  "tiktok.com", "snapchat.com",
+]);
+
 const TIER_S_DOMAINS = new Set([
   "thesaasnews.com",
   "finsmes.com",
@@ -195,7 +201,8 @@ export function scoreAndFilter(rawResults: RawResult[], config: RoundConfig): St
     const amount = amountMatch ? amountMatch[0] : "";
 
     let sourceQuality: number;
-    if (TIER_S_DOMAINS.has(domain)) sourceQuality = 4;
+    if (SOCIAL_DOMAINS.has(domain)) sourceQuality = 0;
+    else if (TIER_S_DOMAINS.has(domain)) sourceQuality = 4;
     else if (TIER_A_DOMAINS.has(domain)) sourceQuality = 5;
     else if (domain.includes("crunchbase") || domain.includes("techcrunch"))
       sourceQuality = 3;

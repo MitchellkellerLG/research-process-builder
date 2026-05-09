@@ -1,0 +1,159 @@
+{
+  "date_range": "2026-05-02 to 2026-05-04",
+  "sources": ["TechCrunch", "Hacker News", "direct company blogs"],
+  "products": [
+    {
+      "company_name": "DoorDash",
+      "company_domain": "doordash.com",
+      "product_name": "DoorDash Merchant AI Suite",
+      "launch_type": "new_feature",
+      "is_ai": true,
+      "source_url": "https://techcrunch.com/2026/05/04/doordash-adds-ai-tools-to-speed-up-merchant-onboarding-edit-photos-of-dishes/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-04",
+      "description": "AI tools for restaurant merchants: automated onboarding, AI photo retouching, video library, website builder, marketing automation.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Ouster",
+      "company_domain": "ouster.com",
+      "product_name": "Ouster Rev8",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "source_url": "https://techcrunch.com/2026/05/04/ousters-new-color-lidar-is-coming-to-replace-cameras/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-04",
+      "description": "New color lidar sensor family combining depth sensing and color imaging. SPAD detector, 48-bit color, 500m detection range.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Acorn / Blacksky",
+      "company_domain": "blacksky.community",
+      "product_name": "Acorn",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "source_url": "https://techcrunch.com/2026/05/04/as-x-shuts-down-communities-acorn-debuts-an-alternative-that-puts-creators-in-control/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-04",
+      "description": "Decentralized community-building platform on AT Protocol. Custom domains, moderation, starter packs, reputation systems.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Amazon",
+      "company_domain": "amazon.com",
+      "product_name": "Amazon Supply Chain Services",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "source_url": "https://techcrunch.com/2026/05/04/amazon-opens-up-its-global-logistics-network-to-all-businesses/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-04",
+      "description": "Amazon opened freight, distribution, fulfillment, and parcel shipping to any business. Competes with UPS/FedEx.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Anthropic",
+      "company_domain": "anthropic.com",
+      "product_name": "Anthropic Enterprise AI Joint Venture",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "source_url": "https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-04",
+      "description": "$1.5B JV with PE firms to deploy enterprise AI via forward-deployed engineers.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "OpenAI",
+      "company_domain": "openai.com",
+      "product_name": "The Development Company",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "source_url": "https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-04",
+      "description": "$10B enterprise AI JV with TPG, Brookfield, Advent, Bain Capital.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Airbyte",
+      "company_domain": "airbyte.com",
+      "product_name": "Airbyte Agents",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "source_url": "https://airbyte.com/blog/airbyte-agents",
+      "source_name": "Hacker News",
+      "announcement_date": "2026-05-04",
+      "description": "Context layer for AI agents. Context Store, Agent MCP, Agent SDK, Automations builder. 40% fewer tool calls, 90% fewer tokens.",
+      "on_product_hunt": true
+    },
+    {
+      "company_name": "Retroguard",
+      "company_domain": "retroguard.ai",
+      "product_name": "Retroguard",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "source_url": "https://retroguard.ai",
+      "source_name": "Hacker News",
+      "announcement_date": "2026-05-04",
+      "description": "Cryptographically verifiable AI guardrails in AWS Nitro Enclaves. Blocks PII leaks, jailbreaks, prompt injections.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Xteink",
+      "company_domain": "xteink.com",
+      "product_name": "Xteink X3",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "source_url": "https://techcrunch.com/2026/05/03/xteink-x3-review-tiny-magnetic-ereader/",
+      "source_name": "TechCrunch",
+      "announcement_date": "2026-05-03",
+      "description": "3.7-inch MagSafe-compatible e-ink reader that attaches to iPhone. $80.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Bruin Data",
+      "company_domain": "github.com/bruin-data/dac",
+      "product_name": "DAC",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "source_url": "https://github.com/bruin-data/dac",
+      "source_name": "Hacker News",
+      "announcement_date": "2026-05-04",
+      "description": "Open-source dashboard-as-code for agents and humans. Define dashboards in code, version in git.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Orch8",
+      "company_domain": "github.com/orch8-io/engine",
+      "product_name": "Orch8",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "source_url": "https://github.com/orch8-io/engine",
+      "source_name": "Hacker News",
+      "announcement_date": "2026-05-04",
+      "description": "Durable workflow engine in Rust. Single binary, Postgres or SQLite.",
+      "on_product_hunt": false
+    },
+    {
+      "company_name": "Brainio",
+      "company_domain": "brainio.com",
+      "product_name": "Brainio",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "source_url": "https://brainio.com",
+      "source_name": "Hacker News",
+      "announcement_date": "2026-05-03",
+      "description": "Note-taking app that auto-converts notes into visual mind maps via AI.",
+      "on_product_hunt": false
+    }
+  ],
+  "summary": {
+    "total": 12,
+    "new_products": 11,
+    "new_features": 1,
+    "ai_related": 7,
+    "non_ai": 5,
+    "also_on_product_hunt": 1,
+    "sources_checked": ["TechCrunch", "Hacker News", "VentureBeat (429)", "The Verge (blocked)"]
+  }
+}

@@ -94,6 +94,46 @@ export async function getRecentCompanyNames(
   }
 }
 
+const UNKNOWN_DOMAINS = new Set(["not_found", "not_stated", "not_enriched", ""]);
+const UNKNOWN_ROUNDS = new Set(["Unknown", "not_stated", "not_enriched", ""]);
+
+async function isDomainSeenRecently(
+  domain: string,
+  roundType: string,
+  tableName: string,
+  lookbackDays = 90
+): Promise<boolean> {
+  if (!domain || UNKNOWN_DOMAINS.has(domain)) return false;
+  if (!SUPABASE_URL || !SUPABASE_KEY) return false;
+
+  const since = new Date();
+  since.setDate(since.getDate() - lookbackDays);
+  const sinceStr = since.toISOString().split("T")[0];
+
+  try {
+    const resp = await fetch(
+      `${SUPABASE_URL}/rest/v1/${tableName}?company_domain=eq.${encodeURIComponent(domain)}&discovered_date=gte.${sinceStr}&select=round_type,discovered_date&limit=10`,
+      { headers: headers(), signal: AbortSignal.timeout(10_000) }
+    );
+    if (!resp.ok) return false;
+    const rows: { round_type: string }[] = await resp.json();
+    if (rows.length === 0) return false;
+
+    const newRound = (roundType ?? "Unknown").trim();
+    for (const row of rows) {
+      const existingRound = (row.round_type ?? "Unknown").trim();
+      // Both known and different → new raise event, not a dup
+      if (!UNKNOWN_ROUNDS.has(existingRound) && !UNKNOWN_ROUNDS.has(newRound) && existingRound !== newRound) {
+        continue;
+      }
+      return true; // Same or unknown round within window → dup
+    }
+    return false; // All existing records have different known rounds → allow
+  } catch {
+    return false;
+  }
+}
+
 export async function pushToSupabase(
   enriched: EnrichedRecord[],
   dateStr: string,
@@ -101,17 +141,31 @@ export async function pushToSupabase(
 ): Promise<number> {
   if (!SUPABASE_URL || !SUPABASE_KEY) return 0;
 
-  const seen = new Set<string>();
+  // Dedup within batch by company_domain (keep first = highest scored)
+  const seenDomains = new Set<string>();
   const rows = enriched
     .map((r) => toRow(r, dateStr))
     .filter((row) => {
-      if (seen.has(row.source_url)) return false;
-      seen.add(row.source_url);
+      const domain = row.company_domain ?? "";
+      if (UNKNOWN_DOMAINS.has(domain)) return true;
+      if (seenDomains.has(domain)) return false;
+      seenDomains.add(domain);
       return true;
     });
 
-  let upserted = 0;
+  // Cross-run dedup: skip domains seen within 90 days (unless different round)
+  const filteredRows: typeof rows = [];
   for (const row of rows) {
+    const seen = await isDomainSeenRecently(row.company_domain, row.round_type, tableName);
+    if (seen) {
+      console.log(`SKIP (seen <90d): ${row.company_name} (${row.company_domain})`);
+    } else {
+      filteredRows.push(row);
+    }
+  }
+
+  let upserted = 0;
+  for (const row of filteredRows) {
     try {
       const existing = await fetch(
         `${SUPABASE_URL}/rest/v1/${tableName}?source_url=eq.${encodeURIComponent(row.source_url)}&select=score,discovered_by_pipeline`,

@@ -1,0 +1,558 @@
+{
+  "Q1_techcrunch_launched": {
+    "query": "\"launched\" OR \"announces\" new product site:techcrunch.com",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "As X shuts down Communities, Acorn debuts an alternative that puts ...",
+        "link": "https://techcrunch.com/2026/05/04/as-x-shuts-down-communities-acorn-debuts-an-alternative-that-puts-creators-in-control/",
+        "snippet": "A new project called Acorn has launched a way for organizations and creators to build their own online communities as an alternative to centralized social ...",
+        "date": "1 day ago",
+        "position": 1
+      },
+      {
+        "title": "Uber is in the hotel business now, thanks in part to AI | TechCrunch",
+        "link": "https://techcrunch.com/2026/04/29/uber-is-in-the-hotel-business-now-thanks-in-part-to-ai/",
+        "snippet": "During its Go-Get event, Uber also launched travel mode, which gives users a guide covering tourist hotspots, local favorites, and other helpful information ...",
+        "date": "6 days ago",
+        "position": 2
+      },
+      {
+        "title": "CopilotKit raises $27M to help devs deploy app-native AI agents",
+        "link": "https://techcrunch.com/2026/05/05/copilotkit-raises-27m-to-help-devs-deploy-app-native-ai-agents/",
+        "snippet": "The Seattle-based startup's Series A round was led by Glilot Capital, NFX, and SignalFire, TechCrunch has exclusively learned.",
+        "date": "7 hours ago",
+        "position": 3
+      },
+      {
+        "title": "DoorDash adds AI tools to speed up merchant onboarding, edit ...",
+        "link": "https://techcrunch.com/2026/05/04/doordash-adds-ai-tools-to-speed-up-merchant-onboarding-edit-photos-of-dishes/",
+        "snippet": "The onboarding tool works similarly to the one Amazon launched in 2024. Merchants can point the tool to their website, from which it will automatically ...",
+        "date": "1 day ago",
+        "position": 4
+      },
+      {
+        "title": "OpenAI announces new advanced security for ChatGPT accounts ...",
+        "link": "https://techcrunch.com/2026/04/30/openai-announces-new-advanced-security-for-chatgpt-accounts-including-a-partnership-with-yubico/",
+        "snippet": "OpenAI announces new advanced security for ChatGPT accounts, including a partnership with Yubico ... The company on Thursday launched Advanced Account Security ( ...",
+        "date": "5 days ago",
+        "position": 5
+      },
+      {
+        "title": "India's first GenAI unicorn shifts to cloud services as AI ... - TechCrunch",
+        "link": "https://techcrunch.com/2026/05/05/indias-first-genai-unicorn-shifts-to-cloud-services-as-ai-model-ambitions-face-reality/",
+        "snippet": "Krutrim, India's first GenAI unicorn, is shifting from AI model development to cloud services after months of relative quiet on product updates \u2014 a move ...",
+        "date": "7 hours ago",
+        "position": 6
+      },
+      {
+        "title": "Uber taps Hertz to clean, charge, and fix its Lucid Motors robotaxis",
+        "link": "https://techcrunch.com/2026/04/30/uber-taps-hertz-to-clean-charge-and-fix-its-lucid-motors-robotaxis/",
+        "snippet": "Hertz is creating a new affiliate company called \"Oro Mobility\" to provide fleet management solutions \"across a range of mobility segments.\"",
+        "date": "5 days ago",
+        "position": 7
+      },
+      {
+        "title": "Musely secures $360M from General Catalyst without giving up equity",
+        "link": "https://techcrunch.com/2026/05/01/musely-secures-360m-from-general-catalyst-without-giving-up-equity/",
+        "snippet": "The DTC skin, hair, and menopause care brand will use the non-dilutive capital to super-charge customer acquisition.",
+        "date": "4 days ago",
+        "position": 8
+      },
+      {
+        "title": "Legal AI startup Legora hits $5.6B valuation and its ... - TechCrunch",
+        "link": "https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/",
+        "snippet": "According to the company, the platform it launched only 18 months ago is now used by more than 1,000 law firms and in-house legal teams across 50 markets.",
+        "date": "5 days ago",
+        "attributes": {
+          "Missing": "product | Show results with:product"
+        },
+        "position": 9
+      },
+      {
+        "title": "Bill Gurley, Jack Altman back startup Pursuit, which ... - TechCrunch",
+        "link": "https://techcrunch.com/2026/04/29/bill-gurley-jack-altman-back-startup-pursuit-which-helps-companies-sell-to-government/",
+        "snippet": "\u201cWe were like, maybe there's something to that.\u201d In 2023, they launched Pursuit, a site that helps companies find and win government contracts. On Wednesday ...",
+        "date": "6 days ago",
+        "position": 10
+      }
+    ]
+  },
+  "Q2_show_hn": {
+    "query": "\"Show HN\" site:news.ycombinator.com 2026",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "Show HN: I built a native macOS audio player and it changed my life",
+        "link": "https://news.ycombinator.com/item?id=48016525",
+        "snippet": "Show HN: I built a native macOS audio player and it changed my life (github ... 2026. Enjoy. - chris. reply \u00b7 Consider applying for YC's Summer 2026 batch ...",
+        "date": "20 hours ago",
+        "position": 1
+      },
+      {
+        "title": "Show HN: Layers \u2013 AI skills for deep product design - Hacker News",
+        "link": "https://news.ycombinator.com/item?id=48015321",
+        "snippet": "Show HN: Layers \u2013 AI skills for deep product design (jamiemill.com). 3 points ... Consider applying for YC's Summer 2026 batch! Applications are open ...",
+        "date": "22 hours ago",
+        "position": 2
+      },
+      {
+        "title": "Show HN: Klypn - The easiest way to create an online work profile",
+        "link": "https://news.ycombinator.com/item?id=48024721",
+        "snippet": "Show HN: Klypn - The easiest way to create an online work profile (klypn.com) ... Thanks! help \u00b7 Consider applying for YC's Summer 2026 batch!",
+        "date": "3 hours ago",
+        "position": 3
+      },
+      {
+        "title": "Show HN: Editor, Browser, Terminal, Mail, Agents. AI Sharing Context",
+        "link": "https://news.ycombinator.com/item?id=47994639",
+        "snippet": "Show HN: Editor, Browser, Terminal, Mail, Agents. AI Sharing Context (github ... Adding local llm support this week and this problem will go away but the context ...",
+        "date": "2 days ago",
+        "position": 4
+      },
+      {
+        "title": "Show HN: I built an API for agents visiting my personal website",
+        "link": "https://news.ycombinator.com/item?id=48024102",
+        "snippet": "Show HN: I built an API for agents visiting my personal website (mczaykowski.com). 4 points by selvmvde 2 hours ago | hide | past | favorite | 2 comments.",
+        "date": "4 hours ago",
+        "position": 5
+      },
+      {
+        "title": "Show HN: Replacing spec-driven development with just facts",
+        "link": "https://news.ycombinator.com/item?id=48008906",
+        "snippet": "Show HN: Replacing spec-driven development with just facts (github.com/av). 4 ... Consider applying for YC's Summer 2026 batch! Applications are open ...",
+        "date": "1 day ago",
+        "position": 6
+      },
+      {
+        "title": "I built a zero-tracking news hub to escape doom scrolling at (AGE 17y)",
+        "link": "https://news.ycombinator.com/item?id=47958722",
+        "snippet": "Show HN: I built a zero-tracking news hub to escape doom scrolling at (AGE ... so cool!! reply \u00b7 Consider applying for YC's Summer 2026 batch!",
+        "date": "6 days ago",
+        "position": 7
+      },
+      {
+        "title": "Show HN: Julius, a New Lisp Implementation - Hacker News",
+        "link": "https://news.ycombinator.com/item?id=47994161",
+        "snippet": "Show HN: Julius, a New Lisp Implementation (github.com/tgflynn). 12 points by tgflynn 1 day ago | hide | past | favorite | 2 comments. This is a new and very ...",
+        "date": "3 days ago",
+        "position": 8
+      },
+      {
+        "title": "Show HN: Mem0 thinks our 2023 conversation happened in 2026",
+        "link": "https://news.ycombinator.com/item?id=47961750",
+        "snippet": "Show HN: Mem0 thinks our 2023 conversation happened in 2026 (aurra.us). 5 ... If yes, it could be a useful test case for improving how conversation history is ...",
+        "date": "5 days ago",
+        "position": 9
+      },
+      {
+        "title": "ReflowPDF \u2013 wrote a layout engine because every PDF library failed",
+        "link": "https://news.ycombinator.com/item?id=48003454",
+        "snippet": "Show HN: ReflowPDF \u2013 wrote a layout engine because every PDF library failed ... Just curious, are there adobe license issues when using ReflowPDF? reply ...",
+        "date": "2 days ago",
+        "position": 10
+      }
+    ]
+  },
+  "Q3_ai_startup_may2026": {
+    "query": "AI startup \"launches\" OR \"announces\" OR \"introduces\" May 2026",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "Startup Launch of the Month News | May, 2026 (STARTUP EDITION)",
+        "link": "https://blog.mean.ceo/startup-launch-of-the-month-news-may-2026/",
+        "snippet": "Consumer AI launches with expensive inference and weak retention. Tools built around one external API without fallback architecture. Courses disguised as ...",
+        "date": "1 day ago",
+        "position": 1
+      },
+      {
+        "title": "State of AI: May 2026 - Air Street Press",
+        "link": "https://press.airstreet.com/p/state-of-ai-may-2026",
+        "snippet": "An empirical pushback against the wave of \u201cAI scientist\u201d launches. The ... Air Street Capital announces $232M Fund III to back AI-first companies.",
+        "date": "2 days ago",
+        "position": 2
+      },
+      {
+        "title": "Unico Connect Launches New Dedicated AI Services Vertical to ...",
+        "link": "https://finance.yahoo.com/sectors/technology/articles/unico-connect-launches-dedicated-ai-125500490.html",
+        "snippet": "Unico Connect Launches New Dedicated AI Services Vertical to Assist Startups, Mid-market Companies, and Enterprises. TMX Newsfile. Tue, May 5, 2026 at 5:55 AM ...",
+        "date": "8 hours ago",
+        "position": 3
+      },
+      {
+        "title": "AI Update, May 1, 2026: AI News and Views From the Past Week",
+        "link": "https://www.marketingprofs.com/opinions/2026/54640/ai-update-may-1-2026-ai-news-and-views-from-the-past-week",
+        "snippet": "Snapchat introduces AI-powered conversational ads in chat feed. Snapchat is ... Mistral launches orchestration layer to operationalize enterprise AI.",
+        "date": "4 days ago",
+        "position": 4
+      },
+      {
+        "title": "Tech launches today (May, 2026): OnePlus Pad 4 , Billie Eilish ...",
+        "link": "https://www.facebook.com/indianexpress/posts/tech-launches-today-may-2026-oneplus-pad-4-billie-eilish-partners-with-roblox-an/1550807343069729/",
+        "snippet": "OnePlus Introduces New AI Strategy Focused on Personal Intelligence OnePlus ... Anthropic Launches Petri for AI Safety Auditing Anthropic released ...",
+        "date": "5 hours ago",
+        "position": 5
+      },
+      {
+        "title": "Exclusive: AI grocery startup Vori raises $22 million to help ... - Fortune",
+        "link": "https://fortune.com/2026/05/05/exclusive-ai-grocery-startup-vori-raises-22-million-to-help-independent-retailers-compete-with-walmart-and-amazon/",
+        "snippet": "Solana firm Jito launches a consumer trading app months after raising $50 million. By Jack KubinecMay 5, 2026. in 12 hours. Nova's founders, Prof. Dr ...",
+        "date": "9 hours ago",
+        "position": 6
+      },
+      {
+        "title": "Another week, another wave of AI updates you don't want to miss.",
+        "link": "https://www.instagram.com/p/DX6bChdkiO7/",
+        "snippet": "... launches, surprising breakthroughs, or industry shifts, we've got it covered ... ANNOUNCES PIVOT INTO AI CHIP COMPONENTS, STOCK SOARS +18% ANTHROPIC IS ...",
+        "date": "1 day ago",
+        "position": 7
+      },
+      {
+        "title": "Etsy launches its app within ChatGPT as it continues its AI push",
+        "link": "https://techcrunch.com/2026/05/05/etsy-launches-its-app-within-chatgpt-as-it-continues-its-ai-push/",
+        "snippet": "Etsy launches its app within ChatGPT as it continues its AI push. Lauren Forristal. 8:31 AM PDT \u00b7 May 5, 2026. Image Credits:Etsy. Etsy announced Tuesday the ...",
+        "date": "5 hours ago",
+        "position": 8
+      },
+      {
+        "title": "AI, Technology, Business, and World News for May 3rd, 2026 ...",
+        "link": "https://www.instagram.com/p/DX5WmB4kfYJ/",
+        "snippet": "... announces 1400 job cuts amid falling stock. That's your roundup\u2014AI reshaping ... 16.0% 2.2% 2.0% 5.0% 2020 CHATCPT CHATGPTLAUNCHES LAUNCHES NOV. 2022 ...",
+        "date": "2 days ago",
+        "position": 9
+      },
+      {
+        "title": "Cerebras, with Strong OpenAI Connections, Launches IPO Bid ...",
+        "link": "https://www.trendingtopics.eu/cerebras-ipo-2026-2/",
+        "snippet": "Cerebras, with Strong OpenAI Connections, Launches IPO Bid Targeting $26.6 Billion Valuation. Avatar Jakob Steinschaden, Avatar co-written by newsrooms.ai 05.",
+        "date": "13 hours ago",
+        "position": 10
+      }
+    ]
+  },
+  "Q4_product_launch_may2026": {
+    "query": "\"new feature\" OR \"product launch\" startup technology May 2026",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "Startup Launch of the Month News | May, 2026 (STARTUP EDITION)",
+        "link": "https://blog.mean.ceo/startup-launch-of-the-month-news-may-2026/",
+        "snippet": "Third, they pull technical talent toward firms that can pay more and ... How should founders estimate compute risk when planning a new product launch?",
+        "date": "1 day ago",
+        "position": 1
+      },
+      {
+        "title": "DoorDash adds AI tools to speed up merchant onboarding, edit ...",
+        "link": "https://techcrunch.com/2026/05/04/doordash-adds-ai-tools-to-speed-up-merchant-onboarding-edit-photos-of-dishes/",
+        "snippet": "The company said during a test of the new feature merchants saw order conversion rates of nearly 10% on average. The company has also added a new marketing ...",
+        "date": "1 day ago",
+        "position": 2
+      },
+      {
+        "title": "Gryphon AI Unveils 1H 2026 Strategic Product Launch, Redefining ...",
+        "link": "https://canadiansme.ca/gryphon-ai-unveils-1h-2026-strategic-product-launch-redefining-contact-compliance-as-a-unified-grc-control-layer/",
+        "snippet": "Gryphon AI, the leader in contact governance, today announced its 1H 2026 Strategic Product Launch. Building on its legacy of trust and innovation, Gryphon ...",
+        "date": "6 days ago",
+        "attributes": {
+          "Missing": "May | Show results with:May"
+        },
+        "position": 3
+      },
+      {
+        "title": "14 Startup Publications to Feature Your Product - Noonlaunch",
+        "link": "https://noonlaunch.com/blog/14-startup-publications-to-feature-your-product",
+        "snippet": "1. TechCrunch ... If your startup has a strong story, market angle, or product launch worth covering, TechCrunch is one of the most recognized startup ...",
+        "date": "17 hours ago",
+        "position": 4
+      },
+      {
+        "title": "Got a real glimpse into the future of technology Dreame Next 2026 ...",
+        "link": "https://www.instagram.com/reel/DXtx_PTkSmP/",
+        "snippet": "Just stepped into the future at Dreame Next 2026 in San Francisco, and this was way more than a product launch. ... You can tell it's all about innovation and ...",
+        "date": "6 days ago",
+        "position": 5
+      },
+      {
+        "title": "Greenhouse sets sights on AI interviewing as next TA game changer",
+        "link": "https://www.hr-brew.com/stories/2026/05/05/greenhouse-sets-sights-on-ai-interviewing-as-next-ta-game-changer",
+        "snippet": "Instead of screening out candidates based on their r\u00e9sum\u00e9, the new feature aims to give applicants a structured, voice-based conversation about the role and ...",
+        "date": "9 hours ago",
+        "position": 6
+      },
+      {
+        "title": "The high-stakes world of product launches isn't always glitz and ...",
+        "link": "https://www.instagram.com/reel/DX8Xj3WCQd2/",
+        "snippet": "From idea to impact, strategy makes the difference. Here's how to prepare for a product launch that actually delivers results. #LaunchReady #StartupGrowth # ...",
+        "date": "16 hours ago",
+        "position": 7
+      },
+      {
+        "title": "Top Digital Product Agencies to Work With - May 2026 | G&CO.",
+        "link": "https://www.g-co.agency/insights/top-digital-product-agencies-to-work-with",
+        "snippet": "... Product Launch FAQs | Strategy, Process & Checklist \u00b7 Enterprise Web Development FAQs | Enterprise Website Development \u00b7 Enterprise Mobile App Development FAQs ...",
+        "date": "6 days ago",
+        "position": 8
+      },
+      {
+        "title": "More than seven years since Forbes launched its first AI 50 list, the ...",
+        "link": "https://www.facebook.com/forbes/posts/more-than-seven-years-since-forbes-launched-its-first-ai-50-list-the-artificial-/1346075337382453/",
+        "snippet": "The new feature, appropriately dubbed \u201cCitations,\u201d is now available for developers through Anthropic's API. Meanwhile, can AI agents reliably click on all ...",
+        "date": "1 day ago",
+        "position": 9
+      },
+      {
+        "title": "US tech giant Cisco buys Israeli AI cyber startup to protect digital ...",
+        "link": "https://www.timesofisrael.com/us-tech-giant-cisco-buys-israeli-ai-cyber-startup-to-protect-digital-workforce/",
+        "snippet": "... May 4, 2026, two. 1. Iran restarts attacks on Emirates as US fights to ... new feature by award-winning director. Big screen welcome. Two Israeli films ...",
+        "date": "5 hours ago",
+        "position": 10
+      }
+    ]
+  },
+  "Q5_now_available": {
+    "query": "\"now available\" OR \"introducing\" software product 2026",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "So, about Open Design? It's by Tom Huang, who has reverse ...",
+        "link": "https://www.threads.com/@drthomaslancaster/post/DXsIf8ekjIp/so-about-open-design-its-by-tom-huang-who-has-reverse-engineered-anthropics",
+        "snippet": "April 17, 2026 at 11:08 AM. Introducing Claude Design by Anthropic Labs. Anthropic is exploring how Claude can be used for design tasks, not just coding or ...",
+        "date": "7 days ago",
+        "position": 1
+      },
+      {
+        "title": "Building a product is not just about coding fast. It is about making ...",
+        "link": "https://www.instagram.com/p/DX0qrdRliTQ/",
+        "snippet": "The exact PRD template I used to turn ideas into real products is now available. ... SECURE.C CONNECTED ANNULAR TECHNOLOBIEN BL INTRODUCING PODS!! Fast ...",
+        "date": "4 days ago",
+        "position": 2
+      },
+      {
+        "title": "IBM announcements at Think 2026 to advance the agentic era",
+        "link": "https://www.ibm.com/new/announcements/ibm-announcements-at-think-2026",
+        "snippet": "HCP Terraform powered by Infragraph is now available in Public Preview. ... Introducing IBM SQL Data Insights Pro at Think 2026\u2014the intelligence layer ...",
+        "date": "16 hours ago",
+        "position": 3
+      },
+      {
+        "title": "Fusion process improvements among newest software release ...",
+        "link": "https://press.mcelroy.com/software-update-notes-april-29-2026/",
+        "snippet": "Introducing Vault\u2122 ID tags and fabrication workflow It's a question we've ... MCELROY WEBSITE NOW AVAILABLE IN GERMAN \u00b7 VOLKER K\u04e6HLER TO ASSIST MCELROY ...",
+        "date": "5 days ago",
+        "position": 4
+      },
+      {
+        "title": "Introducing the GRC Skills Kit for Claude Code | Scytale",
+        "link": "https://scytale.ai/resources/grc-skills-library-claude-code/",
+        "snippet": "Scytale Earns Spot in G2's 2026 Best Software Awards for Best GRC Products ... Introducing the GRC Skills Kit for Claude Code \u00b7 Top 10 Penetration Testing ...",
+        "date": "1 day ago",
+        "position": 5
+      },
+      {
+        "title": "April 2026 | Databricks on AWS",
+        "link": "https://docs.databricks.com/aws/en/release-notes/product/2026/april",
+        "snippet": "Anthropic Claude Opus 4.7 now available as a Databricks-hosted model\u200b. April 16, 2026. Mosaic AI Model Serving now supports Anthropic Claude Opus 4.7 as a ...",
+        "date": "6 days ago",
+        "position": 6
+      },
+      {
+        "title": "Skedda April 2026 Product Roundup: Hybrid Work Updates",
+        "link": "https://www.skedda.com/blog/april-2026-product-roundup",
+        "snippet": "Introducing Skedda Avoid\u2122: Smarter Workspace Booking for Focus. Read More ... Meeting Room Booking Software \u00b7 Office Space Booking Software \u00b7 Office ...",
+        "date": "23 hours ago",
+        "rating": 4.8,
+        "ratingCount": 267,
+        "position": 7
+      },
+      {
+        "title": "Introducing the DevOps Agent Kit - CloudBees",
+        "link": "https://www.cloudbees.com/blog/devops-agent-kit",
+        "snippet": "One command. Four systems. A real answer. No more tab dance on a Friday afternoon. Introducing the DevOps Agent Kit.",
+        "date": "1 day ago",
+        "position": 8
+      },
+      {
+        "title": "What's New in Microsoft D365 Business Central 2026 Release Wave 1",
+        "link": "https://erpsoftwareblog.com/2026/04/whats-new-in-microsoft-d365-business-central-2026-release-wave-1/",
+        "snippet": "Microsoft D365 Business Central 2026 Release Wave 1 is now available. This release delivers two GA AI agents, four embedded Power BI apps, a rebuilt ...",
+        "date": "5 days ago",
+        "position": 9
+      },
+      {
+        "title": "Create Prototypes and Business Applications With AI - Aha.io",
+        "link": "https://www.aha.io/blog/aha-builder-is-now-available-create-prototypes-and-business-applications-with-ai",
+        "snippet": "Aha! Builder is now available to everyone. Test new product concepts, build ... Introducing Aha! Builder. Create prototypes and business applications ...",
+        "date": "7 days ago",
+        "position": 10
+      }
+    ]
+  },
+  "Q6_techcrunch_may4": {
+    "query": "site:techcrunch.com product launch May 4 2026",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "Etsy launches its app within ChatGPT as it continues its AI push",
+        "link": "https://techcrunch.com/2026/05/05/etsy-launches-its-app-within-chatgpt-as-it-continues-its-ai-push/",
+        "snippet": "Etsy announced Tuesday the launch of its native app within ChatGPT, opening up a new way for shoppers to explore its catalog of over 100 million listings.",
+        "date": "5 hours ago",
+        "position": 1
+      },
+      {
+        "title": "Anthropic and OpenAI are both launching joint ventures for ...",
+        "link": "https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/",
+        "snippet": "Anthropic and OpenAI are both launching joint ventures for enterprise AI services. Russell Brandom. 8:59 AM PDT \u00b7 May 4, 2026. Image Credits:ChatGPT. On Monday ...",
+        "date": "1 day ago",
+        "position": 2
+      },
+      {
+        "title": "As X shuts down Communities, Acorn debuts an alternative that puts ...",
+        "link": "https://techcrunch.com/2026/05/04/as-x-shuts-down-communities-acorn-debuts-an-alternative-that-puts-creators-in-control/",
+        "snippet": "At launch, Acorn includes a set of tools to help communities onboard new members, customize their feeds, configure and run moderation services, and track ...",
+        "date": "1 day ago",
+        "position": 3
+      },
+      {
+        "title": "Uber is in the hotel business now, thanks in part to AI | TechCrunch",
+        "link": "https://techcrunch.com/2026/04/29/uber-is-in-the-hotel-business-now-thanks-in-part-to-ai/",
+        "snippet": "The hotel bookings, a new AI-powered voice-bookings feature, and a widespread search tool are among a handful of new products unveiled Wednesday that went from ...",
+        "date": "6 days ago",
+        "attributes": {
+          "Missing": "4 | Show results with:4"
+        },
+        "position": 4
+      },
+      {
+        "title": "OpenAI announces new advanced security for ChatGPT accounts ...",
+        "link": "https://techcrunch.com/2026/04/30/openai-announces-new-advanced-security-for-chatgpt-accounts-including-a-partnership-with-yubico/",
+        "snippet": "As part of that new program, digital security provider Yubico announced it has partnered with OpenAI to link two new security key products to ChatGPT accounts.",
+        "date": "5 days ago",
+        "position": 5
+      },
+      {
+        "title": "Musely secures $360M from General Catalyst without giving up equity",
+        "link": "https://techcrunch.com/2026/05/01/musely-secures-360m-from-general-catalyst-without-giving-up-equity/",
+        "snippet": "The DTC skin, hair, and menopause care brand will use the non-dilutive capital to super-charge customer acquisition.",
+        "date": "4 days ago",
+        "attributes": {
+          "Missing": "4 | Show results with:4"
+        },
+        "position": 6
+      },
+      {
+        "title": "Uber taps Hertz to clean, charge, and fix its Lucid Motors robotaxis",
+        "link": "https://techcrunch.com/2026/04/30/uber-taps-hertz-to-clean-charge-and-fix-its-lucid-motors-robotaxis/",
+        "snippet": "\u201d The service, announced last year, is supposed to launch by the end of 2026 in the San Francisco Bay Area, using Lucid's Gravity SUVs and Nuro's self-driving ...",
+        "date": "5 days ago",
+        "attributes": {
+          "Missing": "4 | Show results with:4"
+        },
+        "position": 7
+      },
+      {
+        "title": "Salesforce is crowdsourcing its AI roadmap \u2014 with customers",
+        "link": "https://techcrunch.com/2026/04/30/salesforce-is-crowdsourcing-its-ai-roadmap-with-customers/",
+        "snippet": "Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, ...",
+        "date": "5 days ago",
+        "position": 8
+      },
+      {
+        "title": "TechCrunch Mobility: How do you issue a ticket to a robotaxi?",
+        "link": "https://techcrunch.com/2026/05/03/techcrunch-mobility-how-do-you-issue-a-ticket-to-a-robotaxi/",
+        "snippet": "Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, ...",
+        "date": "2 days ago",
+        "position": 9
+      },
+      {
+        "title": "Meta says its business AI now facilitates 10 million conversations a ...",
+        "link": "https://techcrunch.com/2026/04/30/meta-says-its-business-ai-now-facilitates-10-million-conversations-a-week/",
+        "snippet": "Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, ...",
+        "date": "5 days ago",
+        "position": 10
+      }
+    ]
+  },
+  "Q7_control": {
+    "query": "DoorDash OR Ouster OR Retroguard OR Airbyte launch 2026",
+    "status": 200,
+    "hits": 10,
+    "organic": [
+      {
+        "title": "DoorDash Introduces New AI-Powered Tools to Help Merchants Get ...",
+        "link": "https://about.doordash.com/en-us/news/ai-powered-merchant-tools",
+        "snippet": "Our new AI-powered self-serve onboarding experience can help merchants launch more than 35% faster*, and transforms this process from manual and fragmented into ...",
+        "date": "1 day ago",
+        "position": 1
+      },
+      {
+        "title": "DoorDash adds AI tools to speed up merchant onboarding, edit ...",
+        "link": "https://techcrunch.com/2026/05/04/doordash-adds-ai-tools-to-speed-up-merchant-onboarding-edit-photos-of-dishes/",
+        "snippet": "DoorDash adds AI tools to speed up merchant onboarding, edit photos of dishes. Ivan Mehta. 6:00 AM PDT \u00b7 May 4, 2026.",
+        "date": "1 day ago",
+        "position": 2
+      },
+      {
+        "title": "DoorDash for Business Launches Catering for the Workplace",
+        "link": "https://about.doordash.com/en-us/news/doordash-for-business-launches-catering-for-the-workplace",
+        "snippet": "New catering offerings give workplace admins a hands-off way to feed their teams \u2013 reliably, flexibly, and with great local selection. Apr 30, 2026.",
+        "date": "5 days ago",
+        "position": 3
+      },
+      {
+        "title": "Inside DoorDash's AI Revolution: Merchant Onboarding, Product ...",
+        "link": "https://fifthrow.com/blog/inside-door-dash-s-ai-revolution-merchant-onboarding-product-imaging-and-the-new-benchmark-for-customer-product-insight",
+        "snippet": "DoorDash's May 2026 rollout of AI-powered merchant onboarding and product imaging tools stands as a pivotal milestone for operational intelligence in ...",
+        "date": "1 day ago",
+        "position": 4
+      },
+      {
+        "title": "Airbyte Agents Launched to Fix the Data Problem Breaking AI Agents",
+        "link": "https://finance.yahoo.com/sectors/technology/articles/airbyte-agents-launched-fix-data-160000324.html",
+        "snippet": "Gives AI agents a unified view, replicated data ready to query \u2013 fixes fragmented, slow, and unreliable data access that causes agents to fail in production.",
+        "date": "5 hours ago",
+        "position": 5
+      },
+      {
+        "title": "DoorDash Ads Introduces Advanced Tools to Help Restaurants ...",
+        "link": "https://about.doordash.com/en-us/news/doordash-ads-introduces-advanced-tools-for-restaurants",
+        "snippet": "DoorDash today announced new advertising capabilities designed to help restaurants reach the right customers, attract new business, and grow more efficiently.",
+        "date": "4 days ago",
+        "position": 6
+      },
+      {
+        "title": "NRSPP is proud to announce the launch of the Platform Delivery ...",
+        "link": "https://www.instagram.com/p/DXvOsU4kw63/",
+        "snippet": "NRSPP is proud to announce the launch of the Platform Delivery Safety Principles, in partnership with Amazon Flex, DoorDash, Sherpa\u00b0 and Uber Eats.",
+        "date": "6 days ago",
+        "position": 7
+      },
+      {
+        "title": "AI has a sprawling data problem. Airbyte has just launched a tool to ...",
+        "link": "https://thenewstack.io/airbyte-agents-context-store/",
+        "snippet": "Airbyte has launched Airbyte Agents, a new service with a Context Store that pre-indexes business data so AI agents can query it without live API calls.",
+        "date": "3 hours ago",
+        "position": 8
+      },
+      {
+        "title": "Airbyte launches Airbyte Agents with Context Store",
+        "link": "https://letsdatascience.com/news/airbyte-launches-airbyte-agents-with-context-store-cd8ddb91",
+        "snippet": "Airbyte announced Airbyte Agents, a context layer for production AI agents, in a BusinessWire press release dated May 5, 2026. The launch centers on a managed ...",
+        "date": "3 hours ago",
+        "position": 9
+      },
+      {
+        "title": "DoorDash AI Accelerates Local Commerce Growth - PYMNTS.com",
+        "link": "https://www.pymnts.com/news/retail/2026/doordash-ai-accelerates-local-commerce-growth/",
+        "snippet": "DoorDash AI Accelerates Local Commerce Growth. By PYMNTS | May 4, 2026. |. DoorDash has introduced several new artificial intelligence (AI)-powered tools for ...",
+        "date": "1 day ago",
+        "position": 10
+      }
+    ]
+  }
+}

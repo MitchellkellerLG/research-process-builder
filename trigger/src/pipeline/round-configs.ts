@@ -3,12 +3,6 @@ import type { RoundConfig } from "./types.js";
 function buildExtractionPrompt(roundLabel: string, sentinel: string): string {
   return `Extract ${roundLabel} funding data from this article.
 
-Company hint: {{companyHint}}
-Amount hint: {{amountHint}}
-
-Article:
-{{articleText}}
-
 Return exactly this JSON:
 {"company_name": "...", "company_domain": "...", "amount_raised": "...", "lead_investors": "...", "round_reasoning": "...", "industry": "...", "location": "..."}
 
@@ -20,7 +14,14 @@ Rules:
 - round_reasoning = why they raised / what funds are for, 1-2 sentences. "not_stated" if unknown
 - industry = primary industry/vertical (e.g. "AI", "fintech", "healthtech", "cybersecurity", "SaaS"). "not_stated" if unclear
 - location = company HQ city and country (e.g. "San Francisco, US", "London, UK", "Tel Aviv, Israel"). "not_stated" if unknown
-- If this is NOT actually a ${roundLabel} funding announcement, set company_name to "${sentinel}"`;
+- If this is NOT actually a ${roundLabel} funding announcement, set company_name to "${sentinel}"
+
+---
+Company hint: {{companyHint}}
+Amount hint: {{amountHint}}
+
+Article:
+{{articleText}}`;
 }
 
 export const SERIES_A_CONFIG: RoundConfig = {

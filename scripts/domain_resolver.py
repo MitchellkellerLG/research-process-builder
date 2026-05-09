@@ -182,11 +182,14 @@ def validate_domain(
     if is_blocked(d):
         return {"valid": False, "reason": f"blocked domain: {d}", "confidence": "high"}
 
-    if source_domain and d == normalize_domain(source_domain):
-        return {"valid": False, "reason": f"matches source article domain: {d}", "confidence": "high"}
-
+    # Name-match check runs before source-domain block: when the source URL IS the
+    # company's own site (e.g. avoca.ai/press-release), the candidate domain matches
+    # both the company name and the source — that's valid, not a news-site slip-through.
     if domain_matches_company(d, company_name):
         return {"valid": True, "reason": "name matches domain", "confidence": "high"}
+
+    if source_domain and d == normalize_domain(source_domain):
+        return {"valid": False, "reason": f"matches source article domain: {d}", "confidence": "high"}
 
     # LOW-confidence path: name mismatch. Classifier is the gate — only
     # `real_company` verdicts pass. Anything else (blocked, unknown, error,
@@ -608,6 +611,12 @@ def resolve_domain(
     """
     source_domain = normalize_domain(_url_hostname(source_url)) if source_url and "://" in source_url else ""
 
+    # Early exit: if the article came from the company's own site, the source domain
+    # IS the answer. Skip all tiers — running them would only risk a wrong fallback.
+    if source_domain and not is_blocked(source_domain) and domain_matches_company(source_domain, company_name):
+        return {"domain": source_domain, "tier": 0, "tier_name": "source_is_company",
+                "evidence": "source domain matches company name", "confidence": "high", "article_fetched": False}
+
     if not industry and article_text:
         industry = detect_industry(article_text)
 
@@ -703,9 +712,6 @@ def names_are_similar(name_a: str, name_b: str) -> bool:
         ratio = 1 - (dist / max_len)
         if ratio >= 0.85:
             return True
-        if dist <= 2 and min(len(norm_a), len(norm_b)) >= 4:
-            return True
-
     return False
 
 

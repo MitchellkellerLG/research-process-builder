@@ -1,13 +1,25 @@
 const SPIDER_API_KEY = process.env.SPIDER_API_KEY ?? "";
 
-async function spiderFetch(url: string, timeoutMs: number): Promise<string | null> {
+interface SpiderOptions {
+  renderJs?: boolean;
+  waitForSecs?: number;
+}
+
+async function spiderFetch(url: string, timeoutMs: number, options?: SpiderOptions): Promise<string | null> {
+  const body: Record<string, unknown> = { url, limit: 1, return_format: "markdown" };
+  if (options?.renderJs) {
+    body.render_js = true;
+    if (options.waitForSecs) {
+      body.wait_for = { delay: { secs: options.waitForSecs, nanos: 0 } };
+    }
+  }
   const resp = await fetch("https://api.spider.cloud/crawl", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${SPIDER_API_KEY}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ url, limit: 1, return_format: "markdown" }),
+    body: JSON.stringify(body),
     signal: AbortSignal.timeout(timeoutMs),
   });
 
@@ -23,15 +35,15 @@ async function spiderFetch(url: string, timeoutMs: number): Promise<string | nul
   return content.length > 200 ? content.slice(0, 15_000) : null;
 }
 
-export async function fetchUrl(url: string): Promise<string | null> {
+export async function fetchUrl(url: string, options?: SpiderOptions): Promise<string | null> {
   if (SPIDER_API_KEY) {
     try {
-      const result = await spiderFetch(url, 20_000);
+      const result = await spiderFetch(url, 20_000, options);
       if (result) return result;
     } catch { /* first attempt failed */ }
 
     try {
-      const result = await spiderFetch(url, 45_000);
+      const result = await spiderFetch(url, 45_000, options);
       if (result) return result;
     } catch { /* retry failed */ }
   }

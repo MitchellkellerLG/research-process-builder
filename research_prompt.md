@@ -3,9 +3,34 @@
 Karpathy-style optimization loop for search patterns. You are the agent.
 Fixed infrastructure: `pattern_tester.py` + `gt_evaluator.py`. You mutate `master_test_config.json`.
 
+## Pre-Flight
+
+Before starting the loop, run the deployment checklist:
+`.claude/skills/auto-research-deploy/SKILL.md`
+
+Key steps: domain research, warm-start from previous best, artifact inspection.
+
+### Domain Briefing
+
+Read `domain-briefing.md` before proposing ANY new variants. It contains:
+- Platform-specific site: operators that outperform generic queries (theorg.com, stackshare.io, g2.com)
+- Dead-end patterns confirmed by GT data (don't retry these)
+- Priority order for which categories to attack first
+- Benchmark targets per category
+
+### Warm-Start
+
+Read `best_config.json` before each iteration. It contains:
+- Best-performing variant per category with GT scores
+- Dead-end patterns to avoid (saves wasted queries)
+- Promising untested approaches (try these FIRST before inventing new ones)
+
+Load the warm-start, don't start blind.
+
 ## Loop Protocol
 
 ```
+0. Pre-flight:        Read domain-briefing.md + best_config.json
 1. Save baseline:     py scripts/autoresearch.py --save-baseline
 2. Read GT report:    py scripts/validate.py --score
 3. Identify the 3 worst-performing categories (lowest GT avg)
@@ -20,9 +45,11 @@ Fixed infrastructure: `pattern_tester.py` + `gt_evaluator.py`. You mutate `maste
 
 ## Budget
 
-- Max 50 Serper queries per iteration (~$0.005)
+- **Hard limit per session: $0.25** (2,500 queries max)
+- **Per-iteration cap: 75 queries** (~$0.0075). One category x 25 companies x 3 new variants = 75.
 - Use `--category` and `--company` flags to limit scope
-- Total budget per session: $0.50 (5,000 queries)
+- Test new variants on 5 companies first (1 per tier). Only expand to full 25 if GT > 0.25.
+- Prune variants scoring below 0.15 GT immediately. Don't run full set on dead patterns.
 
 ## Current Category Reliability (from GT layer)
 
@@ -103,11 +130,38 @@ py scripts/tier_analysis.py                             # category classificatio
 py scripts/pattern_tester.py --report                   # full pattern report
 ```
 
+## Exploration Budget
+
+The loop defaults to greedy (revert if no improvement). This causes local-optimum
+lock-in. To escape plateaus:
+
+**Standard mode (default):** Keep variants that improve GT. Revert the rest.
+
+**Exploration mode (trigger after 3 consecutive no-improvement iterations):**
+- Pick the worst-performing category (lowest GT)
+- Try a RADICALLY different approach (different platform, different query structure)
+- Accept the variant even if GT drops up to 5%, IF it changes the result set
+  (different URLs appearing = exploring new search space)
+- Log: "EXPLORE: accepted [variant] at [GT] (best: [best_GT]) — reason: [why]"
+
+**Exploration burst (trigger after 5 consecutive no-improvement):**
+- Swap 2-3 variants simultaneously across different categories
+- Use approaches from `best_config.json` "promising_untested" list
+- Run full test suite, not single-category
+- Even if overall GT drops slightly, keep if any individual category improved >0.1
+
+The point: a query that returns different URLs than existing variants is valuable
+even if its GT is slightly lower, because it expands the search space for future
+iterations to build on.
+
 ## Rules
 
 1. Never modify `gt_evaluator.py` or `validate.py` (fixed infrastructure)
 2. Never modify ground truth files (verified facts are immutable)
 3. Only modify `master_test_config.json` (the patterns)
 4. Always save baseline before mutating
-5. Always compare after testing — revert if no improvement
+5. Always compare after testing — revert if no improvement (unless in exploration mode)
 6. Track iterations: name baselines sequentially (iter-1, iter-2, ...)
+7. Read `domain-briefing.md` before proposing new variants
+8. Read `best_config.json` to avoid retrying dead-end patterns
+9. Update `best_config.json` after any improvement (keep warm-start current)

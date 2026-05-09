@@ -1,0 +1,6 @@
+name = "clay-game-callback"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+# TRIGGER_API_KEY set via: npx wrangler secret put TRIGGER_API_KEY

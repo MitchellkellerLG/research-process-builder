@@ -5,6 +5,12 @@
     "source": "gpt-4o-mini",
     "ts": "2026-04-27T02:55:57.561472Z"
   },
+  "actoneventures.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:57:54.956215Z"
+  },
   "adobedtm.com": {
     "category": "tracker",
     "confidence": "high",
@@ -16,6 +22,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "ai-techpark.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:40:03.577940Z"
   },
   "akamaized.net": {
     "category": "cdn",
@@ -35,6 +47,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "americanbanker.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:35.273023Z"
+  },
   "angel.co": {
     "category": "social",
     "confidence": "high",
@@ -52,6 +70,12 @@
     "confidence": "high",
     "source": "gpt-4o-mini",
     "ts": "2026-04-27T02:56:35.848451Z"
+  },
+  "bakersfield.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:06.065423Z"
   },
   "bandt.com": {
     "category": "news",
@@ -83,6 +107,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "business-standard.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:01:45.129995Z"
+  },
   "businesswire.com": {
     "category": "news",
     "confidence": "high",
@@ -94,6 +124,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "castleplacement.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:40:34.014511Z"
   },
   "cbinsights.com": {
     "category": "data_platform",
@@ -113,6 +149,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "centerofstartups.de": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:01:36.729050Z"
+  },
   "channele2e.com": {
     "category": "news",
     "confidence": "high",
@@ -131,6 +173,18 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "citybiz.co": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:03.262096Z"
+  },
+  "cloud.google.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:57:13.707274Z"
+  },
   "cloudflare.com": {
     "category": "cdn",
     "confidence": "high",
@@ -142,6 +196,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "cmswire.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:10.427496Z"
   },
   "cnbc.com": {
     "category": "news",
@@ -191,6 +251,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "drum.io": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:01.248594Z"
+  },
   "economictimes.com": {
     "category": "news",
     "confidence": "high",
@@ -208,6 +274,30 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "euagenda.eu": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:14.538080Z"
+  },
+  "f.inc": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:58.333804Z"
+  },
+  "f4.fund": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:57:13.037855Z"
+  },
+  "f6s.com": {
+    "category": "data_platform",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:11.044223Z"
   },
   "facebook.com": {
     "category": "social",
@@ -239,6 +329,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "figure.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:44.437565Z"
+  },
   "filerobot.com": {
     "category": "cdn",
     "confidence": "high",
@@ -263,11 +359,23 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "finder.startupnationcentral.org": {
+    "category": "data_platform",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:22.010340Z"
+  },
   "finsmes.com": {
     "category": "news",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "firstwordpharma.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:02.448978Z"
   },
   "forbes.com": {
     "category": "news",
@@ -281,11 +389,29 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "frame.io": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:06.544601Z"
+  },
+  "fundup.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:55.397138Z"
+  },
   "g2.com": {
     "category": "social",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "geniusny.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:58:15.402051Z"
   },
   "giotto.ai": {
     "category": "cdn",
@@ -323,6 +449,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "google.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:37:28.545325Z"
+  },
   "googleapis.com": {
     "category": "tracker",
     "confidence": "high",
@@ -334,6 +466,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "govtech.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:58:14.614710Z"
   },
   "gunder.com": {
     "category": "legal",
@@ -347,11 +485,41 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "hicleo.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:43.450260Z"
+  },
+  "hostingdiscussion.com": {
+    "category": "social",
+    "confidence": "medium",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:40:04.343095Z"
+  },
+  "htgf.de": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:11.841440Z"
+  },
   "humblerobotics.com": {
     "category": "real_company",
     "confidence": "high",
     "source": "gpt-4o-mini",
     "ts": "2026-04-27T02:56:37.406785Z"
+  },
+  "inc42.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:58.092025Z"
+  },
+  "indianstartuptimes.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:01:45.905851Z"
   },
   "infomoney.com": {
     "category": "news",
@@ -377,6 +545,24 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "issuu.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:18.071161Z"
+  },
+  "jdsupra.com": {
+    "category": "legal",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:40:36.356704Z"
+  },
+  "joplinglobe.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:42:58.791632Z"
+  },
   "kirkland.com": {
     "category": "legal",
     "confidence": "high",
@@ -394,6 +580,24 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "knottytie.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:22.718763Z"
+  },
+  "lasvegassun.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:44.295827Z"
+  },
+  "legaltechnology.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:47.049724Z"
   },
   "licdn.com": {
     "category": "tracker",
@@ -419,11 +623,35 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "m13.co": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:57:53.692044Z"
+  },
+  "mapco.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:05:23.169757Z"
+  },
   "medium.com": {
     "category": "social",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "mezha.net": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:52.564854Z"
+  },
+  "mlq.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:57:54.351687Z"
   },
   "mofo.com": {
     "category": "legal",
@@ -443,6 +671,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "morningstar.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:05.428521Z"
+  },
   "morrisonforester.com": {
     "category": "legal",
     "confidence": "high",
@@ -454,6 +688,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "nvgroup.ltd": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:40:33.205396Z"
   },
   "oled-info.com": {
     "category": "news",
@@ -479,6 +719,12 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "pangea.app": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:00.520503Z"
+  },
   "pitchbook.com": {
     "category": "social",
     "confidence": "high",
@@ -503,11 +749,35 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "regtechanalyst.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:41.538355Z"
+  },
   "reuters.com": {
     "category": "news",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "schema.org": {
+    "category": "data_platform",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:37:27.659826Z"
+  },
+  "scoutco.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:46.453500Z"
+  },
+  "scoutnow.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:47.160595Z"
   },
   "sdxcentral.com": {
     "category": "news",
@@ -551,17 +821,71 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "smileneo.io": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:01:35.923684Z"
+  },
+  "snapshot.one21.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:54.679892Z"
+  },
   "snopes.com": {
     "category": "news",
     "confidence": "high",
     "source": "gpt-4o-mini",
     "ts": "2026-04-27T02:56:36.686672Z"
   },
+  "startup.eu": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:12.958115Z"
+  },
+  "startupbusiness.it": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:05:22.446155Z"
+  },
+  "startupfortune.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:51.981209Z"
+  },
+  "startuphealth.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:01.723793Z"
+  },
+  "startuphub.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:13.557539Z"
+  },
   "startupnews.fyi": {
     "category": "news",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "startuprise.co.uk": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:15.185349Z"
+  },
+  "startups.gallery": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:43:43.713068Z"
   },
   "statnews.com": {
     "category": "news",
@@ -575,11 +899,23 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "sv.startupisland.tw": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:28.434077Z"
+  },
   "t.co": {
     "category": "short_url",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "talk.shapes.inc": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:57.687428Z"
   },
   "tech.eu": {
     "category": "news",
@@ -605,11 +941,41 @@
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
   },
+  "technical.ly": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:01:14.347446Z"
+  },
   "techround.co.uk": {
     "category": "news",
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "the-daily-record.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:01:28.254315Z"
+  },
+  "theaiinsider.tech": {
+    "category": "real_company",
+    "confidence": "medium",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:42:38.611249Z"
+  },
+  "thecompanycheck.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:58:04.859956Z"
+  },
+  "thecubeai.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:49.540815Z"
   },
   "thequantuminsider.com": {
     "category": "news",
@@ -622,6 +988,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "therobotreport.com": {
+    "category": "news",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:37:30.698145Z"
   },
   "thesaasnews.com": {
     "category": "news",
@@ -652,6 +1024,12 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "tryscout.ai": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:48.830818Z"
   },
   "twitter.com": {
     "category": "social",
@@ -688,6 +1066,24 @@
     "confidence": "high",
     "source": "seed",
     "ts": "2026-04-27T02:55:30.795916Z"
+  },
+  "ventureradar.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T15:07:12.382515Z"
+  },
+  "vestbee.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:38:36.854249Z"
+  },
+  "washingtontechnology.com": {
+    "category": "real_company",
+    "confidence": "high",
+    "source": "gpt-4o-mini",
+    "ts": "2026-04-29T14:39:51.201609Z"
   },
   "wellfound.com": {
     "category": "social",

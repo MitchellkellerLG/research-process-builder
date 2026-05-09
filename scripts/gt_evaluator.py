@@ -32,6 +32,7 @@ SCHEMA_FILE = GT_DIR / "schema.json"
 RESULTS_FILES = [
     PROJECT_DIR / "searches" / "raw-results-master.json",
     PROJECT_DIR / "searches" / "raw-results-master-combo.json",
+    PROJECT_DIR / "searches" / "raw-results.json",
 ]
 
 

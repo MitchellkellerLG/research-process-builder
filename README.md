@@ -1,5 +1,9 @@
 # research process builder
 
+**→ For the scheduled pipeline (Product Hunt monitor, Supabase setup, SQL, deploy): [trigger/README.md](trigger/README.md)**
+
+---
+
 build validated web research processes through self-annealing loops. takes any research goal, generates search patterns, tests them against real companies, scores accuracy, and iterates until 90%+ reliability.
 
 **this is the factory that produces research agent prompts.**

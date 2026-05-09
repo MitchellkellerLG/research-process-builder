@@ -1,0 +1,133 @@
+{
+  "date": "2026-05-04",
+  "source": "producthunt.com/leaderboard/daily/2026/5/4",
+  "products": [
+    {
+      "rank": 1,
+      "product_name": "Mindra",
+      "company_domain": "mindra.co",
+      "ph_url": "https://www.producthunt.com/products/mindra",
+      "score": 343,
+      "tagline": "Agent Teams You Can Actually Delegate To",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "classification_reasoning": "First PH launch. Founder post confirms initial public reveal.",
+      "categories": ["AI Workflow Automation", "AI Agents", "No-Code AI Agent Builder"]
+    },
+    {
+      "rank": 2,
+      "product_name": "Codex Pets",
+      "company_domain": "openai.com",
+      "ph_url": "https://www.producthunt.com/products/openai",
+      "score": 178,
+      "tagline": "Animated companions for your Codex workflow",
+      "launch_type": "new_feature",
+      "is_ai": true,
+      "classification_reasoning": "OpenAI's 38th PH launch. Codex Pets is a feature addition to existing Codex product.",
+      "categories": ["Developer Tools", "Artificial Intelligence"]
+    },
+    {
+      "rank": 3,
+      "product_name": "Aaavatar",
+      "company_domain": "aaavatar.nl",
+      "ph_url": "https://www.producthunt.com/products/aaavatar",
+      "score": 171,
+      "tagline": "Branded team headshots in one drop",
+      "launch_type": "new_product",
+      "is_ai": true,
+      "classification_reasoning": "First PH launch. Founder built to solve internal problem, launching publicly first time.",
+      "categories": ["AI Headshot Generators", "Background Removal Tools", "Design Tools"]
+    },
+    {
+      "rank": 4,
+      "product_name": "Flowly",
+      "company_domain": "useflowlyapp.com",
+      "ph_url": "https://www.producthunt.com/products/flowly-6",
+      "score": 151,
+      "tagline": "Your personal AI assistant, native to your desktop",
+      "launch_type": "new_feature",
+      "is_ai": true,
+      "classification_reasoning": "Second PH launch. First launched Jan 30 2026. This is v2 re-release with browser agent, voice coach, E2E encryption.",
+      "categories": ["AI Voice Agents", "AI Workflow Automation"]
+    },
+    {
+      "rank": 5,
+      "product_name": "Rudel",
+      "company_domain": "app.rudel.ai",
+      "ph_url": "https://www.producthunt.com/products/rudel",
+      "score": 172,
+      "tagline": "Claude Code & Codex Usage Trading Cards",
+      "launch_type": "new_feature",
+      "is_ai": true,
+      "classification_reasoning": "Second PH launch. First launched Apr 9 2026 as session analytics. This adds trading cards feature.",
+      "categories": ["Developer Tools", "Open Source"]
+    },
+    {
+      "rank": 6,
+      "product_name": "Dropy",
+      "company_domain": "dropy.app",
+      "ph_url": "https://www.producthunt.com/products/dropy-price-tracker-price-history",
+      "score": 158,
+      "tagline": "Track prices on stores like Amazon, eBay, & AliExpress",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "classification_reasoning": "First PH launch. Creator built to solve own problem.",
+      "categories": ["Chrome Extensions", "Shopping"]
+    },
+    {
+      "rank": 7,
+      "product_name": "Croct",
+      "company_domain": "croct.com",
+      "ph_url": "https://www.producthunt.com/products/croct",
+      "score": 123,
+      "tagline": "Visitor profiles and timeline",
+      "launch_type": "new_feature",
+      "is_ai": true,
+      "classification_reasoning": "Fourth PH launch. Previous: Jan 2025, Jun 2025, Dec 2025. This adds visitor profiling.",
+      "categories": ["A/B Testing", "Analytics", "Content Management"]
+    },
+    {
+      "rank": 8,
+      "product_name": "Regulus by Cumbuca",
+      "company_domain": "cumbuca.com",
+      "ph_url": "https://www.producthunt.com/products/cumbuca",
+      "score": 105,
+      "tagline": "AI chatbot trained on Brazil's Central Bank regulations",
+      "launch_type": "new_feature",
+      "is_ai": true,
+      "classification_reasoning": "Second launch from Cumbuca. Core payment product launched Dec 2025. Regulus is new AI tool during launch week.",
+      "categories": ["Fintech", "Legal"]
+    },
+    {
+      "rank": 9,
+      "product_name": "Panels Store",
+      "company_domain": "panels.store",
+      "ph_url": "https://www.producthunt.com/products/panels-store",
+      "score": 118,
+      "tagline": "Buy DRM-free comics and read them instantly in Panels",
+      "launch_type": "new_product",
+      "is_ai": false,
+      "classification_reasoning": "First PH launch for Panels Store. Reader app is 8 years old but Store is new marketplace product.",
+      "categories": ["Marketplace", "Books"]
+    },
+    {
+      "rank": 10,
+      "product_name": "Sleek Analytics",
+      "company_domain": "getsleek.io",
+      "ph_url": "https://www.producthunt.com/products/sleek-analytics",
+      "score": 101,
+      "tagline": "Your website analytics in your pocket",
+      "launch_type": "new_feature",
+      "is_ai": false,
+      "classification_reasoning": "Third PH launch in 30 days. Original Apr 4, revenue feature Apr 13. This is iOS app extension.",
+      "categories": ["Analytics", "Marketing", "Privacy"]
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "new_products": 4,
+    "new_features": 6,
+    "ai_related": 7,
+    "non_ai": 3
+  }
+}
