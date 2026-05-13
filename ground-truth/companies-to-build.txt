@@ -1,0 +1,27 @@
+# 25 Ground Truth Companies — validation targets for research agent
+# Status: GT JSON files not yet built. Each needs categories per schema.json.
+xamarin.com
+zip2.com
+mytrah.com
+fairpoint.com
+pieridaeenergy.com
+ascenderhcm.com
+pantoro.com.au
+cinedigm.com
+tutor.com
+sartorius.com
+acnb.com
+medidata.com
+whisper.sh
+intersections.com
+aferian.com
+kushco.com
+newlookvision.ca
+firststatebank.biz
+lxrco.com
+tableau.com
+fieldnation.com
+emeraldhealth.ca
+blockex.com
+newcenturyresources.com
+tpx.com
