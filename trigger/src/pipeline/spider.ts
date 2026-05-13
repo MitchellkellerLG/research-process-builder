@@ -1,53 +1,49 @@
-const SPIDER_API_KEY = process.env.SPIDER_API_KEY ?? "";
+const FIRECRAWL_API_KEY = process.env.FIRECRAWL_API_KEY ?? "";
+const FC_BASE = "https://api.firecrawl.dev/v1";
 
-interface SpiderOptions {
-  renderJs?: boolean;
-  waitForSecs?: number;
+interface FetchOptions {
+  renderJs?: boolean;   // kept for call-site compat — FC handles JS natively, ignored
+  waitForSecs?: number; // kept for compat — ignored
 }
 
-async function spiderFetch(url: string, timeoutMs: number, options?: SpiderOptions): Promise<string | null> {
-  const body: Record<string, unknown> = { url, limit: 1, return_format: "markdown" };
-  if (options?.renderJs) {
-    body.render_js = true;
-    if (options.waitForSecs) {
-      body.wait_for = { delay: { secs: options.waitForSecs, nanos: 0 } };
-    }
-  }
-  const resp = await fetch("https://api.spider.cloud/crawl", {
+async function firecrawlFetch(url: string, timeoutMs: number): Promise<string | null> {
+  const resp = await fetch(`${FC_BASE}/scrape`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${SPIDER_API_KEY}`,
+      Authorization: `Bearer ${FIRECRAWL_API_KEY}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      url,
+      formats: ["markdown"],
+      onlyMainContent: true,
+    }),
     signal: AbortSignal.timeout(timeoutMs),
   });
 
   if (!resp.ok) return null;
 
-  const data = await resp.json();
-  let content = "";
-  if (Array.isArray(data) && data.length > 0) {
-    content = data[0]?.content ?? "";
-  } else if (data && typeof data === "object") {
-    content = (data as Record<string, string>).content ?? "";
-  }
+  const data = await resp.json() as { success: boolean; data?: { markdown?: string } };
+  if (!data.success) return null;
+
+  const content = data.data?.markdown ?? "";
   return content.length > 200 ? content.slice(0, 15_000) : null;
 }
 
-export async function fetchUrl(url: string, options?: SpiderOptions): Promise<string | null> {
-  if (SPIDER_API_KEY) {
+export async function fetchUrl(url: string, options?: FetchOptions): Promise<string | null> {
+  if (FIRECRAWL_API_KEY) {
     try {
-      const result = await spiderFetch(url, 20_000, options);
+      const result = await firecrawlFetch(url, 30_000);
       if (result) return result;
     } catch { /* first attempt failed */ }
 
     try {
-      const result = await spiderFetch(url, 45_000, options);
+      const result = await firecrawlFetch(url, 60_000);
       if (result) return result;
     } catch { /* retry failed */ }
   }
 
+  // Direct fetch fallback (no key or FC failed)
   try {
     const resp = await fetch(url, {
       headers: { "User-Agent": "Mozilla/5.0 (compatible; LeadGrow/1.0)" },
@@ -55,9 +51,7 @@ export async function fetchUrl(url: string, options?: SpiderOptions): Promise<st
     });
     if (resp.ok) {
       const text = await resp.text();
-      if (text.length > 200) {
-        return text.slice(0, 15_000);
-      }
+      if (text.length > 200) return text.slice(0, 15_000);
     }
   } catch { /* all methods failed */ }
 
