@@ -1,0 +1,50 @@
+{
+  "company": "Tutor.com",
+  "domain": "tutor.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Online tutoring platform connecting K-12 and college students with expert tutors for on-demand, one-to-one learning sessions.",
+      "employee_count": "500-1000 (tutors: 3000+ contractor network)",
+      "headquarters": "New York, NY",
+      "founded_year": "1998",
+      "business_model": "B2C + B2B (institutional partnerships)",
+      "acquired_by": "The Princeton Review / IAC",
+      "confidence": "verified",
+      "sources": [
+        "tutor.com",
+        "princetonreview.com",
+        "linkedin.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "George Cigale",
+        "Robert Batten"
+      ],
+      "titles": [
+        "Founder",
+        "CEO (The Princeton Review & Tutor.com)"
+      ],
+      "note": "George Cigale founded Tutor.com in 1998; Robert Batten is current CEO of parent entity",
+      "confidence": "verified",
+      "sources": [
+        "tutor.com",
+        "linkedin.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Undisclosed (bootstrapped/angel funded before acquisition)",
+      "last_round_type": "M&A",
+      "last_round_amount": null,
+      "key_investors": [],
+      "exit": "Acquired by IAC/Princeton Review",
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "princetonreview.com"
+      ]
+    }
+  }
+}

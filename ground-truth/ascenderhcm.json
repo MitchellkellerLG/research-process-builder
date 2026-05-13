@@ -1,0 +1,47 @@
+{
+  "company": "Ascender HCM",
+  "domain": "ascenderhcm.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Human capital management and payroll platform serving enterprises across APAC.",
+      "employee_count": "500-1000",
+      "headquarters": "Sydney, NSW, Australia",
+      "founded_year": "2003",
+      "business_model": "B2B",
+      "note": "Acquired by SHL (formerly part of Ceridian HCM portfolio)",
+      "confidence": "verified",
+      "sources": [
+        "ascenderhcm.com",
+        "pitchbook.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Andrew Wilson"
+      ],
+      "titles": [
+        "CEO (2018-present)"
+      ],
+      "note": "Formed through corporate acquisitions; founder not publicly documented",
+      "confidence": "verified",
+      "sources": [
+        "ascenderhcm.com",
+        "linkedin.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Acquired entity - no VC funding rounds",
+      "last_round_type": "M&A",
+      "last_round_amount": null,
+      "key_investors": [],
+      "note": "Part of Ceridian HCM portfolio, later acquired by SHL",
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "pitchbook.com"
+      ]
+    }
+  }
+}

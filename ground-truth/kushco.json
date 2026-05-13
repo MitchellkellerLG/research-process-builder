@@ -1,0 +1,47 @@
+{
+  "company": "KushCo Holdings",
+  "domain": "kushco.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Provider of ancillary products and services for the legal cannabis and CBD industries, including packaging, vaping hardware, and solvents.",
+      "employee_count": "50-200",
+      "headquarters": "Cypress, CA",
+      "founded_year": "2010",
+      "business_model": "B2B",
+      "note": "Merged with Greenlane Holdings (2021)",
+      "confidence": "verified",
+      "sources": [
+        "kushco.com",
+        "pitchbook.com",
+        "forbes.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Nick Kovacevich"
+      ],
+      "titles": [
+        "Co-Founder & CEO"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "forbes.com",
+        "linkedin.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (OTC: KSHB); pre-IPO funding undisclosed",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "exit": "Merged with Greenlane Holdings (2021)",
+      "confidence": "medium",
+      "sources": [
+        "pitchbook.com",
+        "crunchbase.com"
+      ]
+    }
+  }
+}

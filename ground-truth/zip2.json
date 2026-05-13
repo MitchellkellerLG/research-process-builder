@@ -1,0 +1,52 @@
+{
+  "company": "Zip2",
+  "domain": "zip2.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Provided online city guide software and business directories licensed to newspapers for building their online presences.",
+      "employee_count": "50-200",
+      "headquarters": "Palo Alto, CA",
+      "founded_year": "1995",
+      "business_model": "B2B",
+      "exit": "Acquired by Compaq for  (1999)",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "britannica.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Elon Musk",
+        "Kimbal Musk",
+        "Greg Kouri"
+      ],
+      "titles": [
+        "Co-Founder",
+        "Co-Founder",
+        "Co-Founder"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "cnbc.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "",
+      "last_round_type": "Angel",
+      "last_round_amount": "",
+      "key_investors": [
+        "Mohr Davidow Ventures"
+      ],
+      "exit": "Acquired by Compaq for  (1999)",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "britannica.com"
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "company": "Emerald Health Therapeutics",
+  "domain": "emeraldhealth.ca",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Canadian licensed cannabis producer focused on medical and recreational cannabis products through Health Canada licensed facilities.",
+      "employee_count": "50-200",
+      "headquarters": "Victoria, BC, Canada",
+      "founded_year": "2014",
+      "business_model": "B2C + B2B",
+      "note": "Acquired in 2022; operations scaled down from peak",
+      "confidence": "verified",
+      "sources": [
+        "emeraldhealth.ca",
+        "newcannabisventures.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Avtar Dhillon",
+        "Chris Wagner"
+      ],
+      "titles": [
+        "Chairman & Co-Founder",
+        "CEO"
+      ],
+      "note": "Chris Wagner appointed CEO 2019; Avtar Dhillon was Executive Chairman",
+      "confidence": "verified",
+      "sources": [
+        "newcannabisventures.com",
+        "emeraldhealth.ca"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (TSXV: EMH); post-IPO dilutive raises",
+      "last_round_type": "Post-IPO Equity",
+      "last_round_amount": null,
+      "key_investors": [],
+      "note": "Acquired and taken private 2022; funding data pre-acquisition",
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "newcannabisventures.com"
+      ]
+    }
+  }
+}

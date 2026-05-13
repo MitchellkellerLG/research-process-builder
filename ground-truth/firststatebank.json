@@ -1,0 +1,44 @@
+{
+  "company": "First State Bank (FSB)",
+  "domain": "firststatebank.biz",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Community bank serving Southeast Michigan with personal and business banking, loans, and financial services.",
+      "employee_count": "50-200",
+      "headquarters": "Macomb County, MI",
+      "founded_year": "1917",
+      "business_model": "B2C + B2B",
+      "confidence": "verified",
+      "sources": [
+        "firststatebank.biz",
+        "fsb.bank"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Mark Jansen"
+      ],
+      "titles": [
+        "President & CEO"
+      ],
+      "note": "Community bank with multiple branches in Michigan; founded 1917",
+      "confidence": "verified",
+      "sources": [
+        "fsb.bank",
+        "firststatebank.biz"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Privately held community bank",
+      "last_round_type": "N/A (deposit-funded)",
+      "last_round_amount": null,
+      "key_investors": [],
+      "confidence": "medium",
+      "sources": [
+        "firststatebank.biz"
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "company": "Intersection Co.",
+  "domain": "intersections.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Smart cities technology and out-of-home advertising company, known for LinkNYC kiosks and transit advertising networks.",
+      "employee_count": "200-500",
+      "headquarters": "New York, NY",
+      "founded_year": "2015",
+      "business_model": "B2B + B2C (advertising)",
+      "note": "Formed as Sidewalk Labs (Alphabet/Google) spinout, merged with Titan Outdoor",
+      "confidence": "verified",
+      "sources": [
+        "intersection.com",
+        "wikipedia.org",
+        "linkedin.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Chris Grosso"
+      ],
+      "titles": [
+        "CEO"
+      ],
+      "note": "Formed by Sidewalk Labs (Alphabet) through merger of Control Group and Titan; not a traditional founder-led startup",
+      "confidence": "verified",
+      "sources": [
+        "intersection.com",
+        "linkedin.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Backed by Sidewalk Labs (Alphabet/Google)",
+      "last_round_type": "Corporate",
+      "last_round_amount": null,
+      "key_investors": [
+        "Sidewalk Labs (Alphabet)"
+      ],
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "wikipedia.org"
+      ]
+    }
+  }
+}

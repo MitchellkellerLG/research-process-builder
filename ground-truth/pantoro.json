@@ -1,0 +1,49 @@
+{
+  "company": "Pantoro Gold Limited",
+  "domain": "pantoro.com.au",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Australian gold mining, processing, and exploration company operating in Western Australia.",
+      "employee_count": "100-500",
+      "headquarters": "West Perth, WA, Australia",
+      "founded_year": "1986",
+      "business_model": "B2B",
+      "confidence": "verified",
+      "sources": [
+        "pantoro.com.au",
+        "asx.com.au"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Paul Cmrlec"
+      ],
+      "titles": [
+        "Managing Director"
+      ],
+      "board": [
+        "Wayne Zekulich (Chairman)",
+        "Fiona Van Maanen (Non-Exec Director)"
+      ],
+      "note": "Originally Pacific Niugini Ltd (ASX: PNR)",
+      "confidence": "verified",
+      "sources": [
+        "pantoro.com.au",
+        "asx.com.au"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (ASX: PNR)",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "confidence": "medium",
+      "sources": [
+        "asx.com.au",
+        "pantoro.com.au"
+      ]
+    }
+  }
+}

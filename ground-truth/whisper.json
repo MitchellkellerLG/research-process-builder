@@ -1,0 +1,52 @@
+{
+  "company": "Whisper (WhisperText LLC)",
+  "domain": "whisper.sh",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Anonymous social media app allowing users to share secrets and confessions overlaid on images, creating a confessional community.",
+      "employee_count": "50-200",
+      "headquarters": "Los Angeles, CA (Venice)",
+      "founded_year": "2012",
+      "business_model": "B2C (ad-supported)",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "crunchbase.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Michael Heyward",
+        "Brad Brooks"
+      ],
+      "titles": [
+        "Co-Founder & CEO",
+        "Co-Founder"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "crunchbase.com",
+        "techcrunch.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "",
+      "last_round_type": "Series C",
+      "last_round_amount": "",
+      "key_investors": [
+        "Sequoia Capital",
+        "Lightspeed Venture Partners",
+        "Shasta Ventures",
+        "Thrive Capital"
+      ],
+      "confidence": "high",
+      "sources": [
+        "crunchbase.com",
+        "techcrunch.com"
+      ]
+    }
+  }
+}

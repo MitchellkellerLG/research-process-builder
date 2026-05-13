@@ -1,0 +1,47 @@
+{
+  "company": "Pieridae Energy (renamed Cavvy Energy 2025)",
+  "domain": "pieridaeenergy.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Canadian upstream producer and midstream processor of natural gas, NGLs, condensate, and sulphur from Western Canada. Trading as Cavvy Energy Ltd since 2025.",
+      "employee_count": "200-500",
+      "headquarters": "Calgary, Alberta, Canada",
+      "founded_year": "2011",
+      "business_model": "B2B",
+      "confidence": "verified",
+      "sources": [
+        "pieridaeenergy.com",
+        "cavvyenergy.com",
+        "finance.yahoo.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Alfred Sorensen",
+        "Darcy Reding"
+      ],
+      "titles": [
+        "Founder & Former CEO (retired 2024)",
+        "Current CEO (2024-present)"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "cavvyenergy.com",
+        "finance.yahoo.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (TSX: PEA) - no VC funding",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "confidence": "medium",
+      "sources": [
+        "pieridaeenergy.com",
+        "finance.yahoo.com"
+      ]
+    }
+  }
+}

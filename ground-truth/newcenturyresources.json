@@ -1,0 +1,51 @@
+{
+  "company": "New Century Resources",
+  "domain": "newcenturyresources.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Australian base metal mining and production company focused on zinc, lead, and coking coal in Queensland and international operations.",
+      "employee_count": "50-200",
+      "headquarters": "Melbourne, VIC, Australia",
+      "founded_year": "2010",
+      "business_model": "B2B",
+      "note": "ASX-listed (ASX: NCZ); acquired by IGO Limited",
+      "confidence": "verified",
+      "sources": [
+        "newcenturyresources.com",
+        "igo.com.au"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Patrick Walta",
+        "Robert Cooper"
+      ],
+      "titles": [
+        "Managing Director",
+        "CEO"
+      ],
+      "note": "Patrick Walta stepped down as MD; Robert Cooper took over leadership",
+      "confidence": "verified",
+      "sources": [
+        "proactiveinvestors.com",
+        "listcorp.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "+ (equity raises + M&A)",
+      "last_round_type": "M&A (by IGO Limited)",
+      "last_round_amount": null,
+      "key_investors": [
+        "IGO Limited (acquirer)"
+      ],
+      "note": "Multiple capital raisings; acquired by IGO",
+      "confidence": "high",
+      "sources": [
+        "igo.com.au",
+        "proactiveinvestors.com.au"
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "company": "FairPoint Communications",
+  "domain": "fairpoint.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "American telecommunications operator providing local and long-distance phone, internet, data, and broadband services across 18 states.",
+      "employee_count": "2000-4000",
+      "headquarters": "Charlotte, NC",
+      "founded_year": "1991",
+      "business_model": "B2C + B2B",
+      "exit": "Acquired by Consolidated Communications for .5B (2017)",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "crunchbase.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Paul Sunu"
+      ],
+      "titles": [
+        "CEO (final CEO before 2017 acquisition)"
+      ],
+      "note": "Formed through acquisition of Verizon/GTE rural properties, not a traditional startup.",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "bloomberg.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (NASDAQ: FRP) - no VC funding",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "exit": "Acquired by Consolidated Communications for .5B (2017)",
+      "note": "Filed Chapter 11 bankruptcy in 2009, emerged 2011.",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "reuters.com"
+      ]
+    }
+  }
+}

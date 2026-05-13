@@ -1,0 +1,55 @@
+{
+  "company": "Medidata Solutions",
+  "domain": "medidata.com",
+  "tier": 1,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Global leader in clinical trial software, providing a unified platform for life sciences companies to manage clinical development and patient data.",
+      "employee_count": "2500-3500",
+      "headquarters": "New York, NY",
+      "founded_year": "1999",
+      "business_model": "B2B",
+      "acquired_by": "Dassault Systemes (2019, .8B)",
+      "confidence": "verified",
+      "sources": [
+        "medidata.com",
+        "wikipedia.org",
+        "crunchbase.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Tarek Sherif",
+        "Glen de Vries",
+        "Ed Ikeguchi"
+      ],
+      "titles": [
+        "Co-Founder & CEO",
+        "Co-Founder & President",
+        "Co-Founder & Chief Medical Officer"
+      ],
+      "note": "Glen de Vries died in plane crash November 2021",
+      "confidence": "verified",
+      "sources": [
+        "medidata.com",
+        "wikipedia.org",
+        "crunchbase.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": ".5M (pre-IPO); IPO 2009 (NASDAQ: MDSO)",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [
+        "Insight Partners"
+      ],
+      "exit": "Acquired by Dassault Systemes for .8B (2019)",
+      "confidence": "verified",
+      "sources": [
+        "crunchbase.com",
+        "wikipedia.org"
+      ]
+    }
+  }
+}

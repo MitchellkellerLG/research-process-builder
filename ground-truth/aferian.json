@@ -1,0 +1,49 @@
+{
+  "company": "Aferian PLC",
+  "domain": "aferian.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Media technology company delivering streaming and PayTV integration software through subsidiaries Amino and 24i.",
+      "employee_count": "100-300",
+      "headquarters": "Cambridge, UK",
+      "founded_year": "1997",
+      "business_model": "B2B",
+      "note": "Formerly Amino Technologies PLC; renamed Aferian 2021",
+      "confidence": "verified",
+      "sources": [
+        "aferian.com",
+        "pitchbook.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Mark Carlisle"
+      ],
+      "titles": [
+        "Group CEO"
+      ],
+      "note": "Originally founded as Amino Technologies (1997); public company (LSE: AFRN); subsidiary CEOs: Sebastian Braun (24i)",
+      "confidence": "verified",
+      "sources": [
+        "aferian.com",
+        "proactiveinvestors.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (LSE: AFRN); pre-IPO PE backing",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [
+        "YFM Equity Partners",
+        "Azini Capital (pre-IPO)"
+      ],
+      "confidence": "medium",
+      "sources": [
+        "pitchbook.com",
+        "proactiveinvestors.com"
+      ]
+    }
+  }
+}

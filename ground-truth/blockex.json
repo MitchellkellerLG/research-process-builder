@@ -1,0 +1,42 @@
+{
+  "company": "BlockEx",
+  "domain": "blockex.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Blockchain-based digital asset exchange and issuance platform for institutional financial market participants.",
+      "employee_count": "10-50",
+      "headquarters": "London, UK",
+      "founded_year": "2014",
+      "business_model": "B2B",
+      "note": "ICO-era blockchain company; limited public information available",
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "pitchbook.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [],
+      "titles": [],
+      "note": "Founders not publicly documented; UK Companies House registration exists (#10289781)",
+      "confidence": "low",
+      "sources": [
+        "find-and-update.company-information.service.gov.uk"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "~ (including ICO)",
+      "last_round_type": "ICO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "note": "ICO-era raise; limited verifiable data",
+      "confidence": "low",
+      "sources": [
+        "crunchbase.com",
+        "tracxn.com"
+      ]
+    }
+  }
+}

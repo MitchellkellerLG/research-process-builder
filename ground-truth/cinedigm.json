@@ -1,0 +1,47 @@
+{
+  "company": "Cinedigm (now Cineverse)",
+  "domain": "cinedigm.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Independent film/TV studio and streaming company specializing in digital cinema distribution, OTT channels, and content marketing.",
+      "employee_count": "100-250",
+      "headquarters": "Los Angeles, CA",
+      "founded_year": "2000",
+      "business_model": "B2C",
+      "note": "Rebranded to Cineverse; originally AccessIT",
+      "confidence": "verified",
+      "sources": [
+        "cinedigm.com",
+        "wikipedia.org"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Chris McGurk"
+      ],
+      "titles": [
+        "Chairman & CEO"
+      ],
+      "note": "Originally founded as AccessIT by Bud Mayo; McGurk joined as CEO in 2011",
+      "confidence": "verified",
+      "sources": [
+        "hollywoodreporter.com",
+        "screendaily.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (NASDAQ: CNVS)",
+      "last_round_type": "IPO (as AccessIT, 2005)",
+      "last_round_amount": null,
+      "key_investors": [],
+      "note": "Multiple name changes: AccessIT -> Cinedigm -> Cineverse",
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "sec.gov"
+      ]
+    }
+  }
+}

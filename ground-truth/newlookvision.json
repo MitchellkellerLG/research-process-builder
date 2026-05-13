@@ -1,0 +1,50 @@
+{
+  "company": "New Look Vision Group",
+  "domain": "newlookvision.ca",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Canadian eyewear retailer operating multiple brands including New Look Eyewear, IRIS, and Vogue Optical across Canada.",
+      "employee_count": "2000-5000",
+      "headquarters": "Saint-Laurent, Quebec, Canada",
+      "founded_year": "1986",
+      "business_model": "B2C",
+      "confidence": "verified",
+      "sources": [
+        "newlookvision.ca",
+        "pitchbook.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Antoine Amiel",
+        "Gary Black"
+      ],
+      "titles": [
+        "President & CEO",
+        "Founder & President (Black Optical)"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "newlookvision.ca"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "PE-backed; taken private by FFL Partners, Ardian, Caisse de depot (2019)",
+      "last_round_type": "Buyout/LBO",
+      "last_round_amount": null,
+      "key_investors": [
+        "FFL Partners",
+        "Ardian",
+        "Caisse de depot et placement du Quebec",
+        "Golub Capital (debt)"
+      ],
+      "confidence": "high",
+      "sources": [
+        "pitchbook.com",
+        "newswire.ca"
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "company": "LXRandCo Inc.",
+  "domain": "lxrco.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Digital-first omnichannel retailer of authenticated pre-owned luxury handbags, accessories, and personal goods.",
+      "employee_count": "50-150",
+      "headquarters": "Montreal, Quebec, Canada",
+      "founded_year": "2010",
+      "business_model": "B2C",
+      "confidence": "verified",
+      "sources": [
+        "lxrco.com",
+        "pitchbook.com",
+        "crunchbase.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Fred Mannella",
+        "Kei Izawa"
+      ],
+      "titles": [
+        "Co-Founder (stepped down 2023)",
+        "Co-Founder & COO"
+      ],
+      "note": "Public company (TSX: LXR); Fred Mannella left in 2023",
+      "confidence": "verified",
+      "sources": [
+        "fashionnetwork.com",
+        "crunchbase.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (TSX: LXR); pre-IPO funding undisclosed",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "note": "Experienced significant stock decline; restructuring ongoing",
+      "confidence": "medium",
+      "sources": [
+        "crunchbase.com",
+        "pitchbook.com"
+      ]
+    }
+  }
+}

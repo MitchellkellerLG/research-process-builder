@@ -1,0 +1,50 @@
+{
+  "company": "TPx Communications",
+  "domain": "tpx.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Managed IT, cybersecurity, and unified communications service provider for mid-market businesses across the US.",
+      "employee_count": "500-1500",
+      "headquarters": "Austin, TX (operational); Los Angeles, CA (registered)",
+      "founded_year": "1998",
+      "business_model": "B2B",
+      "note": "Formerly TelePacific Communications; rebranded to TPx 2017",
+      "confidence": "verified",
+      "sources": [
+        "tpx.com",
+        "wikipedia.org",
+        "pitchbook.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Shaun Andrews"
+      ],
+      "titles": [
+        "CEO"
+      ],
+      "note": "PE-backed company formed through multiple acquisitions; founded as TelePacific in 1998 by Ken Bisnoff and Dick Jalkut",
+      "confidence": "verified",
+      "sources": [
+        "tpx.com",
+        "linkedin.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "PE-backed; Siris Capital Group acquired majority stake",
+      "last_round_type": "Private Equity",
+      "last_round_amount": null,
+      "key_investors": [
+        "Siris Capital Group"
+      ],
+      "note": "Multiple rounds of PE recapitalization; previously backed by Investcorp",
+      "confidence": "medium",
+      "sources": [
+        "pitchbook.com",
+        "tpx.com"
+      ]
+    }
+  }
+}

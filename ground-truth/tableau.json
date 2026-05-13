@@ -1,0 +1,56 @@
+{
+  "company": "Tableau Software",
+  "domain": "tableau.com",
+  "tier": 1,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Data visualization and business intelligence platform enabling organizations to connect to, analyze, and visualize their data.",
+      "employee_count": "4000-5000",
+      "headquarters": "Seattle, WA",
+      "founded_year": "2003",
+      "business_model": "B2B",
+      "acquired_by": "Salesforce (2019, .7B)",
+      "confidence": "verified",
+      "sources": [
+        "tableau.com",
+        "wikipedia.org",
+        "crunchbase.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Chris Stolte",
+        "Christian Chabot",
+        "Pat Hanrahan"
+      ],
+      "titles": [
+        "Co-Founder & Chief Development Officer",
+        "Co-Founder & CEO",
+        "Co-Founder & Chief Scientist"
+      ],
+      "note": "Current CEO (post-Salesforce): Mark Nelson (2021-present); former CEO: Adam Selipsky (2016-2021)",
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "tableau.com",
+        "crunchbase.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": " (pre-IPO); IPO 2013 (NYSE: DATA)",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [
+        "New Enterprise Associates (NEA)"
+      ],
+      "exit": "Acquired by Salesforce for .7B (2019)",
+      "confidence": "verified",
+      "sources": [
+        "crunchbase.com",
+        "wikipedia.org",
+        "techcrunch.com"
+      ]
+    }
+  }
+}

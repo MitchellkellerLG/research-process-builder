@@ -1,0 +1,47 @@
+{
+  "company": "Field Nation",
+  "domain": "fieldnation.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "On-site IT talent marketplace connecting companies with skilled field service technicians for contract work across the US.",
+      "employee_count": "100-300",
+      "headquarters": "Minneapolis, MN",
+      "founded_year": "2008",
+      "business_model": "B2B",
+      "confidence": "verified",
+      "sources": [
+        "fieldnation.com",
+        "wikipedia.org"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Mynul Khan"
+      ],
+      "titles": [
+        "Founder & CEO"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "fieldnation.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "",
+      "last_round_type": "Growth Equity",
+      "last_round_amount": "",
+      "key_investors": [
+        "Susquehanna Growth Equity"
+      ],
+      "note": "Bootstrapped for ~10 years before taking institutional capital",
+      "confidence": "verified",
+      "sources": [
+        "crunchbase.com",
+        "techcrunch.com"
+      ]
+    }
+  }
+}

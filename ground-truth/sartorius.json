@@ -1,0 +1,50 @@
+{
+  "company": "Sartorius AG",
+  "domain": "sartorius.com",
+  "tier": 1,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "International laboratory and bioprocess technology provider serving the biotech, pharmaceutical, and food industries.",
+      "employee_count": "14000-16000",
+      "headquarters": "Gottingen, Germany",
+      "founded_year": "1870",
+      "business_model": "B2B",
+      "confidence": "verified",
+      "sources": [
+        "sartorius.com",
+        "forbes.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Dr. Michael Grosse",
+        "Florenz Sartorius"
+      ],
+      "titles": [
+        "CEO (current, Executive Board Chairman)",
+        "Founder (1870)"
+      ],
+      "board": [
+        "Dr. Joachim Kreuzburg (former CEO, now Supervisory Board)"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "sartorius.com",
+        "wikipedia.org"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (FWB: SRT, SRT3); dual-class share structure",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "note": "Family-controlled public company; Sartorius Stedim Biotech (SSB) is majority-owned subsidiary listed on Euronext Paris",
+      "confidence": "verified",
+      "sources": [
+        "sartorius.com",
+        "forbes.com"
+      ]
+    }
+  }
+}

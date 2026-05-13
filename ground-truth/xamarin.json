@@ -1,0 +1,55 @@
+{
+  "company": "Xamarin",
+  "domain": "xamarin.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Cross-platform mobile application development platform enabling developers to build native iOS, Android, and Windows apps using C# and .NET.",
+      "employee_count": "250-350",
+      "headquarters": "San Francisco, CA",
+      "founded_year": "2011",
+      "business_model": "B2B",
+      "acquired_by": "Microsoft (2016)",
+      "confidence": "verified",
+      "sources": [
+        "crunchbase.com",
+        "xamarin.com",
+        "microsoft.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Miguel de Icaza",
+        "Nat Friedman"
+      ],
+      "titles": [
+        "Co-Founder",
+        "Co-Founder & CEO"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "wikipedia.org",
+        "crunchbase.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "",
+      "last_round_type": "Series C",
+      "last_round_amount": "",
+      "key_investors": [
+        "Insight Venture Partners",
+        "Charles River Ventures",
+        "Ignition Partners",
+        "Floodgate"
+      ],
+      "exit": "Acquired by Microsoft for  (2016)",
+      "confidence": "verified",
+      "sources": [
+        "crunchbase.com",
+        "techcrunch.com",
+        "wikipedia.org"
+      ]
+    }
+  }
+}

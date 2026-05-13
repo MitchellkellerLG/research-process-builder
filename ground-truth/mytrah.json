@@ -1,0 +1,53 @@
+{
+  "company": "Mytrah Energy",
+  "domain": "mytrah.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Indian renewable energy company operating wind and solar power generation assets across multiple states.",
+      "employee_count": "100-500",
+      "headquarters": "Hyderabad, Telangana, India",
+      "founded_year": "2010",
+      "business_model": "B2B",
+      "exit": "1.75 GW portfolio acquired by JSW Energy for ~.47B (2022)",
+      "confidence": "verified",
+      "sources": [
+        "mytrah.com",
+        "jswenergy.in",
+        "linkedin.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Ravi Kailas"
+      ],
+      "titles": [
+        "Founder & Chairman"
+      ],
+      "confidence": "verified",
+      "sources": [
+        "linkedin.com",
+        "crunchbase.com"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "+ (debt + equity across multiple rounds)",
+      "last_round_type": "Debt Financing",
+      "last_round_amount": null,
+      "key_investors": [
+        "Piramal Group",
+        "Asian Development Bank",
+        "Goldman Sachs",
+        "Apollo Global Management"
+      ],
+      "exit": "1.75 GW portfolio acquired by JSW Energy for .47B (2022)",
+      "confidence": "high",
+      "sources": [
+        "crunchbase.com",
+        "jswenergy.in",
+        "tracxn.com"
+      ]
+    }
+  }
+}

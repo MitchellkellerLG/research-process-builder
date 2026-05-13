@@ -1,0 +1,45 @@
+{
+  "company": "ACNB Corporation",
+  "domain": "acnb.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Community bank holding company providing banking and financial services through its subsidiary ACNB Bank in south-central Pennsylvania.",
+      "employee_count": "300-500",
+      "headquarters": "Gettysburg, PA",
+      "founded_year": "1857",
+      "business_model": "B2C + B2B",
+      "confidence": "verified",
+      "sources": [
+        "acnb.com",
+        "finance.yahoo.com"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "James P. Helt"
+      ],
+      "titles": [
+        "President & CEO"
+      ],
+      "note": "Publicly traded community bank (NASDAQ: ACNB); founded 1857 as Adams County National Bank",
+      "confidence": "verified",
+      "sources": [
+        "acnb.com",
+        "sec.gov"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "Public company (NASDAQ: ACNB)",
+      "last_round_type": "IPO",
+      "last_round_amount": null,
+      "key_investors": [],
+      "confidence": "verified",
+      "sources": [
+        "acnb.com",
+        "finance.yahoo.com"
+      ]
+    }
+  }
+}
