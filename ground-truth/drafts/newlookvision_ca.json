@@ -1,0 +1,56 @@
+{
+  "company": "newlookvision",
+  "domain": "newlookvision.ca",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Distributor of eyewear products intended to enhance people's eyesight.",
+      "employee_count": "2000-5000",
+      "headquarters": "Saint-Laurent, Quebec, Canada",
+      "founded_year": "1986",
+      "business_model": "B2C",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://newlookvision.ca/en/our-mission/",
+        "https://pitchbook.com/profiles/company/59664-07",
+        "https://newlookvision.ca/en/about-us/"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Antoine Amiel",
+        "Gary Black"
+      ],
+      "titles": [
+        "President & Chief Executive Officer",
+        "Founder and President"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://newlookvision.ca/en/management-team/"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$178M",
+      "last_round_type": "Debt",
+      "last_round_amount": null,
+      "key_investors": [
+        "Ardian France",
+        "FFL Partners",
+        "Golub Capital",
+        "La Caisse"
+      ],
+      "valuation": null,
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://pitchbook.com/profiles/company/59664-07",
+        "https://www.crunchbase.com/organization/lunetterie-new-look",
+        "https://tracxn.com/d/companies/newlook/__BbDmm5nstq7EK5RNnxE6BLYdOl7qzYCegxNPNVfNYGY"
+      ]
+    }
+  }
+}

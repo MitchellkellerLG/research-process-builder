@@ -1,0 +1,56 @@
+{
+  "company": "Stripe",
+  "domain": "stripe.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Stripe is a technology company that builds economic infrastructure for the internet, allowing businesses to accept payments and manage their operations online.",
+      "employee_count": "8000",
+      "headquarters": "San Francisco, California",
+      "founded_year": "2009",
+      "business_model": "B2B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://stripe.com/",
+        "https://stripe.com/newsroom/information",
+        "https://www.forbes.com/companies/stripe/"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Patrick Collison"
+      ],
+      "titles": [
+        "Co-Founder and CEO"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.clay.com/dossier/stripe-executives",
+        "https://newsroom.haas.berkeley.edu/stripe-co-founder-and-ceo-patrick-collison-on-founding-a-company-that-should-have-already-existed/"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$9.81B",
+      "last_round_type": "Series I",
+      "last_round_amount": "$694M",
+      "key_investors": [
+        "Thrive Capital",
+        "Andreessen Horowitz",
+        "Baillie Gifford",
+        "Founders Fund",
+        "General Catalyst"
+      ],
+      "valuation": "$65B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/stripe/__uahG_IGnVgsUsOG-f8otYHLkOkliWg7YFhJ5ZkNIkpI/funding-and-investors",
+        "https://www.crunchbase.com/organization/stripe",
+        "https://wellfound.com/company/stripe/funding"
+      ]
+    }
+  }
+}

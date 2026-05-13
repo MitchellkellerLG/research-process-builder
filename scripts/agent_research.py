@@ -412,6 +412,87 @@ def run_all_gt(category: str, anneal: bool = False, rounds: int = 1) -> dict:
     return {"best_score": best_score, "rounds": score_history}
 
 
+# ── Domains file batch ────────────────────────────────────────────────────────
+def run_domains_file(domains_path: str, categories: list[str], bootstrap_gt: bool = False) -> dict:
+    """Run agent against a list of domains (one per line). Optionally generate draft GT files."""
+    domains_file = Path(domains_path)
+    if not domains_file.exists():
+        print(f"ERROR: domains file not found: {domains_path}")
+        sys.exit(1)
+
+    domains = []
+    with open(domains_file, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#"):
+                domains.append(line)
+
+    print(f"\nRunning against {len(domains)} domains, {len(categories)} categories each")
+    print(f"Total agent runs: {len(domains) * len(categories)}")
+
+    all_results = {}
+    for domain in domains:
+        name = domain.replace(".com", "").replace(".org", "").replace(".net", "").replace(".io", "").replace(".ai", "").replace(".co", "").replace(".ca", "").replace(".au", "").replace(".biz", "").replace(".sh", "").split(".")[0].replace("www", "")
+        for cat in categories:
+            try:
+                result = research_company(domain, cat, name)
+                all_results[f"{domain}/{cat}"] = result
+            except Exception as e:
+                print(f"  ERROR {domain}/{cat}: {e}")
+                all_results[f"{domain}/{cat}"] = {"error": str(e), "domain": domain, "category": cat}
+
+    # Bootstrap GT files if requested
+    if bootstrap_gt:
+        _bootstrap_gt_files(all_results, categories)
+
+    # Save batch summary
+    success = sum(1 for r in all_results.values() if r.get("extracted"))
+    batch_out = OUTPUT_DIR / f"domains-batch-{time.strftime('%Y%m%dT%H%M%S')}.json"
+    with open(batch_out, "w", encoding="utf-8") as f:
+        json.dump({
+            "domains_file": str(domains_file),
+            "categories": categories,
+            "total_runs": len(all_results),
+            "successful_extractions": success,
+            "results": all_results,
+        }, f, indent=2, ensure_ascii=False)
+    print(f"\nBatch results: {batch_out}")
+    print(f"Successful: {success}/{len(all_results)}")
+
+    return {"total": len(all_results), "success": success}
+
+
+def _bootstrap_gt_files(results: dict, categories: list[str]) -> None:
+    """Generate draft GT JSON files from agent output, grouped by domain."""
+    by_domain: dict[str, dict] = {}
+    for key, result in results.items():
+        domain, cat = key.split("/", 1)
+        if domain not in by_domain:
+            by_domain[domain] = {
+                "company": result.get("company", domain),
+                "domain": domain,
+                "tier": 2,
+                "verified_date": time.strftime("%Y-%m-%d"),
+                "categories": {},
+            }
+        if result.get("extracted"):
+            by_domain[domain]["categories"][cat] = {
+                **result["extracted"],
+                "confidence": "draft-agent",
+                "sources": result.get("sources", []),
+            }
+
+    draft_dir = GT_DIR / "drafts"
+    draft_dir.mkdir(parents=True, exist_ok=True)
+    for domain, gt_data in by_domain.items():
+        safe_name = domain.replace(".", "_").replace("/", "_")
+        out_path = draft_dir / f"{safe_name}.json"
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(gt_data, f, indent=2, ensure_ascii=False)
+        cat_count = len(gt_data["categories"])
+        print(f"  Draft GT: {out_path} ({cat_count} categories)")
+
+
 # ── CLI ────────────────────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="Research Agent - FC + Serper + 4o-mini")
@@ -422,11 +503,23 @@ def main():
                         help="Research category")
     parser.add_argument("--gt", action="store_true", help="Always validate against ground truth")
     parser.add_argument("--all-gt", action="store_true", help="Run against all GT companies")
+    parser.add_argument("--domains-file", help="Run against a file of domains (one per line)")
+    parser.add_argument("--categories", default="company_profile,founders_ceo,funding_financial",
+                        help="Comma-separated categories for batch mode")
+    parser.add_argument("--bootstrap-gt", action="store_true",
+                        help="Generate draft GT files from agent output (use with --domains-file)")
     parser.add_argument("--anneal", action="store_true", help="Annealing mode: iterate to improve")
     parser.add_argument("--rounds", type=int, default=3, help="Max annealing rounds")
     parser.add_argument("--json", action="store_true", help="Output result as JSON to stdout")
 
     args = parser.parse_args()
+
+    if args.domains_file:
+        cats = [c.strip() for c in args.categories.split(",")]
+        result = run_domains_file(args.domains_file, cats, args.bootstrap_gt)
+        if args.json:
+            print(json.dumps(result, indent=2))
+        return
 
     if args.all_gt:
         result = run_all_gt(args.category, args.anneal, args.rounds)
@@ -435,7 +528,7 @@ def main():
         return
 
     if not args.domain:
-        parser.error("--domain required (or use --all-gt)")
+        parser.error("--domain required (or use --all-gt or --domains-file)")
 
     result = research_company(args.domain, args.category, args.company or "")
     if args.json:

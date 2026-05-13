@@ -1,0 +1,65 @@
+{
+  "company": "lxrco",
+  "domain": "lxrco.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "LXRandCo Inc is a socially responsible, digital-first omnichannel retailer of authenticated pre-owned luxury handbags and personal accessories.",
+      "employee_count": "50-200",
+      "headquarters": "Montreal, Quebec, Canada",
+      "founded_year": "2010",
+      "business_model": "B2C",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://pitchbook.com/profiles/company/102182-32",
+        "https://www.crunchbase.com/organization/lxrandco",
+        "https://poweronecapital.com/issuer/lxrandco-inc/"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Fred Mannella",
+        "Steven Goldsmith",
+        "Kei Izawa",
+        "Mimi E. Vaughn",
+        "Joel D. Anderson"
+      ],
+      "titles": [
+        "Co-founder and Chief Development Officer",
+        "President and CEO",
+        "Co-founder and Chief Operating Officer",
+        "Board Chair, President and Chief Executive Officer, Interim Chief Financial Officer",
+        "Chief Executive Officer"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://ww.fashionnetwork.com/news/Lxrandco-co-founder-steps-down,1095916.html",
+        "https://corporate.petco.com/executive-leadership-team",
+        "https://www.genesco.com/investor-relations/corporate-governance/executive-leadership"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$1M+",
+      "last_round_type": "Funding",
+      "last_round_amount": "€1M",
+      "key_investors": [
+        "Tilia Impact Ventures",
+        "Coinvest Capital",
+        "EQT",
+        "Teachers’ Venture Growth",
+        "Schroders Capital"
+      ],
+      "valuation": "€8B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.thefashionlaw.com/secondary-market-investment-and-ma-tracker/",
+        "https://www.alleywatch.com/2025/02/us-startup-funding-top-largest-january-2025-vc/",
+        "https://tracxn.com/d/companies/lxrco/__1AK4UOh_kAWZjEuRBL3zFtzvcQiHUV_-n7F_WF83TY4"
+      ]
+    }
+  }
+}

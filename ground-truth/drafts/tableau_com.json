@@ -1,0 +1,55 @@
+{
+  "company": "tableau",
+  "domain": "tableau.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Tableau provides a cloud-based analytics platform that helps organizations connect to their data and analyze it with powerful visual analytics.",
+      "employee_count": "1001-5000",
+      "headquarters": "Seattle, Washington, USA",
+      "founded_year": "2003",
+      "business_model": "B2B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.tableau.com/",
+        "https://www.tableau.com/products/cloud-bi",
+        "https://www.tableau.com/about"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Mark Nelson",
+        "Christian Chabot",
+        "Adam Selipsky"
+      ],
+      "titles": [
+        "CEO",
+        "Co-founder and former CEO",
+        "CEO"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.tableau.com/about/blog/contributors/mark-nelson",
+        "https://www.constellationr.com/insights/news/tableau-shakes-its-leadership-questions-remain",
+        "https://www.forbes.com/profile/christian-chabot/"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$254.2M",
+      "last_round_type": null,
+      "last_round_amount": null,
+      "key_investors": [],
+      "valuation": null,
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.trysignalbase.com/news/funding/tableau-secures-254",
+        "https://www.clay.com/dossier/tableau-funding",
+        "https://tracxn.com/d/companies/tableau/__mE9oz1qtnZEh2yO7sS-NGHsGc2E2hbPiW2YrKqYRQoE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "company": "newcenturyresources",
+  "domain": "newcenturyresources.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "New Century Resources Limited operates as a base metal development and production company in Australia and the United States, focusing on exploring for zinc, lead, and coking coal deposits.",
+      "employee_count": "51-200",
+      "headquarters": "Melbourne, Australia",
+      "founded_year": null,
+      "business_model": "B2B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.responsibilityreports.com/Company/new-century-resource",
+        "https://finance.yahoo.com/news/century-resources-limiteds-asx-ncz-193538478.html"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Robert Cooper",
+        "Patrick Walta"
+      ],
+      "titles": [
+        "CEO",
+        "Managing Director"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.proactiveinvestors.com/companies/news/992891/new-century-resources-enhances-board-and-management-with-new-appointment-992891.html",
+        "https://www.listcorp.com/asx/ncz/new-century-resources-limited/news/leadership-transition-for-next-phase-of-new-century-growth-2765348.html"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$220M",
+      "last_round_type": "M&A",
+      "last_round_amount": null,
+      "key_investors": [
+        "IGO Limited"
+      ],
+      "valuation": null,
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://pitchbook.com/profiles/company/59899-69",
+        "https://www.igo.com.au/site/pdf/8b28a064-20ce-4667-9a89-8180515ae200/NCZ-LAUNCHES-A511-MILLION-CAPITAL-RAISING.pdf",
+        "https://www.proactiveinvestors.com.au/companies/news/968539/new-century-resources-completes-a-116-7-million-equity-raising-to-support-esg-focused-growth-strategy-968539.html"
+      ]
+    }
+  }
+}

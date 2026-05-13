@@ -1,0 +1,56 @@
+{
+  "company": "pieridaeenergy",
+  "domain": "pieridaeenergy.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Cavvy Energy is a significant upstream producer and midstream custom processor of natural gas, NGLs, condensate, and sulphur from Western Canada.",
+      "employee_count": "201-500",
+      "headquarters": "Calgary, Alberta",
+      "founded_year": "2011",
+      "business_model": "B2B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://finance.yahoo.com/news/pieridae-energy-changes-name-cavvy-120000116.html",
+        "https://www.responsibilityreports.com/Company/pieridae-energy-limited",
+        "https://www.cavvyenergy.com/newsroom/pieridae-announces-voting-results-from-annual-and-special-meeting-of-shareholders-and-approval-of-name-change-to-cavvy-energy-ltd/"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Darcy Reding",
+        "Alfred Sorensen"
+      ],
+      "titles": [
+        "Chief Executive Officer",
+        "CEO & Director"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.cavvyenergy.com/newsroom/pieridae-energy-announces-appointment-of-new-ceo/",
+        "https://finance.yahoo.com/news/pieridae-energy-announces-appointment-ceo-210000536.html",
+        "https://theorg.com/org/pieridae-energy-canada/teams/leadership-team"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": null,
+      "last_round_type": "Post IPO",
+      "last_round_amount": "$3,945,960",
+      "key_investors": [
+        "National Bank Financial Wealth Management",
+        "Western & Southern Financial Group"
+      ],
+      "valuation": "$11,447,733",
+      "confidence": "medium",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.cavvyenergy.com/newsroom/pieridae-announces-2025-guidance-capital-program/",
+        "https://tracxn.com/d/companies/pieridaeenergy/__oP3XsR1PATl7OBVZzfr4sUOgI1czlPfnyAgoC86JP2k",
+        "https://boereport.com/2025/05/12/pieridae-energy-changes-name-to-cavvy-energy/"
+      ]
+    }
+  }
+}

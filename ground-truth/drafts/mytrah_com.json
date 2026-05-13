@@ -1,0 +1,56 @@
+{
+  "company": "mytrah",
+  "domain": "mytrah.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Mytrah Energy (India) Private Limited operates a portfolio of renewable energy generation capacity, primarily in wind and solar.",
+      "employee_count": null,
+      "headquarters": "null",
+      "founded_year": null,
+      "business_model": "B2B",
+      "confidence": "medium",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.scribd.com/presentation/461705875/Mytrah-Energy-OSCM-2020",
+        "https://www.jswenergy.in/energy/acquisition-175-gw-renewable-portfolio-mytrah-energy"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Sumant Sinha",
+        "Ravi Kailas"
+      ],
+      "titles": [
+        "Founder, Chairman and CEO",
+        "Chairman"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.renew.com/leadership",
+        "https://en.wikipedia.org/wiki/Ravi_Kailas",
+        "https://theorg.com/org/mytrah-energy/teams/leadership-team"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$79.1M",
+      "last_round_type": null,
+      "last_round_amount": null,
+      "key_investors": [
+        "Piramal Group",
+        "Asian Development Bank",
+        "Merrill Lynch"
+      ],
+      "valuation": null,
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/mytrahenergy/__b3P_7CmzI8DMt6ej0fUPlXEmownhBPJDJrW_CBYnzJ8/funding-and-investors",
+        "https://pitchbook.com/profiles/company/65801-26",
+        "https://www.prnewswire.com/news-releases/mytra-raises-120m-series-c-to-scale-operating-system-for-supply-chain-302661685.html"
+      ]
+    }
+  }
+}

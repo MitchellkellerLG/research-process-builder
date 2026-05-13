@@ -1,0 +1,50 @@
+{
+  "company": "blockex",
+  "domain": "blockex.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Operator of a blockchain platform intended for institutional-grade financial market participants.",
+      "employee_count": "11",
+      "headquarters": "London, England, United Kingdom",
+      "founded_year": "2014",
+      "business_model": "B2B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://find-and-update.company-information.service.gov.uk/company/10289781",
+        "https://www.crunchbase.com/organization/blockex",
+        "https://pitchbook.com/profiles/company/224420-05"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Jack Dorsey"
+      ],
+      "titles": [
+        "cofounder",
+        "Chairman"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://investors.block.xyz/governance/leadership/default.aspx"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$24M",
+      "last_round_type": "ICO",
+      "last_round_amount": "$1,803,208",
+      "key_investors": [],
+      "valuation": "$2,642,060",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/blockexlabs/__JGg6YhQwyPCWtc3rKysO_gbF7SWE8DArpiHBXkkwd9w/funding-and-investors",
+        "https://www.crunchbase.com/organization/blockex",
+        "https://pitchbook.com/profiles/company/224420-05"
+      ]
+    }
+  }
+}

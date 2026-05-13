@@ -1,0 +1,53 @@
+{
+  "company": "emeraldhealth.ca",
+  "domain": "emeraldhealth.ca",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Emerald Health & Wellness is a home health agency that provides medical attention to patients in their homes.",
+      "employee_count": null,
+      "headquarters": "Stockton, CA",
+      "founded_year": "2009",
+      "business_model": "B2C",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://emeraldhwhomehealth.com/About.html",
+        "https://www.dnb.com/business-directory/company-profiles.emerald_health_services_inc.10c4688b34fba5880f39ba26c2537832.html",
+        "https://www.globaldata.com/company-profile/emerald-health-therapeutics-inc/"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Chris Wagner",
+        "Avtar Dhillon"
+      ],
+      "titles": [
+        "CEO",
+        "President"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.newcannabisventures.com/emerald-health-names-new-ceo/",
+        "https://emeraldhealthllc.com/meet-the-team/",
+        "https://www.sec.gov/Archives/edgar/data/1768225/000114420419008952/tv513598_ex4-14.htm"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$179K",
+      "last_round_type": "Seed",
+      "last_round_amount": "$3,845,727",
+      "key_investors": [],
+      "valuation": "$5,211,134",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/emeraldhealthbioceuticals/__OeR-idnrMxDGZQa1SQ-i0HaUv_7l2zyrg9KNrcSXSYE",
+        "https://www.crunchbase.com/organization/emerald-health-therapeutics",
+        "https://pitchbook.com/profiles/company/184043-44"
+      ]
+    }
+  }
+}

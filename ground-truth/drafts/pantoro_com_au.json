@@ -1,0 +1,51 @@
+{
+  "company": "pantoro",
+  "domain": "pantoro.com.au",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Pantoro engages in gold mining, processing, and exploration activities in Western Australia.",
+      "employee_count": "2",
+      "headquarters": "West Perth, WA, Australia",
+      "founded_year": "1986",
+      "business_model": "B2C",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.pantoro.com.au/about-pantoro",
+        "https://nz.finance.yahoo.com/quote/PNTOF/profile/",
+        "https://www.investing.com/equities/pacific-niugini-ltd-company-profile"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Paul Cmrlec"
+      ],
+      "titles": [
+        "Managing Director"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.pantoro.com.au/board-of-directors",
+        "https://rocketreach.co/pantoro-ltd-management_b407f08dfc24b8b6",
+        "https://www.youtube.com/watch?v=qQX6e0RBiKs"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": null,
+      "last_round_type": "Post IPO",
+      "last_round_amount": "$2,485,530",
+      "key_investors": [],
+      "valuation": "$2,321,098",
+      "confidence": "medium",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/pantoro/__HTQUdEjYrYnFGBO9wxU9ZnZ57Sq3afYMyTrtYAhSZ74/funding-and-investors",
+        "https://finance.yahoo.com/news/58-ownership-pantoro-gold-limited-222147758.html",
+        "https://simplywall.st/stocks/au/materials/asx-pnr/pantoro-gold-shares/news/pantoro-gold-secures-rama-funding-as-market-weighs-multi-ass"
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "company": "sartorius",
+  "domain": "sartorius.com",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "Sartorius AG is an international laboratory and process technology provider for the biotech, pharmaceutical, and food industries.",
+      "employee_count": "~14,000",
+      "headquarters": "Göttingen, Germany",
+      "founded_year": "1870",
+      "business_model": "B2B",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.sartorius.com/en/company/about-sartorius-ag",
+        "https://www.sartorius.com/en/company",
+        "https://www.forbes.com/companies/sartorius/"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Dr. Michael Grosse",
+        "Dr. Joachim Kreuzburg"
+      ],
+      "titles": [
+        "CEO",
+        "Former CEO"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.sartorius.com/en/company/about-sartorius-ag/management",
+        "https://www.sartorius.com/en/company/newsroom/corporate-news/1657934-1657934"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": null,
+      "last_round_type": "Grant (prize money)",
+      "last_round_amount": "$5,486,994",
+      "key_investors": [
+        "Europa"
+      ],
+      "valuation": "$9,374,679",
+      "confidence": "medium",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/sartorius/__Q46SabMn5Cr1Cxse_o9WOR20HMHUNwXYSM51pF7ukIE/funding-and-investors",
+        "https://www.crunchbase.com/organization/sartorius",
+        "https://www.sartorius.com/en/company/newsroom/corporate-news/2026-first-quarter-results-sartorius-stedim-biotech-1817704"
+      ]
+    }
+  }
+}

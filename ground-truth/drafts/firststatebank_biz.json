@@ -1,0 +1,52 @@
+{
+  "company": "firststatebank",
+  "domain": "firststatebank.biz",
+  "tier": 2,
+  "verified_date": "2026-05-13",
+  "categories": {
+    "company_profile": {
+      "description": "First State Bank provides local banking solutions including flexible loans and business services.",
+      "employee_count": null,
+      "headquarters": "Macomb County, Michigan, USA",
+      "founded_year": "1917",
+      "business_model": "B2C",
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://fsbal.com/",
+        "https://www.fsb.bank/about-us"
+      ]
+    },
+    "founders_ceo": {
+      "names": [
+        "Mark Jansen",
+        "Jeffrey B. Lacey"
+      ],
+      "titles": [
+        "President and CEO",
+        "CEO and President"
+      ],
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://www.fsb.bank/About-Us/Executive-Team",
+        "https://www.firststatebnk.bank/news/kelleynamedchairman",
+        "https://www.firststate.bank/about-us/about-fsb"
+      ]
+    },
+    "funding_financial": {
+      "total_raised": "$6.5M",
+      "last_round_type": "PE",
+      "last_round_amount": "$1,911,907",
+      "key_investors": [],
+      "valuation": null,
+      "confidence": "high",
+      "_confidence": "draft-agent",
+      "_sources": [
+        "https://tracxn.com/d/companies/firststatebank/__5DsukYOxmpm0iXk19hiZmy_Ai1ryHC_tAv8KuzTDdKI",
+        "https://tracxn.com/d/companies/firststatebank/__Mf5WzFoSgcUkMQZ93NgutxfoibZMQuJK33jXxl002bA",
+        "https://www.fsbshallowater.com/first-state-bank-shallowater/statement-condition/"
+      ]
+    }
+  }
+}
